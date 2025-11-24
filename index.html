@@ -106,7 +106,6 @@
       color: var(--primary);
     }
 
-    /* linha dourada sob o título das seções */
     .section-title::after {
       content: "";
       display: block;
@@ -183,6 +182,11 @@
       transform: translateY(-1px);
     }
 
+    .btn-small {
+      padding: 0.7rem 1.4rem;
+      font-size: 0.92rem;
+    }
+
     /* ---------- HERO ---------- */
 
     .hero {
@@ -192,7 +196,6 @@
       position: relative;
     }
 
-    /* linha dourada bem discreta no final do hero */
     .hero::after {
       content: "";
       position: absolute;
@@ -246,7 +249,6 @@
       position: relative;
     }
 
-    /* pequeno detalhe dourado abaixo do texto de cima */
     .hero-kicker::after {
       content: "";
       position: absolute;
@@ -481,6 +483,107 @@
       color: var(--text-muted);
     }
 
+    /* ---------- FAQ POR CURSO ---------- */
+
+    #faq {
+      background: #04110b;
+      border-top: 1px solid rgba(242, 201, 76, 0.18);
+      border-bottom: 1px solid rgba(242, 201, 76, 0.18);
+    }
+
+    .faq-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .faq-tab {
+      border-radius: 999px;
+      padding: 0.55rem 1.2rem;
+      font-size: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.6);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background 0.15s, border 0.15s, color 0.15s, transform 0.12s;
+    }
+
+    .faq-tab:hover {
+      transform: translateY(-1px);
+      border-color: var(--primary);
+    }
+
+    .faq-tab.active {
+      background: var(--primary);
+      color: #020a06;
+      border-color: var(--primary-soft);
+    }
+
+    .faq-panels {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-panel {
+      display: none;
+      background: rgba(1, 15, 9, 0.95);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+      padding: 1rem 1.2rem;
+    }
+
+    .faq-panel.active {
+      display: block;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 0.75rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0.2rem;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      color: var(--text-main);
+      font-size: 0.98rem;
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .faq-toggle-icon {
+      font-size: 1.1rem;
+      margin-left: 0.5rem;
+      color: var(--secondary);
+    }
+
+    .faq-answer {
+      display: none;
+      margin-top: 0.35rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .faq-item.open .faq-toggle-icon {
+      transform: rotate(90deg);
+    }
+
     /* ---------- GALLERY (TURMAS EM AÇÃO) ---------- */
 
     .gallery-grid {
@@ -517,7 +620,6 @@
       transition: transform 0.32s ease-out;
     }
 
-    /* ajustes finos por imagem */
     .img-gallery-1 { object-position: 50% 20%; }
     .img-gallery-2 { object-position: 50% 50%; }
     .img-gallery-3 { object-position: 50% 40%; }
@@ -541,6 +643,43 @@
     }
 
     /* ---------- UPCOMING COURSES ---------- */
+
+    .upcoming-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .upcoming-filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      min-width: 180px;
+    }
+
+    .upcoming-filter-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .upcoming-filter-select {
+      background: #020a06;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-main);
+      padding: 0.5rem 0.9rem;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .upcoming-filter-select:focus {
+      border-color: var(--primary);
+    }
 
     .upcoming-grid {
       display: grid;
@@ -567,10 +706,23 @@
       background: radial-gradient(circle at top, rgba(242, 201, 76, 0.13), #07140d);
     }
 
+    .upcoming-card.upcoming-urgent {
+      border-color: var(--secondary);
+      box-shadow: 0 22px 40px rgba(0, 0, 0, 0.9);
+    }
+
     .upcoming-date {
       font-weight: 600;
       font-size: 0.95rem;
       color: var(--primary-soft);
+    }
+
+    .upcoming-urgency {
+      font-size: 0.78rem;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 0.15rem;
     }
 
     .upcoming-location {
@@ -606,7 +758,77 @@
       font-size: 0.86rem;
     }
 
-    /* ---------- ANIMAÇÕES DE HOVER (cards e imagens) ---------- */
+    .upcoming-toggle-row {
+      margin-top: 2rem;
+    }
+
+    /* ----- Me avise quando tiver turma ----- */
+
+    .notify-card {
+      margin-top: 3rem;
+      padding: 1.8rem 1.5rem;
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left, rgba(0, 176, 80, 0.16), #020a06);
+      border: 1px solid rgba(242, 201, 76, 0.35);
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.75);
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .notify-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .notify-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .notify-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .notify-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.86rem;
+    }
+
+    .notify-field label {
+      color: var(--text-muted);
+    }
+
+    .notify-input,
+    .notify-select {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 0.5rem 0.9rem;
+      background: #020a06;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .notify-input:focus,
+    .notify-select:focus {
+      border-color: var(--primary);
+    }
+
+    .notify-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+
+    /* ---------- ANIMAÇÕES HOVER ---------- */
 
     .course-hero-card,
     .course-card,
@@ -789,7 +1011,7 @@
       flex-wrap: wrap;
     }
 
-    /* ---------- FABs (botões flutuantes) ---------- */
+    /* ---------- FABs ---------- */
 
     .fab-container {
       position: fixed;
@@ -813,9 +1035,6 @@
       transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, opacity 0.12s ease-out;
       font-size: 1.7rem;
       border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .fab-whatsapp {
       background: radial-gradient(circle at 30% 0%, rgba(240, 255, 240, 0.4), rgba(0, 176, 80, 1));
     }
 
@@ -829,20 +1048,48 @@
       opacity: 0.95;
     }
 
-    @media (max-width: 640px) {
-      .fab-container {
-        right: 1rem;
-        bottom: 1rem;
-      }
+    /* ---------- BARRA FIXA CTA MOBILE ---------- */
 
-      .fab {
-        width: 46px;
-        height: 46px;
-        font-size: 1.4rem;
-      }
+    .mobile-cta-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.6rem 1rem;
+      background: rgba(2, 8, 5, 0.96);
+      border-top: 1px solid rgba(242, 201, 76, 0.5);
+      display: none;
+      gap: 0.6rem;
+      z-index: 40;
     }
 
-    /* ---------- RESPONSIVO GLOBAL ---------- */
+    .mobile-cta-btn {
+      flex: 1;
+      border-radius: 999px;
+      padding: 0.55rem 0.6rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: center;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+    }
+
+    .mobile-cta-primary {
+      background: var(--primary);
+      color: #020a06;
+      border-color: var(--primary-soft);
+    }
+
+    .mobile-cta-whatsapp {
+      background: transparent;
+      border-color: rgba(148, 163, 184, 0.8);
+      color: var(--text-main);
+    }
+
+    /* ---------- RESPONSIVO ---------- */
 
     @media (max-width: 1024px) {
       .course-hero-grid,
@@ -854,6 +1101,10 @@
       }
 
       .footer-top {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .notify-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
@@ -886,6 +1137,34 @@
       .final-cta-stats {
         gap: 1.6rem;
       }
+
+      .mobile-cta-bar {
+        display: flex;
+      }
+
+      body {
+        padding-bottom: 4.2rem;
+      }
+
+      .fab-container {
+        bottom: 4.8rem;
+      }
+
+      .notify-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .fab-container {
+        right: 1rem;
+      }
+
+      .fab {
+        width: 46px;
+        height: 46px;
+        font-size: 1.4rem;
+      }
     }
   </style>
 </head>
@@ -915,7 +1194,7 @@
 
           <div class="hero-benefits-row">
             <div class="hero-benefit-pill">
-              <span class="dot"></span> CAAR incluso (para drone)
+              <span class="dot"></span> CAAR incluído (para drone)
             </div>
             <div class="hero-benefit-pill">
               <span class="dot"></span> Certificação nacional
@@ -947,7 +1226,7 @@
       </div>
     </header>
 
-    <!-- ========== COURSE HERO IMAGES (3 imagens horizontais) ========== -->
+    <!-- ========== COURSE HERO IMAGES ========== -->
     <section class="course-hero-images">
       <div class="container">
         <div class="course-hero-grid">
@@ -993,7 +1272,7 @@
       </div>
     </section>
 
-    <!-- ================= COURSES (Nossos Cursos) ================= -->
+    <!-- ================= COURSES ================= -->
     <section id="cursos">
       <div class="container">
         <h2 class="section-title"><span class="highlight">Nossos</span> Cursos</h2>
@@ -1003,7 +1282,7 @@
 
         <div class="courses-grid">
           <!-- Curso Drone -->
-          <article class="course-card">
+          <article class="course-card" id="curso-drone">
             <div class="course-icon">🛩️</div>
             <div class="course-label">Curso Principal</div>
             <h3 class="course-name">Piloto de Drone Agrícola</h3>
@@ -1016,12 +1295,12 @@
               <li>Suporte pós-curso</li>
             </ul>
             <div class="course-card-footer">
-              <a href="#proximas-turmas" class="btn btn-primary">Quero me inscrever</a>
+              <a href="#proximas-turmas" class="btn btn-primary">Ver turmas de Drone</a>
             </div>
           </article>
 
           <!-- Curso Máquinas Pesadas -->
-          <article class="course-card">
+          <article class="course-card" id="curso-maquinas">
             <div class="course-icon">🚜</div>
             <div class="course-label">Em alta</div>
             <h3 class="course-name">Operador de Máquinas Pesadas</h3>
@@ -1034,12 +1313,12 @@
               <li>Orientação para entrada no mercado</li>
             </ul>
             <div class="course-card-footer">
-              <a href="#proximas-turmas" class="btn btn-primary">Quero me inscrever</a>
+              <a href="#proximas-turmas" class="btn btn-primary">Ver turmas de Máquinas</a>
             </div>
           </article>
 
           <!-- Curso Inseminação -->
-          <article class="course-card">
+          <article class="course-card" id="curso-inseminacao">
             <div class="course-icon">🐄</div>
             <div class="course-label">Novo Curso</div>
             <h3 class="course-name">Inseminação Artificial em Bovinos</h3>
@@ -1052,7 +1331,7 @@
               <li>Material didático completo</li>
             </ul>
             <div class="course-card-footer">
-              <a href="#proximas-turmas" class="btn btn-primary">Quero me inscrever</a>
+              <a href="#proximas-turmas" class="btn btn-primary">Ver turmas de Inseminação</a>
             </div>
           </article>
         </div>
@@ -1116,6 +1395,125 @@
               Turmas enxutas, atendimento próximo e foco total em prática para você sair pronto para o campo.
             </p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ POR CURSO ================= -->
+    <section id="faq">
+      <div class="container">
+        <h2 class="section-title">Tire suas <span class="highlight">principais dúvidas</span></h2>
+        <p class="section-subtitle">
+          Selecione o curso e veja as respostas das dúvidas que mais recebemos dos interessados.
+        </p>
+
+        <div class="faq-tabs">
+          <button class="faq-tab active" data-faq-target="faq-drone">Piloto de Drone Agrícola</button>
+          <button class="faq-tab" data-faq-target="faq-maquinas">Máquinas Pesadas</button>
+          <button class="faq-tab" data-faq-target="faq-inseminacao">Inseminação em Bovinos</button>
+        </div>
+
+        <div class="faq-panels">
+          <!-- Drone -->
+          <div class="faq-panel active" id="faq-drone">
+            <div class="faq-item">
+              <button class="faq-question">
+                Preciso ter experiência com drones para fazer o curso?
+                <span class="faq-toggle-icon">›</span>
+              </button>
+              <div class="faq-answer">
+                Não. O curso foi pensado para quem está começando do zero e para quem já pilota mas quer profissionalizar.
+                Começamos do básico e avançamos até a operação agrícola com segurança.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                O curso de drone da Target inclui CAAR?
+                <span class="faq-toggle-icon">›</span>
+              </button>
+              <div class="faq-answer">
+                Sim. No curso de Piloto de Drone Agrícola, o CAAR está incluso dentro da formação, seguindo as exigências
+                para operação profissional em pulverização agrícola.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                Como funcionam as aulas práticas em campo?
+                <span class="faq-toggle-icon">›</span>
+              </button>
+              <div class="faq-answer">
+                As práticas acontecem em ambiente real de produção, com drones profissionais e acompanhamento próximo
+                dos instrutores. Você pilota de verdade, não fica só na teoria.
+              </div>
+            </div>
+          </div>
+
+          <!-- Máquinas -->
+          <div class="faq-panel" id="faq-maquinas">
+            <div class="faq-item">
+              <button class="faq-question">
+                Quais máquinas eu vou operar no curso?
+                <span class="faq-toggle-icon">›</span>
+              </button>
+              <div class="faq-answer">
+                Nosso treinamento contempla retroescavadeira, pá-carregadeira e escavadeira hidráulica, com foco em operação
+                segura e produtiva no campo e em obras.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                Vocês ajudam a entrar no mercado depois do curso?
+                <span class="faq-toggle-icon">›</span>
+              </button>
+              <div class="faq-answer">
+                Sim. Além da carta de estágio, orientamos você sobre postura profissional, currículo e oportunidades na região.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                Tem limite de idade para fazer o curso?
+                <span class="faq-toggle-icon">›</span>
+              </button>
+              <div class="faq-answer">
+                A partir de 18 anos já é possível fazer o curso. O mais importante é ter responsabilidade e disposição para aprender
+                em ambiente prático.
+              </div>
+            </div>
+          </div>
+
+          <!-- Inseminação -->
+          <div class="faq-panel" id="faq-inseminacao">
+            <div class="faq-item">
+              <button class="faq-question">
+                O curso de inseminação é 100% prático?
+                <span class="faq-toggle-icon">›</span>
+              </button>
+              <div class="faq-answer">
+                Você terá uma base teórica importante, mas o foco principal é a prática em curral, aplicando as técnicas de inseminação
+                em bovinos com supervisão dos instrutores.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                Preciso ter experiência com gado para acompanhar as aulas?
+                <span class="faq-toggle-icon">›</span>
+              </button>
+              <div class="faq-answer">
+                Não é obrigatório, mas ajuda. De qualquer forma, explicamos manejo, segurança e rotina para quem está começando
+                agora no campo.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                Depois do curso já consigo trabalhar com inseminação?
+                <span class="faq-toggle-icon">›</span>
+              </button>
+              <div class="faq-answer">
+                Sim, o objetivo é que você saia apto a aplicar as técnicas aprendidas. A prática contínua e o contato com o campo
+                vão aprimorar ainda mais sua segurança.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1234,109 +1632,183 @@
       </div>
     </section>
 
-    <!-- ================= UPCOMING COURSES (Próximas Turmas) ================= -->
+    <!-- ================= UPCOMING COURSES ================= -->
     <section id="proximas-turmas">
       <div class="container">
         <h2 class="section-title"><span class="highlight">Próximas</span> Turmas</h2>
         <p class="section-subtitle">
-          Confira as datas disponíveis e garanta sua vaga nas próximas turmas presenciais.
+          Use os filtros para encontrar a melhor data e local para você e faça sua matrícula pelo WhatsApp em poucos cliques.
         </p>
 
-        <div class="upcoming-grid">
-          <!-- DEZEMBRO -->
-          <article class="upcoming-card" data-course-date="05/12">
-            <div class="upcoming-date">05/12</div>
-            <div class="upcoming-location">📍 Santarém (PA)</div>
-            <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
-            <a href="https://wa.me/5566999763455" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Fazer Inscrição</a>
-          </article>
+        <!-- FILTROS -->
+        <div class="upcoming-filters">
+          <div class="upcoming-filter-group">
+            <span class="upcoming-filter-label">Filtrar por curso</span>
+            <select id="filter-course" class="upcoming-filter-select">
+              <option value="all">Todos os cursos</option>
+              <option value="drone">Piloto de Drone Agrícola</option>
+              <option value="maquinas">Máquinas Pesadas</option>
+              <option value="inseminacao">Inseminação em Bovinos</option>
+            </select>
+          </div>
 
-          <article class="upcoming-card" data-course-date="12/12">
-            <div class="upcoming-date">12/12</div>
-            <div class="upcoming-location">📍 Lagoa da Confusão (TO)</div>
-            <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
-            <a href="https://wa.me/5566999763455" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Fazer Inscrição</a>
-          </article>
+          <div class="upcoming-filter-group">
+            <span class="upcoming-filter-label">Filtrar por estado</span>
+            <select id="filter-state" class="upcoming-filter-select">
+              <option value="all">Todos os estados</option>
+              <option value="PA">Pará (PA)</option>
+              <option value="TO">Tocantins (TO)</option>
+              <option value="MT">Mato Grosso (MT)</option>
+              <option value="MG">Minas Gerais (MG)</option>
+              <option value="RO">Rondônia (RO)</option>
+              <option value="BA">Bahia (BA)</option>
+            </select>
+          </div>
+        </div>
 
-          <!-- JANEIRO -->
-          <article class="upcoming-card" data-course-date="16/01">
-            <div class="upcoming-date">16/01</div>
-            <div class="upcoming-location">📍 Paragominas (PA)</div>
-            <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
-            <a href="https://wa.me/5566999763455" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Fazer Inscrição</a>
-          </article>
+        <!-- wrapper com grid + botão de ver mais -->
+        <div class="upcoming-wrapper">
+          <div class="upcoming-grid" id="upcoming-grid">
+            <!-- DEZEMBRO -->
+            <article class="upcoming-card" data-course-date="05/12" data-course-type="drone" data-state="PA">
+              <div class="upcoming-date">05/12</div>
+              <div class="upcoming-location">📍 Santarém (PA)</div>
+              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
+              <a href="#" class="btn btn-primary upcoming-cta">Fazer inscrição</a>
+            </article>
 
-          <article class="upcoming-card header-highlight" data-course-date="23/01">
-            <div class="upcoming-date">23/01</div>
-            <div class="upcoming-location">📍 Confresa (MT)</div>
-            <div class="upcoming-course-name">Operador de Máquinas Pesadas</div>
-            <a href="https://wa.me/5566999763455" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Fazer Inscrição</a>
-          </article>
+            <article class="upcoming-card" data-course-date="12/12" data-course-type="drone" data-state="TO">
+              <div class="upcoming-date">12/12</div>
+              <div class="upcoming-location">📍 Lagoa da Confusão (TO)</div>
+              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
+              <a href="#" class="btn btn-primary upcoming-cta">Fazer inscrição</a>
+            </article>
 
-          <article class="upcoming-card" data-course-date="23/01">
-            <div class="upcoming-date">23/01</div>
-            <div class="upcoming-location">📍 Confresa (MT)</div>
-            <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
-            <a href="https://wa.me/5566999763455" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Fazer Inscrição</a>
-          </article>
+            <!-- JANEIRO -->
+            <article class="upcoming-card" data-course-date="16/01" data-course-type="drone" data-state="PA">
+              <div class="upcoming-date">16/01</div>
+              <div class="upcoming-location">📍 Paragominas (PA)</div>
+              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
+              <a href="#" class="btn btn-primary upcoming-cta">Fazer inscrição</a>
+            </article>
 
-          <article class="upcoming-card" data-course-date="30/01">
-            <div class="upcoming-date">30/01</div>
-            <div class="upcoming-location">📍 Belo Horizonte (MG)</div>
-            <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
-            <a href="https://wa.me/5566999763455" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Fazer Inscrição</a>
-          </article>
+            <article class="upcoming-card header-highlight" data-course-date="23/01" data-course-type="maquinas" data-state="MT">
+              <div class="upcoming-date">23/01</div>
+              <div class="upcoming-location">📍 Confresa (MT)</div>
+              <div class="upcoming-course-name">Operador de Máquinas Pesadas</div>
+              <a href="#" class="btn btn-primary upcoming-cta">Fazer inscrição</a>
+            </article>
 
-          <!-- FEVEREIRO -->
-          <article class="upcoming-card" data-course-date="06/02">
-            <div class="upcoming-date">06/02</div>
-            <div class="upcoming-location">📍 Castelo dos Sonhos (PA)</div>
-            <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
-            <a href="https://wa.me/5566999763455" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Fazer Inscrição</a>
-          </article>
+            <article class="upcoming-card" data-course-date="23/01" data-course-type="drone" data-state="MT">
+              <div class="upcoming-date">23/01</div>
+              <div class="upcoming-location">📍 Confresa (MT)</div>
+              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
+              <a href="#" class="btn btn-primary upcoming-cta">Fazer inscrição</a>
+            </article>
 
-          <article class="upcoming-card" data-course-date="06/02">
-            <div class="upcoming-date">06/02</div>
-            <div class="upcoming-location">📍 Novo Progresso (PA)</div>
-            <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
-            <a href="https://wa.me/5566999763455" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Fazer Inscrição</a>
-          </article>
+            <article class="upcoming-card" data-course-date="30/01" data-course-type="inseminacao" data-state="MG">
+              <div class="upcoming-date">30/01</div>
+              <div class="upcoming-location">📍 Belo Horizonte (MG)</div>
+              <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
+              <a href="#" class="btn btn-primary upcoming-cta">Fazer inscrição</a>
+            </article>
 
-          <article class="upcoming-card" data-course-date="27/02">
-            <div class="upcoming-date">27/02</div>
-            <div class="upcoming-location">📍 Rolim de Moura (RO)</div>
-            <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
-            <a href="https://wa.me/5566999763455" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Fazer Inscrição</a>
-          </article>
+            <!-- FEVEREIRO -->
+            <article class="upcoming-card" data-course-date="06/02" data-course-type="inseminacao" data-state="PA">
+              <div class="upcoming-date">06/02</div>
+              <div class="upcoming-location">📍 Castelo dos Sonhos (PA)</div>
+              <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
+              <a href="#" class="btn btn-primary upcoming-cta">Fazer inscrição</a>
+            </article>
 
-          <article class="upcoming-card" data-course-date="27/02">
-            <div class="upcoming-date">27/02</div>
-            <div class="upcoming-location">📍 Rolim de Moura (RO)</div>
-            <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
-            <a href="https://wa.me/5566999763455" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Fazer Inscrição</a>
-          </article>
+            <article class="upcoming-card" data-course-date="06/02" data-course-type="drone" data-state="PA">
+              <div class="upcoming-date">06/02</div>
+              <div class="upcoming-location">📍 Novo Progresso (PA)</div>
+              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
+              <a href="#" class="btn btn-primary upcoming-cta">Fazer inscrição</a>
+            </article>
 
-          <!-- MARÇO -->
-          <article class="upcoming-card" data-course-date="06/03">
-            <div class="upcoming-date">06/03</div>
-            <div class="upcoming-location">📍 Teixeira de Freitas (BA)</div>
-            <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
-            <a href="https://wa.me/5566999763455" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Fazer Inscrição</a>
-          </article>
+            <article class="upcoming-card" data-course-date="27/02" data-course-type="drone" data-state="RO">
+              <div class="upcoming-date">27/02</div>
+              <div class="upcoming-location">📍 Rolim de Moura (RO)</div>
+              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
+              <a href="#" class="btn btn-primary upcoming-cta">Fazer inscrição</a>
+            </article>
 
-          <article class="upcoming-card" data-course-date="13/03">
-            <div class="upcoming-date">13/03</div>
-            <div class="upcoming-location">📍 Luís Eduardo Magalhães (BA)</div>
-            <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
-            <a href="https://wa.me/5566999763455" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Fazer Inscrição</a>
-          </article>
+            <article class="upcoming-card" data-course-date="27/02" data-course-type="inseminacao" data-state="RO">
+              <div class="upcoming-date">27/02</div>
+              <div class="upcoming-location">📍 Rolim de Moura (RO)</div>
+              <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
+              <a href="#" class="btn btn-primary upcoming-cta">Fazer inscrição</a>
+            </article>
 
-          <article class="upcoming-card" data-course-date="13/03">
-            <div class="upcoming-date">13/03</div>
-            <div class="upcoming-location">📍 Sinop (MT)</div>
-            <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
-            <a href="https://wa.me/5566999763455" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Fazer Inscrição</a>
-          </article>
+            <!-- MARÇO -->
+            <article class="upcoming-card" data-course-date="06/03" data-course-type="drone" data-state="BA">
+              <div class="upcoming-date">06/03</div>
+              <div class="upcoming-location">📍 Teixeira de Freitas (BA)</div>
+              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
+              <a href="#" class="btn btn-primary upcoming-cta">Fazer inscrição</a>
+            </article>
+
+            <article class="upcoming-card" data-course-date="13/03" data-course-type="drone" data-state="BA">
+              <div class="upcoming-date">13/03</div>
+              <div class="upcoming-location">📍 Luís Eduardo Magalhães (BA)</div>
+              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
+              <a href="#" class="btn btn-primary upcoming-cta">Fazer inscrição</a>
+            </article>
+
+            <article class="upcoming-card" data-course-date="13/03" data-course-type="drone" data-state="MT">
+              <div class="upcoming-date">13/03</div>
+              <div class="upcoming-location">📍 Sinop (MT)</div>
+              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
+              <a href="#" class="btn btn-primary upcoming-cta">Fazer inscrição</a>
+            </article>
+          </div>
+
+          <div class="btn-row upcoming-toggle-row">
+            <button type="button" class="btn btn-outline btn-small" id="upcoming-toggle">
+              Ver mais datas
+            </button>
+          </div>
+        </div>
+
+        <!-- ME AVISE QUANDO TIVER TURMA -->
+        <div class="notify-card">
+          <h3 class="notify-title">Não viu sua cidade na agenda?</h3>
+          <p class="notify-text">
+            Deixe seus dados e a cidade/estado de interesse que avisamos você pelo WhatsApp quando abrirmos turma na região.
+          </p>
+
+          <form id="notify-form">
+            <div class="notify-grid">
+              <div class="notify-field">
+                <label for="notify-name">Nome</label>
+                <input type="text" id="notify-name" class="notify-input" placeholder="Seu nome" required />
+              </div>
+              <div class="notify-field">
+                <label for="notify-phone">WhatsApp</label>
+                <input type="tel" id="notify-phone" class="notify-input" placeholder="(DDD) 9 9999-9999" required />
+              </div>
+              <div class="notify-field">
+                <label for="notify-city">Cidade/Estado</label>
+                <input type="text" id="notify-city" class="notify-input" placeholder="Ex: Sinop - MT" required />
+              </div>
+              <div class="notify-field">
+                <label for="notify-course">Curso de interesse</label>
+                <select id="notify-course" class="notify-select">
+                  <option value="Piloto de Drone Agrícola">Piloto de Drone Agrícola</option>
+                  <option value="Operador de Máquinas Pesadas">Operador de Máquinas Pesadas</option>
+                  <option value="Inseminação Artificial em Bovinos">Inseminação Artificial em Bovinos</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-outline btn-small">
+              Me avise quando tiver turma
+            </button>
+          </form>
+          <p class="notify-note">
+            Você será atendido pelo nosso time pelo WhatsApp. Não enviamos spam.
+          </p>
         </div>
       </div>
     </section>
@@ -1436,17 +1908,25 @@
   <div class="fab-container">
     <a href="https://wa.me/5566999763455"
        target="_blank" rel="noopener noreferrer"
-       class="fab fab-whatsapp" aria-label="Falar com a Target Agrotech no WhatsApp">💬</a>
+       class="fab" aria-label="Falar com a Target Agrotech no WhatsApp">💬</a>
 
     <a href="https://www.instagram.com/target_agrotech"
        target="_blank" rel="noopener noreferrer"
        class="fab fab-instagram" aria-label="Seguir Target Agrotech no Instagram">📸</a>
   </div>
 
-  <!-- SCRIPT: marca automaticamente "Últimas vagas" quando faltar 30 dias ou menos -->
+  <!-- Barra fixa CTA Mobile -->
+  <div class="mobile-cta-bar">
+    <a href="#proximas-turmas" class="mobile-cta-btn mobile-cta-primary">📅 Ver próximas turmas</a>
+    <a href="https://wa.me/5566999763455" target="_blank" rel="noopener noreferrer" class="mobile-cta-btn mobile-cta-whatsapp">
+      💬 Falar no WhatsApp
+    </a>
+  </div>
+
+  <!-- SCRIPT: últimas vagas, urgência, filtros, ver mais, WhatsApp dinâmico e formulário "me avise" -->
   <script>
     window.addEventListener("DOMContentLoaded", function () {
-      const cards = document.querySelectorAll(".upcoming-card[data-course-date]");
+      const cards = Array.from(document.querySelectorAll(".upcoming-card[data-course-date]"));
       const today = new Date();
       today.setHours(0, 0, 0, 0);
 
@@ -1461,7 +1941,6 @@
         const currentMonth = today.getMonth() + 1;
         const currentDay = today.getDate();
 
-        // se a data já passou este ano, assume próximo ano
         if (month < currentMonth || (month === currentMonth && day < currentDay)) {
           year = currentYear + 1;
         }
@@ -1469,6 +1948,7 @@
         return new Date(year, month - 1, day);
       }
 
+      // Marca "Últimas vagas" (até 30 dias) e urgência (até 7 dias)
       cards.forEach((card) => {
         const ddmm = card.getAttribute("data-course-date");
         const courseDate = parseCourseDate(ddmm);
@@ -1489,6 +1969,187 @@
             card.appendChild(badge);
           }
         }
+
+        if (diffDays >= 0 && diffDays <= 7) {
+          card.classList.add("upcoming-urgent");
+          const urgency = document.createElement("div");
+          urgency.className = "upcoming-urgency";
+          let label = "Começa em breve";
+          if (diffDays < 1) {
+            label = "Começa hoje";
+          } else if (diffDays < 2) {
+            label = "Começa amanhã";
+          } else {
+            label = "Começa em " + Math.round(diffDays) + " dias";
+          }
+          const locationElement = card.querySelector(".upcoming-location");
+          if (locationElement && locationElement.parentNode) {
+            card.insertBefore(urgency, locationElement);
+          } else {
+            card.appendChild(urgency);
+          }
+          urgency.textContent = label;
+        }
+      });
+
+      // Filtros + "ver mais"
+      const grid = document.getElementById("upcoming-grid");
+      const toggleBtn = document.getElementById("upcoming-toggle");
+      const filterCourse = document.getElementById("filter-course");
+      const filterState = document.getElementById("filter-state");
+      const INITIAL_VISIBLE = 4;
+      let showingAll = false;
+
+      function getFilteredCards() {
+        const courseValue = filterCourse ? filterCourse.value : "all";
+        const stateValue = filterState ? filterState.value : "all";
+
+        return cards.filter((card) => {
+          const cardCourse = card.getAttribute("data-course-type") || "";
+          const cardState = card.getAttribute("data-state") || "";
+          const matchCourse = courseValue === "all" || cardCourse === courseValue;
+          const matchState = stateValue === "all" || cardState === stateValue;
+          return matchCourse && matchState;
+        });
+      }
+
+      function updateCards() {
+        const filtered = getFilteredCards();
+
+        cards.forEach((card) => {
+          card.style.display = "none";
+        });
+
+        filtered.forEach((card, index) => {
+          if (showingAll || index < INITIAL_VISIBLE) {
+            card.style.display = "";
+          }
+        });
+
+        if (filtered.length <= INITIAL_VISIBLE) {
+          if (toggleBtn) toggleBtn.style.display = "none";
+        } else {
+          if (toggleBtn) {
+            toggleBtn.style.display = "";
+            toggleBtn.textContent = showingAll ? "Ver menos datas" : "Ver mais datas";
+          }
+        }
+      }
+
+      if (toggleBtn && grid && cards.length) {
+        updateCards();
+
+        toggleBtn.addEventListener("click", () => {
+          showingAll = !showingAll;
+          updateCards();
+
+          if (!showingAll) {
+            grid.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      } else {
+        // fallback: mostra tudo
+        cards.forEach((card) => (card.style.display = ""));
+        if (toggleBtn) toggleBtn.style.display = "none";
+      }
+
+      if (filterCourse) {
+        filterCourse.addEventListener("change", () => {
+          showingAll = false;
+          updateCards();
+        });
+      }
+
+      if (filterState) {
+        filterState.addEventListener("change", () => {
+          showingAll = false;
+          updateCards();
+        });
+      }
+
+      // WhatsApp dinâmico para cada turma
+      const whatsappNumber = "5566999763455";
+      const upcomingButtons = document.querySelectorAll(".upcoming-card .upcoming-cta");
+
+      upcomingButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+          const card = button.closest(".upcoming-card");
+          if (!card) return;
+
+          const date = (card.querySelector(".upcoming-date")?.textContent || "").trim();
+          const locationRaw = (card.querySelector(".upcoming-location")?.textContent || "").trim();
+          const location = locationRaw.replace("📍", "").trim();
+          const courseName = (card.querySelector(".upcoming-course-name")?.textContent || "").trim();
+
+          const message =
+            "Olá! Tenho interesse na turma de " +
+            courseName +
+            " em " +
+            location +
+            ", na data " +
+            date +
+            ". Quero mais detalhes e quero fazer minha matrícula.";
+
+          const encoded = encodeURIComponent(message);
+          const url = "https://wa.me/" + whatsappNumber + "?text=" + encoded;
+          window.open(url, "_blank");
+        });
+      });
+
+      // Formulário "Me avise quando tiver turma"
+      const notifyForm = document.getElementById("notify-form");
+      if (notifyForm) {
+        notifyForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          const name = (document.getElementById("notify-name")?.value || "").trim();
+          const phone = (document.getElementById("notify-phone")?.value || "").trim();
+          const city = (document.getElementById("notify-city")?.value || "").trim();
+          const courseInterest = (document.getElementById("notify-course")?.value || "").trim();
+
+          const message =
+            "Olá! Gostaria de ser avisado quando tiver turma de " +
+            courseInterest +
+            " em " +
+            city +
+            ". Meu nome é " +
+            name +
+            " e meu WhatsApp é " +
+            phone +
+            ".";
+
+          const encoded = encodeURIComponent(message);
+          const url = "https://wa.me/" + whatsappNumber + "?text=" + encoded;
+          window.open(url, "_blank");
+        });
+      }
+
+      // FAQ: tabs + abrir/fechar respostas
+      const faqTabs = document.querySelectorAll(".faq-tab");
+      const faqPanels = document.querySelectorAll(".faq-panel");
+
+      faqTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const targetId = tab.getAttribute("data-faq-target");
+
+          faqTabs.forEach((t) => t.classList.remove("active"));
+          faqPanels.forEach((panel) => panel.classList.remove("active"));
+
+          tab.classList.add("active");
+          const targetPanel = document.getElementById(targetId);
+          if (targetPanel) {
+            targetPanel.classList.add("active");
+          }
+        });
+      });
+
+      const faqItems = document.querySelectorAll(".faq-item");
+      faqItems.forEach((item) => {
+        const question = item.querySelector(".faq-question");
+        if (!question) return;
+        question.addEventListener("click", () => {
+          item.classList.toggle("open");
+        });
       });
     });
   </script>
