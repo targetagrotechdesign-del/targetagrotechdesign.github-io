@@ -385,13 +385,13 @@
       min-height: 260px;
     }
 
-    .hero-slide-img {
+ .hero-slide-img {
   width: 100%;
   height: 360px; /* força um box fixo pra ver o recorte */
   object-fit: cover;
-  object-position: 50% 70% !important; /* foca mais no topo */
+  object-position: 50% 60% !important; /* foca mais no topo */
   display: block;
-}
+    }
 
     .hero-course-media-footer {
       margin-top: 0.8rem;
@@ -622,7 +622,6 @@
     /* ========== TURMAS EM AÇÃO (SLIDER FOTOS) ========== */
 
     .drone-gallery-slider {
-      /* reaproveitando a mesma classe/estrutura do drone */
       position: relative;
       max-width: 600px;
       margin: 0 auto;
@@ -683,7 +682,6 @@
       transform: scale(1.06);
     }
 
-    /* ajuste fino por imagem da galeria */
     .img-inseminacao-gallery-1 {
       object-position: 50% 40%;
     }
@@ -1096,8 +1094,9 @@
       max-width: 260px;
     }
 
+    /* LOGOS NO RODAPÉ — Target maior */
     .footer-brand img {
-      height: 80px;
+      height: 90px; /* ajuste de tamanho da logo Target */
       margin-bottom: 0.6rem;
     }
 
@@ -1130,6 +1129,19 @@
       color: var(--primary-soft);
     }
 
+    /* LOGO DO ARTHUR NO LADO DIREITO */
+    .footer-partner {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex: 0 0 auto;
+    }
+
+    .footer-partner img {
+      height: 90px; /* mesmo tamanho da Target para ficar harmônico */
+      max-width: 100%;
+    }
+
     .footer-bottom {
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       padding-top: 0.9rem;
@@ -1153,6 +1165,15 @@
       .city-form {
         flex-direction: column;
         align-items: stretch;
+      }
+
+      .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-partner {
+        justify-content: flex-start;
       }
     }
   </style>
@@ -1370,119 +1391,119 @@
         </div>
       </section>
 
-      <!-- TURMAS DE INSEMINAÇÃO EM AÇÃO (SLIDER DE FOTOS) -->
-<section aria-labelledby="turmas-inseminacao-acao-title">
-  <div class="container">
-    <h2 class="section-title" id="turmas-inseminacao-acao-title">
-      Turmas de <span class="highlight">Inseminação em ação</span>
-    </h2>
-    <p class="section-subtitle">
-      Momentos reais das turmas de Inseminação Artificial em Bovinos da Target Agrotech em prática no curral, aplicando a técnica guiados pelos instrutores.
-    </p>
-
-    <div
-      class="drone-gallery-slider"
-      id="drone-gallery-slider"
-      aria-label="Galeria de fotos das turmas de inseminação em curral"
-    >
-      <!-- SLIDE 1 -->
-      <article class="gallery-card active">
-        <div class="gallery-card-image">
-          <img
-            src="assets/inseminacao-gallery-curral-contencao.jpg"
-            loading="lazy"
-            alt="Aluno da Target Agrotech realizando a prática de palpação retal."
-            class="img-inseminacao-gallery-1"
-          />
-        </div>
-        <div class="gallery-card-body">
-          <h3 class="gallery-card-title">Prática de palpação</h3>
-          <p class="gallery-card-text">
-            Momento em que o aluno pratica, no tronco de contenção, a posição correta do animal e o manejo seguro antes da inseminação, com orientação direta do instrutor da Target Agrotech.
+      <!-- TURMAS EM AÇÃO -->
+      <section aria-labelledby="turmas-inseminacao-acao-title">
+        <div class="container">
+          <h2 class="section-title" id="turmas-inseminacao-acao-title">
+            Turmas de <span class="highlight">Inseminação em ação</span>
+          </h2>
+          <p class="section-subtitle">
+            Momentos reais das turmas de Inseminação Artificial em Bovinos da Target Agrotech em prática no curral, aplicando a técnica guiados pelos instrutores.
           </p>
-        </div>
-      </article>
 
-      <!-- SLIDE 2 -->
-      <article class="gallery-card">
-        <div class="gallery-card-image">
-          <img
-            src="assets/inseminacao-gallery-certificado.jpg"
-            loading="lazy"
-            alt="Alunos da Target Agrotech recebendo o certificado de formação."
-            class="img-inseminacao-gallery-2"
-          />
-        </div>
-        <div class="gallery-card-body">
-          <h3 class="gallery-card-title">Certificado em mãos</h3>
-          <p class="gallery-card-text">
-            Alunos recebendo o certificado de conclusão do curso de Inseminação Artificial em Bovinos, após uma formação intensa e prática no curral, prontos para aplicar a técnica no campo.
-          </p>
-        </div>
-      </article>
+          <div
+            class="drone-gallery-slider"
+            id="drone-gallery-slider"
+            aria-label="Galeria de fotos das turmas de inseminação em curral"
+          >
+            <!-- SLIDE 1 -->
+            <article class="gallery-card active">
+              <div class="gallery-card-image">
+                <img
+                  src="assets/inseminacao-gallery-curral-contencao.jpg"
+                  loading="lazy"
+                  alt="Aluno da Target Agrotech realizando a prática de palpação retal."
+                  class="img-inseminacao-gallery-1"
+                />
+              </div>
+              <div class="gallery-card-body">
+                <h3 class="gallery-card-title">Prática de palpação</h3>
+                <p class="gallery-card-text">
+                  Momento em que o aluno pratica, no tronco de contenção, a posição correta do animal e o manejo seguro antes da inseminação, com orientação direta do instrutor da Target Agrotech.
+                </p>
+              </div>
+            </article>
 
-      <!-- SLIDE 3 -->
-      <article class="gallery-card">
-        <div class="gallery-card-image">
-          <img
-            src="assets/inseminacao-gallery-turma-curral-manejo.jpg"
-            loading="lazy"
-            alt="Turma reunida no curral acompanhando a demonstração de inseminação artificial em vaca, com paisagem de montanhas ao fundo."
-            class="img-inseminacao-gallery-3"
-          />
-        </div>
-        <div class="gallery-card-body">
-          <h3 class="gallery-card-title">Turma acompanhando a inseminação em campo</h3>
-          <p class="gallery-card-text">
-            Alunos reunidos ao redor do brete acompanhando, passo a passo, a demonstração de inseminação artificial em bovinos, em um ambiente de fazenda real e com supervisão constante dos instrutores.
-          </p>
-        </div>
-      </article>
+            <!-- SLIDE 2 -->
+            <article class="gallery-card">
+              <div class="gallery-card-image">
+                <img
+                  src="assets/inseminacao-gallery-certificado.jpg"
+                  loading="lazy"
+                  alt="Alunos da Target Agrotech recebendo o certificado de formação."
+                  class="img-inseminacao-gallery-2"
+                />
+              </div>
+              <div class="gallery-card-body">
+                <h3 class="gallery-card-title">Certificado em mãos</h3>
+                <p class="gallery-card-text">
+                  Alunos recebendo o certificado de conclusão do curso de Inseminação Artificial em Bovinos, após uma formação intensa e prática no curral, prontos para aplicar a técnica no campo.
+                </p>
+              </div>
+            </article>
 
-      <!-- SLIDE 4 -->
-      <article class="gallery-card">
-        <div class="gallery-card-image">
-          <img
-            src="assets/inseminacao-gallery-toque-pecas.jpg"
-            loading="lazy"
-            alt="Alunos realizando toque retal em peças no curral, com vista aberta para a serra ao fundo."
-            class="img-inseminacao-gallery-4"
-          />
-        </div>
-        <div class="gallery-card-body">
-          <h3 class="gallery-card-title">Toque em peças Bovinas</h3>
-          <p class="gallery-card-text">
-            Alunos praticando a técnica de toque retal em peças bovinas no curral, desenvolvendo a sensibilidade tátil necessária para identificar o momento ideal da inseminação artificial.
-          </p>
-        </div>
-      </article>
+            <!-- SLIDE 3 -->
+            <article class="gallery-card">
+              <div class="gallery-card-image">
+                <img
+                  src="assets/inseminacao-gallery-turma-curral-manejo.jpg"
+                  loading="lazy"
+                  alt="Turma reunida no curral acompanhando a demonstração de inseminação artificial em vaca, com paisagem de montanhas ao fundo."
+                  class="img-inseminacao-gallery-3"
+                />
+              </div>
+              <div class="gallery-card-body">
+                <h3 class="gallery-card-title">Turma acompanhando a inseminação em campo</h3>
+                <p class="gallery-card-text">
+                  Alunos reunidos ao redor do brete acompanhando, passo a passo, a demonstração de inseminação artificial em bovinos, em um ambiente de fazenda real e com supervisão constante dos instrutores.
+                </p>
+              </div>
+            </article>
 
-      <button
-        type="button"
-        class="slider-arrow slider-arrow-left"
-        id="gallery-prev"
-        aria-label="Ver foto anterior"
-      >
-        ‹
-      </button>
-      <button
-        type="button"
-        class="slider-arrow slider-arrow-right"
-        id="gallery-next"
-        aria-label="Ver próxima foto"
-      >
-        ›
-      </button>
+            <!-- SLIDE 4 -->
+            <article class="gallery-card">
+              <div class="gallery-card-image">
+                <img
+                  src="assets/inseminacao-gallery-toque-pecas.jpg"
+                  loading="lazy"
+                  alt="Alunos realizando toque retal em peças no curral, com vista aberta para a serra ao fundo."
+                  class="img-inseminacao-gallery-4"
+                />
+              </div>
+              <div class="gallery-card-body">
+                <h3 class="gallery-card-title">Toque em peças Bovinas</h3>
+                <p class="gallery-card-text">
+                  Alunos praticando a técnica de toque retal em peças bovinas no curral, desenvolvendo a sensibilidade tátil necessária para identificar o momento ideal da inseminação artificial.
+                </p>
+              </div>
+            </article>
 
-      <div
-        class="gallery-dots"
-        id="drone-gallery-dots"
-        role="tablist"
-        aria-label="Selecionar foto da galeria"
-      ></div>
-    </div>
-  </div>
-</section>
+            <button
+              type="button"
+              class="slider-arrow slider-arrow-left"
+              id="gallery-prev"
+              aria-label="Ver foto anterior"
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              class="slider-arrow slider-arrow-right"
+              id="gallery-next"
+              aria-label="Ver próxima foto"
+            >
+              ›
+            </button>
+
+            <div
+              class="gallery-dots"
+              id="drone-gallery-dots"
+              role="tablist"
+              aria-label="Selecionar foto da galeria"
+            ></div>
+          </div>
+        </div>
+      </section>
 
       <!-- DEPOIMENTOS TEXTO -->
       <section aria-labelledby="depoimentos-texto-title">
@@ -1539,7 +1560,7 @@
         </div>
       </section>
 
-      <!-- DEPOIMENTOS EM VÍDEO (SLIDER) -->
+      <!-- DEPOIMENTOS EM VÍDEO -->
       <section aria-labelledby="depoimentos-video-title">
         <div class="container">
           <h2 class="section-title" id="depoimentos-video-title">
@@ -1638,8 +1659,6 @@
           </div>
 
           <div class="upcoming-grid" id="upcoming-grid-drone">
-            <!-- Somente turmas de inseminação, seguindo a agenda da página principal -->
-
             <article
               class="upcoming-card"
               data-course-date="30/01"
@@ -1749,6 +1768,7 @@
     <footer>
       <div class="container">
         <div class="footer-top">
+          <!-- LOGO TARGET -->
           <div class="footer-brand">
             <img
               src="assets/logo-target-horizontal.png"
@@ -1796,6 +1816,15 @@
                 <li>E-mail: contato@targetagrotech.com.br</li>
               </ul>
             </div>
+          </div>
+
+          <!-- LOGO DO ARTHUR / PARCEIRO -->
+          <div class="footer-partner">
+            <img
+              src="assets/logo-arthur-horizontal.png"
+              loading="lazy"
+              alt="Logo do professor Arthur - parceiro Target Agrotech"
+            />
           </div>
         </div>
 
@@ -2053,6 +2082,3 @@
   </script>
 </body>
 </html>
-
-
-
