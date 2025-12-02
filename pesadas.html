@@ -815,63 +815,6 @@
       color: var(--text-main);
     }
 
-    /* ========== DEPOIMENTOS EM VÍDEO ========== */
-
-    .video-slider {
-      position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.3rem;
-    }
-
-    @media (max-width: 992px) {
-      .video-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .video-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .video-card {
-      background: #07140d;
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0.9rem 0.9rem 1.1rem;
-      box-shadow: var(--shadow-card);
-      font-size: 0.86rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .video-card video {
-      width: 100%;
-      border-radius: var(--radius-md);
-      display: block;
-      margin-bottom: 0.6rem;
-      background: #000;
-    }
-
-    .video-card-title {
-      font-weight: 600;
-      margin-bottom: 0.1rem;
-      font-size: 0.9rem;
-    }
-
-    .video-card-text {
-      color: var(--text-muted);
-      font-size: 0.86rem;
-    }
-
     /* ========== PRÓXIMAS TURMAS ========== */
 
     .upcoming-controls {
@@ -1370,102 +1313,101 @@
       </section>
 
       <!-- TURMAS DE MÁQUINAS PESADAS EM AÇÃO (SLIDER DE FOTOS) -->
-<section aria-labelledby="turmas-pesadas-acao-title">
-  <div class="container">
-    <h2 class="section-title" id="turmas-pesadas-acao-title">
-      Turmas de <span class="highlight">Máquinas Pesadas em ação</span>
-    </h2>
-    <p class="section-subtitle">
-      Momentos reais das turmas de Operador de Máquinas Pesadas da Target Agrotech em pista, treinando na prática
-      com máquinas em funcionamento, simulando a rotina de quem já está no mercado.
-    </p>
-
-    <div
-      class="drone-gallery-slider"
-      id="drone-gallery-slider"
-      aria-label="Galeria de fotos das turmas de máquinas pesadas em pista"
-    >
-      <!-- SLIDE 1 -->
-      <article class="gallery-card active">
-        <div class="gallery-card-image">
-          <img
-            src="assets/pesadas-gallery-1.jpg"
-            loading="lazy"
-            alt="Aluno da Target Agrotech operando máquina pesada em pista de treinamento, com instrutor ao lado orientando cada comando."
-            class="img-pesadas-gallery-1"
-          />
-        </div>
-        <div class="gallery-card-body">
-          <h3 class="gallery-card-title">Primeiros comandos na máquina</h3>
-          <p class="gallery-card-text">
-            Momento em que o aluno assume o posto de operador, na pá carregadeira, um maquinário escencial no ramo de construção civil.
+      <section aria-labelledby="turmas-pesadas-acao-title">
+        <div class="container">
+          <h2 class="section-title" id="turmas-pesadas-acao-title">
+            Turmas de <span class="highlight">Máquinas Pesadas em ação</span>
+          </h2>
+          <p class="section-subtitle">
+            Momentos reais das turmas de Operador de Máquinas Pesadas da Target Agrotech em pista, treinando na prática
+            com máquinas em funcionamento, simulando a rotina de quem já está no mercado.
           </p>
-        </div>
-      </article>
 
-      <!-- SLIDE 2 -->
-      <article class="gallery-card">
-        <div class="gallery-card-image">
-          <img
-            src="assets/pesadas-gallery-2.jpg"
-            loading="lazy"
-            alt="Instrutor da Target Agrotech mostrando os comandos da máquina pesada para um grupo de alunos em volta da cabine."
-            class="img-pesadas-gallery-2"
-          />
-        </div>
-        <div class="gallery-card-body">
-          <h3 class="gallery-card-title">Escavadeira Hidraúlica </h3>
-          <p class="gallery-card-text">
-           Treinamento prático em escavadeira hidráulica, do básico à operação profissional.
-          </p>
-        </div>
-      </article>
+          <div
+            class="drone-gallery-slider"
+            id="drone-gallery-slider"
+            aria-label="Galeria de fotos das turmas de máquinas pesadas em pista"
+          >
+            <!-- SLIDE 1 -->
+            <article class="gallery-card active">
+              <div class="gallery-card-image">
+                <img
+                  src="assets/pesadas-gallery-1.jpg"
+                  loading="lazy"
+                  alt="Aluno da Target Agrotech operando máquina pesada em pista de treinamento, com instrutor ao lado orientando cada comando."
+                  class="img-pesadas-gallery-1"
+                />
+              </div>
+              <div class="gallery-card-body">
+                <h3 class="gallery-card-title">Primeiros comandos na máquina</h3>
+                <p class="gallery-card-text">
+                  Momento em que o aluno assume o posto de operador, na pá carregadeira, um maquinário escencial no ramo de construção civil.
+                </p>
+              </div>
+            </article>
 
-      <!-- SLIDE 3 -->
-      <article class="gallery-card">
-        <div class="gallery-card-image">
-          <img
-            src="assets/pesadas-gallery-3.jpg"
-            loading="lazy"
-            alt="Máquina pesada em operação em pista de treinamento com aluno no comando, executando deslocamento e manobra."
-            class="img-pesadas-gallery-3"
-          />
+            <!-- SLIDE 2 -->
+            <article class="gallery-card">
+              <div class="gallery-card-image">
+                <img
+                  src="assets/pesadas-gallery-2.jpg"
+                  loading="lazy"
+                  alt="Instrutor da Target Agrotech mostrando os comandos da máquina pesada para um grupo de alunos em volta da cabine."
+                  class="img-pesadas-gallery-2"
+                />
+              </div>
+              <div class="gallery-card-body">
+                <h3 class="gallery-card-title">Escavadeira Hidraúlica </h3>
+                <p class="gallery-card-text">
+                  Treinamento prático em escavadeira hidráulica, do básico à operação profissional.
+                </p>
+              </div>
+            </article>
+
+            <!-- SLIDE 3 -->
+            <article class="gallery-card">
+              <div class="gallery-card-image">
+                <img
+                  src="assets/pesadas-gallery-3.jpg"
+                  loading="lazy"
+                  alt="Máquina pesada em operação em pista de treinamento com aluno no comando, executando deslocamento e manobra."
+                  class="img-pesadas-gallery-3"
+                />
+              </div>
+              <div class="gallery-card-body">
+                <h3 class="gallery-card-title">OTurma de Operador de Máquinas Pesadas Target AgroTech:</h3>
+                <p class="gallery-card-text">
+                  Formação completa em escavadeira, pá carregadeira, caminhão e retroescavadeira.
+                </p>
+              </div>
+            </article>
+
+            <button
+              type="button"
+              class="slider-arrow slider-arrow-left"
+              id="gallery-prev"
+              aria-label="Ver foto anterior"
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              class="slider-arrow slider-arrow-right"
+              id="gallery-next"
+              aria-label="Ver próxima foto"
+            >
+              ›
+            </button>
+
+            <div
+              class="gallery-dots"
+              id="drone-gallery-dots"
+              role="tablist"
+              aria-label="Selecionar foto da galeria"
+            ></div>
+          </div>
         </div>
-        <div class="gallery-card-body">
-          <h3 class="gallery-card-title">OTurma de Operador de Máquinas Pesadas Target AgroTech:</h3>
-          <p class="gallery-card-text">
-            Formação completa em escavadeira, pá carregadeira, caminhão e retroescavadeira.
-          </p>
-        </div>
-      </article>
-
-      <button
-        type="button"
-        class="slider-arrow slider-arrow-left"
-        id="gallery-prev"
-        aria-label="Ver foto anterior"
-      >
-        ‹
-      </button>
-      <button
-        type="button"
-        class="slider-arrow slider-arrow-right"
-        id="gallery-next"
-        aria-label="Ver próxima foto"
-      >
-        ›
-      </button>
-
-      <div
-        class="gallery-dots"
-        id="drone-gallery-dots"
-        role="tablist"
-        aria-label="Selecionar foto da galeria"
-      ></div>
-    </div>
-  </div>
-</section>
-
+      </section>
 
       <!-- DEPOIMENTOS TEXTO -->
       <section aria-labelledby="depoimentos-texto-title">
@@ -1520,72 +1462,6 @@
                 </div>
               </div>
             </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- DEPOIMENTOS EM VÍDEO (SLIDER) -->
-      <section aria-labelledby="depoimentos-video-title">
-        <div class="container">
-          <h2 class="section-title" id="depoimentos-video-title">
-            Depoimentos em <span class="highlight">vídeo</span>
-          </h2>
-          <p class="section-subtitle">
-            Veja alguns depoimentos reais de alunos que se formaram como Operador de Máquinas Pesadas pela Target Agrotech.
-          </p>
-
-          <div class="video-slider" aria-label="Depoimentos em vídeo">
-            <div class="video-grid" id="video-grid-drone">
-              <article class="video-card">
-                <video controls preload="metadata">
-                  <source src="assets/depo-pesadas-1.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeo.
-                </video>
-                <div class="video-card-title">“Saí preparado para o mercado”</div>
-                <div class="video-card-text">
-                  Aluno contando como a prática em pista e as orientações de segurança ajudaram a conquistar a primeira vaga.
-                </div>
-              </article>
-
-              <article class="video-card">
-                <video controls preload="metadata">
-                  <source src="assets/depo-pesadas-2.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeo.
-                </video>
-                <div class="video-card-title">“Mudei de área com o curso”</div>
-                <div class="video-card-text">
-                  Relato de quem saiu de outra profissão e encontrou nas máquinas pesadas uma nova oportunidade de renda.
-                </div>
-              </article>
-
-              <article class="video-card">
-                <video controls preload="metadata">
-                  <source src="assets/depo-pesadas-3.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeo.
-                </video>
-                <div class="video-card-title">“Aprendi a operar com segurança”</div>
-                <div class="video-card-text">
-                  Aluno falando sobre a importância da segurança e do passo a passo aprendido durante o curso.
-                </div>
-              </article>
-            </div>
-
-            <button
-              type="button"
-              class="slider-arrow slider-arrow-left"
-              id="video-prev"
-              aria-label="Ver vídeos anteriores"
-            >
-              ‹
-            </button>
-            <button
-              type="button"
-              class="slider-arrow slider-arrow-right"
-              id="video-next"
-              aria-label="Ver próximos vídeos"
-            >
-              ›
-            </button>
           </div>
         </div>
       </section>
@@ -1997,6 +1873,7 @@
         });
       }
 
+      // Slider de vídeo foi removido da página, mas esta função pode ser excluída se quiser limpar o código JS:
       function initVideoSlider() {
         const grid = document.getElementById("video-grid-drone");
         const prevBtn = document.getElementById("video-prev");
@@ -2038,4 +1915,3 @@
   </script>
 </body>
 </html>
-
