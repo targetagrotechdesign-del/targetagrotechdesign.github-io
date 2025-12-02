@@ -18,6 +18,21 @@
   <meta property="og:image" content="https://seu-dominio.com/assets/drone-hero-novo.jpg" />
   <meta property="og:url" content="https://seu-dominio.com/curso-piloto-drone-agricola" />
 
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'SEU_PIXEL_ID_AQUI');
+    fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
+
   <style>
     :root {
       --background: #06160f;
@@ -115,7 +130,7 @@
     }
 
     .section-title span.highlight {
-      color: var(--primary);
+      coml or: var(--primary);
     }
 
     .section-title::after {
@@ -940,7 +955,7 @@
       transition:
         transform 0.16s ease-out,
         box-shadow 0.16s ease-out,
-        border-color 0.16s ease-out;
+        border-color 0.16s.ease-out;
     }
 
     .upcoming-card:hover {
@@ -1154,6 +1169,18 @@
   </style>
 </head>
 <body>
+  <!-- Meta Pixel NoScript -->
+  <noscript>
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"
+      alt=""
+    />
+  </noscript>
+  <!-- End Meta Pixel NoScript -->
+
   <div class="page">
     <header>
       <div class="container">
@@ -2189,7 +2216,3 @@
   </script>
 </body>
 </html>
-
-
-
-
