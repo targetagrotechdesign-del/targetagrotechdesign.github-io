@@ -167,7 +167,7 @@
       transition:
         transform 0.12s ease-out,
         box-shadow 0.12s ease-out,
-        background 0.12s ease-out,
+        background 0.12s.ease-out,
         border-color 0.12s ease-out,
         opacity 0.12s ease-out;
       white-space: nowrap;
@@ -448,7 +448,7 @@
       transition:
         transform 0.16s ease-out,
         box-shadow 0.16s ease-out,
-        border-color 0.16s ease-out;
+        border-color 0.16s.ease-out;
     }
 
     .why-card:hover {
@@ -511,7 +511,7 @@
       gap: 0.4rem;
       transition:
         transform 0.16s ease-out,
-        box-shadow 0.16s ease-out,
+        box-shadow 0.16s.ease-out,
         border-color 0.16s ease-out;
     }
 
@@ -609,9 +609,9 @@
       z-index: 3;
       transition:
         background 0.12s ease-out,
-        transform 0.12s ease-out,
+        transform 0.12s.ease-out,
         border-color 0.12s ease-out,
-        opacity 0.12s ease-out;
+        opacity 0.12s.ease-out;
     }
 
     .slider-arrow-left {
@@ -651,7 +651,7 @@
       transition:
         opacity 0.45s ease-out,
         transform 0.45s ease-out,
-        border-color 0.16s ease-out;
+        border-color 0.16s.ease-out;
       transform: translateY(6px);
     }
 
@@ -957,7 +957,7 @@
       transition:
         transform 0.16s ease-out,
         box-shadow 0.16s ease-out,
-        border-color 0.16s ease-out;
+        border-color 0.16s.ease-out;
     }
 
     .upcoming-card:hover {
@@ -1867,23 +1867,37 @@
     window.addEventListener("DOMContentLoaded", function () {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
+      const DAY_IN_MS = 1000 * 60 * 60 * 24;
 
-      function parseCourseDate(ddmm) {
-        const parts = ddmm.split("/");
-        if (parts.length !== 2) return null;
-        const day = parseInt(parts[0], 10);
-        const month = parseInt(parts[1], 10);
-        const currentYear = today.getFullYear();
-        let year = currentYear;
+      // Calcula a data real de cada turma, considerando virada de ano
+      // (ex: 05/12, 12/12, 16/01, 23/01 → janeiro entra como ano seguinte).
+      function computeCourseDates(cards) {
+        const baseYear = today.getFullYear();
+        let year = baseYear;
+        let lastMonth = null;
+        const map = new Map();
 
-        const currentMonth = today.getMonth() + 1;
-        const currentDay = today.getDate();
+        cards.forEach((card) => {
+          const ddmm = card.getAttribute("data-course-date");
+          if (!ddmm) return;
+          const parts = ddmm.split("/");
+          if (parts.length !== 2) return;
+          const day = parseInt(parts[0], 10);
+          const month = parseInt(parts[1], 10);
+          if (Number.isNaN(day) || Number.isNaN(month)) return;
 
-        if (month < currentMonth || (month === currentMonth && day < currentDay)) {
-          year = currentYear + 1;
-        }
+          if (lastMonth !== null && month < lastMonth) {
+            // Mês "voltou" (ex: 12 -> 1), então viramos o ano.
+            year += 1;
+          }
+          lastMonth = month;
 
-        return new Date(year, month - 1, day);
+          const d = new Date(year, month - 1, day);
+          d.setHours(0, 0, 0, 0);
+          map.set(card, d);
+        });
+
+        return map;
       }
 
       function initDroneGallerySlider() {
@@ -1974,6 +1988,9 @@
         const cards = Array.from(
           upcomingGrid.querySelectorAll(".upcoming-card[data-course-date]")
         );
+        if (cards.length === 0) return;
+
+        const courseDateMap = computeCourseDates(cards);
 
         const searchInput = document.getElementById("search-city-drone");
         const toggleBtn = document.getElementById("toggle-more-drone");
@@ -1981,13 +1998,26 @@
         let showAll = false;
         let searchTerm = "";
 
+        // Marca "Últimas vagas" e já identifica quais turmas são passadas.
         cards.forEach((card) => {
-          const ddmm = card.getAttribute("data-course-date");
-          const courseDate = ddmm ? parseCourseDate(ddmm) : null;
-          if (!courseDate) return;
+          const courseDate = courseDateMap.get(card);
+          if (!courseDate) {
+            card.dataset.isPast = "true";
+            card.classList.add("hidden");
+            return;
+          }
 
           const diffMs = courseDate.getTime() - today.getTime();
-          const diffDays = diffMs / (1000 * 60 * 60 * 24);
+          const diffDays = diffMs / DAY_IN_MS;
+
+          if (diffDays < 0) {
+            // Turma já passou: some da tela sempre.
+            card.dataset.isPast = "true";
+            card.classList.add("hidden");
+            return;
+          }
+
+          card.dataset.isPast = "false";
 
           if (diffDays >= 0 && diffDays <= 30) {
             const badge = document.createElement("div");
@@ -2004,7 +2034,16 @@
         });
 
         function applyFilter() {
-          cards.forEach((card, index) => {
+          const visibleFutureCards = [];
+
+          cards.forEach((card) => {
+            const isPast = card.dataset.isPast === "true";
+            if (isPast) {
+              // Garantir que turmas passadas nunca apareçam, mesmo com busca.
+              card.classList.add("hidden");
+              return;
+            }
+
             const city = (card.getAttribute("data-city") || "").toLowerCase();
             const state = (card.getAttribute("data-state") || "").toLowerCase();
             const combined = (city + " " + state).trim();
@@ -2017,13 +2056,18 @@
             if (!matches) {
               card.classList.add("hidden");
             } else {
-              if (!searchTerm && !showAll && index >= INITIAL_VISIBLE) {
-                card.classList.add("hidden");
-              } else {
-                card.classList.remove("hidden");
-              }
+              card.classList.remove("hidden");
+              visibleFutureCards.push(card);
             }
           });
+
+          if (!searchTerm && !showAll) {
+            visibleFutureCards.forEach((card, index) => {
+              if (index >= INITIAL_VISIBLE) {
+                card.classList.add("hidden");
+              }
+            });
+          }
         }
 
         if (searchInput) {
