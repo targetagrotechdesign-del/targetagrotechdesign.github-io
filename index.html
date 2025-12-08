@@ -57,7 +57,6 @@
       overflow-x: hidden;
     }
 
-    /* GLOWS de fundo nos cantos */
     body::before,
     body::after {
       content: "";
@@ -1299,73 +1298,69 @@
           Formação completa com prática real, certificação reconhecida e foco total na realidade do campo.
         </p>
 
-        <section id="cursos">
-  ...
-  <div class="courses-grid">
-    <!-- Curso Drone -->
-    <article class="course-card" id="curso-drone">
-      <div class="course-icon">🛩️</div>
-      <div class="course-label">Curso Principal</div>
-      <h3 class="course-name">Piloto de Drone Agrícola</h3>
-      <ul class="course-list">
-        <li>CAAR incluso no curso</li>
-        <li>Certificação nacional</li>
-        <li>Aulas práticas em campo real</li>
-        <li>Tecnologia DJI</li>
-        <li>Carta de estágio</li>
-        <li>Suporte pós-curso</li>
-      </ul>
-      <div class="course-card-footer">
-        <a href="drone.html" class="btn btn-primary">
-          Ver turmas de Drone
-        </a>
-      </div>
-    </article>
+        <div class="courses-grid">
+          <!-- Curso Drone -->
+          <article class="course-card" id="curso-drone">
+            <div class="course-icon">🛩️</div>
+            <div class="course-label">Curso Principal</div>
+            <h3 class="course-name">Piloto de Drone Agrícola</h3>
+            <ul class="course-list">
+              <li>CAAR incluso no curso</li>
+              <li>Certificação nacional</li>
+              <li>Aulas práticas em campo real</li>
+              <li>Tecnologia DJI</li>
+              <li>Carta de estágio</li>
+              <li>Suporte pós-curso</li>
+            </ul>
+            <div class="course-card-footer">
+              <a href="drone.html" class="btn btn-primary">
+                Ver turmas de Drone
+              </a>
+            </div>
+          </article>
 
-    <!-- Curso Máquinas Pesadas -->
-    <article class="course-card" id="curso-maquinas">
-      <div class="course-icon">🚜</div>
-      <div class="course-label">Em alta</div>
-      <h3 class="course-name">Operador de Máquinas Pesadas</h3>
-      <ul class="course-list">
-        <li>Retroescavadeira, pá-carregadeira e escavadeira</li>
-        <li>Treinamento prático em ambiente real</li>
-        <li>Instrutores com experiência no campo</li>
-        <li>Certificação reconhecida</li>
-        <li>Carta de estágio</li>
-        <li>Orientação para entrada no mercado</li>
-      </ul>
-      <div class="course-card-footer">
-        <!-- ANTES: <a href="#proximas-turmas" ...> -->
-        <a href="pesadas.html" class="btn btn-primary">
-          Ver turmas de Máquinas
-        </a>
-      </div>
-    </article>
+          <!-- Curso Máquinas Pesadas -->
+          <article class="course-card" id="curso-maquinas">
+            <div class="course-icon">🚜</div>
+            <div class="course-label">Em alta</div>
+            <h3 class="course-name">Operador de Máquinas Pesadas</h3>
+            <ul class="course-list">
+              <li>Retroescavadeira, pá-carregadeira e escavadeira</li>
+              <li>Treinamento prático em ambiente real</li>
+              <li>Instrutores com experiência no campo</li>
+              <li>Certificação reconhecida</li>
+              <li>Carta de estágio</li>
+              <li>Orientação para entrada no mercado</li>
+            </ul>
+            <div class="course-card-footer">
+              <a href="pesadas.html" class="btn btn-primary">
+                Ver turmas de Máquinas
+              </a>
+            </div>
+          </article>
 
-    <!-- Curso Inseminação -->
-    <article class="course-card" id="curso-inseminacao">
-      <div class="course-icon">🐄</div>
-      <div class="course-label">Novo Curso</div>
-      <h3 class="course-name">Inseminação Artificial em Bovinos</h3>
-      <ul class="course-list">
-        <li>Técnicas práticas de inseminação</li>
-        <li>Aulas em fazendas reais</li>
-        <li>Certificação reconhecida</li>
-        <li>Carta de estágio</li>
-        <li>Garantia De Aprendizado</li>
-        <li>Material didático completo</li>
-      </ul>
-      <div class="course-card-footer">
-        <!-- ANTES: <a href="#proximas-turmas" ...> -->
-        <a href="inseminacao.html" class="btn btn-primary">
-          Ver turmas de Inseminação
-        </a>
+          <!-- Curso Inseminação -->
+          <article class="course-card" id="curso-inseminacao">
+            <div class="course-icon">🐄</div>
+            <div class="course-label">Novo Curso</div>
+            <h3 class="course-name">Inseminação Artificial em Bovinos</h3>
+            <ul class="course-list">
+              <li>Técnicas práticas de inseminação</li>
+              <li>Aulas em fazendas reais</li>
+              <li>Certificação reconhecida</li>
+              <li>Carta de estágio</li>
+              <li>Garantia De Aprendizado</li>
+              <li>Material didático completo</li>
+            </ul>
+            <div class="course-card-footer">
+              <a href="inseminacao.html" class="btn btn-primary">
+                Ver turmas de Inseminação
+              </a>
+            </div>
+          </article>
+        </div>
       </div>
-    </article>
-  </div>
-</section>
-
+    </section>
 
     <!-- ================= BENEFITS ================= -->
     <section id="beneficios">
@@ -1955,37 +1950,56 @@
   <!-- SCRIPT: últimas vagas, urgência, filtros, ver mais, WhatsApp dinâmico e formulário "me avise" -->
   <script>
     window.addEventListener("DOMContentLoaded", function () {
-      const cards = Array.from(document.querySelectorAll(".upcoming-card[data-course-date]"));
+      // Todos os cards de turma
+      const rawCards = Array.from(document.querySelectorAll(".upcoming-card[data-course-date]"));
+      const cards = []; // só turmas futuras vão pra cá
+
       const today = new Date();
       today.setHours(0, 0, 0, 0);
 
-      function parseCourseDate(ddmm) {
+      function getCourseDate(card) {
+        const ddmm = card.getAttribute("data-course-date");
+        if (!ddmm) return null;
+
         const parts = ddmm.split("/");
         if (parts.length !== 2) return null;
+
         const day = parseInt(parts[0], 10);
         const month = parseInt(parts[1], 10);
+
+        if (isNaN(day) || isNaN(month)) return null;
+
         const currentYear = today.getFullYear();
-        let year = currentYear;
 
-        const currentMonth = today.getMonth() + 1;
-        const currentDay = today.getDate();
-
-        if (month < currentMonth || (month === currentMonth && day < currentDay)) {
-          year = currentYear + 1;
-        }
+        // REGRA QUE VOCÊ PEDIU:
+        // - Dezembro (12) => ano atual
+        // - Qualquer mês diferente de 12 => ano que vem
+        const year = (month === 12) ? currentYear : currentYear + 1;
 
         return new Date(year, month - 1, day);
       }
 
-      // Marca "Últimas vagas" (até 30 dias) e urgência (até 7 dias)
-      cards.forEach((card) => {
-        const ddmm = card.getAttribute("data-course-date");
-        const courseDate = parseCourseDate(ddmm);
-        if (!courseDate) return;
+      // Marca urgência / últimas vagas e remove turmas passadas
+      rawCards.forEach((card) => {
+        const courseDate = getCourseDate(card);
+        if (!courseDate) {
+          card.remove();
+          return;
+        }
 
         const diffMs = courseDate.getTime() - today.getTime();
         const diffDays = diffMs / (1000 * 60 * 60 * 24);
 
+        // Se a data já passou DE VERDADE, some
+        if (diffDays < 0) {
+          card.remove();
+          return;
+        }
+
+        // Só cai aqui quem ainda é futuro
+        cards.push(card);
+
+        // Últimas vagas (até 30 dias)
         if (diffDays >= 0 && diffDays <= 30) {
           const badge = document.createElement("div");
           badge.className = "upcoming-last-call";
@@ -1999,6 +2013,7 @@
           }
         }
 
+        // Urgência (até 7 dias)
         if (diffDays >= 0 && diffDays <= 7) {
           card.classList.add("upcoming-urgent");
           const urgency = document.createElement("div");
@@ -2035,7 +2050,7 @@
 
         return cards.filter((card) => {
           const cardCourse = card.getAttribute("data-course-type") || "";
-                   const cardState = card.getAttribute("data-state") || "";
+          const cardState = card.getAttribute("data-state") || "";
           const matchCourse = courseValue === "all" || cardCourse === courseValue;
           const matchState = stateValue === "all" || cardState === stateValue;
           return matchCourse && matchState;
@@ -2045,40 +2060,42 @@
       function updateCards() {
         const filtered = getFilteredCards();
 
+        // Esconde tudo primeiro
         cards.forEach((card) => {
           card.style.display = "none";
         });
 
+        // Mostra somente o necessário
         filtered.forEach((card, index) => {
           if (showingAll || index < INITIAL_VISIBLE) {
             card.style.display = "";
           }
         });
 
+        if (!toggleBtn) return;
+
         if (filtered.length <= INITIAL_VISIBLE) {
-          if (toggleBtn) toggleBtn.style.display = "none";
+          toggleBtn.style.display = "none";
         } else {
-          if (toggleBtn) {
-            toggleBtn.style.display = "";
-            toggleBtn.textContent = showingAll ? "Ver menos datas" : "Ver mais datas";
-          }
+          toggleBtn.style.display = "";
+          toggleBtn.textContent = showingAll ? "Ver menos datas" : "Ver mais datas";
         }
       }
 
-      if (toggleBtn && grid && cards.length) {
+      if (grid && cards.length) {
         updateCards();
 
-        toggleBtn.addEventListener("click", () => {
-          showingAll = !showingAll;
-          updateCards();
+        if (toggleBtn) {
+          toggleBtn.addEventListener("click", () => {
+            showingAll = !showingAll;
+            updateCards();
 
-          if (!showingAll) {
-            grid.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
-        });
+            if (!showingAll) {
+              grid.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          });
+        }
       } else {
-        // fallback: mostra tudo
-        cards.forEach((card) => (card.style.display = ""));
         if (toggleBtn) toggleBtn.style.display = "none";
       }
 
