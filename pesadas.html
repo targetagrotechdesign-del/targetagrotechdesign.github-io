@@ -170,7 +170,7 @@
         box-shadow 0.12s ease-out,
         background 0.12s ease-out,
         border-color 0.12s ease-out,
-        opacity 0.12s ease-out;
+        opacity 0.12s.ease-out;
       white-space: nowrap;
     }
 
@@ -449,7 +449,7 @@
       transition:
         transform 0.16s ease-out,
         box-shadow 0.16s ease-out,
-        border-color 0.16s ease-out;
+        border-color 0.16s.ease-out;
     }
 
     .why-card:hover {
@@ -513,7 +513,7 @@
       transition:
         transform 0.16s ease-out,
         box-shadow 0.16s ease-out,
-        border-color 0.16s ease-out;
+        border-color 0.16s.ease-out;
     }
 
     .step-card:hover {
@@ -902,7 +902,7 @@
       transition:
         transform 0.16s ease-out,
         box-shadow 0.16s ease-out,
-        border-color 0.16s ease-out;
+        border-color 0.16s.ease-out;
     }
 
     .upcoming-card:hover {
@@ -1663,20 +1663,19 @@
       const today = new Date();
       today.setHours(0, 0, 0, 0);
 
+      // MESMA REGRA QUE A GENTE USOU NA HOME E NA PÁGINA DE DRONE:
+      // - Dezembro (12) => ano atual
+      // - Qualquer outro mês (01–11) => ano que vem
       function parseCourseDate(ddmm) {
         const parts = ddmm.split("/");
         if (parts.length !== 2) return null;
+
         const day = parseInt(parts[0], 10);
         const month = parseInt(parts[1], 10);
+        if (isNaN(day) || isNaN(month)) return null;
+
         const currentYear = today.getFullYear();
-        let year = currentYear;
-
-        const currentMonth = today.getMonth() + 1;
-        const currentDay = today.getDate();
-
-        if (month < currentMonth || (month === currentMonth && day < currentDay)) {
-          year = currentYear + 1;
-        }
+        const year = (month === 12) ? currentYear : currentYear + 1;
 
         return new Date(year, month - 1, day);
       }
@@ -1762,13 +1761,16 @@
         startAutoPlay();
       }
 
+      // *** LÓGICA DAS TURMAS (MESMA IDEIA DA PÁGINA DE DRONE) ***
       function initUpcomingClasses() {
         const upcomingGrid = document.getElementById("upcoming-grid-drone");
         if (!upcomingGrid) return;
 
-        const cards = Array.from(
+        const rawCards = Array.from(
           upcomingGrid.querySelectorAll(".upcoming-card[data-course-date]")
         );
+
+        const cards = []; // só turmas futuras ficam aqui
 
         const searchInput = document.getElementById("search-city-drone");
         const toggleBtn = document.getElementById("toggle-more-drone");
@@ -1776,14 +1778,28 @@
         let showAll = false;
         let searchTerm = "";
 
-        cards.forEach((card) => {
+        // filtra turmas passadas e marca "Últimas vagas"
+        rawCards.forEach((card) => {
           const ddmm = card.getAttribute("data-course-date");
           const courseDate = ddmm ? parseCourseDate(ddmm) : null;
-          if (!courseDate) return;
+          if (!courseDate) {
+            card.remove();
+            return;
+          }
 
           const diffMs = courseDate.getTime() - today.getTime();
           const diffDays = diffMs / (1000 * 60 * 60 * 24);
 
+          // Se a data já passou, some do site
+          if (diffDays < 0) {
+            card.remove();
+            return;
+          }
+
+          // Daqui pra baixo só turma futura
+          cards.push(card);
+
+          // Últimas vagas: até 30 dias
           if (diffDays >= 0 && diffDays <= 30) {
             const badge = document.createElement("div");
             badge.className = "upcoming-last-call";
@@ -1799,26 +1815,41 @@
         });
 
         function applyFilter() {
-          cards.forEach((card, index) => {
+          if (!cards.length) {
+            if (toggleBtn) toggleBtn.style.display = "none";
+            return;
+          }
+
+          const filtered = cards.filter((card) => {
             const city = (card.getAttribute("data-city") || "").toLowerCase();
             const state = (card.getAttribute("data-state") || "").toLowerCase();
             const combined = (city + " " + state).trim();
-            let matches = true;
+            if (!searchTerm) return true;
+            return combined.includes(searchTerm);
+          });
 
-            if (searchTerm) {
-              matches = combined.includes(searchTerm);
-            }
+          // esconde tudo
+          cards.forEach((card) => card.classList.add("hidden"));
 
-            if (!matches) {
+          // mostra só os que batem com o filtro + regra de "ver mais"
+          filtered.forEach((card, index) => {
+            if (!searchTerm && !showAll && index >= INITIAL_VISIBLE) {
               card.classList.add("hidden");
             } else {
-              if (!searchTerm && !showAll && index >= INITIAL_VISIBLE) {
-                card.classList.add("hidden");
-              } else {
-                card.classList.remove("hidden");
-              }
+              card.classList.remove("hidden");
             }
           });
+
+          // botão "Ver mais turmas"
+          if (toggleBtn) {
+            if (filtered.length <= INITIAL_VISIBLE || searchTerm) {
+              toggleBtn.style.display = "none";
+            } else {
+              toggleBtn.style.display = "";
+              toggleBtn.textContent = showAll ? "Ver menos turmas" : "Ver mais turmas";
+              toggleBtn.setAttribute("aria-expanded", showAll ? "true" : "false");
+            }
+          }
         }
 
         if (searchInput) {
@@ -1826,6 +1857,7 @@
             const target = e.target;
             if (!(target instanceof HTMLInputElement)) return;
             searchTerm = target.value.toLowerCase().trim();
+            if (!searchTerm) showAll = false;
             applyFilter();
           });
         }
@@ -1833,8 +1865,6 @@
         if (toggleBtn) {
           toggleBtn.addEventListener("click", function () {
             showAll = !showAll;
-            toggleBtn.textContent = showAll ? "Ver menos turmas" : "Ver mais turmas";
-            toggleBtn.setAttribute("aria-expanded", showAll ? "true" : "false");
             applyFilter();
           });
         }
@@ -1905,4 +1935,3 @@
   </script>
 </body>
 </html>
-
