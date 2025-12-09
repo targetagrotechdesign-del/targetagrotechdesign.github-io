@@ -1,0 +1,2248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Piloto de Drone Agrícola - Target Agrotech</title>
+
+  <!-- SEO -->
+  <meta
+    name="description"
+    content="Curso presencial de Piloto de Drone Agrícola com CAAR incluso, prática em campo real e foco total na operação profissional de drones para pulverização, mapeamento e aplicações de precisão."
+  />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Piloto de Drone Agrícola - Target Agrotech" />
+  <meta property="og:description" content="Formação presencial com prática real em campo, CAAR incluso e certificado." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://seu-dominio.com/assets/drone-hero-novo.jpg" />
+  <meta property="og:url" content="https://seu-dominio.com/curso-piloto-drone-agricola" />
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'SEU_PIXEL_ID_AQUI');
+    fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    :root {
+      --background: #06160f;
+      --background-alt: #0b2416;
+      --card: #10251a;
+      --card-soft: #102a1f;
+      --border: #1f3b29;
+      --primary: #00b050;
+      --primary-soft: #0fd266;
+      --secondary: #f2c94c;
+      --text-main: #f5f5f5;
+      --text-muted: #c1c9c5;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
+      --shadow-card: 0 12px 26px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0e2a1d 0, #020a06 45%, #020805 100%);
+      color: var(--text-main);
+      line-height: 1.5;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 999px;
+      filter: blur(30px);
+      opacity: 0.45;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    body::before {
+      top: -120px;
+      right: -80px;
+      background: radial-gradient(circle at center, rgba(0, 176, 80, 0.5), transparent 70%);
+    }
+
+    body::after {
+      bottom: -140px;
+      left: -90px;
+      background: radial-gradient(circle at center, rgba(242, 201, 76, 0.4), transparent 70%);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    @media (min-width: 1024px) {
+      section {
+        padding: 5rem 0;
+      }
+    }
+
+    .section-title {
+      font-size: clamp(2.1rem, 3vw, 2.6rem);
+      margin-bottom: 0.9rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title span.highlight {
+      color: var(--primary);
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 2px;
+      margin: 0.7rem auto 0;
+      background: linear-gradient(to right, transparent, var(--secondary), transparent);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 2.4rem;
+      font-size: 1rem;
+    }
+
+    .btn {
+      padding: 0.9rem 1.7rem;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      transition:
+        transform 0.12s ease-out,
+        box-shadow 0.12s ease-out,
+        background 0.12s ease-out,
+        border-color 0.12s.ease-out,
+        opacity 0.12s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #020a06;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-soft);
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(18, 242, 120, 0.27);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      background: rgba(0, 176, 80, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--secondary);
+      color: var(--secondary);
+      transform: translateY(-1px);
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn-small {
+      padding: 0.6rem 1.1rem;
+      font-size: 0.86rem;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* utilitários */
+    .mb-1_5 {
+      margin-bottom: 1.5rem;
+    }
+
+    .center {
+      justify-content: center;
+    }
+
+    /* ========== HEADER / TOP BAR ========== */
+
+    header {
+      padding: 1.2rem 0 0.5rem;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      font-size: 0.9rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+
+    .back-link:hover {
+      border-color: var(--primary);
+      color: var(--primary-soft);
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .pill-label {
+      padding: 0.28rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(242, 201, 76, 0.4);
+      color: var(--secondary);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* ========== HERO DO CURSO ========== */
+
+    .hero-course {
+      padding: 1.5rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2.4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-course-kicker {
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--secondary);
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-course-title {
+      font-size: clamp(2.1rem, 3.3vw, 2.7rem);
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-course-title span {
+      color: var(--primary);
+    }
+
+    .hero-course-subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+      max-width: 560px;
+    }
+
+    .hero-course-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.86rem;
+    }
+
+    .hero-course-tag {
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: radial-gradient(circle at top left, rgba(0, 176, 80, 0.22), rgba(0, 0, 0, 0.7));
+    }
+
+    .hero-course-info-row {
+      margin-top: 1.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .hero-course-info-item span {
+      display: block;
+    }
+
+    .hero-course-info-item strong {
+      color: var(--primary-soft);
+      font-size: 1rem;
+    }
+
+    .hero-course-media {
+      background: radial-gradient(circle at top, #152c1f, #07130d);
+      border-radius: 28px;
+      padding: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-course-media::before {
+      content: "Curso oficial Target Agrotech";
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(242, 201, 76, 0.6);
+      color: var(--secondary);
+      z-index: 2;
+    }
+
+    .hero-slider {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      max-height: 360px;
+      min-height: 260px;
+    }
+
+    .hero-slide-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 30%;
+      display: block;
+    }
+
+    .hero-course-media-footer {
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-course-media-footer strong {
+      color: var(--primary-soft);
+    }
+
+    /* ========== POR QUE DRONE ========== */
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    @media (max-width: 900px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .why-card {
+      background: rgba(5, 33, 19, 0.95);
+      border-radius: var(--radius-md);
+      padding: 1.4rem 1.3rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      transition:
+        transform 0.16s ease-out,
+        box-shadow 0.16s.ease-out,
+        border-color 0.16s ease-out;
+    }
+
+    .why-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.78);
+      border-color: rgba(242, 201, 76, 0.4);
+    }
+
+    .why-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at top, rgba(0, 176, 80, 0.55), rgba(2, 10, 6, 0.65));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .why-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .why-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* ========== COMO FUNCIONA ========== */
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    @media (max-width: 1000px) {
+      .steps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .step-card {
+      background: linear-gradient(150deg, #0f2519, #07140d);
+      border-radius: var(--radius-lg);
+      padding: 1.3rem 1.1rem 1.2rem;
+      border: 1px solid rgba(0, 255, 128, 0.26);
+      box-shadow: var(--shadow-card);
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition:
+        transform 0.16s ease-out,
+        box-shadow 0.16s ease-out,
+        border-color 0.16s ease-out;
+    }
+
+    .step-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.78);
+      border-color: rgba(242, 201, 76, 0.6);
+    }
+
+    .step-number {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--secondary);
+    }
+
+    .step-title {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .step-text {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    /* ========== CONTEÚDO DO CURSO ========== */
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2.3rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .content-card {
+      background: rgba(5, 33, 19, 0.96);
+      border-radius: var(--radius-lg);
+      padding: 1.7rem 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-card);
+    }
+
+    .content-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .content-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .bullet-list li::before {
+      content: "✔";
+      color: var(--primary-soft);
+      margin-right: 0.45rem;
+      font-size: 0.8rem;
+    }
+
+    /* ========== SLIDER GENÉRICO (FOTOS E VÍDEOS) ========== */
+
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.3rem;
+      color: var(--text-main);
+      z-index: 3;
+      transition:
+        background 0.12s ease-out,
+        transform 0.12s ease-out,
+        border-color 0.12s ease-out,
+        opacity 0.12s ease-out;
+    }
+
+    .slider-arrow-left {
+      left: 0.5rem;
+    }
+
+    .slider-arrow-right {
+      right: 0.5rem;
+    }
+
+    .slider-arrow:hover {
+      background: rgba(0, 0, 0, 0.85);
+      border-color: var(--secondary);
+      transform: translateY(-50%) scale(1.03);
+    }
+
+    @media (max-width: 640px) {
+      .slider-arrow {
+        display: none;
+      }
+    }
+
+    /* ========== TURMAS RECENTES (SLIDER FOTOS) ========== */
+
+    .drone-gallery-slider {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto;
+      min-height: 600px;
+    }
+
+    .drone-gallery-slider .gallery-card {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        opacity 0.45s ease-out,
+        transform 0.45s ease-out,
+        border-color 0.16s ease-out;
+      transform: translateY(6px);
+    }
+
+    .drone-gallery-slider .gallery-card.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .gallery-card {
+      background: #07140d;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      box-shadow: var(--shadow-card);
+    }
+
+    .gallery-card-image {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      max-height: 900px;
+      overflow: hidden;
+    }
+
+    @media (max-width: 640px) {
+      .gallery-card-image {
+        aspect-ratio: 4 / 3;
+      }
+    }
+
+    .gallery-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s.ease-out;
+    }
+
+    .drone-gallery-slider .gallery-card:hover img {
+      transform: scale(1.06);
+    }
+
+    /* ajuste fino por imagem da galeria */
+    .img-drone-gallery-1 {
+      object-position: 50% 35%;
+    }
+    .img-drone-gallery-2 {
+      object-position: 50% 35%;
+    }
+    .img-drone-gallery-3 {
+      object-position: 50% 40%;
+    }
+    .img-drone-gallery-4 {
+      object-position: 50% 40%;
+    }
+    .img-drone-gallery-5 {
+      object-position: 50% 40%;
+    }
+    .img-drone-gallery-6 {
+      object-position: 50% 35%;
+    }
+
+    .gallery-card-body {
+      padding: 0.95rem 1.05rem 1.2rem;
+      font-size: 0.88rem;
+    }
+
+    .gallery-card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .gallery-card-text {
+      color: var(--text-muted);
+    }
+
+    .gallery-dots {
+      margin-top: 1.2rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .gallery-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .gallery-dot.active {
+      background: var(--secondary);
+    }
+
+    /* ========== DEPOIMENTOS (TEXTO) ========== */
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    @media (max-width: 992px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .testimonial-card {
+      background: rgba(5, 33, 19, 0.96);
+      border-radius: var(--radius-md);
+      padding: 1.4rem 1.3rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-card::before {
+      content: "“";
+      position: absolute;
+      top: -0.5rem;
+      right: 0.8rem;
+      font-size: 3.8rem;
+      color: rgba(242, 201, 76, 0.18);
+      pointer-events: none;
+    }
+
+    .testimonial-text {
+      color: var(--text-muted);
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 0.2rem;
+    }
+
+    .testimonial-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at top, rgba(0, 176, 80, 0.7), rgba(2, 10, 6, 0.9));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .testimonial-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .testimonial-meta strong {
+      display: block;
+      color: var(--text-main);
+    }
+
+    /* ========== DEPOIMENTOS EM VÍDEO (SLIDER) ========== */
+
+    .video-slider {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    @media (max-width: 992px) {
+      .video-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .video-card {
+      background: #07140d;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.9rem 0.9rem 1.1rem;
+      box-shadow: var(--shadow-card);
+      font-size: 0.86rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .video-card video {
+      width: 100%;
+      border-radius: var(--radius-md);
+      display: block;
+      margin-bottom: 0.6rem;
+      background: #000;
+    }
+
+    .video-card-title {
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+      font-size: 0.9rem;
+    }
+
+    .video-card-text {
+      color: var(--text-muted);
+      font-size: 0.86rem;
+    }
+
+    /* ========== PRÓXIMAS TURMAS (SÓ DRONE) ========== */
+
+    .upcoming-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.6rem;
+    }
+
+    .upcoming-search {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex: 1 1 240px;
+      max-width: 420px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .upcoming-search input {
+      flex: 1;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(0, 0, 0, 0.35);
+      color: var(--text-main);
+      font-size: 0.88rem;
+      outline: none;
+    }
+
+    .upcoming-search input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .upcoming-toggle {
+      flex: 0 0 auto;
+    }
+
+    .upcoming-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    @media (max-width: 992px) {
+      .upcoming-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .upcoming-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .upcoming-card {
+      background: linear-gradient(150deg, #0f2519, #07140d);
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1rem 1.2rem;
+      border: 1px solid rgba(0, 255, 128, 0.25);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+      transition:
+        transform 0.16s ease-out,
+        box-shadow 0.16s.ease-out,
+        border-color 0.16s ease-out;
+    }
+
+    .upcoming-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.78);
+      border-color: rgba(242, 201, 76, 0.5);
+    }
+
+    .upcoming-date {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--primary-soft);
+    }
+
+    .upcoming-location {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+
+    .upcoming-course-name {
+      font-weight: 600;
+      margin-top: 0.2rem;
+      font-size: 1.02rem;
+    }
+
+    .upcoming-last-call {
+      margin-top: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.82rem;
+      color: var(--secondary);
+    }
+
+    .upcoming-card .btn {
+      margin-top: 0.7rem;
+      padding: 0.65rem 0.95rem;
+      font-size: 0.86rem;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .city-suggestion {
+      margin-top: 2.4rem;
+      padding: 1.5rem 1.4rem;
+      border-radius: var(--radius-lg);
+      border: 1px dashed rgba(242, 201, 76, 0.6);
+      background: rgba(5, 33, 19, 0.85);
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .city-suggestion h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .city-suggestion p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .city-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.9rem;
+    }
+
+    .city-form input {
+      flex: 1 1 220px;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(0, 0, 0, 0.4);
+      color: var(--text-main);
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .city-form input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .small-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+
+    /* ========== CTA FINAL ========== */
+
+    .final-cta {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      background-image: radial-gradient(circle at top, rgba(0, 176, 80, 0.22), rgba(0, 0, 0, 0.9));
+      text-align: center;
+    }
+
+    .final-cta-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.2rem;
+    }
+
+    .final-cta-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 20px;
+      margin: 0 auto 1.2rem;
+      background: radial-gradient(circle at top, rgba(0, 176, 80, 0.6), rgba(2, 10, 6, 0.7));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .final-cta-title {
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      margin-bottom: 0.7rem;
+    }
+
+    .final-cta-text {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+    }
+
+    /* ========== FOOTER ========== */
+
+    footer {
+      padding: 2.4rem 0 1.7rem;
+      background: #020805;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin-top: 0;
+      font-size: 0.86rem;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1.6rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .footer-brand {
+      max-width: 260px;
+    }
+
+    .footer-brand img {
+      height: 80px;
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.86rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+    }
+
+    .footer-column-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      color: var(--text-muted);
+      font-size: 0.84rem;
+    }
+
+    .footer-list a:hover {
+      color: var(--primary-soft);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.8rem;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 640px) {
+      .btn-row {
+        justify-content: flex-start;
+      }
+
+      .hero-course-title {
+        font-size: 2rem;
+      }
+
+      .city-form {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Meta Pixel NoScript -->
+  <noscript>
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"
+      alt=""
+    />
+  </noscript>
+  <!-- End Meta Pixel NoScript -->
+
+  <div class="page">
+    <header>
+      <div class="container">
+        <div class="top-bar">
+          <div class="top-bar-left">
+            <a href="index.html" class="back-link">
+              <span>←</span>
+              <span>Voltar para a página principal</span>
+            </a>
+            <div class="pill-label">Curso presencial</div>
+          </div>
+
+          <div class="top-bar-right">
+            <span>Target Agrotech • Formação em tecnologia no campo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- HERO DO CURSO -->
+      <section class="hero-course" aria-labelledby="hero-title">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <div class="hero-course-kicker">PILOTO DE DRONE AGRÍCOLA</div>
+              <h1 class="hero-course-title" id="hero-title">
+                Domine a pulverização com <span>drones agrícolas</span>.
+              </h1>
+              <p class="hero-course-subtitle">
+                Curso presencial com CAAR incluso, prática real em campo e foco total na operação profissional de drones agrícolas
+                para pulverização, mapeamento e aplicações de precisão.
+              </p>
+
+              <div class="hero-course-tags" aria-label="Principais diferenciais do curso">
+                <div class="hero-course-tag">CAAR incluso no curso</div>
+                <div class="hero-course-tag">Prática em Campo real</div>
+                <div class="hero-course-tag">Equipamentos DJI</div>
+                <div class="hero-course-tag">Certificado e carta de estágio</div>
+              </div>
+
+              <div class="btn-row mb-1_5">
+                <a
+                  href="https://wa.me/5566999763455"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-primary"
+                >
+                  Falar com um consultor no WhatsApp
+                </a>
+                <a href="#proximas-turmas-drone" class="btn btn-outline">
+                  Ver próximas turmas de drone
+                </a>
+              </div>
+
+              <div class="hero-course-info-row">
+                <div class="hero-course-info-item">
+                  <strong>Formação intensiva</strong>
+                  <span>Turmas presenciais com foco em prática real.</span>
+                </div>
+                <div class="hero-course-info-item">
+                  <strong>Para iniciantes e profissionais</strong>
+                  <span>Não precisa ter experiência prévia com drones.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- BLOCO DA IMAGEM DO HERO -->
+            <aside class="hero-course-media" aria-label="Foto de turma em prática com drone agrícola">
+              <div class="hero-slider">
+                <img
+                  src="assets/drone-hero-novo.jpg"
+                  alt="Alunos da Target Agrotech em prática com drone agrícola"
+                  class="hero-slide-img"
+                />
+              </div>
+              <div class="hero-course-media-footer">
+                <span><strong>100% presencial</strong> • Aulas em campo com drone agrícola real</span>
+                <span>Certificação + CAAR incluso</span>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <!-- POR QUE SE TORNAR PILOTO DE DRONE AGRÍCOLA -->
+      <section aria-labelledby="porque-drone-title">
+        <div class="container">
+          <h2 class="section-title" id="porque-drone-title">
+            Por que se tornar <span class="highlight">Piloto de Drone Agrícola?</span>
+          </h2>
+          <p class="section-subtitle">
+            O uso de drones no campo cresce ano após ano. Faltam Pilotos capacitados para atender fazendas, revendas e prestadores de serviço.
+          </p>
+
+          <div class="why-grid">
+            <article class="why-card">
+              <div class="why-icon" aria-hidden="true">📈</div>
+              <h3 class="why-title">Mercado em expansão</h3>
+              <p class="why-text">
+                Produtores e empresas buscam Pilotos qualificados para pulverização, mapeamento e monitoramento de lavouras.
+              </p>
+            </article>
+
+            <article class="why-card">
+              <div class="why-icon" aria-hidden="true">🛩️</div>
+              <h3 class="why-title">Tecnologia de ponta no agro</h3>
+              <p class="why-text">
+                Você aprende a operar drones agrícolas na prática, em ambiente real, com equipamentos utilizados no dia a dia do campo.
+              </p>
+            </article>
+
+            <article class="why-card">
+              <div class="why-icon" aria-hidden="true">💼</div>
+              <h3 class="why-title">Oportunidade de renda</h3>
+              <p class="why-text">
+                Atue como prestador de serviços, pilotando em fazendas, revendas ou empresas de tecnologia agrícola.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMO FUNCIONA O CURSO -->
+      <section aria-labelledby="como-funciona-title">
+        <div class="container">
+          <h2 class="section-title" id="como-funciona-title">
+            Como funciona o <span class="highlight">curso na prática</span>
+          </h2>
+          <p class="section-subtitle">
+            Formação intensiva, 100% presencial, unindo teoria aplicada, simulações e prática em campo com drones agrícolas reais.
+          </p>
+
+          <div class="steps-grid">
+            <article class="step-card">
+              <div class="step-number">Etapa 1</div>
+              <div class="step-title">Fundamentos do drone agrícola</div>
+              <p class="step-text">
+                Segurança de voo, legislação, princípios da pulverização aérea, configuração e leitura de parâmetros.
+              </p>
+            </article>
+
+            <article class="step-card">
+              <div class="step-number">Etapa 2</div>
+              <div class="step-title">Planejamento de missão</div>
+              <p class="step-text">
+                Planejamento de rotas, cálculo de área, volume de calda, faixas de aplicação e ajuste fino para cada tipo de lavoura.
+              </p>
+            </article>
+
+            <article class="step-card">
+              <div class="step-number">Etapa 3</div>
+              <div class="step-title">Prática em campo real</div>
+              <p class="step-text">
+                Operação completa do drone agrícola em área real, simulando o dia a dia do Piloto profissional.
+              </p>
+            </article>
+
+            <article class="step-card">
+              <div class="step-number">Etapa 4</div>
+              <div class="step-title">Certificação + CAAR</div>
+              <p class="step-text">
+                Ao final da formação, você recebe certificado e sai com o CAAR incluido no curso, pronto para atuar no campo.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- O QUE VOCÊ VAI APRENDER -->
+      <section aria-labelledby="conteudo-curso-title">
+        <div class="container">
+          <h2 class="section-title" id="conteudo-curso-title">
+            O que você vai <span class="highlight">aprender</span>
+          </h2>
+          <p class="section-subtitle">
+            Conteúdo pensado para quem quer começar do zero ou se profissionalizar como piloto de drone agrícola, com foco em operação e resultado no campo.
+          </p>
+
+          <div class="content-grid">
+            <article class="content-card">
+              <h3>Módulos teóricos e operacionais</h3>
+              <p>Os principais temas abordados durante o curso:</p>
+              <ul class="bullet-list">
+                <li>Introdução à tecnologia de drones no agronegócio</li>
+                <li>Tipos de drones agrícolas e componentes principais</li>
+                <li>Legislação, segurança e boas práticas de operação</li>
+                <li>Fundamentos de pulverização aérea e deriva</li>
+                <li>Planejamento de voo, rotas e missões</li>
+                <li>Noções de manutenção preventiva</li>
+              </ul>
+            </article>
+
+            <article class="content-card">
+              <h3>Prática guiada em campo</h3>
+              <p>Momento em que você coloca a mão na massa com acompanhamento dos instrutores:</p>
+              <ul class="bullet-list">
+                <li>Configuração de equipamentos em campo</li>
+                <li>Calibração e checagem pré-voo</li>
+                <li>Execução de missões de pulverização em campo real</li>
+                <li>Ajuste fino de parâmetros conforme as condições do dia</li>
+                <li>Rotinas do Piloto profissional em uma jornada completa</li>
+                <li>Boas práticas para entrega de resultado ao produtor</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- TURMAS DE DRONE EM AÇÃO (SLIDER DE FOTOS) -->
+      <section aria-labelledby="turmas-drone-acao-title">
+        <div class="container">
+          <h2 class="section-title" id="turmas-drone-acao-title">
+            Turmas de <span class="highlight">Drone em ação</span>
+          </h2>
+          <p class="section-subtitle">
+            Momentos reais das turmas de Piloto de Drone Agrícola da Target Agrotech em campo, recebendo certificado e operando drones agrícolas.
+          </p>
+
+          <div
+            class="drone-gallery-slider"
+            id="drone-gallery-slider"
+            aria-label="Galeria de fotos das turmas de drone em campo"
+          >
+            <!-- SLIDE 1 -->
+            <article class="gallery-card active">
+              <div class="gallery-card-image">
+                <img
+                  src="assets/drone-gallery-campo-ajuste.jpg"
+                  loading="lazy"
+                  alt="Turma de Piloto de Drone Agrícola ajustando o drone antes da decolagem em área de campo aberto"
+                  class="img-drone-gallery-1"
+                />
+              </div>
+              <div class="gallery-card-body">
+                <h3 class="gallery-card-title">Ajustes finais antes do voo</h3>
+                <p class="gallery-card-text">
+                  Alunos reunidos em campo realizando os últimos ajustes no drone agrícola antes de iniciar a prática de aplicação.
+                </p>
+              </div>
+            </article>
+
+            <!-- SLIDE 2 -->
+            <article class="gallery-card">
+              <div class="gallery-card-image">
+                <img
+                  src="assets/drone-gallery-plano-voo.jpg"
+                  loading="lazy"
+                  alt="Instrutor apresentando o plano de voo no controle remoto para a turma de Piloto de Drone Agrícola"
+                  class="img-drone-gallery-2"
+                />
+              </div>
+              <div class="gallery-card-body">
+                <h3 class="gallery-card-title">Plano de voo em equipe</h3>
+                <p class="gallery-card-text">
+                  Alunos analisando o plano de voo diretamente no controle, entendendo cada detalhe da operação.
+                </p>
+              </div>
+            </article>
+
+            <!-- SLIDE 3 -->
+            <article class="gallery-card">
+              <div class="gallery-card-image">
+                <img
+                  src="assets/drone-gallery-orientacao-controle.jpg"
+                  loading="lazy"
+                  alt="Instrutor da Target Agrotech orientando aluno no uso do controle do drone agrícola"
+                  class="img-drone-gallery-3"
+                />
+              </div>
+              <div class="gallery-card-body">
+                <h3 class="gallery-card-title">Orientação individual no controle</h3>
+                <p class="gallery-card-text">
+                  Momento de acompanhamento de perto, com o instrutor guiando o aluno na operação segura do controle do drone.
+                </p>
+              </div>
+            </article>
+
+            <!-- SLIDE 4 -->
+            <article class="gallery-card">
+              <div class="gallery-card-image">
+                <img
+                  src="assets/drone-gallery-certificados.jpg"
+                  loading="lazy"
+                  alt="Alunos segurando envelopes de certificados do curso de Piloto de Drone Agrícola"
+                  class="img-drone-gallery-4"
+                />
+              </div>
+              <div class="gallery-card-body">
+                <h3 class="gallery-card-title">Certificação em mãos</h3>
+                <p class="gallery-card-text">
+                  Entrega dos certificados para os alunos formados em Piloto de Drone Agrícola, prontos para atuar no campo.
+                </p>
+              </div>
+            </article>
+
+            <!-- SLIDE 5 -->
+            <article class="gallery-card">
+              <div class="gallery-card-image">
+                <img
+                  src="assets/drone-gallery-analise-controle.jpg"
+                  loading="lazy"
+                  alt="Grupo de alunos reunidos em volta do controle do drone agrícola analisando os dados de voo"
+                  class="img-drone-gallery-5"
+                />
+              </div>
+              <div class="gallery-card-body">
+                <h3 class="gallery-card-title">Analisando os dados de voo</h3>
+                <p class="gallery-card-text">
+                  Turma acompanhando no detalhe os parâmetros da aplicação diretamente na tela do controle do drone agrícola.
+                </p>
+              </div>
+            </article>
+
+            <!-- SLIDE 6 -->
+            <article class="gallery-card">
+              <div class="gallery-card-image">
+                <img
+                  src="assets/drone-gallery-planejamento-turma.jpg"
+                  loading="lazy"
+                  alt="Alunos sentados à mesa revisando configurações e rotas de voo do drone agrícola"
+                  class="img-drone-gallery-6"
+                />
+              </div>
+              <div class="gallery-card-body">
+                <h3 class="gallery-card-title">Planejamento antes de decolar</h3>
+                <p class="gallery-card-text">
+                  Alunos reunidos à mesa revisando configurações, rotas e estratégias de aplicação antes de ir para a lavoura.
+                </p>
+              </div>
+            </article>
+
+            <button
+              type="button"
+              class="slider-arrow slider-arrow-left"
+              id="gallery-prev"
+              aria-label="Ver foto anterior"
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              class="slider-arrow slider-arrow-right"
+              id="gallery-next"
+              aria-label="Ver próxima foto"
+            >
+              ›
+            </button>
+
+            <div
+              class="gallery-dots"
+              id="drone-gallery-dots"
+              role="tablist"
+              aria-label="Selecionar foto da galeria"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEPOIMENTOS TEXTO -->
+      <section aria-labelledby="depoimentos-texto-title">
+        <div class="container">
+          <h2 class="section-title" id="depoimentos-texto-title">
+            O que dizem os <span class="highlight">nossos alunos</span>
+          </h2>
+          <p class="section-subtitle">
+            Quem já passou pelo curso de Piloto de Drone Agrícola conta como a experiência em campo ajudou a mudar a rotina de trabalho no agro.
+          </p>
+
+          <div class="testimonials-grid">
+            <article class="testimonial-card">
+              <p class="testimonial-text">
+                “Eu não tinha nenhuma experiência com drones e saí do curso confiante para operar no dia a dia.
+                A prática em campo fez toda a diferença.”
+              </p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar" aria-hidden="true">RA</div>
+                <div class="testimonial-meta">
+                  <strong>Rafael Andrade</strong>
+                  Piloto de Drone Agrícola • Pará
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <p class="testimonial-text">
+                “O curso é direto ao ponto e focado em prática. Hoje atendo produtores da região prestando serviço
+                de pulverização com drone.”
+              </p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar" aria-hidden="true">LM</div>
+                <div class="testimonial-meta">
+                  <strong>Larissa Martins</strong>
+                  Prestadora de serviços • Mato Grosso
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <p class="testimonial-text">
+                “Além do certificado, o CAAR incluso no curso foi um diferencial enorme para conseguir oportunidades
+                de trabalho mais rápido.”
+              </p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar" aria-hidden="true">JG</div>
+                <div class="testimonial-meta">
+                  <strong>João Guilherme</strong>
+                  Piloto de Drone • Minas Gerais
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEPOIMENTOS EM VÍDEO (SLIDER) -->
+      <section aria-labelledby="depoimentos-video-title">
+        <div class="container">
+          <h2 class="section-title" id="depoimentos-video-title">
+            Depoimentos em <span class="highlight">vídeo</span>
+          </h2>
+          <p class="section-subtitle">
+            Veja alguns depoimentos reais de alunos que se formaram como Piloto de Drone Agrícola pela Target Agrotech.
+          </p>
+
+          <div class="video-slider" aria-label="Depoimentos em vídeo">
+            <div class="video-grid" id="video-grid-drone">
+              <article class="video-card">
+                <video controls preload="metadata">
+                  <source src="assets/depo-drone-1.mp4" type="video/mp4" />
+                  Seu navegador não suporta vídeo.
+                </video>
+                <div class="video-card-title">“Rodei 1300 km pra estar aqui e super recomendo.”</div>
+                <div class="video-card-text">
+                  Depoimento de aluno relatando a experiência prática durante o curso e os resultados no campo.
+                </div>
+              </article>
+
+              <article class="video-card">
+                <video controls preload="metadata">
+                  <source src="assets/depo-drone-2.mp4" type="video/mp4" />
+                  Seu navegador não suporta vídeo.
+                </video>
+                <div class="video-card-title">“Curso Maravilhoso”</div>
+                <div class="video-card-text">
+                  Relato sobre  o funcionamento do curso, a prática com drones e o impacto na rotina profissional.
+                </div>
+              </article>
+
+              <article class="video-card">
+                <video controls preload="metadata">
+                  <source src="assets/depo-drone-3.mp4" type="video/mp4" />
+                  Seu navegador não suporta vídeo.
+                </video>
+                <div class="video-card-title">“Target é a melhor escola do Brasil”</div>
+                <div class="video-card-text">
+                  Aluno recém formado segurando seu certificado e contando como foi o curso.
+                </div>
+              </article>
+            </div>
+
+            <button
+              type="button"
+              class="slider-arrow slider-arrow-left"
+              id="video-prev"
+              aria-label="Ver vídeos anteriores"
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              class="slider-arrow slider-arrow-right"
+              id="video-next"
+              aria-label="Ver próximos vídeos"
+            >
+              ›
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRÓXIMAS TURMAS DE DRONE -->
+      <section id="proximas-turmas-drone" aria-labelledby="proximas-turmas-title">
+        <div class="container">
+          <h2 class="section-title" id="proximas-turmas-title">
+            <span class="highlight">Próximas</span> turmas de Piloto de Drone Agrícola
+          </h2>
+          <p class="section-subtitle">
+            Escolha a cidade mais próxima de você e garanta sua vaga na próxima turma presencial de Piloto de Drone Agrícola da Target Agrotech.
+          </p>
+
+          <div class="upcoming-controls">
+            <div class="upcoming-search">
+              <span aria-hidden="true">🔍</span>
+              <input
+                type="text"
+                id="search-city-drone"
+                placeholder="Buscar por cidade ou estado"
+                aria-label="Buscar turmas por cidade ou estado"
+              />
+            </div>
+            <div class="upcoming-toggle">
+              <button
+                type="button"
+                class="btn btn-ghost btn-small"
+                id="toggle-more-drone"
+                aria-expanded="false"
+              >
+                Ver mais turmas
+              </button>
+            </div>
+          </div>
+
+          <div class="upcoming-grid" id="upcoming-grid-drone">
+            <!-- Somente turmas de drone, com as mesmas datas da página principal -->
+
+            <!-- DEZEMBRO -->
+            <article
+              class="upcoming-card"
+              data-course-date="05/12"
+              data-city="santarem"
+              data-state="pa"
+            >
+              <div class="upcoming-date">05/12</div>
+              <div class="upcoming-location">📍 Santarém (PA)</div>
+              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
+              <a
+                href="https://wa.me/5566999763455"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >Fazer inscrição pelo WhatsApp</a>
+            </article>
+
+            <article
+              class="upcoming-card"
+              data-course-date="12/12"
+              data-city="lagoa da confusao"
+              data-state="to"
+            >
+              <div class="upcoming-date">12/12</div>
+              <div class="upcoming-location">📍 Lagoa da Confusão (TO)</div>
+              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
+              <a
+                href="https://wa.me/5566999763455"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >Fazer inscrição pelo WhatsApp</a>
+            </article>
+
+            <!-- JANEIRO -->
+            <article
+              class="upcoming-card"
+              data-course-date="16/01"
+              data-city="paragominas"
+              data-state="pa"
+            >
+              <div class="upcoming-date">16/01</div>
+              <div class="upcoming-location">📍 Paragominas (PA)</div>
+              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
+              <a
+                href="https://wa.me/5566999763455"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >Fazer inscrição pelo WhatsApp</a>
+            </article>
+
+            <article
+              class="upcoming-card"
+              data-course-date="23/01"
+              data-city="confresa"
+              data-state="mt"
+            >
+              <div class="upcoming-date">23/01</div>
+              <div class="upcoming-location">📍 Confresa (MT)</div>
+              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
+              <a
+                href="https://wa.me/5566999763455"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >Fazer inscrição pelo WhatsApp</a>
+            </article>
+
+            <!-- FEVEREIRO -->
+            <article
+              class="upcoming-card"
+              data-course-date="06/02"
+              data-city="novo progresso"
+              data-state="pa"
+            >
+              <div class="upcoming-date">06/02</div>
+              <div class="upcoming-location">📍 Novo Progresso (PA)</div>
+              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
+              <a
+                href="https://wa.me/5566999763455"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >Fazer inscrição pelo WhatsApp</a>
+            </article>
+
+            <article
+              class="upcoming-card"
+              data-course-date="27/02"
+              data-city="rolim de moura"
+              data-state="ro"
+            >
+              <div class="upcoming-date">27/02</div>
+              <div class="upcoming-location">📍 Rolim de Moura (RO)</div>
+              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
+              <a
+                href="https://wa.me/5566999763455"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >Fazer inscrição pelo WhatsApp</a>
+            </article>
+
+            <!-- MARÇO -->
+            <article
+              class="upcoming-card"
+              data-course-date="06/03"
+              data-city="teixeira de freitas"
+              data-state="ba"
+            >
+              <div class="upcoming-date">06/03</div>
+              <div class="upcoming-location">📍 Teixeira de Freitas (BA)</div>
+              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
+              <a
+                href="https://wa.me/5566999763455"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >Fazer inscrição pelo WhatsApp</a>
+            </article>
+
+            <article
+              class="upcoming-card"
+              data-course-date="13/03"
+              data-city="luis eduardo magalhaes"
+              data-state="ba"
+            >
+              <div class="upcoming-date">13/03</div>
+              <div class="upcoming-location">📍 Luís Eduardo Magalhães (BA)</div>
+              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
+              <a
+                href="https://wa.me/5566999763455"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >Fazer inscrição pelo WhatsApp</a>
+            </article>
+
+            <article
+              class="upcoming-card"
+              data-course-date="13/03"
+              data-city="sinop"
+              data-state="mt"
+            >
+              <div class="upcoming-date">13/03</div>
+              <div class="upcoming-location">📍 Sinop (MT)</div>
+              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
+              <a
+                href="https://wa.me/5566999763455"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >Fazer inscrição pelo WhatsApp</a>
+            </article>
+          </div>
+
+          <div class="city-suggestion">
+            <h3>Não encontrou sua cidade?</h3>
+            <p>
+              Conte pra gente em qual cidade ou região você gostaria de receber uma turma de Piloto de Drone Agrícola.
+            </p>
+            <form class="city-form" id="city-form-drone">
+              <input
+                type="text"
+                id="city-input-drone"
+                placeholder="Digite sua cidade/estado"
+                aria-label="Informe sua cidade ou estado"
+              />
+              <button type="submit" class="btn btn-outline btn-small">
+                Quero uma turma na minha cidade
+              </button>
+            </form>
+            <div class="small-note">
+              Ao enviar, abriremos uma conversa no WhatsApp com sua cidade preenchida para nossa equipe avaliar novas turmas.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section class="final-cta" aria-labelledby="cta-final-title">
+        <div class="container">
+          <div class="final-cta-inner">
+            <div class="final-cta-icon" aria-hidden="true">🛩️</div>
+            <h2 class="final-cta-title" id="cta-final-title">
+              Pronto para decolar como Piloto de Drone Agrícola?
+            </h2>
+            <p class="final-cta-text">
+              Garanta sua vaga em uma das próximas turmas presenciais e comece a atuar com tecnologia de ponta no campo,
+              com suporte de quem vive o agro todos os dias.
+            </p>
+            <div class="btn-row center">
+              <a
+                href="https://wa.me/5566999763455"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >
+                Quero falar com um consultor
+              </a>
+              <a href="#proximas-turmas-drone" class="btn btn-ghost">
+                Ver datas disponíveis
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <img
+              src="assets/logo-target-horizontal.png"
+              loading="lazy"
+              alt="Logo Target Agrotech"
+            />
+            <p>
+              Target Agrotech – formação em tecnologia no campo, com foco em prática real e preparo para o mercado de trabalho no agro.
+            </p>
+          </div>
+
+          <div class="footer-links">
+            <div>
+              <div class="footer-column-title">Cursos</div>
+              <ul class="footer-list">
+                <li>Piloto de Drone Agrícola</li>
+                <li>Operador de Máquinas Pesadas</li>
+                <li>Inseminação Artificial em Bovinos</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="footer-column-title">Contato</div>
+              <ul class="footer-list">
+                <li>
+                  Instagram:
+                  <a
+                    href="https://www.instagram.com/target_agrotech"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    @target_agrotech
+                  </a>
+                </li>
+                <li>
+                  WhatsApp:
+                  <a
+                    href="https://wa.me/5566999763455"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    (66) 9 9976-3455
+                  </a>
+                </li>
+                <li>E-mail: contato@targetagrotech.com.br</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>© 2024 Target Agrotech. Todos os direitos reservados.</div>
+          <div>CNPJ 48.448.103/0001-45</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      // MESMA REGRA DA HOME:
+      // - Dezembro (12) => ano atual
+      // - Qualquer outro mês (01–11) => ano que vem
+      function parseCourseDate(ddmm) {
+        const parts = ddmm.split("/");
+        if (parts.length !== 2) return null;
+
+        const day = parseInt(parts[0], 10);
+        const month = parseInt(parts[1], 10);
+        if (isNaN(day) || isNaN(month)) return null;
+
+        const currentYear = today.getFullYear();
+        const year = (month === 12) ? currentYear : currentYear + 1;
+
+        return new Date(year, month - 1, day);
+      }
+
+      function initDroneGallerySlider() {
+        const slider = document.getElementById("drone-gallery-slider");
+        if (!slider) return;
+
+        const slides = Array.from(slider.querySelectorAll(".gallery-card"));
+        const dotsContainer = document.getElementById("drone-gallery-dots");
+        const prevBtn = document.getElementById("gallery-prev");
+        const nextBtn = document.getElementById("gallery-next");
+        if (slides.length === 0 || !dotsContainer) return;
+
+        let currentIndex = 0;
+        let autoTimer = null;
+
+        function updateSlides(index) {
+          slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === index);
+          });
+          const dots = dotsContainer.querySelectorAll(".gallery-dot");
+          dots.forEach((dot, i) => {
+            const isActive = i === index;
+            dot.classList.toggle("active", isActive);
+            dot.setAttribute("aria-pressed", isActive ? "true" : "false");
+          });
+          currentIndex = index;
+        }
+
+        function startAutoPlay() {
+          stopAutoPlay();
+          autoTimer = setInterval(function () {
+            const nextIndex = (currentIndex + 1) % slides.length;
+            updateSlides(nextIndex);
+          }, 4500);
+        }
+
+        function stopAutoPlay() {
+          if (autoTimer) {
+            clearInterval(autoTimer);
+            autoTimer = null;
+          }
+        }
+
+        slides.forEach((slide, index) => {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "gallery-dot" + (index === 0 ? " active" : "");
+          dot.dataset.index = String(index);
+          dot.setAttribute("aria-label", "Ir para a foto " + (index + 1));
+          dot.setAttribute("aria-pressed", index === 0 ? "true" : "false");
+          dot.setAttribute("role", "tab");
+          dotsContainer.appendChild(dot);
+        });
+
+        dotsContainer.addEventListener("click", function (e) {
+          const target = e.target;
+          if (!(target instanceof HTMLElement)) return;
+          if (!target.classList.contains("gallery-dot")) return;
+          const idx = Number(target.dataset.index || "0");
+          updateSlides(idx);
+          startAutoPlay();
+        });
+
+        if (prevBtn) {
+          prevBtn.addEventListener("click", function () {
+            const nextIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlides(nextIndex);
+            startAutoPlay();
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener("click", function () {
+            const nextIndex = (currentIndex + 1) % slides.length;
+            updateSlides(nextIndex);
+            startAutoPlay();
+          });
+        }
+
+        updateSlides(0);
+        startAutoPlay();
+      }
+
+      // *** AQUI ESTÁ A LÓGICA DE TURMAS (FILTRO + SUMIR PASSADAS) ***
+      function initUpcomingClasses() {
+        const upcomingGrid = document.getElementById("upcoming-grid-drone");
+        if (!upcomingGrid) return;
+
+        const rawCards = Array.from(
+          upcomingGrid.querySelectorAll(".upcoming-card[data-course-date]")
+        );
+
+        const cards = []; // só turmas futuras vão ficar aqui
+
+        const searchInput = document.getElementById("search-city-drone");
+        const toggleBtn = document.getElementById("toggle-more-drone");
+        const INITIAL_VISIBLE = 3;
+        let showAll = false;
+        let searchTerm = "";
+
+        // filtra turmas passadas e marca "Últimas vagas"
+        rawCards.forEach((card) => {
+          const ddmm = card.getAttribute("data-course-date");
+          const courseDate = ddmm ? parseCourseDate(ddmm) : null;
+          if (!courseDate) {
+            card.remove();
+            return;
+          }
+
+          const diffMs = courseDate.getTime() - today.getTime();
+          const diffDays = diffMs / (1000 * 60 * 60 * 24);
+
+          // Se a data já passou, some do site
+          if (diffDays < 0) {
+            card.remove();
+            return;
+          }
+
+          // Daqui pra baixo só turma futura
+          cards.push(card);
+
+          // Últimas vagas: até 30 dias
+          if (diffDays >= 0 && diffDays <= 30) {
+            const badge = document.createElement("div");
+            badge.className = "upcoming-last-call";
+            badge.innerHTML = "<span>⏰</span><span>Últimas vagas</span>";
+
+            const btn = card.querySelector(".btn");
+            if (btn && btn.parentNode) {
+              btn.parentNode.insertBefore(badge, btn);
+            } else {
+              card.appendChild(badge);
+            }
+          }
+        });
+
+        function applyFilter() {
+          if (!cards.length) {
+            if (toggleBtn) toggleBtn.style.display = "none";
+            return;
+          }
+
+          const filtered = cards.filter((card) => {
+            const city = (card.getAttribute("data-city") || "").toLowerCase();
+            const state = (card.getAttribute("data-state") || "").toLowerCase();
+            const combined = (city + " " + state).trim();
+            if (!searchTerm) return true;
+            return combined.includes(searchTerm);
+          });
+
+          // esconde tudo
+          cards.forEach((card) => card.classList.add("hidden"));
+
+          // mostra só os que batem com o filtro + regra de "ver mais"
+          filtered.forEach((card, index) => {
+            if (!searchTerm && !showAll && index >= INITIAL_VISIBLE) {
+              card.classList.add("hidden");
+            } else {
+              card.classList.remove("hidden");
+            }
+          });
+
+          // botão "Ver mais turmas"
+          if (toggleBtn) {
+            if (filtered.length <= INITIAL_VISIBLE || searchTerm) {
+              toggleBtn.style.display = "none";
+            } else {
+              toggleBtn.style.display = "";
+              toggleBtn.textContent = showAll ? "Ver menos turmas" : "Ver mais turmas";
+              toggleBtn.setAttribute("aria-expanded", showAll ? "true" : "false");
+            }
+          }
+        }
+
+        if (searchInput) {
+          searchInput.addEventListener("input", function (e) {
+            const target = e.target;
+            if (!(target instanceof HTMLInputElement)) return;
+            searchTerm = target.value.toLowerCase().trim();
+            if (!searchTerm) showAll = false;
+            applyFilter();
+          });
+        }
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener("click", function () {
+            showAll = !showAll;
+            applyFilter();
+          });
+        }
+
+        applyFilter();
+      }
+
+      function initCityForm() {
+        const form = document.getElementById("city-form-drone");
+        const input = document.getElementById("city-input-drone");
+        if (!form || !(input instanceof HTMLInputElement)) return;
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const value = input.value.trim();
+          if (!value) return;
+
+          const message =
+            "Olá! Tenho interesse no curso de Piloto de Drone Agrícola na região de " +
+            value +
+            ". Podem me avisar quando tiver turma aí?";
+          const url =
+            "https://wa.me/5566999763455?text=" + encodeURIComponent(message);
+
+          window.open(url, "_blank");
+        });
+      }
+
+      function initVideoSlider() {
+        const grid = document.getElementById("video-grid-drone");
+        const prevBtn = document.getElementById("video-prev");
+        const nextBtn = document.getElementById("video-next");
+        if (!grid || !prevBtn || !nextBtn) return;
+
+        const cards = Array.from(grid.querySelectorAll(".video-card"));
+        const total = cards.length;
+        if (total === 0) return;
+
+        const VISIBLE = 3;
+        let startIndex = 0;
+
+        function updateVisible() {
+          cards.forEach((card, idx) => {
+            const offset = (idx - startIndex + total) % total;
+            card.classList.toggle("hidden", offset >= VISIBLE);
+          });
+        }
+
+        prevBtn.addEventListener("click", function () {
+          startIndex = (startIndex - 1 + total) % total;
+          updateVisible();
+        });
+
+        nextBtn.addEventListener("click", function () {
+          startIndex = (startIndex + 1) % total;
+          updateVisible();
+        });
+
+        updateVisible();
+      }
+
+      initDroneGallerySlider();
+      initUpcomingClasses();
+      initCityForm();
+      initVideoSlider();
+    });
+  </script>
+</body>
+</html>
