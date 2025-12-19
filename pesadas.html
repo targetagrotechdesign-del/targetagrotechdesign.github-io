@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Operador de Máquinas Pesadas - Target Agrotech</title>
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="shortcut icon" type="image/png" href="assets/favicon-32.png" />
-  
+
   <!-- SEO -->
   <meta
     name="description"
@@ -33,7 +34,7 @@
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    'https://connect.facebook.net/pt_BR/fbevents.js');
     fbq('init', '2103148137124992');
     fbq('track', 'PageView');
   </script>
@@ -57,11 +58,7 @@
       --shadow-card: 0 12px 26px rgba(0, 0, 0, 0.45);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -97,19 +94,10 @@
       background: radial-gradient(circle at center, rgba(242, 201, 76, 0.4), transparent 70%);
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .page {
-      min-height: 100vh;
-    }
+    .page { min-height: 100vh; }
 
     .container {
       width: 100%;
@@ -118,15 +106,8 @@
       padding: 0 1.5rem;
     }
 
-    section {
-      padding: 4rem 0;
-    }
-
-    @media (min-width: 1024px) {
-      section {
-        padding: 5rem 0;
-      }
-    }
+    section { padding: 4rem 0; }
+    @media (min-width: 1024px) { section { padding: 5rem 0; } }
 
     .section-title {
       font-size: clamp(2.1rem, 3vw, 2.6rem);
@@ -135,9 +116,7 @@
       position: relative;
     }
 
-    .section-title span.highlight {
-      color: var(--primary);
-    }
+    .section-title span.highlight { color: var(--primary); }
 
     .section-title::after {
       content: "";
@@ -172,7 +151,7 @@
         box-shadow 0.12s ease-out,
         background 0.12s ease-out,
         border-color 0.12s ease-out,
-        opacity 0.12s.ease-out;
+        opacity 0.12s ease-out;
       white-space: nowrap;
     }
 
@@ -219,29 +198,16 @@
       align-items: center;
     }
 
-    .btn-small {
-      padding: 0.6rem 1.1rem;
-      font-size: 0.86rem;
-    }
-
-    .hidden {
-      display: none !important;
-    }
+    .btn-small { padding: 0.6rem 1.1rem; font-size: 0.86rem; }
+    .hidden { display: none !important; }
 
     /* utilitários */
-    .mb-1_5 {
-      margin-bottom: 1.5rem;
-    }
-
-    .center {
-      justify-content: center;
-    }
+    .mb-1_5 { margin-bottom: 1.5rem; }
+    .center { justify-content: center; }
 
     /* ========== HEADER / TOP BAR ========== */
 
-    header {
-      padding: 1.2rem 0 0.5rem;
-    }
+    header { padding: 1.2rem 0 0.5rem; }
 
     .top-bar {
       display: flex;
@@ -271,10 +237,7 @@
       cursor: pointer;
     }
 
-    .back-link:hover {
-      border-color: var(--primary);
-      color: var(--primary-soft);
-    }
+    .back-link:hover { border-color: var(--primary); color: var(--primary-soft); }
 
     .top-bar-right {
       display: flex;
@@ -296,9 +259,7 @@
 
     /* ========== HERO DO CURSO ========== */
 
-    .hero-course {
-      padding: 1.5rem 0 3rem;
-    }
+    .hero-course { padding: 1.5rem 0 3rem; }
 
     .hero-grid {
       display: grid;
@@ -307,11 +268,7 @@
       align-items: center;
     }
 
-    @media (max-width: 900px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
 
     .hero-course-kicker {
       font-size: 0.88rem;
@@ -327,9 +284,7 @@
       margin-bottom: 0.7rem;
     }
 
-    .hero-course-title span {
-      color: var(--primary);
-    }
+    .hero-course-title span { color: var(--primary); }
 
     .hero-course-subtitle {
       color: var(--text-muted);
@@ -362,14 +317,8 @@
       color: var(--text-muted);
     }
 
-    .hero-course-info-item span {
-      display: block;
-    }
-
-    .hero-course-info-item strong {
-      color: var(--primary-soft);
-      font-size: 1rem;
-    }
+    .hero-course-info-item span { display: block; }
+    .hero-course-info-item strong { color: var(--primary-soft); font-size: 1rem; }
 
     .hero-course-media {
       background: radial-gradient(circle at top, #152c1f, #07130d);
@@ -421,9 +370,7 @@
       flex-wrap: wrap;
     }
 
-    .hero-course-media-footer strong {
-      color: var(--primary-soft);
-    }
+    .hero-course-media-footer strong { color: var(--primary-soft); }
 
     /* ========== POR QUE CURSO ========== */
 
@@ -433,11 +380,7 @@
       gap: 1.4rem;
     }
 
-    @media (max-width: 900px) {
-      .why-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 900px) { .why-grid { grid-template-columns: 1fr; } }
 
     .why-card {
       background: rgba(5, 33, 19, 0.95);
@@ -451,7 +394,7 @@
       transition:
         transform 0.16s ease-out,
         box-shadow 0.16s ease-out,
-        border-color 0.16s.ease-out;
+        border-color 0.16s ease-out;
     }
 
     .why-card:hover {
@@ -472,15 +415,8 @@
       margin-bottom: 0.3rem;
     }
 
-    .why-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-    }
-
-    .why-text {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
+    .why-title { font-size: 1.05rem; font-weight: 600; }
+    .why-text { font-size: 0.9rem; color: var(--text-muted); }
 
     /* ========== COMO FUNCIONA ========== */
 
@@ -490,17 +426,8 @@
       gap: 1.1rem;
     }
 
-    @media (max-width: 1000px) {
-      .steps-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .steps-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 1000px) { .steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .steps-grid { grid-template-columns: 1fr; } }
 
     .step-card {
       background: linear-gradient(150deg, #0f2519, #07140d);
@@ -515,7 +442,7 @@
       transition:
         transform 0.16s ease-out,
         box-shadow 0.16s ease-out,
-        border-color 0.16s.ease-out;
+        border-color 0.16s ease-out;
     }
 
     .step-card:hover {
@@ -531,15 +458,8 @@
       color: var(--secondary);
     }
 
-    .step-title {
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .step-text {
-      color: var(--text-muted);
-      font-size: 0.88rem;
-    }
+    .step-title { font-weight: 600; font-size: 1rem; }
+    .step-text { color: var(--text-muted); font-size: 0.88rem; }
 
     /* ========== CONTEÚDO DO CURSO ========== */
 
@@ -550,11 +470,7 @@
       align-items: flex-start;
     }
 
-    @media (max-width: 900px) {
-      .content-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } }
 
     .content-card {
       background: rgba(5, 33, 19, 0.96);
@@ -564,16 +480,8 @@
       box-shadow: var(--shadow-card);
     }
 
-    .content-card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .content-card p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 0.9rem;
-    }
+    .content-card h3 { font-size: 1.05rem; margin-bottom: 0.7rem; }
+    .content-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.9rem; }
 
     .bullet-list {
       list-style: none;
@@ -592,7 +500,7 @@
       font-size: 0.8rem;
     }
 
-    /* ========== SLIDER GENÉRICO ========== */
+    /* ========== SLIDER (FOTOS) ========== */
 
     .slider-arrow {
       position: absolute;
@@ -626,20 +534,16 @@
       transform: translateY(-50%) scale(1.03);
     }
 
-    @media (max-width: 640px) {
-      .slider-arrow { display: none; }
-    }
+    @media (max-width: 640px) { .slider-arrow { display: none; } }
 
-    /* ========== TURMAS EM AÇÃO (SLIDER FOTOS) ========== */
-
-    .drone-gallery-slider {
+    .course-gallery-slider {
       position: relative;
       max-width: 600px;
       margin: 0 auto;
       min-height: 600px;
     }
 
-    .drone-gallery-slider .gallery-card {
+    .course-gallery-slider .gallery-card {
       position: absolute;
       inset: 0;
       opacity: 0;
@@ -651,7 +555,7 @@
       transform: translateY(6px);
     }
 
-    .drone-gallery-slider .gallery-card.active {
+    .course-gallery-slider .gallery-card.active {
       opacity: 1;
       pointer-events: auto;
       transform: translateY(0);
@@ -676,9 +580,7 @@
       overflow: hidden;
     }
 
-    @media (max-width: 640px) {
-      .gallery-card-image { aspect-ratio: 4 / 3; }
-    }
+    @media (max-width: 640px) { .gallery-card-image { aspect-ratio: 4 / 3; } }
 
     .gallery-card-image img {
       width: 100%;
@@ -687,29 +589,15 @@
       transition: transform 0.3s ease-out;
     }
 
-    .drone-gallery-slider .gallery-card:hover img {
-      transform: scale(1.06);
-    }
+    .course-gallery-slider .gallery-card:hover img { transform: scale(1.06); }
 
-    /* ajuste fino das imagens da galeria de pesadas */
+    /* ajuste fino das imagens */
     .img-pesadas-gallery-1 { object-position: 50% 40%; }
     .img-pesadas-gallery-2 { object-position: 50% 40%; }
     .img-pesadas-gallery-3 { object-position: 50% 40%; }
-    .img-pesadas-gallery-4 { object-position: 50% 40%; }
-    .img-pesadas-gallery-5 { object-position: 50% 40%; }
-    .img-pesadas-gallery-6 { object-position: 50% 40%; }
 
-    .gallery-card-body {
-      padding: 0.95rem 1.05rem 1.2rem;
-      font-size: 0.88rem;
-    }
-
-    .gallery-card-title {
-      font-size: 0.98rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
+    .gallery-card-body { padding: 0.95rem 1.05rem 1.2rem; font-size: 0.88rem; }
+    .gallery-card-title { font-size: 0.98rem; font-weight: 600; margin-bottom: 0.25rem; }
     .gallery-card-text { color: var(--text-muted); }
 
     .gallery-dots {
@@ -731,7 +619,7 @@
 
     .gallery-dot.active { background: var(--secondary); }
 
-    /* ========== DEPOIMENTOS TEXTO ========== */
+    /* ========== DEPOIMENTOS (TEXTO) ========== */
 
     .testimonials-grid {
       display: grid;
@@ -739,13 +627,8 @@
       gap: 1.3rem;
     }
 
-    @media (max-width: 992px) {
-      .testimonials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-
-    @media (max-width: 640px) {
-      .testimonials-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 992px) { .testimonials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .testimonials-grid { grid-template-columns: 1fr; } }
 
     .testimonial-card {
       background: rgba(5, 33, 19, 0.96);
@@ -792,15 +675,8 @@
       font-weight: 600;
     }
 
-    .testimonial-meta {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .testimonial-meta strong {
-      display: block;
-      color: var(--text-main);
-    }
+    .testimonial-meta { font-size: 0.8rem; color: var(--text-muted); }
+    .testimonial-meta strong { display: block; color: var(--text-main); }
 
     /* ========== PRÓXIMAS TURMAS ========== */
 
@@ -835,7 +711,6 @@
     }
 
     .upcoming-search input::placeholder { color: var(--text-muted); }
-
     .upcoming-toggle { flex: 0 0 auto; }
 
     .upcoming-grid {
@@ -844,13 +719,8 @@
       gap: 1.1rem;
     }
 
-    @media (max-width: 992px) {
-      .upcoming-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-
-    @media (max-width: 640px) {
-      .upcoming-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 992px) { .upcoming-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .upcoming-grid { grid-template-columns: 1fr; } }
 
     .upcoming-card {
       background: linear-gradient(150deg, #0f2519, #07140d);
@@ -865,7 +735,7 @@
       transition:
         transform 0.16s ease-out,
         box-shadow 0.16s ease-out,
-        border-color 0.16s.ease-out;
+        border-color 0.16s ease-out;
     }
 
     .upcoming-card:hover {
@@ -874,22 +744,9 @@
       border-color: rgba(242, 201, 76, 0.5);
     }
 
-    .upcoming-date {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--primary-soft);
-    }
-
-    .upcoming-location {
-      color: var(--text-muted);
-      font-size: 0.82rem;
-    }
-
-    .upcoming-course-name {
-      font-weight: 600;
-      margin-top: 0.2rem;
-      font-size: 1.02rem;
-    }
+    .upcoming-date { font-weight: 600; font-size: 0.95rem; color: var(--primary-soft); }
+    .upcoming-location { color: var(--text-muted); font-size: 0.82rem; }
+    .upcoming-course-name { font-weight: 600; margin-top: 0.2rem; font-size: 1.02rem; }
 
     .upcoming-last-call {
       margin-top: 0.4rem;
@@ -919,15 +776,8 @@
       margin-right: auto;
     }
 
-    .city-suggestion h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .city-suggestion p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
+    .city-suggestion h3 { font-size: 1.05rem; margin-bottom: 0.3rem; }
+    .city-suggestion p { font-size: 0.88rem; color: var(--text-muted); }
 
     .city-form {
       display: flex;
@@ -948,12 +798,7 @@
     }
 
     .city-form input::placeholder { color: var(--text-muted); }
-
-    .small-note {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: 0.4rem;
-    }
+    .small-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; }
 
     /* ========== CTA FINAL ========== */
 
@@ -987,11 +832,7 @@
       margin-bottom: 0.7rem;
     }
 
-    .final-cta-text {
-      font-size: 1rem;
-      color: var(--text-muted);
-      margin-bottom: 1.8rem;
-    }
+    .final-cta-text { font-size: 1rem; color: var(--text-muted); margin-bottom: 1.8rem; }
 
     /* ========== FOOTER ========== */
 
@@ -1013,15 +854,9 @@
 
     .footer-brand { max-width: 260px; }
 
-    .footer-brand img {
-      height: 80px;
-      margin-bottom: 0.6rem;
-    }
+    .footer-brand img { height: 80px; margin-bottom: 0.6rem; }
 
-    .footer-brand p {
-      color: var(--text-muted);
-      font-size: 0.86rem;
-    }
+    .footer-brand p { color: var(--text-muted); font-size: 0.86rem; }
 
     .footer-links {
       display: flex;
@@ -1029,10 +864,7 @@
       gap: 1.8rem;
     }
 
-    .footer-column-title {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
+    .footer-column-title { font-weight: 600; margin-bottom: 0.5rem; }
 
     .footer-list {
       list-style: none;
@@ -1063,6 +895,7 @@
     }
   </style>
 </head>
+
 <body>
   <!-- Meta Pixel NoScript -->
   <noscript>
@@ -1124,7 +957,7 @@
                 >
                   Falar com um consultor no WhatsApp
                 </a>
-                <a href="#proximas-turmas-drone" class="btn btn-outline">
+                <a href="#proximas-turmas-pesadas" class="btn btn-outline">
                   Ver próximas turmas de pesadas
                 </a>
               </div>
@@ -1288,7 +1121,7 @@
         </div>
       </section>
 
-      <!-- TURMAS DE MÁQUINAS PESADAS EM AÇÃO (SLIDER DE FOTOS) -->
+      <!-- TURMAS EM AÇÃO (SLIDER DE FOTOS) -->
       <section aria-labelledby="turmas-pesadas-acao-title">
         <div class="container">
           <h2 class="section-title" id="turmas-pesadas-acao-title">
@@ -1300,8 +1133,8 @@
           </p>
 
           <div
-            class="drone-gallery-slider"
-            id="drone-gallery-slider"
+            class="course-gallery-slider"
+            id="pesadas-gallery-slider"
             aria-label="Galeria de fotos das turmas de máquinas pesadas em pista"
           >
             <!-- SLIDE 1 -->
@@ -1317,7 +1150,7 @@
               <div class="gallery-card-body">
                 <h3 class="gallery-card-title">Primeiros comandos na máquina</h3>
                 <p class="gallery-card-text">
-                  Momento em que o aluno assume o posto de operador, na pá carregadeira, um maquinário escencial no ramo de construção civil.
+                  Momento em que o aluno assume o posto de operador, na pá carregadeira, um maquinário essencial no ramo de construção civil.
                 </p>
               </div>
             </article>
@@ -1333,7 +1166,7 @@
                 />
               </div>
               <div class="gallery-card-body">
-                <h3 class="gallery-card-title">Escavadeira Hidraúlica </h3>
+                <h3 class="gallery-card-title">Escavadeira hidráulica</h3>
                 <p class="gallery-card-text">
                   Treinamento prático em escavadeira hidráulica, do básico à operação profissional.
                 </p>
@@ -1351,9 +1184,9 @@
                 />
               </div>
               <div class="gallery-card-body">
-                <h3 class="gallery-card-title">Turma de Operador de Máquinas Pesadas Target AgroTech:</h3>
+                <h3 class="gallery-card-title">Turma completa em ação</h3>
                 <p class="gallery-card-text">
-                  Formação completa em escavadeira, pá carregadeira, caminhão e retroescavadeira.
+                  Formação com prática em escavadeira, pá carregadeira, caminhão e retroescavadeira.
                 </p>
               </div>
             </article>
@@ -1361,7 +1194,7 @@
             <button
               type="button"
               class="slider-arrow slider-arrow-left"
-              id="gallery-prev"
+              id="pesadas-gallery-prev"
               aria-label="Ver foto anterior"
             >
               ‹
@@ -1369,7 +1202,7 @@
             <button
               type="button"
               class="slider-arrow slider-arrow-right"
-              id="gallery-next"
+              id="pesadas-gallery-next"
               aria-label="Ver próxima foto"
             >
               ›
@@ -1377,7 +1210,7 @@
 
             <div
               class="gallery-dots"
-              id="drone-gallery-dots"
+              id="pesadas-gallery-dots"
               role="tablist"
               aria-label="Selecionar foto da galeria"
             ></div>
@@ -1442,8 +1275,8 @@
         </div>
       </section>
 
-      <!-- PRÓXIMAS TURMAS DE MÁQUINAS PESADAS -->
-      <section id="proximas-turmas-drone" aria-labelledby="proximas-turmas-title">
+      <!-- PRÓXIMAS TURMAS -->
+      <section id="proximas-turmas-pesadas" aria-labelledby="proximas-turmas-title">
         <div class="container">
           <h2 class="section-title" id="proximas-turmas-title">
             <span class="highlight">Próximas</span> turmas de Operador de Máquinas Pesadas
@@ -1457,7 +1290,7 @@
               <span aria-hidden="true">🔍</span>
               <input
                 type="text"
-                id="search-city-drone"
+                id="search-city-pesadas"
                 placeholder="Buscar por cidade ou estado"
                 aria-label="Buscar turmas por cidade ou estado"
               />
@@ -1466,7 +1299,7 @@
               <button
                 type="button"
                 class="btn btn-ghost btn-small"
-                id="toggle-more-drone"
+                id="toggle-more-pesadas"
                 aria-expanded="false"
               >
                 Ver mais turmas
@@ -1474,7 +1307,8 @@
             </div>
           </div>
 
-          <div class="upcoming-grid" id="upcoming-grid-drone">
+          <div class="upcoming-grid" id="upcoming-grid-pesadas">
+            <!-- Exemplo: mantenha aqui SOMENTE turmas do curso de pesadas -->
             <article
               class="upcoming-card"
               data-course-date="23/01"
@@ -1498,10 +1332,10 @@
             <p>
               Conte pra gente em qual cidade ou região você gostaria de receber uma turma de Operador de Máquinas Pesadas.
             </p>
-            <form class="city-form" id="city-form-drone">
+            <form class="city-form" id="city-form-pesadas">
               <input
                 type="text"
-                id="city-input-drone"
+                id="city-input-pesadas"
                 placeholder="Digite sua cidade/estado"
                 aria-label="Informe sua cidade ou estado"
               />
@@ -1537,7 +1371,7 @@
               >
                 Quero falar com um consultor
               </a>
-              <a href="#proximas-turmas-drone" class="btn btn-ghost">
+              <a href="#proximas-turmas-pesadas" class="btn btn-ghost">
                 Ver datas disponíveis
               </a>
             </div>
@@ -1613,7 +1447,7 @@
       const today = new Date();
       today.setHours(0, 0, 0, 0);
 
-      // MESMA REGRA QUE A GENTE USOU NA HOME E NA PÁGINA DE DRONE:
+      // Regra:
       // - Dezembro (12) => ano atual
       // - Qualquer outro mês (01–11) => ano que vem
       function parseCourseDate(ddmm) {
@@ -1630,23 +1464,21 @@
         return new Date(year, month - 1, day);
       }
 
-      function initDroneGallerySlider() {
-        const slider = document.getElementById("drone-gallery-slider");
+      function initPesadasGallerySlider() {
+        const slider = document.getElementById("pesadas-gallery-slider");
         if (!slider) return;
 
         const slides = Array.from(slider.querySelectorAll(".gallery-card"));
-        const dotsContainer = document.getElementById("drone-gallery-dots");
-        const prevBtn = document.getElementById("gallery-prev");
-        const nextBtn = document.getElementById("gallery-next");
+        const dotsContainer = document.getElementById("pesadas-gallery-dots");
+        const prevBtn = document.getElementById("pesadas-gallery-prev");
+        const nextBtn = document.getElementById("pesadas-gallery-next");
         if (slides.length === 0 || !dotsContainer) return;
 
         let currentIndex = 0;
         let autoTimer = null;
 
         function updateSlides(index) {
-          slides.forEach((slide, i) => {
-            slide.classList.toggle("active", i === index);
-          });
+          slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
           const dots = dotsContainer.querySelectorAll(".gallery-dot");
           dots.forEach((dot, i) => {
             const isActive = i === index;
@@ -1671,7 +1503,8 @@
           }
         }
 
-        slides.forEach((slide, index) => {
+        // dots
+        slides.forEach((_, index) => {
           const dot = document.createElement("button");
           dot.type = "button";
           dot.className = "gallery-dot" + (index === 0 ? " active" : "");
@@ -1711,24 +1544,22 @@
         startAutoPlay();
       }
 
-      // *** LÓGICA DAS TURMAS (MESMA IDEIA DA PÁGINA DE DRONE) ***
-      function initUpcomingClasses() {
-        const upcomingGrid = document.getElementById("upcoming-grid-drone");
+      function initUpcomingClassesPesadas() {
+        const upcomingGrid = document.getElementById("upcoming-grid-pesadas");
         if (!upcomingGrid) return;
 
         const rawCards = Array.from(
           upcomingGrid.querySelectorAll(".upcoming-card[data-course-date]")
         );
 
-        const cards = []; // só turmas futuras ficam aqui
-
-        const searchInput = document.getElementById("search-city-drone");
-        const toggleBtn = document.getElementById("toggle-more-drone");
+        const cards = [];
+        const searchInput = document.getElementById("search-city-pesadas");
+        const toggleBtn = document.getElementById("toggle-more-pesadas");
         const INITIAL_VISIBLE = 3;
+
         let showAll = false;
         let searchTerm = "";
 
-        // filtra turmas passadas e marca "Últimas vagas"
         rawCards.forEach((card) => {
           const ddmm = card.getAttribute("data-course-date");
           const courseDate = ddmm ? parseCourseDate(ddmm) : null;
@@ -1740,13 +1571,13 @@
           const diffMs = courseDate.getTime() - today.getTime();
           const diffDays = diffMs / (1000 * 60 * 60 * 24);
 
-          // Se a data já passou, some do site
+          // data passada: remove
           if (diffDays < 0) {
             card.remove();
             return;
           }
 
-          // Daqui pra baixo só turma futura
+          // turma futura
           cards.push(card);
 
           // Últimas vagas: até 30 dias
@@ -1756,11 +1587,8 @@
             badge.innerHTML = "<span>⏰</span><span>Últimas vagas</span>";
 
             const btn = card.querySelector(".btn");
-            if (btn && btn.parentNode) {
-              btn.parentNode.insertBefore(badge, btn);
-            } else {
-              card.appendChild(badge);
-            }
+            if (btn && btn.parentNode) btn.parentNode.insertBefore(badge, btn);
+            else card.appendChild(badge);
           }
         });
 
@@ -1778,19 +1606,13 @@
             return combined.includes(searchTerm);
           });
 
-          // esconde tudo
           cards.forEach((card) => card.classList.add("hidden"));
 
-          // mostra só os que batem com o filtro + regra de "ver mais"
           filtered.forEach((card, index) => {
-            if (!searchTerm && !showAll && index >= INITIAL_VISIBLE) {
-              card.classList.add("hidden");
-            } else {
-              card.classList.remove("hidden");
-            }
+            if (!searchTerm && !showAll && index >= INITIAL_VISIBLE) card.classList.add("hidden");
+            else card.classList.remove("hidden");
           });
 
-          // botão "Ver mais turmas"
           if (toggleBtn) {
             if (filtered.length <= INITIAL_VISIBLE || searchTerm) {
               toggleBtn.style.display = "none";
@@ -1822,9 +1644,9 @@
         applyFilter();
       }
 
-      function initCityForm() {
-        const form = document.getElementById("city-form-drone");
-        const input = document.getElementById("city-input-drone");
+      function initCityFormPesadas() {
+        const form = document.getElementById("city-form-pesadas");
+        const input = document.getElementById("city-input-pesadas");
         if (!form || !(input instanceof HTMLInputElement)) return;
 
         form.addEventListener("submit", function (e) {
@@ -1836,52 +1658,17 @@
             "Olá! Tenho interesse no curso de Operador de Máquinas Pesadas na região de " +
             value +
             ". Podem me avisar quando tiver turma aí?";
-          const url =
-            "https://wa.me/5566999763455?text=" + encodeURIComponent(message);
+          const url = "https://wa.me/5566999763455?text=" + encodeURIComponent(message);
 
           window.open(url, "_blank");
         });
       }
 
-      // Slider de vídeo foi removido da página, mas esta função pode ser excluída se quiser limpar o código JS:
-      function initVideoSlider() {
-        const grid = document.getElementById("video-grid-drone");
-        const prevBtn = document.getElementById("video-prev");
-        const nextBtn = document.getElementById("video-next");
-        if (!grid || !prevBtn || !nextBtn) return;
-
-        const cards = Array.from(grid.querySelectorAll(".video-card"));
-        const total = cards.length;
-        if (total === 0) return;
-
-        const VISIBLE = 3;
-        let startIndex = 0;
-
-        function updateVisible() {
-          cards.forEach((card, idx) => {
-            const offset = (idx - startIndex + total) % total;
-            card.classList.toggle("hidden", offset >= VISIBLE);
-          });
-        }
-
-        prevBtn.addEventListener("click", function () {
-          startIndex = (startIndex - 1 + total) % total;
-          updateVisible();
-        });
-
-        nextBtn.addEventListener("click", function () {
-          startIndex = (startIndex + 1) % total;
-          updateVisible();
-        });
-
-        updateVisible();
-      }
-
-      initDroneGallerySlider();
-      initUpcomingClasses();
-      initCityForm();
-      initVideoSlider();
+      initPesadasGallerySlider();
+      initUpcomingClassesPesadas();
+      initCityFormPesadas();
     });
   </script>
 </body>
 </html>
+
