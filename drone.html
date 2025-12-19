@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Piloto de Drone Agrícola - Target Agrotech</title>
-<!-- Favicon -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="shortcut icon" type="image/png" href="assets/favicon-32.png" />
   
@@ -21,7 +21,7 @@
   <meta property="og:image" content="https://seu-dominio.com/assets/drone-hero-novo.jpg" />
   <meta property="og:url" content="https://seu-dominio.com/curso-piloto-drone-agricola" />
 
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel Code (NÃO MEXIDO) -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -54,11 +54,7 @@
       --shadow-card: 0 12px 26px rgba(0, 0, 0, 0.45);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -94,36 +90,14 @@
       background: radial-gradient(circle at center, rgba(242, 201, 76, 0.4), transparent 70%);
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    .page { min-height: 100vh; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 
-    .page {
-      min-height: 100vh;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    section {
-      padding: 4rem 0;
-    }
-
-    @media (min-width: 1024px) {
-      section {
-        padding: 5rem 0;
-      }
-    }
+    section { padding: 4rem 0; }
+    @media (min-width: 1024px) { section { padding: 5rem 0; } }
 
     .section-title {
       font-size: clamp(2.1rem, 3vw, 2.6rem);
@@ -132,9 +106,7 @@
       position: relative;
     }
 
-    .section-title span.highlight {
-      color: var(--primary);
-    }
+    .section-title span.highlight { color: var(--primary); }
 
     .section-title::after {
       content: "";
@@ -168,77 +140,40 @@
         transform 0.12s ease-out,
         box-shadow 0.12s ease-out,
         background 0.12s ease-out,
-        border-color 0.12s.ease-out,
+        border-color 0.12s ease-out,
         opacity 0.12s ease-out;
       white-space: nowrap;
     }
 
-    .btn-primary {
-      background: var(--primary);
-      color: #020a06;
-      box-shadow: var(--shadow-soft);
-    }
-
+    .btn-primary { background: var(--primary); color: #020a06; box-shadow: var(--shadow-soft); }
     .btn-primary:hover {
       background: var(--primary-soft);
       transform: translateY(-1px);
       box-shadow: 0 18px 40px rgba(18, 242, 120, 0.27);
     }
 
-    .btn-outline {
-      background: transparent;
-      border-color: var(--border);
-      color: var(--text-main);
-    }
-
+    .btn-outline { background: transparent; border-color: var(--border); color: var(--text-main); }
     .btn-outline:hover {
       border-color: var(--primary);
       background: rgba(0, 176, 80, 0.08);
       transform: translateY(-1px);
     }
 
-    .btn-ghost {
-      background: transparent;
-      border-color: rgba(255, 255, 255, 0.08);
-      color: var(--text-muted);
-    }
-
+    .btn-ghost { background: transparent; border-color: rgba(255, 255, 255, 0.08); color: var(--text-muted); }
     .btn-ghost:hover {
       border-color: var(--secondary);
       color: var(--secondary);
       transform: translateY(-1px);
     }
 
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
-    }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+    .btn-small { padding: 0.6rem 1.1rem; font-size: 0.86rem; }
+    .hidden { display: none !important; }
 
-    .btn-small {
-      padding: 0.6rem 1.1rem;
-      font-size: 0.86rem;
-    }
+    .mb-1_5 { margin-bottom: 1.5rem; }
+    .center { justify-content: center; }
 
-    .hidden {
-      display: none !important;
-    }
-
-    /* utilitários */
-    .mb-1_5 {
-      margin-bottom: 1.5rem;
-    }
-
-    .center {
-      justify-content: center;
-    }
-
-    /* ========== HEADER / TOP BAR ========== */
-
-    header {
-      padding: 1.2rem 0 0.5rem;
-    }
+    header { padding: 1.2rem 0 0.5rem; }
 
     .top-bar {
       display: flex;
@@ -248,12 +183,7 @@
       margin-bottom: 1.4rem;
     }
 
-    .top-bar-left {
-      display: flex;
-      align-items: center;
-      gap: 0.9rem;
-      font-size: 0.9rem;
-    }
+    .top-bar-left { display: flex; align-items: center; gap: 0.9rem; font-size: 0.9rem; }
 
     .back-link {
       display: inline-flex;
@@ -268,18 +198,9 @@
       cursor: pointer;
     }
 
-    .back-link:hover {
-      border-color: var(--primary);
-      color: var(--primary-soft);
-    }
+    .back-link:hover { border-color: var(--primary); color: var(--primary-soft); }
 
-    .top-bar-right {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
+    .top-bar-right { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; color: var(--text-muted); }
 
     .pill-label {
       padding: 0.28rem 0.75rem;
@@ -291,11 +212,7 @@
       letter-spacing: 0.12em;
     }
 
-    /* ========== HERO DO CURSO ========== */
-
-    .hero-course {
-      padding: 1.5rem 0 3rem;
-    }
+    .hero-course { padding: 1.5rem 0 3rem; }
 
     .hero-grid {
       display: grid;
@@ -304,11 +221,7 @@
       align-items: center;
     }
 
-    @media (max-width: 900px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
 
     .hero-course-kicker {
       font-size: 0.88rem;
@@ -324,9 +237,7 @@
       margin-bottom: 0.7rem;
     }
 
-    .hero-course-title span {
-      color: var(--primary);
-    }
+    .hero-course-title span { color: var(--primary); }
 
     .hero-course-subtitle {
       color: var(--text-muted);
@@ -359,14 +270,8 @@
       color: var(--text-muted);
     }
 
-    .hero-course-info-item span {
-      display: block;
-    }
-
-    .hero-course-info-item strong {
-      color: var(--primary-soft);
-      font-size: 1rem;
-    }
+    .hero-course-info-item span { display: block; }
+    .hero-course-info-item strong { color: var(--primary-soft); font-size: 1rem; }
 
     .hero-course-media {
       background: radial-gradient(circle at top, #152c1f, #07130d);
@@ -392,13 +297,7 @@
       z-index: 2;
     }
 
-    .hero-slider {
-      position: relative;
-      border-radius: 22px;
-      overflow: hidden;
-      max-height: 360px;
-      min-height: 260px;
-    }
+    .hero-slider { position: relative; border-radius: 22px; overflow: hidden; max-height: 360px; min-height: 260px; }
 
     .hero-slide-img {
       width: 100%;
@@ -418,23 +317,10 @@
       flex-wrap: wrap;
     }
 
-    .hero-course-media-footer strong {
-      color: var(--primary-soft);
-    }
+    .hero-course-media-footer strong { color: var(--primary-soft); }
 
-    /* ========== POR QUE DRONE ========== */
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.4rem;
-    }
-
-    @media (max-width: 900px) {
-      .why-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .why-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; }
+    @media (max-width: 900px) { .why-grid { grid-template-columns: 1fr; } }
 
     .why-card {
       background: rgba(5, 33, 19, 0.95);
@@ -447,7 +333,7 @@
       gap: 0.55rem;
       transition:
         transform 0.16s ease-out,
-        box-shadow 0.16s.ease-out,
+        box-shadow 0.16s ease-out,
         border-color 0.16s ease-out;
     }
 
@@ -469,35 +355,12 @@
       margin-bottom: 0.3rem;
     }
 
-    .why-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-    }
+    .why-title { font-size: 1.05rem; font-weight: 600; }
+    .why-text { font-size: 0.9rem; color: var(--text-muted); }
 
-    .why-text {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    /* ========== COMO FUNCIONA ========== */
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1.1rem;
-    }
-
-    @media (max-width: 1000px) {
-      .steps-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .steps-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .steps-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.1rem; }
+    @media (max-width: 1000px) { .steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .steps-grid { grid-template-columns: 1fr; } }
 
     .step-card {
       background: linear-gradient(150deg, #0f2519, #07140d);
@@ -521,37 +384,12 @@
       border-color: rgba(242, 201, 76, 0.6);
     }
 
-    .step-number {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--secondary);
-    }
+    .step-number { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--secondary); }
+    .step-title { font-weight: 600; font-size: 1rem; }
+    .step-text { color: var(--text-muted); font-size: 0.88rem; }
 
-    .step-title {
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .step-text {
-      color: var(--text-muted);
-      font-size: 0.88rem;
-    }
-
-    /* ========== CONTEÚDO DO CURSO ========== */
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 2.3rem;
-      align-items: flex-start;
-    }
-
-    @media (max-width: 900px) {
-      .content-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .content-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.3rem; align-items: flex-start; }
+    @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } }
 
     .content-card {
       background: rgba(5, 33, 19, 0.96);
@@ -561,16 +399,8 @@
       box-shadow: var(--shadow-card);
     }
 
-    .content-card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .content-card p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 0.9rem;
-    }
+    .content-card h3 { font-size: 1.05rem; margin-bottom: 0.7rem; }
+    .content-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.9rem; }
 
     .bullet-list {
       list-style: none;
@@ -582,14 +412,7 @@
       gap: 0.35rem;
     }
 
-    .bullet-list li::before {
-      content: "✔";
-      color: var(--primary-soft);
-      margin-right: 0.45rem;
-      font-size: 0.8rem;
-    }
-
-    /* ========== SLIDER GENÉRICO (FOTOS E VÍDEOS) ========== */
+    .bullet-list li::before { content: "✔"; color: var(--primary-soft); margin-right: 0.45rem; font-size: 0.8rem; }
 
     .slider-arrow {
       position: absolute;
@@ -614,13 +437,8 @@
         opacity 0.12s ease-out;
     }
 
-    .slider-arrow-left {
-      left: 0.5rem;
-    }
-
-    .slider-arrow-right {
-      right: 0.5rem;
-    }
+    .slider-arrow-left { left: 0.5rem; }
+    .slider-arrow-right { right: 0.5rem; }
 
     .slider-arrow:hover {
       background: rgba(0, 0, 0, 0.85);
@@ -628,20 +446,9 @@
       transform: translateY(-50%) scale(1.03);
     }
 
-    @media (max-width: 640px) {
-      .slider-arrow {
-        display: none;
-      }
-    }
+    @media (max-width: 640px) { .slider-arrow { display: none; } }
 
-    /* ========== TURMAS RECENTES (SLIDER FOTOS) ========== */
-
-    .drone-gallery-slider {
-      position: relative;
-      max-width: 600px;
-      margin: 0 auto;
-      min-height: 600px;
-    }
+    .drone-gallery-slider { position: relative; max-width: 600px; margin: 0 auto; min-height: 600px; }
 
     .drone-gallery-slider .gallery-card {
       position: absolute;
@@ -655,11 +462,7 @@
       transform: translateY(6px);
     }
 
-    .drone-gallery-slider .gallery-card.active {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
+    .drone-gallery-slider .gallery-card.active { opacity: 1; pointer-events: auto; transform: translateY(0); }
 
     .gallery-card {
       background: #07140d;
@@ -680,24 +483,11 @@
       overflow: hidden;
     }
 
-    @media (max-width: 640px) {
-      .gallery-card-image {
-        aspect-ratio: 4 / 3;
-      }
-    }
+    @media (max-width: 640px) { .gallery-card-image { aspect-ratio: 4 / 3; } }
 
-    .gallery-card-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s.ease-out;
-    }
+    .gallery-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease-out; }
+    .drone-gallery-slider .gallery-card:hover img { transform: scale(1.06); }
 
-    .drone-gallery-slider .gallery-card:hover img {
-      transform: scale(1.06);
-    }
-
-    /* ajuste fino por imagem da galeria */
     .img-drone-gallery-1 { object-position: 50% 35%; }
     .img-drone-gallery-2 { object-position: 50% 35%; }
     .img-drone-gallery-3 { object-position: 50% 40%; }
@@ -705,61 +495,17 @@
     .img-drone-gallery-5 { object-position: 50% 40%; }
     .img-drone-gallery-6 { object-position: 50% 35%; }
 
-    .gallery-card-body {
-      padding: 0.95rem 1.05rem 1.2rem;
-      font-size: 0.88rem;
-    }
+    .gallery-card-body { padding: 0.95rem 1.05rem 1.2rem; font-size: 0.88rem; }
+    .gallery-card-title { font-size: 0.98rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .gallery-card-text { color: var(--text-muted); }
 
-    .gallery-card-title {
-      font-size: 0.98rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
+    .gallery-dots { margin-top: 1.2rem; display: flex; justify-content: center; gap: 0.4rem; }
+    .gallery-dot { width: 8px; height: 8px; border-radius: 999px; border: none; background: rgba(255, 255, 255, 0.25); cursor: pointer; padding: 0; }
+    .gallery-dot.active { background: var(--secondary); }
 
-    .gallery-card-text {
-      color: var(--text-muted);
-    }
-
-    .gallery-dots {
-      margin-top: 1.2rem;
-      display: flex;
-      justify-content: center;
-      gap: 0.4rem;
-    }
-
-    .gallery-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      border: none;
-      background: rgba(255, 255, 255, 0.25);
-      cursor: pointer;
-      padding: 0;
-    }
-
-    .gallery-dot.active {
-      background: var(--secondary);
-    }
-
-    /* ========== DEPOIMENTOS (TEXTO) ========== */
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.3rem;
-    }
-
-    @media (max-width: 992px) {
-      .testimonials-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.3rem; }
+    @media (max-width: 992px) { .testimonials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .testimonials-grid { grid-template-columns: 1fr; } }
 
     .testimonial-card {
       background: rgba(5, 33, 19, 0.96);
@@ -785,17 +531,9 @@
       pointer-events: none;
     }
 
-    .testimonial-text {
-      color: var(--text-muted);
-    }
+    .testimonial-text { color: var(--text-muted); }
 
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-top: 0.2rem;
-    }
-
+    .testimonial-author { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.2rem; }
     .testimonial-avatar {
       width: 34px;
       height: 34px;
@@ -808,41 +546,14 @@
       font-weight: 600;
     }
 
-    .testimonial-meta {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
+    .testimonial-meta { font-size: 0.8rem; color: var(--text-muted); }
+    .testimonial-meta strong { display: block; color: var(--text-main); }
 
-    .testimonial-meta strong {
-      display: block;
-      color: var(--text-main);
-    }
+    .video-slider { position: relative; max-width: 1200px; margin: 0 auto; }
 
-    /* ========== DEPOIMENTOS EM VÍDEO (SLIDER) ========== */
-
-    .video-slider {
-      position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.3rem;
-    }
-
-    @media (max-width: 992px) {
-      .video-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .video-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .video-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.3rem; }
+    @media (max-width: 992px) { .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .video-grid { grid-template-columns: 1fr; } }
 
     .video-card {
       background: #07140d;
@@ -856,26 +567,9 @@
       gap: 0.4rem;
     }
 
-    .video-card video {
-      width: 100%;
-      border-radius: var(--radius-md);
-      display: block;
-      margin-bottom: 0.6rem;
-      background: #000;
-    }
-
-    .video-card-title {
-      font-weight: 600;
-      margin-bottom: 0.1rem;
-      font-size: 0.9rem;
-    }
-
-    .video-card-text {
-      color: var(--text-muted);
-      font-size: 0.86rem;
-    }
-
-    /* ========== PRÓXIMAS TURMAS (SÓ DRONE) ========== */
+    .video-card video { width: 100%; border-radius: var(--radius-md); display: block; margin-bottom: 0.6rem; background: #000; }
+    .video-card-title { font-weight: 600; margin-bottom: 0.1rem; font-size: 0.9rem; }
+    .video-card-text { color: var(--text-muted); font-size: 0.86rem; }
 
     .upcoming-controls {
       display: flex;
@@ -886,15 +580,7 @@
       margin-bottom: 1.6rem;
     }
 
-    .upcoming-search {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex: 1 1 240px;
-      max-width: 420px;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
+    .upcoming-search { display: flex; align-items: center; gap: 0.5rem; flex: 1 1 240px; max-width: 420px; font-size: 0.88rem; color: var(--text-muted); }
 
     .upcoming-search input {
       flex: 1;
@@ -907,31 +593,12 @@
       outline: none;
     }
 
-    .upcoming-search input::placeholder {
-      color: var(--text-muted);
-    }
+    .upcoming-search input::placeholder { color: var(--text-muted); }
+    .upcoming-toggle { flex: 0 0 auto; }
 
-    .upcoming-toggle {
-      flex: 0 0 auto;
-    }
-
-    .upcoming-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.1rem;
-    }
-
-    @media (max-width: 992px) {
-      .upcoming-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .upcoming-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .upcoming-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; }
+    @media (max-width: 992px) { .upcoming-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .upcoming-grid { grid-template-columns: 1fr; } }
 
     .upcoming-card {
       background: linear-gradient(150deg, #0f2519, #07140d);
@@ -945,7 +612,7 @@
       font-size: 0.9rem;
       transition:
         transform 0.16s ease-out,
-        box-shadow 0.16s.ease-out,
+        box-shadow 0.16s ease-out,
         border-color 0.16s ease-out;
     }
 
@@ -955,22 +622,9 @@
       border-color: rgba(242, 201, 76, 0.5);
     }
 
-    .upcoming-date {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--primary-soft);
-    }
-
-    .upcoming-location {
-      color: var(--text-muted);
-      font-size: 0.82rem;
-    }
-
-    .upcoming-course-name {
-      font-weight: 600;
-      margin-top: 0.2rem;
-      font-size: 1.02rem;
-    }
+    .upcoming-date { font-weight: 600; font-size: 0.95rem; color: var(--primary-soft); }
+    .upcoming-location { color: var(--text-muted); font-size: 0.82rem; }
+    .upcoming-course-name { font-weight: 600; margin-top: 0.2rem; font-size: 1.02rem; }
 
     .upcoming-last-call {
       margin-top: 0.4rem;
@@ -1000,22 +654,10 @@
       margin-right: auto;
     }
 
-    .city-suggestion h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.3rem;
-    }
+    .city-suggestion h3 { font-size: 1.05rem; margin-bottom: 0.3rem; }
+    .city-suggestion p { font-size: 0.88rem; color: var(--text-muted); }
 
-    .city-suggestion p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-
-    .city-form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      margin-top: 0.9rem;
-    }
+    .city-form { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 0.9rem; }
 
     .city-form input {
       flex: 1 1 220px;
@@ -1028,17 +670,9 @@
       outline: none;
     }
 
-    .city-form input::placeholder {
-      color: var(--text-muted);
-    }
+    .city-form input::placeholder { color: var(--text-muted); }
 
-    .small-note {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: 0.4rem;
-    }
-
-    /* ========== CTA FINAL ========== */
+    .small-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; }
 
     .final-cta {
       border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -1047,11 +681,7 @@
       text-align: center;
     }
 
-    .final-cta-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 3rem 1.2rem;
-    }
+    .final-cta-inner { max-width: 720px; margin: 0 auto; padding: 3rem 1.2rem; }
 
     .final-cta-icon {
       width: 56px;
@@ -1065,18 +695,8 @@
       font-size: 1.5rem;
     }
 
-    .final-cta-title {
-      font-size: clamp(2rem, 3vw, 2.5rem);
-      margin-bottom: 0.7rem;
-    }
-
-    .final-cta-text {
-      font-size: 1rem;
-      color: var(--text-muted);
-      margin-bottom: 1.8rem;
-    }
-
-    /* ========== FOOTER ========== */
+    .final-cta-title { font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 0.7rem; }
+    .final-cta-text { font-size: 1rem; color: var(--text-muted); margin-bottom: 1.8rem; }
 
     footer {
       padding: 2.4rem 0 1.7rem;
@@ -1086,51 +706,18 @@
       font-size: 0.86rem;
     }
 
-    .footer-top {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 1.6rem;
-      margin-bottom: 1.6rem;
-    }
+    .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.6rem; margin-bottom: 1.6rem; }
 
-    .footer-brand {
-      max-width: 260px;
-    }
+    .footer-brand { max-width: 260px; }
+    .footer-brand img { height: 80px; margin-bottom: 0.6rem; }
+    .footer-brand p { color: var(--text-muted); font-size: 0.86rem; }
 
-    .footer-brand img {
-      height: 80px;
-      margin-bottom: 0.6rem;
-    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1.8rem; }
 
-    .footer-brand p {
-      color: var(--text-muted);
-      font-size: 0.86rem;
-    }
+    .footer-column-title { font-weight: 600; margin-bottom: 0.5rem; }
 
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.8rem;
-    }
-
-    .footer-column-title {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      color: var(--text-muted);
-      font-size: 0.84rem;
-    }
-
-    .footer-list a:hover {
-      color: var(--primary-soft);
-    }
+    .footer-list { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; color: var(--text-muted); font-size: 0.84rem; }
+    .footer-list a:hover { color: var(--primary-soft); }
 
     .footer-bottom {
       border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -1144,23 +731,14 @@
     }
 
     @media (max-width: 640px) {
-      .btn-row {
-        justify-content: flex-start;
-      }
-
-      .hero-course-title {
-        font-size: 2rem;
-      }
-
-      .city-form {
-        flex-direction: column;
-        align-items: stretch;
-      }
+      .btn-row { justify-content: flex-start; }
+      .hero-course-title { font-size: 2rem; }
+      .city-form { flex-direction: column; align-items: stretch; }
     }
   </style>
 </head>
 <body>
-  <!-- Meta Pixel NoScript -->
+  <!-- Meta Pixel NoScript (NÃO MEXIDO) -->
   <noscript>
     <img
       height="1"
@@ -1212,14 +790,18 @@
               </div>
 
               <div class="btn-row mb-1_5">
+                <!-- WHATSAPP CONSULTOR (NOVO) -->
                 <a
                   href="https://wa.me/5566999763455"
+                  data-wa="consultor"
+                  data-course-name="Piloto de Drone Agrícola"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="btn btn-primary"
                 >
                   Falar com um consultor no WhatsApp
                 </a>
+
                 <a href="#proximas-turmas-drone" class="btn btn-outline">
                   Ver próximas turmas de drone
                 </a>
@@ -1381,7 +963,7 @@
         </div>
       </section>
 
-      <!-- TURMAS DE DRONE EM AÇÃO (SLIDER DE FOTOS) -->
+      <!-- TURMAS DE DRONE EM AÇÃO -->
       <section aria-labelledby="turmas-drone-acao-title">
         <div class="container">
           <h2 class="section-title" id="turmas-drone-acao-title">
@@ -1391,12 +973,7 @@
             Momentos reais das turmas de Piloto de Drone Agrícola da Target Agrotech em campo, recebendo certificado e operando drones agrícolas.
           </p>
 
-          <div
-            class="drone-gallery-slider"
-            id="drone-gallery-slider"
-            aria-label="Galeria de fotos das turmas de drone em campo"
-          >
-            <!-- SLIDE 1 -->
+          <div class="drone-gallery-slider" id="drone-gallery-slider" aria-label="Galeria de fotos das turmas de drone em campo">
             <article class="gallery-card active">
               <div class="gallery-card-image">
                 <img
@@ -1414,7 +991,6 @@
               </div>
             </article>
 
-            <!-- SLIDE 2 -->
             <article class="gallery-card">
               <div class="gallery-card-image">
                 <img
@@ -1432,7 +1008,6 @@
               </div>
             </article>
 
-            <!-- SLIDE 3 -->
             <article class="gallery-card">
               <div class="gallery-card-image">
                 <img
@@ -1450,7 +1025,6 @@
               </div>
             </article>
 
-            <!-- SLIDE 4 -->
             <article class="gallery-card">
               <div class="gallery-card-image">
                 <img
@@ -1468,7 +1042,6 @@
               </div>
             </article>
 
-            <!-- SLIDE 5 -->
             <article class="gallery-card">
               <div class="gallery-card-image">
                 <img
@@ -1486,7 +1059,6 @@
               </div>
             </article>
 
-            <!-- SLIDE 6 -->
             <article class="gallery-card">
               <div class="gallery-card-image">
                 <img
@@ -1504,29 +1076,9 @@
               </div>
             </article>
 
-            <button
-              type="button"
-              class="slider-arrow slider-arrow-left"
-              id="gallery-prev"
-              aria-label="Ver foto anterior"
-            >
-              ‹
-            </button>
-            <button
-              type="button"
-              class="slider-arrow slider-arrow-right"
-              id="gallery-next"
-              aria-label="Ver próxima foto"
-            >
-              ›
-            </button>
-
-            <div
-              class="gallery-dots"
-              id="drone-gallery-dots"
-              role="tablist"
-              aria-label="Selecionar foto da galeria"
-            ></div>
+            <button type="button" class="slider-arrow slider-arrow-left" id="gallery-prev" aria-label="Ver foto anterior">‹</button>
+            <button type="button" class="slider-arrow slider-arrow-right" id="gallery-next" aria-label="Ver próxima foto">›</button>
+            <div class="gallery-dots" id="drone-gallery-dots" role="tablist" aria-label="Selecionar foto da galeria"></div>
           </div>
         </div>
       </section>
@@ -1587,7 +1139,7 @@
         </div>
       </section>
 
-      <!-- DEPOIMENTOS EM VÍDEO (SLIDER) -->
+      <!-- DEPOIMENTOS EM VÍDEO -->
       <section aria-labelledby="depoimentos-video-title">
         <div class="container">
           <h2 class="section-title" id="depoimentos-video-title">
@@ -1633,22 +1185,8 @@
               </article>
             </div>
 
-            <button
-              type="button"
-              class="slider-arrow slider-arrow-left"
-              id="video-prev"
-              aria-label="Ver vídeos anteriores"
-            >
-              ‹
-            </button>
-            <button
-              type="button"
-              class="slider-arrow slider-arrow-right"
-              id="video-next"
-              aria-label="Ver próximos vídeos"
-            >
-              ›
-            </button>
+            <button type="button" class="slider-arrow slider-arrow-left" id="video-prev" aria-label="Ver vídeos anteriores">‹</button>
+            <button type="button" class="slider-arrow slider-arrow-right" id="video-next" aria-label="Ver próximos vídeos">›</button>
           </div>
         </div>
       </section>
@@ -1686,159 +1224,127 @@
           </div>
 
           <div class="upcoming-grid" id="upcoming-grid-drone">
-            <!-- Somente turmas de drone, com as mesmas datas da página principal -->
-
-            <!-- DEZEMBRO -->
-            <article
-              class="upcoming-card"
-              data-course-date="05/12"
-              data-city="santarem"
-              data-state="pa"
-            >
+            <!-- WHATSAPP TURMA (NOVO): data-wa="turma" + data-course-name -->
+            <article class="upcoming-card" data-course-date="05/12" data-city="santarem" data-state="pa">
               <div class="upcoming-date">05/12</div>
               <div class="upcoming-location">📍 Santarém (PA)</div>
               <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
               <a
                 href="https://wa.me/5566999763455"
+                data-wa="turma"
+                data-course-name="Piloto de Drone Agrícola"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-primary"
               >Fazer inscrição pelo WhatsApp</a>
             </article>
 
-            <article
-              class="upcoming-card"
-              data-course-date="12/12"
-              data-city="lagoa da confusao"
-              data-state="to"
-            >
+            <article class="upcoming-card" data-course-date="12/12" data-city="lagoa da confusao" data-state="to">
               <div class="upcoming-date">19/12</div>
               <div class="upcoming-location">📍 Lagoa da Confusão (TO)</div>
               <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
               <a
                 href="https://wa.me/5566999763455"
+                data-wa="turma"
+                data-course-name="Piloto de Drone Agrícola"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-primary"
               >Fazer inscrição pelo WhatsApp</a>
             </article>
 
-            <!-- JANEIRO -->
-            <article
-              class="upcoming-card"
-              data-course-date="16/01"
-              data-city="paragominas"
-              data-state="pa"
-            >
+            <article class="upcoming-card" data-course-date="16/01" data-city="paragominas" data-state="pa">
               <div class="upcoming-date">16/01</div>
               <div class="upcoming-location">📍 Paragominas (PA)</div>
               <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
               <a
                 href="https://wa.me/5566999763455"
+                data-wa="turma"
+                data-course-name="Piloto de Drone Agrícola"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-primary"
               >Fazer inscrição pelo WhatsApp</a>
             </article>
 
-            <article
-              class="upcoming-card"
-              data-course-date="23/01"
-              data-city="confresa"
-              data-state="mt"
-            >
+            <article class="upcoming-card" data-course-date="23/01" data-city="confresa" data-state="mt">
               <div class="upcoming-date">23/01</div>
               <div class="upcoming-location">📍 Confresa (MT)</div>
               <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
               <a
                 href="https://wa.me/5566999763455"
+                data-wa="turma"
+                data-course-name="Piloto de Drone Agrícola"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-primary"
               >Fazer inscrição pelo WhatsApp</a>
             </article>
 
-            <!-- FEVEREIRO -->
-            <article
-              class="upcoming-card"
-              data-course-date="06/02"
-              data-city="novo progresso"
-              data-state="pa"
-            >
+            <article class="upcoming-card" data-course-date="06/02" data-city="novo progresso" data-state="pa">
               <div class="upcoming-date">06/02</div>
               <div class="upcoming-location">📍 Novo Progresso (PA)</div>
               <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
               <a
                 href="https://wa.me/5566999763455"
+                data-wa="turma"
+                data-course-name="Piloto de Drone Agrícola"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-primary"
               >Fazer inscrição pelo WhatsApp</a>
             </article>
 
-            <article
-              class="upcoming-card"
-              data-course-date="27/02"
-              data-city="rolim de moura"
-              data-state="ro"
-            >
+            <article class="upcoming-card" data-course-date="27/02" data-city="rolim de moura" data-state="ro">
               <div class="upcoming-date">27/02</div>
               <div class="upcoming-location">📍 Rolim de Moura (RO)</div>
               <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
               <a
                 href="https://wa.me/5566999763455"
+                data-wa="turma"
+                data-course-name="Piloto de Drone Agrícola"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-primary"
               >Fazer inscrição pelo WhatsApp</a>
             </article>
 
-            <!-- MARÇO -->
-            <article
-              class="upcoming-card"
-              data-course-date="06/03"
-              data-city="teixeira de freitas"
-              data-state="ba"
-            >
+            <article class="upcoming-card" data-course-date="06/03" data-city="teixeira de freitas" data-state="ba">
               <div class="upcoming-date">06/03</div>
               <div class="upcoming-location">📍 Teixeira de Freitas (BA)</div>
               <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
               <a
                 href="https://wa.me/5566999763455"
+                data-wa="turma"
+                data-course-name="Piloto de Drone Agrícola"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-primary"
               >Fazer inscrição pelo WhatsApp</a>
             </article>
 
-            <article
-              class="upcoming-card"
-              data-course-date="13/03"
-              data-city="luis eduardo magalhaes"
-              data-state="ba"
-            >
+            <article class="upcoming-card" data-course-date="13/03" data-city="luis eduardo magalhaes" data-state="ba">
               <div class="upcoming-date">13/03</div>
               <div class="upcoming-location">📍 Luís Eduardo Magalhães (BA)</div>
               <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
               <a
                 href="https://wa.me/5566999763455"
+                data-wa="turma"
+                data-course-name="Piloto de Drone Agrícola"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-primary"
               >Fazer inscrição pelo WhatsApp</a>
             </article>
 
-            <article
-              class="upcoming-card"
-              data-course-date="13/03"
-              data-city="sinop"
-              data-state="mt"
-            >
+            <article class="upcoming-card" data-course-date="13/03" data-city="sinop" data-state="mt">
               <div class="upcoming-date">13/03</div>
               <div class="upcoming-location">📍 Sinop (MT)</div>
               <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
               <a
                 href="https://wa.me/5566999763455"
+                data-wa="turma"
+                data-course-name="Piloto de Drone Agrícola"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-primary"
@@ -1882,8 +1388,11 @@
               com suporte de quem vive o agro todos os dias.
             </p>
             <div class="btn-row center">
+              <!-- WHATSAPP CONSULTOR (NOVO) -->
               <a
                 href="https://wa.me/5566999763455"
+                data-wa="consultor"
+                data-course-name="Piloto de Drone Agrícola"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-primary"
@@ -1939,8 +1448,11 @@
                 </li>
                 <li>
                   WhatsApp:
+                  <!-- WHATSAPP CONSULTOR (NOVO) -->
                   <a
                     href="https://wa.me/5566999763455"
+                    data-wa="consultor"
+                    data-course-name="Piloto de Drone Agrícola"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -1965,6 +1477,71 @@
     window.addEventListener("DOMContentLoaded", function () {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
+
+      const WHATSAPP_PHONE = "5566999763455";
+      const NAME_PLACEHOLDER = "[SEU NOME]";
+
+      function normalizeCityLabel(value) {
+        if (!value) return "";
+        return String(value).trim().replace(/\s+/g, " ");
+      }
+
+      function formatCityFromData(dataCity) {
+        // Ex.: "luis eduardo magalhaes" -> "Luis Eduardo Magalhaes" (sem acento, mas ok)
+        const clean = normalizeCityLabel(dataCity).toLowerCase();
+        if (!clean) return "";
+        return clean.replace(/\b\w/g, function (m) { return m.toUpperCase(); });
+      }
+
+      function formatStateFromData(dataState) {
+        return normalizeCityLabel(dataState).toUpperCase();
+      }
+
+      function buildWaUrl(message) {
+        return "https://wa.me/" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(message);
+      }
+
+      // ========== CONSULTOR (NOVO) ==========
+      function initWhatsAppConsultorLinks() {
+        const consultorLinks = Array.from(document.querySelectorAll('a[data-wa="consultor"]'));
+        if (!consultorLinks.length) return;
+
+        consultorLinks.forEach(function (link) {
+          const courseName = link.getAttribute("data-course-name") || "Piloto de Drone Agrícola";
+          const msg =
+            "Olá! Meu nome é " + NAME_PLACEHOLDER + ". " +
+            "Tenho interesse no curso de " + courseName + ". " +
+            "Podem me passar mais informações, por favor?";
+
+          link.setAttribute("href", buildWaUrl(msg));
+        });
+      }
+
+      // ========== TURMAS (NOVO) ==========
+      function initWhatsAppTurmaLinks() {
+        const turmaLinks = Array.from(document.querySelectorAll('a[data-wa="turma"]'));
+        if (!turmaLinks.length) return;
+
+        turmaLinks.forEach(function (link) {
+          const card = link.closest(".upcoming-card");
+          if (!card) return;
+
+          const courseName = link.getAttribute("data-course-name") || "Piloto de Drone Agrícola";
+          const rawDate = card.getAttribute("data-course-date") || "";
+          const city = formatCityFromData(card.getAttribute("data-city") || "");
+          const state = formatStateFromData(card.getAttribute("data-state") || "");
+
+          const cityState = city && state ? (city + " (" + state + ")") : (city || state || "aí na região");
+
+          // se no data-course-date não tiver ano, a pessoa vê do jeito que está mesmo (dd/mm).
+          const msg =
+            "Olá! Meu nome é " + NAME_PLACEHOLDER + ". " +
+            "Tenho interesse na turma de " + courseName + " em " + cityState + " no dia " + rawDate + ". " +
+            "Como faço para garantir minha vaga?";
+
+          link.setAttribute("href", buildWaUrl(msg));
+        });
+      }
 
       // MESMA REGRA DA HOME:
       // - Dezembro (12) => ano atual
@@ -2064,7 +1641,6 @@
         startAutoPlay();
       }
 
-      // *** AQUI ESTÁ A LÓGICA DE TURMAS (FILTRO + SUMIR PASSADAS) ***
       function initUpcomingClasses() {
         const upcomingGrid = document.getElementById("upcoming-grid-drone");
         if (!upcomingGrid) return;
@@ -2073,7 +1649,7 @@
           upcomingGrid.querySelectorAll(".upcoming-card[data-course-date]")
         );
 
-        const cards = []; // só turmas futuras vão ficar aqui
+        const cards = [];
 
         const searchInput = document.getElementById("search-city-drone");
         const toggleBtn = document.getElementById("toggle-more-drone");
@@ -2081,7 +1657,6 @@
         let showAll = false;
         let searchTerm = "";
 
-        // filtra turmas passadas e marca "Últimas vagas"
         rawCards.forEach((card) => {
           const ddmm = card.getAttribute("data-course-date");
           const courseDate = ddmm ? parseCourseDate(ddmm) : null;
@@ -2093,16 +1668,13 @@
           const diffMs = courseDate.getTime() - today.getTime();
           const diffDays = diffMs / (1000 * 60 * 60 * 24);
 
-          // Se a data já passou, some do site
           if (diffDays < 0) {
             card.remove();
             return;
           }
 
-          // Daqui pra baixo só turma futura
           cards.push(card);
 
-          // Últimas vagas: até 30 dias
           if (diffDays >= 0 && diffDays <= 30) {
             const badge = document.createElement("div");
             badge.className = "upcoming-last-call";
@@ -2131,10 +1703,8 @@
             return combined.includes(searchTerm);
           });
 
-          // esconde tudo
           cards.forEach((card) => card.classList.add("hidden"));
 
-          // mostra só os que batem com o filtro + regra de "ver mais"
           filtered.forEach((card, index) => {
             if (!searchTerm && !showAll && index >= INITIAL_VISIBLE) {
               card.classList.add("hidden");
@@ -2143,7 +1713,6 @@
             }
           });
 
-          // botão "Ver mais turmas"
           if (toggleBtn) {
             if (filtered.length <= INITIAL_VISIBLE || searchTerm) {
               toggleBtn.style.display = "none";
@@ -2186,13 +1755,11 @@
           if (!value) return;
 
           const message =
-            "Olá! Tenho interesse no curso de Piloto de Drone Agrícola na região de " +
-            value +
-            ". Podem me avisar quando tiver turma aí?";
-          const url =
-            "https://wa.me/5566999763455?text=" + encodeURIComponent(message);
+            "Olá! Meu nome é " + NAME_PLACEHOLDER + ". " +
+            "Tenho interesse no curso de Piloto de Drone Agrícola na região de " + value + ". " +
+            "Podem me avisar quando tiver turma aí?";
 
-          window.open(url, "_blank");
+          window.open(buildWaUrl(message), "_blank");
         });
       }
 
@@ -2229,6 +1796,8 @@
         updateVisible();
       }
 
+      initWhatsAppConsultorLinks();  // NOVO
+      initWhatsAppTurmaLinks();      // NOVO
       initDroneGallerySlider();
       initUpcomingClasses();
       initCityForm();
