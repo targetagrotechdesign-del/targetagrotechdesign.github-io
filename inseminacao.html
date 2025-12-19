@@ -1250,6 +1250,7 @@
               <div class="btn-row mb-1_5">
                 <a
                   href="https://wa.me/5566999763455"
+                  data-wa="consultor"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="btn btn-primary"
@@ -1699,6 +1700,7 @@
               <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
               <a
                 href="https://wa.me/5566999763455"
+                data-wa="turma"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-primary"
@@ -1716,6 +1718,7 @@
               <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
               <a
                 href="https://wa.me/5566999763455"
+                data-wa="turma"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-primary"
@@ -1733,6 +1736,7 @@
               <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
               <a
                 href="https://wa.me/5566999763455"
+                data-wa="turma"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-primary"
@@ -1778,6 +1782,7 @@
             <div class="btn-row center">
               <a
                 href="https://wa.me/5566999763455"
+                data-wa="consultor"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-primary"
@@ -1836,6 +1841,7 @@
                   WhatsApp:
                   <a
                     href="https://wa.me/5566999763455"
+                    data-wa="consultor"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -1870,6 +1876,42 @@
       const today = new Date();
       today.setHours(0, 0, 0, 0);
       const DAY_IN_MS = 1000 * 60 * 60 * 24;
+
+      // ====== WHATSAPP (NOVO) ======
+      const WHATSAPP_PHONE = "5566999763455";
+      const NAME_PLACEHOLDER = "[SEU NOME]";
+
+      function waLink(message) {
+        return "https://wa.me/" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(message);
+      }
+
+      function pad2(n) {
+        return String(n).padStart(2, "0");
+      }
+
+      function formatDateBR(d) {
+        return pad2(d.getDate()) + "/" + pad2(d.getMonth() + 1) + "/" + d.getFullYear();
+      }
+
+      function titleCase(str) {
+        return (str || "")
+          .toLowerCase()
+          .split(" ")
+          .filter(Boolean)
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+          .join(" ");
+      }
+
+      function initWhatsAppConsultorLinks() {
+        const msg =
+          "Olá! Meu nome é " +
+          NAME_PLACEHOLDER +
+          ". Tenho interesse no curso de Inseminação Artificial em Bovinos. Pode me passar mais informações?";
+
+        document.querySelectorAll('a[data-wa="consultor"]').forEach((a) => {
+          a.setAttribute("href", waLink(msg));
+        });
+      }
 
       // NOVO: aceita "dd/mm" ou "dd/mm/aaaa"
       function computeCourseDates(cards) {
@@ -2032,14 +2074,37 @@
 
           card.dataset.isPast = "false";
 
+          // ====== WHATSAPP TURMA (NOVO) ======
+          const btn = card.querySelector('a[data-wa="turma"]');
+          if (btn) {
+            const cityRaw = card.getAttribute("data-city") || "";
+            const stateRaw = card.getAttribute("data-state") || "";
+            const city = titleCase(cityRaw);
+            const state = (stateRaw || "").toUpperCase();
+
+            const dateStr = formatDateBR(courseDate);
+
+            const msgTurma =
+              "Olá! Meu nome é " +
+              NAME_PLACEHOLDER +
+              ". Tenho interesse na turma de Inseminação Artificial em Bovinos da cidade de " +
+              city +
+              (state ? " (" + state + ")" : "") +
+              " no dia " +
+              dateStr +
+              ". Como faço para me inscrever?";
+
+            btn.setAttribute("href", waLink(msgTurma));
+          }
+
           if (diffDays >= 0 && diffDays <= 30) {
             const badge = document.createElement("div");
             badge.className = "upcoming-last-call";
             badge.innerHTML = "<span>⏰</span><span>Últimas vagas</span>";
 
-            const btn = card.querySelector(".btn");
-            if (btn && btn.parentNode) {
-              btn.parentNode.insertBefore(badge, btn);
+            const btnForBadge = card.querySelector(".btn");
+            if (btnForBadge && btnForBadge.parentNode) {
+              btnForBadge.parentNode.insertBefore(badge, btnForBadge);
             } else {
               card.appendChild(badge);
             }
@@ -2114,12 +2179,13 @@
           if (!value) return;
 
           const message =
-            "Olá! Tenho interesse no curso de Inseminação Artificial em Bovinos na região de " +
+            "Olá! Meu nome é " +
+            NAME_PLACEHOLDER +
+            ". Tenho interesse no curso de Inseminação Artificial em Bovinos na região de " +
             value +
             ". Podem me avisar quando tiver turma aí?";
-          const url =
-            "https://wa.me/5566999763455?text=" + encodeURIComponent(message);
 
+          const url = waLink(message);
           window.open(url, "_blank");
         });
       }
@@ -2157,6 +2223,8 @@
         updateVisible();
       }
 
+      // ====== init ======
+      initWhatsAppConsultorLinks();
       initDroneGallerySlider();
       initUpcomingClasses();
       initCityForm();
