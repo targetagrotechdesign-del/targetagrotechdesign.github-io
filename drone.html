@@ -730,10 +730,81 @@
       font-size: 0.78rem;
     }
 
+    /* MELHORIAS DIDÁTICAS */
+    .cta-emphasis {
+      background: linear-gradient(135deg, rgba(0, 176, 80, 0.1), rgba(0, 176, 80, 0.05));
+      border: 1px solid rgba(0, 176, 80, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .cta-emphasis h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+      color: var(--primary-soft);
+    }
+
+    .cta-emphasis p {
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.8rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+      background: #1da851;
+    }
+
+    .btn-whatsapp::before {
+      content: "💬";
+      font-size: 1.2rem;
+    }
+
+    .step-badge {
+      display: inline-block;
+      background: rgba(242, 201, 76, 0.15);
+      color: var(--secondary);
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .benefit-highlight {
+      border-left: 3px solid var(--primary);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .benefit-highlight strong {
+      color: var(--primary-soft);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
     @media (max-width: 640px) {
       .btn-row { justify-content: flex-start; }
       .hero-course-title { font-size: 2rem; }
       .city-form { flex-direction: column; align-items: stretch; }
+      .cta-emphasis { padding: 1.2rem; }
     }
   </style>
 </head>
@@ -782,6 +853,11 @@
                 para pulverização, mapeamento e aplicações de precisão.
               </p>
 
+              <div class="benefit-highlight">
+                <strong>✅ Tudo incluso no curso:</strong>
+                <span>Certificação + CAAR + Prática em campo + Suporte pós-curso</span>
+              </div>
+
               <div class="hero-course-tags" aria-label="Principais diferenciais do curso">
                 <div class="hero-course-tag">CAAR incluso no curso</div>
                 <div class="hero-course-tag">Prática em Campo real</div>
@@ -789,21 +865,28 @@
                 <div class="hero-course-tag">Certificado e carta de estágio</div>
               </div>
 
-              <div class="btn-row mb-1_5">
-                <!-- WHATSAPP CONSULTOR (NOVO) -->
+              <!-- CTA PRINCIPAL OTIMIZADA -->
+              <div class="cta-emphasis">
+                <h3>Garanta sua vaga agora!</h3>
+                <p>Fale diretamente com nosso consultor e tire todas suas dúvidas sobre o curso.</p>
                 <a
                   href="https://wa.me/5566999763455"
                   data-wa="consultor"
                   data-course-name="Piloto de Drone Agrícola"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="btn btn-primary"
+                  class="btn-whatsapp"
                 >
-                  Falar com um consultor no WhatsApp
+                  Falar com consultor no WhatsApp
                 </a>
+              </div>
 
+              <div class="btn-row mb-1_5">
                 <a href="#proximas-turmas-drone" class="btn btn-outline">
-                  Ver próximas turmas de drone
+                  📅 Ver próximas turmas de drone
+                </a>
+                <a href="#conteudo-curso-title" class="btn btn-ghost">
+                  📚 Ver conteúdo completo
                 </a>
               </div>
 
@@ -839,6 +922,74 @@
     </header>
 
     <main>
+      <!-- DEPOIMENTOS EM VÍDEO (MOVIDO PARA CIMA) -->
+      <section aria-labelledby="depoimentos-video-title">
+        <div class="container">
+          <h2 class="section-title" id="depoimentos-video-title">
+            Alunos que já <span class="highlight">decolaram na carreira</span>
+          </h2>
+          <p class="section-subtitle">
+            Veja depoimentos reais de quem já se formou como Piloto de Drone Agrícola pela Target Agrotech.
+          </p>
+
+          <div class="video-slider" aria-label="Depoimentos em vídeo">
+            <div class="video-grid" id="video-grid-drone">
+              <article class="video-card">
+                <video controls preload="metadata" poster="assets/video-thumb-1.jpg">
+                  <source src="assets/depo-drone-1.mp4" type="video/mp4" />
+                  Seu navegador não suporta vídeo.
+                </video>
+                <div class="video-card-title">“Rodei 1300 km pra estar aqui e super recomendo.”</div>
+                <div class="video-card-text">
+                  Aluno conta sobre a experiência prática e resultados no campo.
+                </div>
+              </article>
+
+              <article class="video-card">
+                <video controls preload="metadata" poster="assets/video-thumb-2.jpg">
+                  <source src="assets/depo-drone-2.mp4" type="video/mp4" />
+                  Seu navegador não suporta vídeo.
+                </video>
+                <div class="video-card-title">“Curso Maravilhoso”</div>
+                <div class="video-card-text">
+                  Relato sobre o funcionamento do curso e impacto na rotina profissional.
+                </div>
+              </article>
+
+              <article class="video-card">
+                <video controls preload="metadata" poster="assets/video-thumb-3.jpg">
+                  <source src="assets/depo-drone-3.mp4" type="video/mp4" />
+                  Seu navegador não suporta vídeo.
+                </video>
+                <div class="video-card-title">“Target é a melhor escola do Brasil”</div>
+                <div class="video-card-text">
+                  Aluno recém formado com certificado em mãos.
+                </div>
+              </article>
+            </div>
+
+            <button type="button" class="slider-arrow slider-arrow-left" id="video-prev" aria-label="Ver vídeos anteriores">‹</button>
+            <button type="button" class="slider-arrow slider-arrow-right" id="video-next" aria-label="Ver próximos vídeos">›</button>
+          </div>
+
+          <!-- CTA INTERMEDIÁRIA -->
+          <div class="cta-emphasis" style="margin-top: 3rem;">
+            <h3>Quer fazer parte do próximo grupo?</h3>
+            <p>Converse agora com nosso time e garanta sua vaga na próxima turma.</p>
+            <a
+              href="https://wa.me/5566999763455"
+              data-wa="consultor"
+              data-course-name="Piloto de Drone Agrícola"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-whatsapp"
+            >
+              Quero minha vaga no próximo curso
+            </a>
+          </div>
+        </div>
+      </section>
+
       <!-- POR QUE SE TORNAR PILOTO DE DRONE AGRÍCOLA -->
       <section aria-labelledby="porque-drone-title">
         <div class="container">
@@ -856,6 +1007,7 @@
               <p class="why-text">
                 Produtores e empresas buscam Pilotos qualificados para pulverização, mapeamento e monitoramento de lavouras.
               </p>
+              <div class="step-badge">Oportunidade real</div>
             </article>
 
             <article class="why-card">
@@ -864,6 +1016,7 @@
               <p class="why-text">
                 Você aprende a operar drones agrícolas na prática, em ambiente real, com equipamentos utilizados no dia a dia do campo.
               </p>
+              <div class="step-badge">Aprendizado prático</div>
             </article>
 
             <article class="why-card">
@@ -872,6 +1025,7 @@
               <p class="why-text">
                 Atue como prestador de serviços, pilotando em fazendas, revendas ou empresas de tecnologia agrícola.
               </p>
+              <div class="step-badge">Renda extra garantida</div>
             </article>
           </div>
         </div>
@@ -919,6 +1073,22 @@
                 Ao final da formação, você recebe certificado e sai com o CAAR incluido no curso, pronto para atuar no campo.
               </p>
             </article>
+          </div>
+
+          <!-- CTA INTERMEDIÁRIA 2 -->
+          <div class="cta-emphasis" style="margin-top: 3rem;">
+            <h3>Pronto para começar?</h3>
+            <p>Nosso consultor pode te explicar cada etapa do curso em detalhes.</p>
+            <a
+              href="https://wa.me/5566999763455"
+              data-wa="consultor"
+              data-course-name="Piloto de Drone Agrícola"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-whatsapp"
+            >
+              Tirar dúvidas sobre o curso
+            </a>
           </div>
         </div>
       </section>
@@ -1139,58 +1309,6 @@
         </div>
       </section>
 
-      <!-- DEPOIMENTOS EM VÍDEO -->
-      <section aria-labelledby="depoimentos-video-title">
-        <div class="container">
-          <h2 class="section-title" id="depoimentos-video-title">
-            Depoimentos em <span class="highlight">vídeo</span>
-          </h2>
-          <p class="section-subtitle">
-            Veja alguns depoimentos reais de alunos que se formaram como Piloto de Drone Agrícola pela Target Agrotech.
-          </p>
-
-          <div class="video-slider" aria-label="Depoimentos em vídeo">
-            <div class="video-grid" id="video-grid-drone">
-              <article class="video-card">
-                <video controls preload="metadata">
-                  <source src="assets/depo-drone-1.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeo.
-                </video>
-                <div class="video-card-title">“Rodei 1300 km pra estar aqui e super recomendo.”</div>
-                <div class="video-card-text">
-                  Depoimento de aluno relatando a experiência prática durante o curso e os resultados no campo.
-                </div>
-              </article>
-
-              <article class="video-card">
-                <video controls preload="metadata">
-                  <source src="assets/depo-drone-2.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeo.
-                </video>
-                <div class="video-card-title">“Curso Maravilhoso”</div>
-                <div class="video-card-text">
-                  Relato sobre  o funcionamento do curso, a prática com drones e o impacto na rotina profissional.
-                </div>
-              </article>
-
-              <article class="video-card">
-                <video controls preload="metadata">
-                  <source src="assets/depo-drone-3.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeo.
-                </video>
-                <div class="video-card-title">“Target é a melhor escola do Brasil”</div>
-                <div class="video-card-text">
-                  Aluno recém formado segurando seu certificado e contando como foi o curso.
-                </div>
-              </article>
-            </div>
-
-            <button type="button" class="slider-arrow slider-arrow-left" id="video-prev" aria-label="Ver vídeos anteriores">‹</button>
-            <button type="button" class="slider-arrow slider-arrow-right" id="video-next" aria-label="Ver próximos vídeos">›</button>
-          </div>
-        </div>
-      </section>
-
       <!-- PRÓXIMAS TURMAS DE DRONE -->
       <section id="proximas-turmas-drone" aria-labelledby="proximas-turmas-title">
         <div class="container">
@@ -1375,7 +1493,7 @@
         </div>
       </section>
 
-      <!-- CTA FINAL -->
+      <!-- CTA FINAL OTIMIZADA -->
       <section class="final-cta" aria-labelledby="cta-final-title">
         <div class="container">
           <div class="final-cta-inner">
@@ -1387,22 +1505,30 @@
               Garanta sua vaga em uma das próximas turmas presenciais e comece a atuar com tecnologia de ponta no campo,
               com suporte de quem vive o agro todos os dias.
             </p>
-            <div class="btn-row center">
-              <!-- WHATSAPP CONSULTOR (NOVO) -->
+            
+            <!-- DESTAQUE FINAL -->
+            <div class="benefit-highlight" style="margin: 1.5rem auto; max-width: 600px; text-align: center;">
+              <strong>🎯 O que você leva do curso:</strong>
+              <span>Certificado oficial + CAAR incluso + Prática real em campo + Suporte pós-curso</span>
+            </div>
+
+            <div class="btn-row center" style="margin-top: 2rem;">
               <a
                 href="https://wa.me/5566999763455"
                 data-wa="consultor"
                 data-course-name="Piloto de Drone Agrícola"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn btn-primary"
+                class="btn-whatsapp"
+                style="font-size: 1.1rem; padding: 1rem 2rem;"
               >
-                Quero falar com um consultor
-              </a>
-              <a href="#proximas-turmas-drone" class="btn btn-ghost">
-                Ver datas disponíveis
+                🚀 QUERO MINHA VAGA AGORA
               </a>
             </div>
+            
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
+              ⏳ Vagas limitadas por turma • Inscrições abertas
+            </p>
           </div>
         </div>
       </section>
@@ -1487,7 +1613,6 @@
       }
 
       function formatCityFromData(dataCity) {
-        // Ex.: "luis eduardo magalhaes" -> "Luis Eduardo Magalhaes" (sem acento, mas ok)
         const clean = normalizeCityLabel(dataCity).toLowerCase();
         if (!clean) return "";
         return clean.replace(/\b\w/g, function (m) { return m.toUpperCase(); });
@@ -1533,7 +1658,6 @@
 
           const cityState = city && state ? (city + " (" + state + ")") : (city || state || "aí na região");
 
-          // se no data-course-date não tiver ano, a pessoa vê do jeito que está mesmo (dd/mm).
           const msg =
             "Olá! Meu nome é " + NAME_PLACEHOLDER + ". " +
             "Tenho interesse na turma de " + courseName + " em " + cityState + " no dia " + rawDate + ". " +
@@ -1543,9 +1667,6 @@
         });
       }
 
-      // MESMA REGRA DA HOME:
-      // - Dezembro (12) => ano atual
-      // - Qualquer outro mês (01–11) => ano que vem
       function parseCourseDate(ddmm) {
         const parts = ddmm.split("/");
         if (parts.length !== 2) return null;
@@ -1796,12 +1917,26 @@
         updateVisible();
       }
 
-      initWhatsAppConsultorLinks();  // NOVO
-      initWhatsAppTurmaLinks();      // NOVO
+      // Adiciona tracking de clique nos CTAs
+      function initCTATracking() {
+        const ctas = document.querySelectorAll('.btn-whatsapp, .btn-primary[data-wa]');
+        ctas.forEach(cta => {
+          cta.addEventListener('click', function() {
+            const course = this.getAttribute('data-course-name') || 'Piloto de Drone Agrícola';
+            const type = this.getAttribute('data-wa') || 'consultor';
+            console.log(`CTA clicado: ${course} - Tipo: ${type}`);
+            // Aqui você pode adicionar Google Analytics ou outro tracking
+          });
+        });
+      }
+
+      initWhatsAppConsultorLinks();
+      initWhatsAppTurmaLinks();
       initDroneGallerySlider();
       initUpcomingClasses();
       initCityForm();
       initVideoSlider();
+      initCTATracking();
     });
   </script>
 </body>
