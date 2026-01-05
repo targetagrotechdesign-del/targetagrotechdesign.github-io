@@ -1170,6 +1170,76 @@
       font-size: 0.78rem;
     }
 
+    /* ========== MELHORIAS DIDÁTICAS ========== */
+    .cta-emphasis {
+      background: linear-gradient(135deg, rgba(0, 176, 80, 0.1), rgba(0, 176, 80, 0.05));
+      border: 1px solid rgba(0, 176, 80, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .cta-emphasis h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+      color: var(--primary-soft);
+    }
+
+    .cta-emphasis p {
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.8rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+      background: #1da851;
+    }
+
+    .btn-whatsapp::before {
+      content: "💬";
+      font-size: 1.2rem;
+    }
+
+    .step-badge {
+      display: inline-block;
+      background: rgba(242, 201, 76, 0.15);
+      color: var(--secondary);
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .benefit-highlight {
+      border-left: 3px solid var(--primary);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .benefit-highlight strong {
+      color: var(--primary-soft);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
     @media (max-width: 640px) {
       .btn-row {
         justify-content: flex-start;
@@ -1191,6 +1261,10 @@
 
       .footer-partner {
         justify-content: flex-start;
+      }
+      
+      .cta-emphasis {
+        padding: 1.2rem;
       }
     }
   </style>
@@ -1240,6 +1314,11 @@
                 em manejo reprodutivo, taxa de prenhez e resultado para o rebanho.
               </p>
 
+              <div class="benefit-highlight">
+                <strong>✅ Tudo incluso no curso:</strong>
+                <span>Certificação + Carta de estágio + Prática em curral real + Suporte pós-curso</span>
+              </div>
+
               <div class="hero-course-tags" aria-label="Principais diferenciais do curso">
                 <div class="hero-course-tag">Prática guiada em curral</div>
                 <div class="hero-course-tag">Certificação nacional</div>
@@ -1247,18 +1326,28 @@
                 <div class="hero-course-tag">Carta de estágio</div>
               </div>
 
-              <div class="btn-row mb-1_5">
+              <!-- CTA PRINCIPAL OTIMIZADA -->
+              <div class="cta-emphasis">
+                <h3>Garanta sua vaga agora!</h3>
+                <p>Fale diretamente com nosso consultor e tire todas suas dúvidas sobre o curso.</p>
                 <a
                   href="https://wa.me/5566999763455"
                   data-wa="consultor"
+                  data-course-name="Inseminação Artificial em Bovinos"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="btn btn-primary"
+                  class="btn-whatsapp"
                 >
-                  Falar com um consultor no WhatsApp
+                  Falar com consultor no WhatsApp
                 </a>
+              </div>
+
+              <div class="btn-row mb-1_5">
                 <a href="#proximas-turmas-drone" class="btn btn-outline">
-                  Ver próximas turmas de inseminação
+                  📅 Ver próximas turmas de inseminação
+                </a>
+                <a href="#conteudo-curso-title" class="btn btn-ghost">
+                  📚 Ver conteúdo completo
                 </a>
               </div>
 
@@ -1294,6 +1383,88 @@
     </header>
 
     <main>
+      <!-- DEPOIMENTOS EM VÍDEO (MOVIDO PARA CIMA) -->
+      <section aria-labelledby="depoimentos-video-title">
+        <div class="container">
+          <h2 class="section-title" id="depoimentos-video-title">
+            Alunos que já <span class="highlight">transformaram suas carreiras</span>
+          </h2>
+          <p class="section-subtitle">
+            Veja depoimentos reais de quem já se formou em Inseminação Artificial em Bovinos pela Target Agrotech.
+          </p>
+
+          <div class="video-slider" aria-label="Depoimentos em vídeo">
+            <div class="video-grid" id="video-grid-drone">
+              <article class="video-card">
+                <video controls preload="metadata" poster="assets/video-thumb-inseminacao-1.jpg">
+                  <source src="assets/depo-inseminacao-1.mp4" type="video/mp4" />
+                  Seu navegador não suporta vídeo.
+                </video>
+                <div class="video-card-title">"Aprendi na prática, no curral"</div>
+                <div class="video-card-text">
+                  Depoimento de aluna contando como a prática guiada em curral ajudou a ganhar confiança na técnica.
+                </div>
+              </article>
+
+              <article class="video-card">
+                <video controls preload="metadata" poster="assets/video-thumb-inseminacao-2.jpg">
+                  <source src="assets/depo-inseminacao-2.mp4" type="video/mp4" />
+                  Seu navegador não suporta vídeo.
+                </video>
+                <div class="video-card-title">"Uma experiência MUITO proveitosa"</div>
+                <div class="video-card-text">
+                  Relato de aluno sobre o curso e impacto na rotina profissional.
+                </div>
+              </article>
+
+              <article class="video-card">
+                <video controls preload="metadata" poster="assets/video-thumb-inseminacao-3.jpg">
+                  <source src="assets/depo-inseminacao-3.mp4" type="video/mp4" />
+                  Seu navegador não suporta vídeo.
+                </video>
+                <div class="video-card-title">"Arrasta pra cima e vem com a Target"</div>
+                <div class="video-card-text">
+                  Aluno contando como foi a formação em inseminação artificial.
+                </div>
+              </article>
+            </div>
+
+            <button
+              type="button"
+              class="slider-arrow slider-arrow-left"
+              id="video-prev"
+              aria-label="Ver vídeos anteriores"
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              class="slider-arrow slider-arrow-right"
+              id="video-next"
+              aria-label="Ver próximos vídeos"
+            >
+              ›
+            </button>
+          </div>
+
+          <!-- CTA INTERMEDIÁRIA -->
+          <div class="cta-emphasis" style="margin-top: 3rem;">
+            <h3>Quer fazer parte do próximo grupo?</h3>
+            <p>Converse agora com nosso time e garanta sua vaga na próxima turma.</p>
+            <a
+              href="https://wa.me/5566999763455"
+              data-wa="consultor"
+              data-course-name="Inseminação Artificial em Bovinos"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-whatsapp"
+            >
+              Quero minha vaga no próximo curso
+            </a>
+          </div>
+        </div>
+      </section>
+
       <!-- POR QUE INSEMINAÇÃO -->
       <section aria-labelledby="porque-inseminacao-title">
         <div class="container">
@@ -1312,6 +1483,7 @@
               <p class="why-text">
                 Aumente a taxa de prenhez, melhore a genética e ajude o produtor a ter um rebanho mais produtivo e lucrativo.
               </p>
+              <div class="step-badge">Resultado garantido</div>
             </article>
 
             <article class="why-card">
@@ -1320,6 +1492,7 @@
               <p class="why-text">
                 Fazendas de leite e corte buscam profissionais que saibam inseminar com segurança e eficiência no dia a dia.
               </p>
+              <div class="step-badge">Alta demanda</div>
             </article>
 
             <article class="why-card">
@@ -1328,6 +1501,7 @@
               <p class="why-text">
                 Atue como inseminador em fazendas, cooperativas, empresas de genética ou como prestador de serviço na região.
               </p>
+              <div class="step-badge">Renda extra garantida</div>
             </article>
           </div>
         </div>
@@ -1376,6 +1550,22 @@
                 Ao final, você recebe certificado e carta de estágio, saindo pronto para aplicar o que aprendeu no campo.
               </p>
             </article>
+          </div>
+
+          <!-- CTA INTERMEDIÁRIA 2 -->
+          <div class="cta-emphasis" style="margin-top: 3rem;">
+            <h3>Pronto para começar?</h3>
+            <p>Nosso consultor pode te explicar cada etapa do curso em detalhes.</p>
+            <a
+              href="https://wa.me/5566999763455"
+              data-wa="consultor"
+              data-course-name="Inseminação Artificial em Bovinos"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-whatsapp"
+            >
+              Tirar dúvidas sobre o curso
+            </a>
           </div>
         </div>
       </section>
@@ -1549,8 +1739,8 @@
           <div class="testimonials-grid">
             <article class="testimonial-card">
               <p class="testimonial-text">
-                “Eu nunca tinha feito inseminação antes e saí do curso confiante para aplicar a técnica na fazenda.
-                A prática no curral fez toda a diferença.”
+                "Eu nunca tinha feito inseminação antes e saí do curso confiante para aplicar a técnica na fazenda.
+                A prática no curral fez toda a diferença."
               </p>
               <div class="testimonial-author">
                 <div class="testimonial-avatar" aria-hidden="true">CF</div>
@@ -1563,7 +1753,7 @@
 
             <article class="testimonial-card">
               <p class="testimonial-text">
-                “Aprendi a parte teórica e, principalmente, a prática. Hoje consigo ajudar na reprodução do rebanho e trazer mais resultado para a fazenda.”
+                "Aprendi a parte teórica e, principalmente, a prática. Hoje consigo ajudar na reprodução do rebanho e trazer mais resultado para a fazenda."
               </p>
               <div class="testimonial-author">
                 <div class="testimonial-avatar" aria-hidden="true">AP</div>
@@ -1576,7 +1766,7 @@
 
             <article class="testimonial-card">
               <p class="testimonial-text">
-                “O curso é bem objetivo e focado em campo. Saí com muito mais segurança para trabalhar com inseminação e oferecer esse serviço na região.”
+                "O curso é bem objetivo e focado em campo. Saí com muito mais segurança para trabalhar com inseminação e oferecer esse serviço na região."
               </p>
               <div class="testimonial-author">
                 <div class="testimonial-avatar" aria-hidden="true">RM</div>
@@ -1586,72 +1776,6 @@
                 </div>
               </div>
             </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- DEPOIMENTOS EM VÍDEO -->
-      <section aria-labelledby="depoimentos-video-title">
-        <div class="container">
-          <h2 class="section-title" id="depoimentos-video-title">
-            Depoimentos em <span class="highlight">vídeo</span>
-          </h2>
-          <p class="section-subtitle">
-            Veja alguns depoimentos reais de alunos que se formaram em Inseminação Artificial em Bovinos pela Target Agrotech.
-          </p>
-
-          <div class="video-slider" aria-label="Depoimentos em vídeo">
-            <div class="video-grid" id="video-grid-drone">
-              <article class="video-card">
-                <video controls preload="metadata">
-                  <source src="assets/depo-inseminacao-1.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeo.
-                </video>
-                <div class="video-card-title">“Aprendi na prática, no curral”</div>
-                <div class="video-card-text">
-                  Depoimento de aluna contando como a prática guiada em curral ajudou a ganhar confiança na técnica.
-                </div>
-              </article>
-
-              <article class="video-card">
-                <video controls preload="metadata">
-                  <source src="assets/depo-inseminacao-2.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeo.
-                </video>
-                <div class="video-card-title">“Uma experiencia MUITO proveitosa”</div>
-                <div class="video-card-text">
-                  Relato de aluno sobre o curso.
-                </div>
-              </article>
-
-              <article class="video-card">
-                <video controls preload="metadata">
-                  <source src="assets/depo-inseminacao-3.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeo.
-                </video>
-                <div class="video-card-title">“Arrasta pra cima e vem com a Target”</div>
-                <div class="video-card-text">
-                  Aluno contando como foi a formação em inseminação artificial .
-                </div>
-              </article>
-            </div>
-
-            <button
-              type="button"
-              class="slider-arrow slider-arrow-left"
-              id="video-prev"
-              aria-label="Ver vídeos anteriores"
-            >
-              ‹
-            </button>
-            <button
-              type="button"
-              class="slider-arrow slider-arrow-right"
-              id="video-next"
-              aria-label="Ver próximos vídeos"
-            >
-              ›
-            </button>
           </div>
         </div>
       </section>
@@ -1701,6 +1825,7 @@
               <a
                 href="https://wa.me/5566999763455"
                 data-wa="turma"
+                data-course-name="Inseminação Artificial em Bovinos"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-primary"
@@ -1719,6 +1844,7 @@
               <a
                 href="https://wa.me/5566999763455"
                 data-wa="turma"
+                data-course-name="Inseminação Artificial em Bovinos"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-primary"
@@ -1737,6 +1863,7 @@
               <a
                 href="https://wa.me/5566999763455"
                 data-wa="turma"
+                data-course-name="Inseminação Artificial em Bovinos"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-primary"
@@ -1767,7 +1894,7 @@
         </div>
       </section>
 
-      <!-- CTA FINAL -->
+      <!-- CTA FINAL OTIMIZADA -->
       <section class="final-cta" aria-labelledby="cta-final-title">
         <div class="container">
           <div class="final-cta-inner">
@@ -1779,20 +1906,30 @@
               Garanta sua vaga em uma das próximas turmas presenciais e comece a atuar com inseminação artificial em bovinos,
               ajudando produtores a melhorarem genética e resultado do rebanho.
             </p>
-            <div class="btn-row center">
+            
+            <!-- DESTAQUE FINAL -->
+            <div class="benefit-highlight" style="margin: 1.5rem auto; max-width: 600px; text-align: center;">
+              <strong>🎯 O que você leva do curso:</strong>
+              <span>Certificado oficial + Carta de estágio + Prática em curral real + Suporte pós-curso</span>
+            </div>
+
+            <div class="btn-row center" style="margin-top: 2rem;">
               <a
                 href="https://wa.me/5566999763455"
                 data-wa="consultor"
+                data-course-name="Inseminação Artificial em Bovinos"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn btn-primary"
+                class="btn-whatsapp"
+                style="font-size: 1.1rem; padding: 1rem 2rem;"
               >
-                Quero falar com um consultor
-              </a>
-              <a href="#proximas-turmas-drone" class="btn btn-ghost">
-                Ver datas disponíveis
+                🚀 QUERO MINHA VAGA AGORA
               </a>
             </div>
+            
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
+              ⏳ Vagas limitadas por turma • Inscrições abertas
+            </p>
           </div>
         </div>
       </section>
@@ -1842,6 +1979,7 @@
                   <a
                     href="https://wa.me/5566999763455"
                     data-wa="consultor"
+                    data-course-name="Inseminação Artificial em Bovinos"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -1881,16 +2019,8 @@
       const WHATSAPP_PHONE = "5566999763455";
       const NAME_PLACEHOLDER = "[SEU NOME]";
 
-      function waLink(message) {
+      function buildWaUrl(message) {
         return "https://wa.me/" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(message);
-      }
-
-      function pad2(n) {
-        return String(n).padStart(2, "0");
-      }
-
-      function formatDateBR(d) {
-        return pad2(d.getDate()) + "/" + pad2(d.getMonth() + 1) + "/" + d.getFullYear();
       }
 
       function titleCase(str) {
@@ -1902,57 +2032,70 @@
           .join(" ");
       }
 
+      // ========== CONSULTOR (NOVO) ==========
       function initWhatsAppConsultorLinks() {
-        const msg =
-          "Olá! Meu nome é " +
-          NAME_PLACEHOLDER +
-          ". Tenho interesse no curso de Inseminação Artificial em Bovinos. Pode me passar mais informações?";
+        const consultorLinks = Array.from(document.querySelectorAll('a[data-wa="consultor"]'));
+        if (!consultorLinks.length) return;
 
-        document.querySelectorAll('a[data-wa="consultor"]').forEach((a) => {
-          a.setAttribute("href", waLink(msg));
+        consultorLinks.forEach(function (link) {
+          const courseName = link.getAttribute("data-course-name") || "Inseminação Artificial em Bovinos";
+          const msg =
+            "Olá! Meu nome é " + NAME_PLACEHOLDER + ". " +
+            "Tenho interesse no curso de " + courseName + ". " +
+            "Podem me passar mais informações, por favor?";
+
+          link.setAttribute("href", buildWaUrl(msg));
+        });
+      }
+
+      // ========== TURMAS (NOVO) ==========
+      function initWhatsAppTurmaLinks() {
+        const turmaLinks = Array.from(document.querySelectorAll('a[data-wa="turma"]'));
+        if (!turmaLinks.length) return;
+
+        turmaLinks.forEach(function (link) {
+          const card = link.closest(".upcoming-card");
+          if (!card) return;
+
+          const courseName = link.getAttribute("data-course-name") || "Inseminação Artificial em Bovinos";
+          const rawDate = card.getAttribute("data-course-date") || "";
+          const city = titleCase(card.getAttribute("data-city") || "");
+          const state = (card.getAttribute("data-state") || "").toUpperCase();
+
+          const cityState = city && state ? (city + " (" + state + ")") : (city || state || "aí na região");
+
+          const msg =
+            "Olá! Meu nome é " + NAME_PLACEHOLDER + ". " +
+            "Tenho interesse na turma de " + courseName + " em " + cityState + " no dia " + rawDate + ". " +
+            "Como faço para garantir minha vaga?";
+
+          link.setAttribute("href", buildWaUrl(msg));
         });
       }
 
       // NOVO: aceita "dd/mm" ou "dd/mm/aaaa"
-      function computeCourseDates(cards) {
-        const map = new Map();
+      function parseCourseDate(ddmm) {
+        const parts = ddmm.split("/");
+        if (parts.length < 2) return null;
 
-        cards.forEach((card) => {
-          const raw = card.getAttribute("data-course-date");
-          if (!raw) return;
+        const day = parseInt(parts[0], 10);
+        const month = parseInt(parts[1], 10);
+        if (isNaN(day) || isNaN(month)) return null;
 
-          const parts = raw.split("/");
-          let day, month, year;
-
-          if (parts.length === 3) {
-            day = parseInt(parts[0], 10);
-            month = parseInt(parts[1], 10);
-            year = parseInt(parts[2], 10);
-          } else if (parts.length === 2) {
-            day = parseInt(parts[0], 10);
-            month = parseInt(parts[1], 10);
-            if (Number.isNaN(day) || Number.isNaN(month)) return;
-
-            const currentYear = today.getFullYear();
-            const currentMonth = today.getMonth() + 1;
-
-            // Heurística para datas sem ano: se o mês já passou, assume próximo ano
-            year = currentYear;
-            if (month < currentMonth) {
-              year = currentYear + 1;
-            }
-          } else {
-            return;
+        let year;
+        if (parts.length === 3) {
+          year = parseInt(parts[2], 10);
+        } else {
+          const currentYear = today.getFullYear();
+          const currentMonth = today.getMonth() + 1;
+          year = currentYear;
+          if (month < currentMonth) {
+            year = currentYear + 1;
           }
+        }
 
-          if (Number.isNaN(day) || Number.isNaN(month) || Number.isNaN(year)) return;
-
-          const d = new Date(year, month - 1, day);
-          d.setHours(0, 0, 0, 0);
-          map.set(card, d);
-        });
-
-        return map;
+        if (isNaN(year)) return null;
+        return new Date(year, month - 1, day);
       }
 
       function initDroneGallerySlider() {
@@ -2040,12 +2183,11 @@
         const upcomingGrid = document.getElementById("upcoming-grid-drone");
         if (!upcomingGrid) return;
 
-        const cards = Array.from(
+        const rawCards = Array.from(
           upcomingGrid.querySelectorAll(".upcoming-card[data-course-date]")
         );
-        if (cards.length === 0) return;
 
-        const courseDateMap = computeCourseDates(cards);
+        const cards = [];
 
         const searchInput = document.getElementById("search-city-drone");
         const toggleBtn = document.getElementById("toggle-more-drone");
@@ -2053,58 +2195,32 @@
         let showAll = false;
         let searchTerm = "";
 
-        cards.forEach((card) => {
-          const courseDate = courseDateMap.get(card);
+        rawCards.forEach((card) => {
+          const ddmm = card.getAttribute("data-course-date");
+          const courseDate = ddmm ? parseCourseDate(ddmm) : null;
           if (!courseDate) {
-            card.dataset.isPast = "true";
-            card.classList.add("hidden");
+            card.remove();
             return;
           }
 
           const diffMs = courseDate.getTime() - today.getTime();
           const diffDays = diffMs / DAY_IN_MS;
 
-          // Aqui garante: no dia do curso (diffDays >= 0) ainda aparece,
-          // só some quando virar para o dia seguinte (diffDays < 0).
           if (diffDays < 0) {
-            card.dataset.isPast = "true";
-            card.classList.add("hidden");
+            card.remove();
             return;
           }
 
-          card.dataset.isPast = "false";
-
-          // ====== WHATSAPP TURMA (NOVO) ======
-          const btn = card.querySelector('a[data-wa="turma"]');
-          if (btn) {
-            const cityRaw = card.getAttribute("data-city") || "";
-            const stateRaw = card.getAttribute("data-state") || "";
-            const city = titleCase(cityRaw);
-            const state = (stateRaw || "").toUpperCase();
-
-            const dateStr = formatDateBR(courseDate);
-
-            const msgTurma =
-              "Olá! Meu nome é " +
-              NAME_PLACEHOLDER +
-              ". Tenho interesse na turma de Inseminação Artificial em Bovinos da cidade de " +
-              city +
-              (state ? " (" + state + ")" : "") +
-              " no dia " +
-              dateStr +
-              ". Como faço para me inscrever?";
-
-            btn.setAttribute("href", waLink(msgTurma));
-          }
+          cards.push(card);
 
           if (diffDays >= 0 && diffDays <= 30) {
             const badge = document.createElement("div");
             badge.className = "upcoming-last-call";
             badge.innerHTML = "<span>⏰</span><span>Últimas vagas</span>";
 
-            const btnForBadge = card.querySelector(".btn");
-            if (btnForBadge && btnForBadge.parentNode) {
-              btnForBadge.parentNode.insertBefore(badge, btnForBadge);
+            const btn = card.querySelector(".btn");
+            if (btn && btn.parentNode) {
+              btn.parentNode.insertBefore(badge, btn);
             } else {
               card.appendChild(badge);
             }
@@ -2112,38 +2228,37 @@
         });
 
         function applyFilter() {
-          const visibleFutureCards = [];
+          if (!cards.length) {
+            if (toggleBtn) toggleBtn.style.display = "none";
+            return;
+          }
 
-          cards.forEach((card) => {
-            const isPast = card.dataset.isPast === "true";
-            if (isPast) {
-              card.classList.add("hidden");
-              return;
-            }
-
+          const filtered = cards.filter((card) => {
             const city = (card.getAttribute("data-city") || "").toLowerCase();
             const state = (card.getAttribute("data-state") || "").toLowerCase();
             const combined = (city + " " + state).trim();
-            let matches = true;
+            if (!searchTerm) return true;
+            return combined.includes(searchTerm);
+          });
 
-            if (searchTerm) {
-              matches = combined.includes(searchTerm);
-            }
+          cards.forEach((card) => card.classList.add("hidden"));
 
-            if (!matches) {
+          filtered.forEach((card, index) => {
+            if (!searchTerm && !showAll && index >= INITIAL_VISIBLE) {
               card.classList.add("hidden");
             } else {
               card.classList.remove("hidden");
-              visibleFutureCards.push(card);
             }
           });
 
-          if (!searchTerm && !showAll) {
-            visibleFutureCards.forEach((card, index) => {
-              if (index >= INITIAL_VISIBLE) {
-                card.classList.add("hidden");
-              }
-            });
+          if (toggleBtn) {
+            if (filtered.length <= INITIAL_VISIBLE || searchTerm) {
+              toggleBtn.style.display = "none";
+            } else {
+              toggleBtn.style.display = "";
+              toggleBtn.textContent = showAll ? "Ver menos turmas" : "Ver mais turmas";
+              toggleBtn.setAttribute("aria-expanded", showAll ? "true" : "false");
+            }
           }
         }
 
@@ -2152,6 +2267,7 @@
             const target = e.target;
             if (!(target instanceof HTMLInputElement)) return;
             searchTerm = target.value.toLowerCase().trim();
+            if (!searchTerm) showAll = false;
             applyFilter();
           });
         }
@@ -2159,8 +2275,6 @@
         if (toggleBtn) {
           toggleBtn.addEventListener("click", function () {
             showAll = !showAll;
-            toggleBtn.textContent = showAll ? "Ver menos turmas" : "Ver mais turmas";
-            toggleBtn.setAttribute("aria-expanded", showAll ? "true" : "false");
             applyFilter();
           });
         }
@@ -2179,14 +2293,11 @@
           if (!value) return;
 
           const message =
-            "Olá! Meu nome é " +
-            NAME_PLACEHOLDER +
-            ". Tenho interesse no curso de Inseminação Artificial em Bovinos na região de " +
-            value +
-            ". Podem me avisar quando tiver turma aí?";
+            "Olá! Meu nome é " + NAME_PLACEHOLDER + ". " +
+            "Tenho interesse no curso de Inseminação Artificial em Bovinos na região de " + value + ". " +
+            "Podem me avisar quando tiver turma aí?";
 
-          const url = waLink(message);
-          window.open(url, "_blank");
+          window.open(buildWaUrl(message), "_blank");
         });
       }
 
@@ -2223,12 +2334,26 @@
         updateVisible();
       }
 
-      // ====== init ======
+      // Adiciona tracking de clique nos CTAs
+      function initCTATracking() {
+        const ctas = document.querySelectorAll('.btn-whatsapp, .btn-primary[data-wa]');
+        ctas.forEach(cta => {
+          cta.addEventListener('click', function() {
+            const course = this.getAttribute('data-course-name') || 'Inseminação Artificial em Bovinos';
+            const type = this.getAttribute('data-wa') || 'consultor';
+            console.log(`CTA clicado: ${course} - Tipo: ${type}`);
+            // Aqui você pode adicionar Google Analytics ou outro tracking
+          });
+        });
+      }
+
       initWhatsAppConsultorLinks();
+      initWhatsAppTurmaLinks();
       initDroneGallerySlider();
       initUpcomingClasses();
       initCityForm();
       initVideoSlider();
+      initCTATracking();
     });
   </script>
 </body>
