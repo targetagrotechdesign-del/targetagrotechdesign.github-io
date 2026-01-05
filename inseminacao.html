@@ -888,21 +888,23 @@
       gap: 0.4rem;
     }
 
-    .video-card video {
-      width: 100%;
-      border-radius: var(--radius-md);
-      display: block;
-      margin-bottom: 0.6rem;
-      background: #000;
-      height: 200px;
-      object-fit: cover;
-    }
+.video-card video {
+  width: 100%;
+  border-radius: var(--radius-md);
+  display: block;
+  margin-bottom: 0.6rem;
+  background: #000;
+  /* REMOVA as linhas abaixo */
+  /* height: 200px; */
+  /* object-fit: cover; */
+}
 
-    @media (max-width: 640px) {
-      .video-card video {
-        height: 180px;
-      }
-    }
+@media (max-width: 640px) {
+  .video-card video {
+    /* REMOVA esta linha também */
+    /* height: 180px; */
+  }
+}
 
     .video-card-title {
       font-weight: 600;
@@ -2258,3 +2260,4 @@
   </script>
 </body>
 </html>
+
