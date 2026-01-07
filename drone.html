@@ -173,6 +173,132 @@
     .mb-1_5 { margin-bottom: 1.5rem; }
     .center { justify-content: center; }
 
+    /* ---------- HERO OTIMIZADA ---------- */
+    .hero-course {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+      text-align: center;
+    }
+
+    .hero-course-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .hero-course-kicker {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .hero-course-title {
+      font-size: clamp(2.5rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-course-title span { color: var(--primary); }
+
+    .hero-course-subtitle {
+      font-size: 1.3rem;
+      color: var(--text-main);
+      margin-bottom: 2rem;
+      line-height: 1.4;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ---------- CTA PRINCIPAL ---------- */
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta-primary {
+      background: var(--primary);
+      color: #020a06;
+      box-shadow: var(--shadow-soft);
+      padding: 1.1rem 2.2rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .hero-cta-primary:hover {
+      background: var(--primary-soft);
+      transform: translateY(-2px);
+      box-shadow: 0 22px 45px rgba(18, 242, 120, 0.3);
+    }
+
+    .hero-cta-secondary {
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-main);
+      padding: 1.1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .hero-cta-secondary:hover {
+      border-color: var(--primary);
+      background: rgba(0, 176, 80, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* ---------- BENEFÍCIOS RÁPIDOS ---------- */
+    .hero-benefits-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-benefit-pill {
+      padding: 0.5rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: radial-gradient(circle at top left, rgba(0, 176, 80, 0.22), rgba(0, 0, 0, 0.7));
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-main);
+    }
+
+    .hero-benefit-pill span.dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+
+    /* ---------- HEADER ---------- */
     header { padding: 1.2rem 0 0.5rem; }
 
     .top-bar {
@@ -212,67 +338,7 @@
       letter-spacing: 0.12em;
     }
 
-    .hero-course { padding: 1.5rem 0 3rem; }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 2.4rem;
-      align-items: center;
-    }
-
-    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
-
-    .hero-course-kicker {
-      font-size: 0.88rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--secondary);
-      margin-bottom: 0.7rem;
-    }
-
-    .hero-course-title {
-      font-size: clamp(2.1rem, 3.3vw, 2.7rem);
-      font-weight: 700;
-      margin-bottom: 0.7rem;
-    }
-
-    .hero-course-title span { color: var(--primary); }
-
-    .hero-course-subtitle {
-      color: var(--text-muted);
-      font-size: 1rem;
-      margin-bottom: 1.2rem;
-      max-width: 560px;
-    }
-
-    .hero-course-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      margin-bottom: 1.5rem;
-      font-size: 0.86rem;
-    }
-
-    .hero-course-tag {
-      padding: 0.35rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: radial-gradient(circle at top left, rgba(0, 176, 80, 0.22), rgba(0, 0, 0, 0.7));
-    }
-
-    .hero-course-info-row {
-      margin-top: 1.6rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.4rem;
-      font-size: 0.86rem;
-      color: var(--text-muted);
-    }
-
-    .hero-course-info-item span { display: block; }
-    .hero-course-info-item strong { color: var(--primary-soft); font-size: 1rem; }
-
+    /* ---------- HERO MEDIA ---------- */
     .hero-course-media {
       background: radial-gradient(circle at top, #152c1f, #07130d);
       border-radius: 28px;
@@ -281,6 +347,8 @@
       box-shadow: var(--shadow-card);
       position: relative;
       overflow: hidden;
+      max-width: 800px;
+      margin: 2rem auto 0;
     }
 
     .hero-course-media::before {
@@ -319,6 +387,7 @@
 
     .hero-course-media-footer strong { color: var(--primary-soft); }
 
+    /* ---------- WHY SECTION ---------- */
     .why-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; }
     @media (max-width: 900px) { .why-grid { grid-template-columns: 1fr; } }
 
@@ -358,6 +427,7 @@
     .why-title { font-size: 1.05rem; font-weight: 600; }
     .why-text { font-size: 0.9rem; color: var(--text-muted); }
 
+    /* ---------- STEPS ---------- */
     .steps-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.1rem; }
     @media (max-width: 1000px) { .steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 640px) { .steps-grid { grid-template-columns: 1fr; } }
@@ -388,6 +458,7 @@
     .step-title { font-weight: 600; font-size: 1rem; }
     .step-text { color: var(--text-muted); font-size: 0.88rem; }
 
+    /* ---------- CONTENT ---------- */
     .content-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.3rem; align-items: flex-start; }
     @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } }
 
@@ -414,6 +485,7 @@
 
     .bullet-list li::before { content: "✔"; color: var(--primary-soft); margin-right: 0.45rem; font-size: 0.8rem; }
 
+    /* ---------- GALLERY ---------- */
     .slider-arrow {
       position: absolute;
       top: 50%;
@@ -503,6 +575,7 @@
     .gallery-dot { width: 8px; height: 8px; border-radius: 999px; border: none; background: rgba(255, 255, 255, 0.25); cursor: pointer; padding: 0; }
     .gallery-dot.active { background: var(--secondary); }
 
+    /* ---------- TESTIMONIALS ---------- */
     .testimonials-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.3rem; }
     @media (max-width: 992px) { .testimonials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 640px) { .testimonials-grid { grid-template-columns: 1fr; } }
@@ -549,6 +622,7 @@
     .testimonial-meta { font-size: 0.8rem; color: var(--text-muted); }
     .testimonial-meta strong { display: block; color: var(--text-main); }
 
+    /* ---------- VIDEO SECTION ---------- */
     .video-slider { position: relative; max-width: 1200px; margin: 0 auto; }
 
     .video-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.3rem; }
@@ -568,7 +642,6 @@
       height: 100%;
     }
 
-    /* CORREÇÃO PARA OS VÍDEOS - TAMANHO CONSISTENTE */
     .video-card video {
       width: 100%;
       min-height: 540px;
@@ -590,7 +663,6 @@
       object-fit: contain;
     }
 
-    /* Melhorar controles dos vídeos */
     .video-card video::-webkit-media-controls-panel {
       background: rgba(0,0,0,0.7);
     }
@@ -602,6 +674,7 @@
     .video-card-title { font-weight: 600; margin-bottom: 0.1rem; font-size: 0.9rem; }
     .video-card-text { color: var(--text-muted); font-size: 0.86rem; }
 
+    /* ---------- UPCOMING ---------- */
     .upcoming-controls {
       display: flex;
       flex-wrap: wrap;
@@ -674,6 +747,7 @@
       width: 100%;
     }
 
+    /* ---------- CITY SUGGESTION ---------- */
     .city-suggestion {
       margin-top: 2.4rem;
       padding: 1.5rem 1.4rem;
@@ -705,6 +779,7 @@
 
     .small-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; }
 
+    /* ---------- FINAL CTA ---------- */
     .final-cta {
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -729,6 +804,7 @@
     .final-cta-title { font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 0.7rem; }
     .final-cta-text { font-size: 1rem; color: var(--text-muted); margin-bottom: 1.8rem; }
 
+    /* ---------- FOOTER ---------- */
     footer {
       padding: 2.4rem 0 1.7rem;
       background: #020805;
@@ -761,7 +837,30 @@
       font-size: 0.78rem;
     }
 
-    /* MELHORIAS DIDÁTICAS */
+    /* ---------- UTILITY CLASSES ---------- */
+    .benefit-highlight {
+      border-left: 3px solid var(--primary);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .benefit-highlight strong {
+      color: var(--primary-soft);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .step-badge {
+      display: inline-block;
+      background: rgba(242, 201, 76, 0.15);
+      color: var(--secondary);
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
     .cta-emphasis {
       background: linear-gradient(135deg, rgba(0, 176, 80, 0.1), rgba(0, 176, 80, 0.05));
       border: 1px solid rgba(0, 176, 80, 0.3);
@@ -808,45 +907,62 @@
       font-size: 1.2rem;
     }
 
-    .step-badge {
-      display: inline-block;
-      background: rgba(242, 201, 76, 0.15);
-      color: var(--secondary);
-      padding: 0.3rem 0.8rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .benefit-highlight {
-      border-left: 3px solid var(--primary);
-      padding-left: 1rem;
-      margin: 1.5rem 0;
-    }
-
-    .benefit-highlight strong {
-      color: var(--primary-soft);
-      display: block;
-      margin-bottom: 0.3rem;
-    }
-
-    @media (max-width: 640px) {
-      .btn-row { justify-content: flex-start; }
-      .hero-course-title { font-size: 2rem; }
-      .city-form { flex-direction: column; align-items: stretch; }
-      .cta-emphasis { padding: 1.2rem; }
-      .video-card video {
-        min-height: 150px;
-        max-height: 180px;
-      }
-    }
-
-    /* CORREÇÃO ADICIONAL PARA VÍDEOS EM DISPOSITIVOS MÓVEIS */
+    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 768px) {
+      .hero-course {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+
+      .hero-course-title {
+        font-size: clamp(2rem, 4.5vw, 2.8rem);
+      }
+
+      .hero-course-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .hero-cta-row {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-cta-primary,
+      .hero-cta-secondary {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .hero-benefits-row {
+        gap: 0.5rem;
+      }
+
+      .hero-benefit-pill {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.9rem;
+      }
+
       .video-card video {
         min-height: 160px;
         max-height: 200px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+      }
+
+      .top-bar-left,
+      .top-bar-right {
+        width: 100%;
+        justify-content: space-between;
       }
     }
   </style>
@@ -882,71 +998,44 @@
         </div>
       </div>
 
-      <!-- HERO DO CURSO -->
+      <!-- ========== HERO OTIMIZADA ========== -->
       <section class="hero-course" aria-labelledby="hero-title">
         <div class="container">
-          <div class="hero-grid">
-            <div>
-              <div class="hero-course-kicker">PILOTO DE DRONE AGRÍCOLA</div>
-              <h1 class="hero-course-title" id="hero-title">
-                Domine a pulverização com <span>drones agrícolas</span>.
-              </h1>
-              <p class="hero-course-subtitle">
-                Curso presencial com CAAR incluso, prática real em campo e foco total na operação profissional de drones agrícolas
-                para pulverização, mapeamento e aplicações de precisão.
-              </p>
+          <div class="hero-course-inner">
+            <span class="hero-course-kicker">PILOTO DE DRONE AGRÍCOLA</span>
+            <h1 class="hero-course-title" id="hero-title">
+              Trabalhe com <span>tecnologia de ponta</span> e aumente sua renda no agro
+            </h1>
+            <p class="hero-course-subtitle">
+              Torne-se piloto profissional de drones agrícolas. Curso presencial com CAAR incluso, prática em campo real e certificação para trabalhar imediatamente.
+            </p>
 
-              <div class="benefit-highlight">
-                <strong>✅ Tudo incluso no curso:</strong>
-                <span>Certificação + CAAR + Prática em campo + Suporte pós-curso</span>
+            <!-- BENEFÍCIOS RÁPIDOS -->
+            <div class="hero-benefits-row" aria-label="Principais benefícios do curso">
+              <div class="hero-benefit-pill">
+                <span class="dot"></span> CAAR Incluso
               </div>
-
-              <div class="hero-course-tags" aria-label="Principais diferenciais do curso">
-                <div class="hero-course-tag">CAAR incluso no curso</div>
-                <div class="hero-course-tag">Prática em Campo real</div>
-                <div class="hero-course-tag">Equipamentos DJI</div>
-                <div class="hero-course-tag">Certificado e carta de estágio</div>
+              <div class="hero-benefit-pill">
+                <span class="dot"></span> Prática em Campo Real
               </div>
-
-              <!-- CTA PRINCIPAL OTIMIZADA -->
-              <div class="cta-emphasis">
-                <h3>Garanta sua vaga agora!</h3>
-                <p>Fale diretamente com nosso consultor e tire todas suas dúvidas sobre o curso.</p>
-                <a
-                  href="https://wa.me/5566999763455"
-                  data-wa="consultor"
-                  data-course-name="Piloto de Drone Agrícola"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn-whatsapp"
-                >
-                  Falar com consultor no WhatsApp
-                </a>
+              <div class="hero-benefit-pill">
+                <span class="dot"></span> Certificação Nacional
               </div>
-
-              <div class="btn-row mb-1_5">
-                <a href="#proximas-turmas-drone" class="btn btn-outline">
-                  📅 Ver próximas turmas de drone
-                </a>
-                <a href="#conteudo-curso-title" class="btn btn-ghost">
-                  📚 Ver conteúdo completo
-                </a>
-              </div>
-
-              <div class="hero-course-info-row">
-                <div class="hero-course-info-item">
-                  <strong>Formação intensiva</strong>
-                  <span>Turmas presenciais com foco em prática real.</span>
-                </div>
-                <div class="hero-course-info-item">
-                  <strong>Para iniciantes e profissionais</strong>
-                  <span>Não precisa ter experiência prévia com drones.</span>
-                </div>
+              <div class="hero-benefit-pill">
+                <span class="dot"></span> Suporte para Emprego
               </div>
             </div>
 
-            <!-- BLOCO DA IMAGEM DO HERO -->
-            <aside class="hero-course-media" aria-label="Foto de turma em prática com drone agrícola">
+            <!-- CTA PRINCIPAL -->
+            <div class="hero-cta-row">
+              <a href="#proximas-turmas-drone" class="hero-cta-primary">📅 Ver Turmas Disponíveis</a>
+              <a href="https://wa.me/5566999763455"
+                 target="_blank" rel="noopener noreferrer"
+                 class="hero-cta-secondary">💬 Falar com Consultor</a>
+            </div>
+
+            <!-- HERO MEDIA -->
+            <div class="hero-course-media" aria-label="Foto de turma em prática com drone agrícola">
               <div class="hero-slider">
                 <img
                   src="assets/drone-hero-novo.jpg"
@@ -958,14 +1047,14 @@
                 <span><strong>100% presencial</strong> • Aulas em campo com drone agrícola real</span>
                 <span>Certificação + CAAR incluso</span>
               </div>
-            </aside>
+            </div>
           </div>
         </div>
       </section>
     </header>
 
     <main>
-      <!-- DEPOIMENTOS EM VÍDEO (MOVIDO PARA CIMA) -->
+      <!-- DEPOIMENTOS EM VÍDEO -->
       <section aria-labelledby="depoimentos-video-title">
         <div class="container">
           <h2 class="section-title" id="depoimentos-video-title">
@@ -1352,7 +1441,7 @@
         </div>
       </section>
 
-      <!-- PRÓXIMAS TURMAS DE DRONE (CORRIGIDA - ORDEM CRONOLÓGICA) -->
+      <!-- PRÓXIMAS TURMAS DE DRONE -->
       <section id="proximas-turmas-drone" aria-labelledby="proximas-turmas-title">
         <div class="container">
           <h2 class="section-title" id="proximas-turmas-title">
@@ -1385,8 +1474,6 @@
           </div>
 
           <div class="upcoming-grid" id="upcoming-grid-drone">
-            <!-- TURMAS EM ORDEM CRONOLÓGICA CORRETA -->
-        
             <article class="upcoming-card" data-course-date="16/01" data-city="paragominas" data-state="pa">
               <div class="upcoming-date">16/01</div>
               <div class="upcoming-location">📍 Paragominas (PA)</div>
@@ -1522,7 +1609,6 @@
               com suporte de quem vive o agro todos os dias.
             </p>
             
-            <!-- DESTAQUE FINAL -->
             <div class="benefit-highlight" style="margin: 1.5rem auto; max-width: 600px; text-align: center;">
               <strong>🎯 O que você leva do curso:</strong>
               <span>Certificado oficial + CAAR incluso + Prática real em campo + Suporte pós-curso</span>
@@ -1590,7 +1676,6 @@
                 </li>
                 <li>
                   WhatsApp:
-                  <!-- WHATSAPP CONSULTOR (NOVO) -->
                   <a
                     href="https://wa.me/5566999763455"
                     data-wa="consultor"
@@ -1642,7 +1727,7 @@
         return "https://wa.me/" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(message);
       }
 
-      // ========== CONSULTOR (NOVO) ==========
+      // ========== CONSULTOR ==========
       function initWhatsAppConsultorLinks() {
         const consultorLinks = Array.from(document.querySelectorAll('a[data-wa="consultor"]'));
         if (!consultorLinks.length) return;
@@ -1658,7 +1743,7 @@
         });
       }
 
-      // ========== TURMAS (NOVO) ==========
+      // ========== TURMAS ==========
       function initWhatsAppTurmaLinks() {
         const turmaLinks = Array.from(document.querySelectorAll('a[data-wa="turma"]'));
         if (!turmaLinks.length) return;
@@ -1778,35 +1863,7 @@
         startAutoPlay();
       }
 
-      // FUNÇÃO PARA ORDENAR TURMAS CRONOLÓGICAMENTE
-      function sortUpcomingClasses() {
-        const upcomingGrid = document.getElementById("upcoming-grid-drone");
-        if (!upcomingGrid) return;
-
-        const cards = Array.from(upcomingGrid.querySelectorAll(".upcoming-card[data-course-date]"));
-        
-        // Ordenar as turmas por data
-        cards.sort((a, b) => {
-          const dateA = parseCourseDate(a.getAttribute("data-course-date"));
-          const dateB = parseCourseDate(b.getAttribute("data-course-date"));
-          
-          if (!dateA && !dateB) return 0;
-          if (!dateA) return 1;
-          if (!dateB) return -1;
-          
-          return dateA.getTime() - dateB.getTime();
-        });
-
-        // Reorganizar no DOM
-        cards.forEach(card => {
-          upcomingGrid.appendChild(card);
-        });
-      }
-
       function initUpcomingClasses() {
-        // Primeiro ordenar as turmas
-        sortUpcomingClasses();
-
         const upcomingGrid = document.getElementById("upcoming-grid-drone");
         if (!upcomingGrid) return;
 
@@ -1818,7 +1875,7 @@
 
         const searchInput = document.getElementById("search-city-drone");
         const toggleBtn = document.getElementById("toggle-more-drone");
-        const INITIAL_VISIBLE = 6; // Mostrar mais turmas inicialmente
+        const INITIAL_VISIBLE = 6;
         let showAll = false;
         let searchTerm = "";
 
@@ -1961,56 +2018,14 @@
         updateVisible();
       }
 
-      // CORREÇÃO PARA OS VÍDEOS - Garantir tamanho consistente
-      function fixVideoSizes() {
-        const videos = document.querySelectorAll('.video-card video');
-        videos.forEach(video => {
-          // Forçar redimensionamento após carregamento
-          video.addEventListener('loadedmetadata', function() {
-            this.style.height = 'auto';
-            this.style.width = '100%';
-          });
-          
-          // Corrigir tamanho ao clicar
-          video.addEventListener('click', function() {
-            setTimeout(() => {
-              this.style.height = 'auto';
-              this.style.width = '100%';
-            }, 100);
-          });
-          
-          // Garantir tamanho inicial
-          video.style.height = 'auto';
-          video.style.width = '100%';
-        });
-      }
-
-      // Adiciona tracking de clique nos CTAs
-      function initCTATracking() {
-        const ctas = document.querySelectorAll('.btn-whatsapp, .btn-primary[data-wa]');
-        ctas.forEach(cta => {
-          cta.addEventListener('click', function() {
-            const course = this.getAttribute('data-course-name') || 'Piloto de Drone Agrícola';
-            const type = this.getAttribute('data-wa') || 'consultor';
-            console.log(`CTA clicado: ${course} - Tipo: ${type}`);
-            // Aqui você pode adicionar Google Analytics ou outro tracking
-          });
-        });
-      }
-
+      // Inicializar todos os scripts
       initWhatsAppConsultorLinks();
       initWhatsAppTurmaLinks();
       initDroneGallerySlider();
       initUpcomingClasses();
       initCityForm();
       initVideoSlider();
-      fixVideoSizes(); // Aplicar correção dos vídeos
-      initCTATracking();
     });
   </script>
 </body>
 </html>
-
-
-
-
