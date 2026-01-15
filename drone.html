@@ -117,30 +117,35 @@
     /* CTA principal único na primeira dobra */
     .hero-cta-wrap{
       margin:28px auto 0;
-      display:flex;justify-content:center;
+      display:flex;
+      justify-content:center;
       position:relative;
+      /* garante “respiro” e evita qualquer chance de sobreposição com textos acima */
+      padding-top:10px;
     }
+
+    /* ✅ FIX 1: badge agora fica colado NO BOTÃO (sem subir em cima do texto) */
     .badge-ultimas{
       position:absolute;
-      top:-14px;
-      transform:translateY(-100%);
+      right:22px;
+      top:-10px;
       background:linear-gradient(180deg, #ff5a5a, #c92f2f);
       color:#fff;
       padding:7px 12px;
-      border-radius:10px;
+      border-radius:999px;
       font-weight:800;
       font-size:12px;
       letter-spacing:.06em;
       box-shadow:0 12px 30px rgba(0,0,0,.45);
       border:1px solid rgba(255,255,255,.20);
       animation:bounce 1.25s infinite;
-      rotate:-8deg;
       user-select:none;
       pointer-events:none;
+      z-index:3;
     }
     @keyframes bounce{
-      0%,100%{transform:translateY(-100%) translateY(0)}
-      50%{transform:translateY(-100%) translateY(-6px)}
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-6px)}
     }
 
     .btn-hero{
@@ -156,6 +161,8 @@
       border:1px solid rgba(255,255,255,.10);
       box-shadow:0 22px 45px rgba(0,176,80,.22);
       transition:transform .15s ease, background .15s ease, box-shadow .15s ease;
+      position:relative;
+      z-index:2;
     }
     .btn-hero:hover{background:var(--green2);transform:translateY(-2px);box-shadow:0 28px 55px rgba(0,176,80,.28)}
     .btn-hero .ico{width:18px;height:18px;display:inline-block}
@@ -184,7 +191,7 @@
       transform:rotate(35deg);
     }
 
-    /* BOX “Treinamento de drones” (print) + imagem que tinha sumido */
+    /* BOX “Treinamento de drones” (print) + imagem */
     .training-box{
       margin:40px auto 0;
       max-width:980px;
@@ -213,13 +220,21 @@
       height:360px;
       position:relative;
       background:#07140d;
+      overflow:hidden;
     }
+
+    /* ✅ FIX 2: “corta” o filete branco no topo com um zoom leve + posição */
     .training-media img{
       width:100%;height:100%;
       object-fit:cover;
-      object-position:50% 55%;
+      object-position:50% 62%;
       filter:saturate(1.05) contrast(1.02);
+      transform:scale(1.04);
+      transform-origin:center;
+      will-change:transform;
+      display:block;
     }
+
     .training-media:after{
       content:"";
       position:absolute;inset:0;
@@ -657,7 +672,7 @@
           <span><i aria-hidden="true"></i> CERTIFICAÇÃO NACIONAL</span>
         </div>
 
-        <!-- BOX estilo print + imagem que tinha “sumido” -->
+        <!-- BOX estilo print + imagem -->
         <div class="training-box" aria-label="Treinamento de drones">
           <div class="label">Treinamento de drones</div>
           <div class="training-media">
