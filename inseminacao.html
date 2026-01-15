@@ -8,7 +8,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="shortcut icon" type="image/png" href="assets/favicon-32.png" />
-  
+
   <!-- SEO -->
   <meta
     name="description"
@@ -42,1092 +42,826 @@
 
   <style>
     :root {
-      --background: #06160f;
-      --background-alt: #0b2416;
-      --card: #10251a;
-      --card-soft: #102a1f;
-      --border: #1f3b29;
+      --bg0: #020805;
+      --bg1: #06160f;
+      --bg2: #0b2416;
+
+      --card: rgba(5, 33, 19, 0.96);
+      --card2: #07140d;
+
+      --border: rgba(255, 255, 255, 0.08);
+      --border2: rgba(0, 255, 128, 0.22);
+
       --primary: #00b050;
-      --primary-soft: #0fd266;
-      --secondary: #f2c94c;
-      --text-main: #f5f5f5;
-      --text-muted: #c1c9c5;
+      --primary2: #0fd266;
+
+      --gold: #f2c94c;
+      --gold2: #d1a827;
+
+      --text: #f5f5f5;
+      --muted: #c1c9c5;
+
+      --radius-xl: 28px;
       --radius-lg: 18px;
       --radius-md: 12px;
+
       --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
       --shadow-card: 0 12px 26px rgba(0, 0, 0, 0.45);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #0e2a1d 0, #020a06 45%, #020805 100%);
-      color: var(--text-main);
+      background: radial-gradient(1200px 680px at 15% 0%, rgba(0,176,80,0.18), transparent 55%),
+                  radial-gradient(900px 600px at 85% 10%, rgba(242,201,76,0.10), transparent 60%),
+                  linear-gradient(180deg, #04110b 0%, #020805 55%, #020805 100%);
+      color: var(--text);
       line-height: 1.5;
-      position: relative;
       overflow-x: hidden;
-    }
-
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      width: 320px;
-      height: 320px;
-      border-radius: 999px;
-      filter: blur(30px);
-      opacity: 0.45;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    body::before {
-      top: -120px;
-      right: -80px;
-      background: radial-gradient(circle at center, rgba(0, 176, 80, 0.5), transparent 70%);
-    }
-
-    body::after {
-      bottom: -140px;
-      left: -90px;
-      background: radial-gradient(circle at center, rgba(242, 201, 76, 0.4), transparent 70%);
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .page {
-      min-height: 100vh;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    section {
-      padding: 4rem 0;
-    }
-
-    @media (min-width: 1024px) {
-      section {
-        padding: 5rem 0;
-      }
-    }
-
-    .section-title {
-      font-size: clamp(2.1rem, 3vw, 2.6rem);
-      margin-bottom: 0.9rem;
-      text-align: center;
       position: relative;
     }
 
-    .section-title span.highlight {
-      color: var(--primary);
-    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
 
-    .section-title::after {
+    .page { min-height: 100vh; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 4.2rem 0; }
+    @media (min-width: 1024px) { section { padding: 5.2rem 0; } }
+
+    .hidden { display: none !important; }
+
+    /* ====== TITLES (igual print) ====== */
+    .section-title {
+      font-size: clamp(2.2rem, 3vw, 2.9rem);
+      text-align: center;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.8rem;
+    }
+    .section-title .highlight { color: var(--primary); }
+    .underline-gold {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.15rem;
+    }
+    .underline-gold::after {
       content: "";
-      display: block;
-      width: 80px;
-      height: 2px;
-      margin: 0.7rem auto 0;
-      background: linear-gradient(to right, transparent, var(--secondary), transparent);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -0.25rem;
+      width: 70px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0.95;
     }
-
     .section-subtitle {
       text-align: center;
-      color: var(--text-muted);
-      max-width: 680px;
-      margin: 0 auto 2.4rem;
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 auto 2.6rem;
       font-size: 1rem;
     }
 
+    /* ====== BUTTONS ====== */
     .btn {
-      padding: 0.9rem 1.7rem;
+      padding: 0.95rem 1.9rem;
       border-radius: 999px;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 800;
       border: 1px solid transparent;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.35rem;
-      transition:
-        transform 0.12s ease-out,
-        box-shadow 0.12s ease-out,
-        background 0.12s ease-out,
-        border-color 0.12s ease-out,
-        opacity 0.12s ease-out;
+      gap: 0.55rem;
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s ease-out, border-color 0.12s ease-out, opacity 0.12s ease-out;
       white-space: nowrap;
+      user-select: none;
     }
+    .btn:active { transform: translateY(1px) scale(0.99); }
 
     .btn-primary {
       background: var(--primary);
-      color: #020a06;
-      box-shadow: var(--shadow-soft);
+      color: #04110b;
+      box-shadow: 0 18px 45px rgba(0, 176, 80, 0.22);
     }
-
     .btn-primary:hover {
-      background: var(--primary-soft);
+      background: var(--primary2);
       transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(18, 242, 120, 0.27);
+      box-shadow: 0 18px 45px rgba(18, 242, 120, 0.22);
     }
 
     .btn-outline {
       background: transparent;
-      border-color: var(--border);
-      color: var(--text-main);
+      border-color: rgba(255,255,255,0.12);
+      color: var(--text);
     }
-
     .btn-outline:hover {
-      border-color: var(--primary);
-      background: rgba(0, 176, 80, 0.08);
+      border-color: rgba(242,201,76,0.55);
+      background: rgba(242,201,76,0.07);
       transform: translateY(-1px);
     }
 
     .btn-ghost {
       background: transparent;
-      border-color: rgba(255, 255, 255, 0.08);
-      color: var(--text-muted);
+      border-color: rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.85);
     }
-
     .btn-ghost:hover {
-      border-color: var(--secondary);
-      color: var(--secondary);
+      border-color: rgba(0,176,80,0.35);
+      background: rgba(0,176,80,0.08);
       transform: translateY(-1px);
     }
 
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
+    /* amarelo (turmas) */
+    .btn-yellow {
+      background: var(--gold);
+      color: #06160f;
+      border-color: rgba(0,0,0,0.15);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.35);
+      font-weight: 900;
+    }
+    .btn-yellow:hover,
+    .btn-yellow:active {
+      background: var(--primary);
+      color: #04110b;
     }
 
-    .btn-small {
-      padding: 0.6rem 1.1rem;
-      font-size: 0.86rem;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    /* utilitários */
-    .mb-1_5 {
-      margin-bottom: 1.5rem;
-    }
-
-    .center {
-      justify-content: center;
-    }
-
-    /* ========== HEADER / TOP BAR ========== */
-
-    header {
-      padding: 1.2rem 0 0.5rem;
-    }
-
-    .top-bar {
+    /* ====== TOP BAR (igual print) ====== */
+    header { padding: 1.1rem 0 0; }
+    .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.45rem;
+      padding-top: 0.2rem;
     }
-
-    .top-bar-left {
+    .topbar-left {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
-      font-size: 0.9rem;
+      gap: 0.85rem;
     }
-
-    .back-link {
+    .back-pill {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      padding: 0.4rem 0.9rem;
+      gap: 0.5rem;
+      padding: 0.52rem 1.05rem;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(0, 0, 0, 0.2);
-      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.22);
+      color: rgba(255,255,255,0.86);
+      font-weight: 700;
+      font-size: 0.92rem;
     }
-
-    .back-link:hover {
-      border-color: var(--primary);
-      color: var(--primary-soft);
+    .back-pill:hover {
+      border-color: rgba(0,176,80,0.35);
+      color: var(--primary2);
     }
-
-    .top-bar-right {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .pill-label {
-      padding: 0.28rem 0.75rem;
+    .course-pill {
+      padding: 0.36rem 0.9rem;
       border-radius: 999px;
-      border: 1px solid rgba(242, 201, 76, 0.4);
-      color: var(--secondary);
-      font-size: 0.76rem;
+      border: 1px solid rgba(242,201,76,0.45);
+      color: var(--gold);
+      font-size: 0.74rem;
+      font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
+      background: rgba(0,0,0,0.18);
+    }
+    .topbar-right {
+      font-size: 0.78rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.80);
+      font-weight: 800;
     }
 
-    /* ========== HERO DO CURSO ========== */
-
-    .hero-course {
-      padding: 1.5rem 0 3rem;
-    }
-
+    /* ====== HERO (primeira dobra: 1 CTA) ====== */
+    .hero { padding: 1.2rem 0 2.5rem; }
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 2.4rem;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 2.6rem;
       align-items: center;
     }
-
-    @media (max-width: 900px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 980px) {
+      .hero-grid { grid-template-columns: 1fr; }
     }
 
-    .hero-course-kicker {
-      font-size: 0.88rem;
+    .hero-kicker {
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--secondary);
+      color: var(--gold);
       margin-bottom: 0.7rem;
     }
 
-    .hero-course-title {
-      font-size: clamp(2.1rem, 3.3vw, 2.7rem);
-      font-weight: 700;
-      margin-bottom: 0.7rem;
+    .hero-title {
+      font-size: clamp(2.55rem, 4vw, 3.35rem);
+      line-height: 1.03;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.9rem;
     }
+    .hero-title .g { color: var(--primary); }
 
-    .hero-course-title span {
-      color: var(--primary);
-    }
-
-    .hero-course-subtitle {
-      color: var(--text-muted);
-      font-size: 1rem;
-      margin-bottom: 1.2rem;
+    .hero-subtitle {
+      color: rgba(255,255,255,0.78);
+      font-size: 1.02rem;
       max-width: 560px;
+      margin-bottom: 1.35rem;
     }
 
-    .hero-course-tags {
-      display: flex;
-      flex-wrap: wrap;
+    .hero-cta-wrap {
+      display: inline-flex;
+      flex-direction: column;
       gap: 0.55rem;
-      margin-bottom: 1.5rem;
-      font-size: 0.86rem;
+      align-items: flex-start;
+      margin-bottom: 1.0rem;
     }
-
-    .hero-course-tag {
-      padding: 0.35rem 0.9rem;
+    .badge-bounce {
+      align-self: flex-end;
+      margin-right: 0.8rem;
+      background: #e53935;
+      color: #fff;
+      font-weight: 900;
+      font-size: 0.72rem;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      padding: 0.32rem 0.75rem;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: radial-gradient(circle at top left, rgba(0, 176, 80, 0.22), rgba(0, 0, 0, 0.7));
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.45);
+      animation: bounce 1.2s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
-    .hero-course-info-row {
-      margin-top: 1.6rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.4rem;
-      font-size: 0.86rem;
-      color: var(--text-muted);
+    .hero-cta {
+      min-width: 320px;
+      justify-content: center;
+      gap: 0.65rem;
+    }
+    .hero-cta svg { width: 18px; height: 18px; }
+
+    .hero-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.68);
+      font-size: 0.88rem;
+      margin-top: 0.3rem;
+    }
+    .hero-note .dot {
+      width: 18px; height: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: rgba(0,176,80,0.15);
+      border: 1px solid rgba(0,176,80,0.25);
+      color: var(--primary2);
+      font-weight: 900;
+      font-size: 0.75rem;
     }
 
-    .hero-course-info-item span {
-      display: block;
-    }
-
-    .hero-course-info-item strong {
-      color: var(--primary-soft);
-      font-size: 1rem;
-    }
-
-    .hero-course-media {
-      background: radial-gradient(circle at top, #152c1f, #07130d);
-      border-radius: 28px;
-      padding: 1rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: var(--shadow-card);
+    /* HERO MEDIA (moldura + play overlay como print) */
+    .hero-media {
       position: relative;
+      border-radius: var(--radius-xl);
+      padding: 1rem;
+      border: 1px solid rgba(242,201,76,0.22);
+      background: radial-gradient(120% 120% at 30% 0%, rgba(0,176,80,0.12), transparent 60%),
+                  linear-gradient(160deg, rgba(6,22,15,0.85), rgba(2,8,5,0.92));
+      box-shadow: 0 18px 46px rgba(0,0,0,0.55);
       overflow: hidden;
     }
-
-    .hero-course-media::before {
-      content: "Curso oficial Target Agrotech";
+    .hero-media::before {
+      content: "";
       position: absolute;
-      top: 1rem;
-      left: 1rem;
-      font-size: 0.75rem;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(0, 0, 0, 0.55);
-      border: 1px solid rgba(242, 201, 76, 0.6);
-      color: var(--secondary);
-      z-index: 2;
+      inset: -2px;
+      border-radius: calc(var(--radius-xl) + 2px);
+      background: radial-gradient(60% 60% at 70% 35%, rgba(0,176,80,0.30), transparent 60%);
+      filter: blur(14px);
+      opacity: 0.85;
+      pointer-events: none;
     }
-
-    .hero-slider {
+    .hero-media-inner {
       position: relative;
       border-radius: 22px;
       overflow: hidden;
-      max-height: 360px;
-      min-height: 260px;
+      background: #000;
+      border: 1px solid rgba(0,176,80,0.28);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+      min-height: 320px;
     }
-
-    /* VÍDEO NO HERO - CONFIGURADO IGUAL AOS DEPOIMENTOS */
     .hero-video {
       width: 100%;
-      border-radius: var(--radius-md);
+      height: 100%;
       display: block;
-      margin-bottom: 0.6rem;
       background: #000;
-      height: 360px;
+      border-radius: 22px;
       object-fit: cover;
     }
-
-    @media (max-width: 640px) {
-      .hero-video {
-        height: 260px;
-      }
-    }
-
-    .hero-slide-img {
-      width: 100%;
-      height: 360px;
-      object-fit: cover;
-      object-position: 50% 60% !important;
-      display: block;
-    }
-
-    .hero-course-media-footer {
-      margin-top: 0.8rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
+    .hero-play-overlay {
+      position: absolute;
+      inset: 0;
       display: flex;
-      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .hero-play {
+      width: 74px;
+      height: 74px;
+      border-radius: 999px;
+      background: rgba(0,176,80,0.95);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.18);
+      transform: translateY(-2px);
+    }
+    .hero-play::before {
+      content: "";
+      width: 0; height: 0;
+      border-left: 18px solid #04110b;
+      border-top: 11px solid transparent;
+      border-bottom: 11px solid transparent;
+      margin-left: 4px;
+    }
+    .hero-media-click {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+      background: transparent;
+      border: 0;
+      padding: 0;
+    }
+
+    /* ====== STRIP DIFERENCIAIS (abaixo do hero) ====== */
+    .feature-strip {
+      padding: 1.4rem 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(180deg, rgba(5,20,13,0.55), rgba(2,8,5,0.15));
+    }
+    .feature-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.9rem;
+      align-items: center;
+      text-align: center;
+      color: rgba(255,255,255,0.78);
+      font-weight: 700;
+    }
+    .feature-item {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.8rem 0.7rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.16);
+    }
+    .feature-ico {
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 30%, rgba(0,176,80,0.35), rgba(0,0,0,0.28));
+      border: 1px solid rgba(0,176,80,0.18);
+      color: var(--primary2);
+      font-weight: 900;
+    }
+    @media (max-width: 980px) { .feature-row { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    @media (max-width: 560px) { .feature-row { grid-template-columns: 1fr; } }
+
+    /* ====== VIDEO CARDS ====== */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+    @media (max-width: 992px) { .video-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    @media (max-width: 640px) { .video-grid { grid-template-columns: 1fr; } }
+
+    .video-card {
+      background: rgba(5, 33, 19, 0.92);
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow-card);
+      padding: 1rem;
+      min-height: 460px;
+      display: flex;
+      flex-direction: column;
       gap: 0.8rem;
-      flex-wrap: wrap;
+    }
+    .video-card video {
+      width: 100%;
+      border-radius: 14px;
+      background: #000;
+      border: 1px solid rgba(0,176,80,0.18);
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+    }
+    .video-card-title {
+      font-weight: 900;
+      font-size: 0.98rem;
+      letter-spacing: -0.01em;
+    }
+    .video-card-text {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.9rem;
     }
 
-    .hero-course-media-footer strong {
-      color: var(--primary-soft);
-    }
-
-    /* ========== POR QUE CURSO ========== */
-
+    /* ====== POR QUE ====== */
     .why-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1.4rem;
+      align-items: stretch;
     }
-
-    @media (max-width: 900px) {
-      .why-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 900px) { .why-grid { grid-template-columns: 1fr; } }
 
     .why-card {
-      background: rgba(5, 33, 19, 0.95);
-      border-radius: var(--radius-md);
-      padding: 1.4rem 1.3rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(5, 33, 19, 0.92);
+      border-radius: 16px;
+      padding: 1.4rem 1.35rem;
+      border: 1px solid rgba(255,255,255,0.08);
       box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
       display: flex;
       flex-direction: column;
       gap: 0.55rem;
-      transition:
-        transform 0.16s ease-out,
-        box-shadow 0.16s ease-out,
-        border-color 0.16s ease-out;
+      transition: transform 0.16s ease-out, box-shadow 0.16s ease-out, border-color 0.16s ease-out;
     }
-
     .why-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 18px 36px rgba(0, 0, 0, 0.78);
-      border-color: rgba(242, 201, 76, 0.4);
+      border-color: rgba(242, 201, 76, 0.35);
     }
-
     .why-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: radial-gradient(circle at top, rgba(0, 176, 80, 0.55), rgba(2, 10, 6, 0.65));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .why-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-    }
-
-    .why-text {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    /* ========== COMO FUNCIONA ========== */
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1.1rem;
-    }
-
-    @media (max-width: 1000px) {
-      .steps-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .steps-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .step-card {
-      background: linear-gradient(150deg, #0f2519, #07140d);
-      border-radius: var(--radius-lg);
-      padding: 1.3rem 1.1rem 1.2rem;
-      border: 1px solid rgba(0, 255, 128, 0.26);
-      box-shadow: var(--shadow-card);
-      font-size: 0.9rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      transition:
-        transform 0.16s ease-out,
-        box-shadow 0.16s ease-out,
-        border-color 0.16s ease-out;
-    }
-
-    .step-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.78);
-      border-color: rgba(242, 201, 76, 0.6);
-    }
-
-    .step-number {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--secondary);
-    }
-
-    .step-title {
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .step-text {
-      color: var(--text-muted);
-      font-size: 0.88rem;
-    }
-
-    /* ========== CONTEÚDO DO CURSO ========== */
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 2.3rem;
-      align-items: flex-start;
-    }
-
-    @media (max-width: 900px) {
-      .content-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .content-card {
-      background: rgba(5, 33, 19, 0.96);
-      border-radius: var(--radius-lg);
-      padding: 1.7rem 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: var(--shadow-card);
-    }
-
-    .content-card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .content-card p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 0.9rem;
-    }
-
-    .bullet-list {
-      list-style: none;
-      padding-left: 0;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .bullet-list li::before {
-      content: "✔";
-      color: var(--primary-soft);
-      margin-right: 0.45rem;
-      font-size: 0.8rem;
-    }
-
-    /* ========== SLIDER GENÉRICO ========== */
-
-    .slider-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
       width: 38px;
       height: 38px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      background: rgba(0, 0, 0, 0.6);
+      border-radius: 14px;
+      background: radial-gradient(circle at 30% 30%, rgba(0,176,80,0.40), rgba(0,0,0,0.30));
+      border: 1px solid rgba(0,176,80,0.18);
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      font-size: 1.3rem;
-      color: var(--text-main);
-      z-index: 3;
-      transition:
-        background 0.12s ease-out,
-        transform 0.12s ease-out,
-        border-color 0.12s ease-out,
-        opacity 0.12s ease-out;
+      color: var(--primary2);
+      font-weight: 900;
+      margin-bottom: 0.25rem;
     }
+    .why-title { font-size: 1.02rem; font-weight: 900; }
+    .why-text { font-size: 0.92rem; color: rgba(255,255,255,0.72); }
 
-    .slider-arrow-left {
-      left: 0.5rem;
-    }
-
-    .slider-arrow-right {
-      right: 0.5rem;
-    }
-
-    .slider-arrow:hover {
-      background: rgba(0, 0, 0, 0.85);
-      border-color: var(--secondary);
-      transform: translateY(-50%) scale(1.03);
-    }
-
-    @media (max-width: 640px) {
-      .slider-arrow {
-        display: none;
-      }
-    }
-
-    /* ========== TURMAS EM AÇÃO (SLIDER FOTOS) ========== */
-
+    /* ====== GALERIA ====== */
     .drone-gallery-slider {
       position: relative;
-      max-width: 600px;
+      max-width: 760px;
       margin: 0 auto;
-      min-height: 600px;
+      min-height: 520px;
     }
-
     .drone-gallery-slider .gallery-card {
       position: absolute;
       inset: 0;
       opacity: 0;
       pointer-events: none;
-      transition:
-        opacity 0.45s ease-out,
-        transform 0.45s ease-out,
-        border-color 0.16s ease-out;
+      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
       transform: translateY(6px);
     }
-
     .drone-gallery-slider .gallery-card.active {
       opacity: 1;
       pointer-events: auto;
       transform: translateY(0);
     }
-
     .gallery-card {
       background: #07140d;
-      border-radius: var(--radius-lg);
+      border-radius: 18px;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
       flex-direction: column;
-      min-height: 100%;
       box-shadow: var(--shadow-card);
     }
-
     .gallery-card-image {
       position: relative;
       width: 100%;
-      aspect-ratio: 3 / 4;
-      max-height: 900px;
+      aspect-ratio: 16 / 9;
       overflow: hidden;
+      background: #000;
     }
-
-    @media (max-width: 640px) {
-      .gallery-card-image {
-        aspect-ratio: 4 / 3;
-      }
-    }
-
     .gallery-card-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease-out;
     }
+    .drone-gallery-slider .gallery-card:hover img { transform: scale(1.05); }
+    .gallery-card-body { padding: 1.05rem 1.1rem 1.2rem; }
+    .gallery-card-title { font-size: 1.02rem; font-weight: 900; margin-bottom: 0.3rem; }
+    .gallery-card-text { color: rgba(255,255,255,0.72); font-size: 0.92rem; }
 
-    .drone-gallery-slider .gallery-card:hover img {
-      transform: scale(1.06);
-    }
+    .img-inseminacao-gallery-1 { object-position: 50% 40%; }
+    .img-inseminacao-gallery-2 { object-position: 50% 45%; }
+    .img-inseminacao-gallery-3 { object-position: 50% 40%; }
+    .img-inseminacao-gallery-4 { object-position: 50% 40%; }
 
-    .img-inseminacao-gallery-1 {
-      object-position: 50% 40%;
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.45rem;
+      color: var(--text);
+      z-index: 3;
+      transition: background 0.12s ease-out, transform 0.12s ease-out, border-color 0.12s ease-out, opacity 0.12s ease-out;
     }
-    .img-inseminacao-gallery-2 {
-      object-position: 50% 45%;
+    .slider-arrow-left { left: 0.6rem; }
+    .slider-arrow-right { right: 0.6rem; }
+    .slider-arrow:hover {
+      background: rgba(0, 0, 0, 0.85);
+      border-color: rgba(242, 201, 76, 0.55);
+      transform: translateY(-50%) scale(1.03);
     }
-    .img-inseminacao-gallery-3 {
-      object-position: 50% 40%;
-    }
-    .img-inseminacao-gallery-4 {
-      object-position: 50% 40%;
-    }
-    .img-inseminacao-gallery-5 {
-      object-position: 50% 45%;
-    }
-    .img-inseminacao-gallery-6 {
-      object-position: 50% 40%;
-    }
-
-    .gallery-card-body {
-      padding: 0.95rem 1.05rem 1.2rem;
-      font-size: 0.88rem;
-    }
-
-    .gallery-card-title {
-      font-size: 0.98rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    .gallery-card-text {
-      color: var(--text-muted);
-    }
+    @media (max-width: 640px) { .slider-arrow { display: none; } }
 
     .gallery-dots {
       margin-top: 1.2rem;
       display: flex;
       justify-content: center;
-      gap: 0.4rem;
+      gap: 0.45rem;
     }
-
     .gallery-dot {
-      width: 8px;
-      height: 8px;
+      width: 9px;
+      height: 9px;
       border-radius: 999px;
       border: none;
       background: rgba(255, 255, 255, 0.25);
       cursor: pointer;
       padding: 0;
     }
+    .gallery-dot.active { background: var(--gold); }
 
-    .gallery-dot.active {
-      background: var(--secondary);
-    }
-
-    /* ========== DEPOIMENTOS TEXTO ========== */
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.3rem;
-    }
-
-    @media (max-width: 992px) {
-      .testimonials-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .testimonial-card {
-      background: rgba(5, 33, 19, 0.96);
-      border-radius: var(--radius-md);
-      padding: 1.4rem 1.3rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
-      font-size: 0.9rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .testimonial-card::before {
-      content: "“";
-      position: absolute;
-      top: -0.5rem;
-      right: 0.8rem;
-      font-size: 3.8rem;
-      color: rgba(242, 201, 76, 0.18);
-      pointer-events: none;
-    }
-
-    .testimonial-text {
-      color: var(--text-muted);
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-top: 0.2rem;
-    }
-
-    .testimonial-avatar {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: radial-gradient(circle at top, rgba(0, 176, 80, 0.7), rgba(2, 10, 6, 0.9));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .testimonial-meta {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .testimonial-meta strong {
-      display: block;
-      color: var(--text-main);
-    }
-
-    /* ========== DEPOIMENTOS EM VÍDEO ========== */
-
-    .video-slider {
-      position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.3rem;
-    }
-
-    @media (max-width: 992px) {
-      .video-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .video-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .video-card {
-      background: #07140d;
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0.9rem 0.9rem 1.1rem;
-      box-shadow: var(--shadow-card);
-      font-size: 0.86rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-.video-card video {
-  width: 100%;
-  border-radius: var(--radius-md);
-  display: block;
-  margin-bottom: 0.6rem;
-  background: #000;
-  /* REMOVA as linhas abaixo */
-  /* height: 200px; */
-  /* object-fit: cover; */
-}
-
-@media (max-width: 640px) {
-  .video-card video {
-    /* REMOVA esta linha também */
-    /* height: 180px; */
-  }
-}
-
-    .video-card-title {
-      font-weight: 600;
-      margin-bottom: 0.1rem;
-      font-size: 0.9rem;
-    }
-
-    .video-card-text {
-      color: var(--text-muted);
-      font-size: 0.86rem;
-    }
-
-    /* ========== PRÓXIMAS TURMAS ========== */
-
+    /* ====== CIDADES E DATAS ====== */
     .upcoming-controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
       align-items: center;
-      margin-bottom: 1.6rem;
+      margin: 0 auto 1.8rem;
+      max-width: 980px;
     }
+    @media (max-width: 720px) { .upcoming-controls { grid-template-columns: 1fr; } }
 
-    .upcoming-search {
+    .search-pill {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      flex: 1 1 240px;
-      max-width: 420px;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-
-    .upcoming-search input {
-      flex: 1;
-      padding: 0.55rem 0.9rem;
+      gap: 0.7rem;
+      padding: 0.75rem 1.1rem;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background: rgba(0, 0, 0, 0.35);
-      color: var(--text-main);
-      font-size: 0.88rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.25);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+      color: rgba(255,255,255,0.70);
+    }
+    .search-pill input {
+      flex: 1;
+      border: 0;
       outline: none;
+      background: transparent;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.95rem;
     }
+    .search-pill input::placeholder { color: rgba(255,255,255,0.55); }
 
-    .upcoming-search input::placeholder {
-      color: var(--text-muted);
+    .btn-gold-outline {
+      padding: 0.75rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid rgba(242,201,76,0.45);
+      background: rgba(0,0,0,0.18);
+      color: var(--gold);
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform 0.12s ease-out, background 0.12s ease-out, border-color 0.12s ease-out, color 0.12s ease-out;
+      white-space: nowrap;
     }
-
-    .upcoming-toggle {
-      flex: 0 0 auto;
+    .btn-gold-outline:hover {
+      transform: translateY(-1px);
+      background: rgba(242,201,76,0.08);
+      border-color: rgba(242,201,76,0.65);
     }
 
     .upcoming-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.1rem;
+      gap: 1.25rem;
+      max-width: 980px;
+      margin: 0 auto;
     }
-
-    @media (max-width: 992px) {
-      .upcoming-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .upcoming-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 992px) { .upcoming-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    @media (max-width: 640px) { .upcoming-grid { grid-template-columns: 1fr; } }
 
     .upcoming-card {
-      background: linear-gradient(150deg, #0f2519, #07140d);
-      border-radius: var(--radius-lg);
-      padding: 1.2rem 1rem 1.2rem;
-      border: 1px solid rgba(0, 255, 128, 0.25);
+      background: radial-gradient(120% 140% at 30% 0%, rgba(0,176,80,0.12), transparent 60%),
+                  linear-gradient(160deg, rgba(6,22,15,0.92), rgba(2,8,5,0.92));
+      border-radius: 18px;
+      border: 1px solid rgba(0,255,128,0.22);
       box-shadow: var(--shadow-card);
+      padding: 1.25rem 1.15rem 1.2rem;
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
-      font-size: 0.9rem;
-      transition:
-        transform 0.16s ease-out,
-        box-shadow 0.16s.ease-out,
-        border-color 0.16s ease-out;
+      gap: 0.55rem;
+      min-height: 210px;
+      transition: transform 0.16s ease-out, box-shadow 0.16s ease-out, border-color 0.16s ease-out;
     }
-
     .upcoming-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 18px 36px rgba(0, 0, 0, 0.78);
-      border-color: rgba(242, 201, 76, 0.5);
+      border-color: rgba(242, 201, 76, 0.38);
     }
 
+    .upcoming-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
     .upcoming-date {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--primary-soft);
+      font-weight: 900;
+      font-size: 1.65rem;
+      letter-spacing: -0.02em;
+      color: var(--primary2);
+      line-height: 1;
+    }
+    .badge-open {
+      padding: 0.30rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(242,201,76,0.55);
+      color: var(--gold);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(0,0,0,0.18);
+      white-space: nowrap;
     }
 
     .upcoming-location {
-      color: var(--text-muted);
-      font-size: 0.82rem;
-    }
-
-    .upcoming-course-name {
-      font-weight: 600;
-      margin-top: 0.2rem;
-      font-size: 1.02rem;
-    }
-
-    .upcoming-last-call {
-      margin-top: 0.4rem;
-      display: flex;
+      color: rgba(255,255,255,0.70);
+      font-size: 0.9rem;
+      display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
-      font-size: 0.82rem;
-      color: var(--secondary);
+      gap: 0.45rem;
+      font-weight: 700;
+    }
+    .upcoming-course-name {
+      font-weight: 900;
+      font-size: 1.05rem;
+      margin-top: 0.1rem;
+      letter-spacing: -0.01em;
     }
 
     .upcoming-card .btn {
-      margin-top: 0.7rem;
-      padding: 0.65rem 0.95rem;
-      font-size: 0.86rem;
-      justify-content: center;
       width: 100%;
+      margin-top: 0.65rem;
+      padding: 0.75rem 1rem;
+      justify-content: center;
+      font-size: 0.92rem;
     }
 
+    /* ====== NÃO ENCONTROU SUA CIDADE ====== */
     .city-suggestion {
-      margin-top: 2.4rem;
-      padding: 1.5rem 1.4rem;
-      border-radius: var(--radius-lg);
-      border: 1px dashed rgba(242, 201, 76, 0.6);
-      background: rgba(5, 33, 19, 0.85);
-      max-width: 720px;
+      margin: 2.6rem auto 0;
+      padding: 1.9rem 1.6rem;
+      border-radius: 18px;
+      border: 1px dashed rgba(242, 201, 76, 0.45);
+      background: rgba(5, 33, 19, 0.78);
+      max-width: 980px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+    }
+    .city-suggestion h3 {
+      font-size: 1.2rem;
+      font-weight: 900;
+      margin-bottom: 0.35rem;
+      text-align: center;
+    }
+    .city-suggestion p {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.72);
+      text-align: center;
+    }
+
+    .city-form-col {
+      margin-top: 1.2rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+      max-width: 520px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    .city-suggestion h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .city-suggestion p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-
-    .city-form {
+    .field {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      margin-top: 0.9rem;
+      flex-direction: column;
+      gap: 0.35rem;
     }
-
-    .city-form input {
-      flex: 1 1 220px;
-      padding: 0.7rem 1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(0, 0, 0, 0.4);
-      color: var(--text-main);
-      font-size: 0.9rem;
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 0.85rem 1.05rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(0,0,0,0.28);
+      color: var(--text);
+      font-weight: 800;
       outline: none;
     }
+    .field input::placeholder { color: rgba(255,255,255,0.55); }
+    .field select { cursor: pointer; }
 
-    .city-form input::placeholder {
-      color: var(--text-muted);
+    .error {
+      font-size: 0.82rem;
+      color: #ff6b6b;
+      min-height: 1.1em;
+      display: none;
     }
+    .error.show { display: block; }
 
     .small-note {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: 0.4rem;
-    }
-
-    /* ========== CTA FINAL ========== */
-
-    .final-cta {
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      background-image: radial-gradient(circle at top, rgba(0, 176, 80, 0.22), rgba(0, 0, 0, 0.9));
       text-align: center;
+      font-size: 0.80rem;
+      color: rgba(255,255,255,0.60);
+      margin-top: 0.8rem;
     }
 
+    /* ====== CTA FINAL ====== */
+    .final-cta {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: radial-gradient(900px 420px at 50% 0%, rgba(0,176,80,0.28), transparent 62%),
+                  linear-gradient(180deg, rgba(6,22,15,0.80), rgba(2,8,5,0.95));
+      text-align: center;
+      padding: 0;
+    }
     .final-cta-inner {
-      max-width: 720px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 3rem 1.2rem;
+      padding: 4.2rem 1.2rem;
     }
-
     .final-cta-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 20px;
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
       margin: 0 auto 1.2rem;
-      background: radial-gradient(circle at top, rgba(0, 176, 80, 0.6), rgba(2, 10, 6, 0.7));
+      background: radial-gradient(circle at 30% 30%, rgba(0,176,80,0.45), rgba(0,0,0,0.22));
+      border: 1px solid rgba(0,176,80,0.18);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
     }
-
     .final-cta-title {
-      font-size: clamp(2rem, 3vw, 2.5rem);
-      margin-bottom: 0.7rem;
+      font-size: clamp(2.1rem, 3vw, 3rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.8rem;
     }
-
     .final-cta-text {
       font-size: 1rem;
-      color: var(--text-muted);
-      margin-bottom: 1.8rem;
+      color: rgba(255,255,255,0.72);
+      margin: 0 auto 1.9rem;
+      max-width: 680px;
     }
 
-    /* ========== FOOTER ========== */
-
+    /* ====== FOOTER ====== */
     footer {
-      padding: 2.4rem 0 1.7rem;
+      padding: 2.6rem 0 1.8rem;
       background: #020805;
       border-top: 1px solid rgba(255, 255, 255, 0.06);
-      margin-top: 0;
       font-size: 0.86rem;
     }
-
     .footer-top {
       display: flex;
       flex-wrap: wrap;
@@ -1135,56 +869,15 @@
       gap: 1.6rem;
       margin-bottom: 1.6rem;
     }
-
-    .footer-brand {
-      max-width: 260px;
-    }
-
-    .footer-brand img {
-      height: 90px;
-      margin-bottom: 0.6rem;
-    }
-
-    .footer-brand p {
-      color: var(--text-muted);
-      font-size: 0.86rem;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.8rem;
-    }
-
-    .footer-column-title {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      color: var(--text-muted);
-      font-size: 0.84rem;
-    }
-
-    .footer-list a:hover {
-      color: var(--primary-soft);
-    }
-
-    .footer-partner {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex: 0 0 auto;
-    }
-
-    .footer-partner img {
-      height: 90px;
-      max-width: 100%;
-    }
+    .footer-brand { max-width: 260px; }
+    .footer-brand img { height: 90px; margin-bottom: 0.6rem; }
+    .footer-brand p { color: rgba(255,255,255,0.68); font-size: 0.86rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1.8rem; }
+    .footer-column-title { font-weight: 900; margin-bottom: 0.5rem; }
+    .footer-list { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; color: rgba(255,255,255,0.68); font-size: 0.84rem; }
+    .footer-list a:hover { color: var(--primary2); }
+    .footer-partner { display: flex; align-items: center; justify-content: flex-end; flex: 0 0 auto; }
+    .footer-partner img { height: 90px; max-width: 100%; }
 
     .footer-bottom {
       border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -1193,343 +886,328 @@
       flex-wrap: wrap;
       justify-content: space-between;
       gap: 0.8rem;
-      color: var(--text-muted);
+      color: rgba(255,255,255,0.60);
       font-size: 0.78rem;
     }
 
     @media (max-width: 640px) {
-      .btn-row {
-        justify-content: flex-start;
-      }
-
-      .hero-course-title {
-        font-size: 2rem;
-      }
-
-      .city-form {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .footer-top {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .footer-partner {
-        justify-content: flex-start;
-      }
+      .footer-top { flex-direction: column; align-items: flex-start; }
+      .footer-partner { justify-content: flex-start; }
+      .hero-cta { min-width: 100%; }
     }
+
+    /* ====== FLOATING WHATSAPP (só aparece após scroll p/ não “contar” na primeira dobra) ====== */
+    .wa-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 50;
+      width: 62px;
+      height: 62px;
+      border-radius: 999px;
+      background: var(--primary);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(10px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease-out, transform 0.18s ease-out, background 0.12s ease-out;
+    }
+    .wa-float.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .wa-float:hover { background: var(--primary2); }
+    .wa-float svg { width: 30px; height: 30px; fill: #04110b; }
+
+    .wa-float-dot {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--gold);
+      border: 2px solid rgba(0,0,0,0.35);
+    }
+
+    /* ====== MODAL (turmas) ====== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 80;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      width: 100%;
+      max-width: 460px;
+      border-radius: 18px;
+      background: radial-gradient(120% 140% at 30% 0%, rgba(0,176,80,0.14), transparent 55%),
+                  linear-gradient(160deg, rgba(6,22,15,0.98), rgba(2,8,5,0.98));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.65);
+      overflow: hidden;
+    }
+    .modal-header {
+      padding: 1.05rem 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .modal-title {
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      font-size: 1rem;
+    }
+    .modal-close {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.20);
+      color: rgba(255,255,255,0.90);
+      cursor: pointer;
+      font-weight: 900;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-close:hover { border-color: rgba(242,201,76,0.45); color: var(--gold); }
+
+    .modal-body { padding: 1.05rem 1.1rem 1.2rem; }
+    .modal-desc {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.92rem;
+      margin-bottom: 0.9rem;
+    }
+    .modal-actions {
+      display: flex;
+      gap: 0.7rem;
+      margin-top: 0.9rem;
+    }
+    .modal-actions .btn { flex: 1; padding: 0.85rem 1rem; font-size: 0.95rem; }
   </style>
 </head>
+
 <body>
   <!-- Meta Pixel noscript -->
   <noscript>
-    <img
-      height="1"
-      width="1"
-      style="display:none"
-      src="https://www.facebook.com/tr?id=2103148137124992&ev=PageView&noscript=1"
-      alt=""
-    />
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=2103148137124992&ev=PageView&noscript=1" alt="" />
   </noscript>
-  <!-- Fim Meta Pixel noscript -->
 
   <div class="page">
     <header>
       <div class="container">
-        <div class="top-bar">
-          <div class="top-bar-left">
-            <a href="index.html" class="back-link">
+        <div class="topbar">
+          <div class="topbar-left">
+            <a href="./index.html" class="back-pill" aria-label="Voltar">
               <span>←</span>
-              <span>Voltar para a página principal</span>
+              <span>Voltar</span>
             </a>
-            <div class="pill-label">Curso presencial</div>
+            <div class="course-pill">CURSO PRESENCIAL</div>
           </div>
-
-          <div class="top-bar-right">
-            <span>Target Agrotech • Formação em tecnologia no campo</span>
-          </div>
+          <div class="topbar-right">TARGET AGROTECH</div>
         </div>
       </div>
 
-      <!-- HERO DO CURSO -->
-      <section class="hero-course" aria-labelledby="hero-title">
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
         <div class="container">
           <div class="hero-grid">
             <div>
-              <div class="hero-course-kicker">INSEMINAÇÃO ARTIFICIAL EM BOVINOS</div>
-              <h1 class="hero-course-title" id="hero-title">
-                Domine a <span>inseminação artificial</span> e aumente a produtividade do rebanho.
+              <div class="hero-kicker">MATRÍCULAS ABERTAS</div>
+
+              <h1 class="hero-title" id="hero-title">
+                Seja um <span class="g">Especialista</span><br />
+                em Inseminação<br />
+                Artificial.
               </h1>
-              <p class="hero-course-subtitle">
-                Curso presencial com prática intensa em curral, técnicas de inseminação artificial em bovinos e foco total
-                em manejo reprodutivo, taxa de prenhez e resultado para o rebanho.
+
+              <p class="hero-subtitle">
+                Prática direta no curral com quem entende de resultados reais no campo.
               </p>
 
-              <div class="hero-course-tags" aria-label="Principais diferenciais do curso">
-                <div class="hero-course-tag">Prática guiada em curral</div>
-                <div class="hero-course-tag">Certificação nacional</div>
-                <div class="hero-course-tag">Foco em produtividade do rebanho</div>
-                <div class="hero-course-tag">Carta de estágio</div>
-              </div>
+              <!-- REGRA: na primeira dobra, apenas 1 CTA clicável -->
+              <div class="hero-cta-wrap">
+                <div class="badge-bounce">ÚLTIMAS VAGAS</div>
 
-              <div class="btn-row mb-1_5">
                 <a
                   href="https://wa.me/5566999763455"
                   data-wa="consultor"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="btn btn-primary"
+                  class="btn btn-primary hero-cta"
                 >
-                  Falar com um consultor no WhatsApp
-                </a>
-                <a href="#proximas-turmas-drone" class="btn btn-outline">
-                  Ver próximas turmas de inseminação
+                  <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M19.11 17.74c-.22-.11-1.29-.64-1.49-.71-.2-.07-.35-.11-.5.11-.15.22-.58.71-.71.86-.13.15-.26.17-.48.06-.22-.11-.93-.34-1.77-1.09-.65-.58-1.09-1.3-1.22-1.52-.13-.22-.01-.34.1-.45.1-.1.22-.26.34-.39.11-.13.15-.22.22-.37.07-.15.04-.28-.02-.39-.06-.11-.5-1.21-.69-1.66-.18-.44-.36-.38-.5-.39h-.43c-.15 0-.39.06-.6.28-.2.22-.79.77-.79 1.88 0 1.11.81 2.18.93 2.33.11.15 1.59 2.42 3.86 3.39.54.23.96.37 1.29.48.54.17 1.03.15 1.41.09.43-.06 1.29-.53 1.47-1.04.18-.51.18-.95.13-1.04-.05-.09-.2-.15-.41-.26z"/>
+                    <path d="M26.66 5.34C23.91 2.59 20.25 1.07 16.36 1.07 8.34 1.07 1.83 7.58 1.83 15.6c0 2.56.67 5.06 1.94 7.27L1.7 30.93l8.25-2.16c2.14 1.17 4.55 1.78 7.01 1.78h.01c8.02 0 14.53-6.51 14.53-14.53 0-3.89-1.52-7.55-4.27-10.68zm-10.3 22.66h-.01c-2.17 0-4.3-.58-6.14-1.69l-.44-.26-4.9 1.28 1.31-4.77-.29-.49c-1.22-2.02-1.86-4.33-1.86-6.68 0-7.02 5.72-12.74 12.75-12.74 3.41 0 6.61 1.33 9.02 3.74 2.41 2.41 3.73 5.62 3.73 9.03 0 7.03-5.72 12.75-12.75 12.75z"/>
+                  </svg>
+                  Falar com consultor
                 </a>
               </div>
 
-              <div class="hero-course-info-row">
-                <div class="hero-course-info-item">
-                  <strong>Formação intensiva em 3 dias</strong>
-                  <span>Conteúdo direto ao ponto, com foco na prática de inseminação em bovinos.</span>
-                </div>
-                <div class="hero-course-info-item">
-                  <strong>Para quem já é do agro ou está começando</strong>
-                  <span>Você aprende do básico ao avançado, mesmo que nunca tenha inseminado antes.</span>
-                </div>
+              <div class="hero-note">
+                <span class="dot">✓</span>
+                <span>Atendimento imediato via WhatsApp</span>
               </div>
             </div>
 
-            <!-- BLOCO DO VÍDEO DO HERO - SUBSTITUÍDO PELO VÍDEO IGUAL AOS DEPOIMENTOS -->
-            <aside class="hero-course-media" aria-label="Vídeo demonstrativo do curso de inseminação artificial em bovinos">
-              <div class="hero-slider">
-                <!-- VÍDEO CONFIGURADO EXATAMENTE IGUAL AOS VÍDEOS DE DEPOIMENTO -->
-                <video controls preload="metadata" class="hero-video">
+            <!-- MÍDIA -->
+            <aside class="hero-media" aria-label="Vídeo demonstrativo do curso de inseminação artificial em bovinos">
+              <div class="hero-media-inner">
+                <video preload="metadata" class="hero-video" id="heroVideo" playsinline>
                   <source src="assets/inseminacao-hero-video.mp4" type="video/mp4" />
                   Seu navegador não suporta vídeo.
                 </video>
-              </div>
-              <div class="hero-course-media-footer">
-                <span><strong>100% presencial</strong> • Aulas práticas em curral com rebanho real</span>
-                <span>Certificação + carta de estágio</span>
+
+                <div class="hero-play-overlay" id="heroPlayOverlay" aria-hidden="true">
+                  <div class="hero-play"></div>
+                </div>
+
+                <button type="button" class="hero-media-click" id="heroPlayBtn" aria-label="Reproduzir vídeo"></button>
               </div>
             </aside>
           </div>
         </div>
       </section>
+
+      <!-- STRIP DIFERENCIAIS -->
+      <div class="feature-strip" aria-label="Diferenciais do curso">
+        <div class="container">
+          <div class="feature-row">
+            <div class="feature-item">
+              <div class="feature-ico">👤</div>
+              <span>Prática guiada em curral</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-ico">🏅</div>
+              <span>Certificação Nacional</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-ico">📈</div>
+              <span>Foco em resultados</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-ico">🛡️</div>
+              <span>Carta de Estágio</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
 
     <main>
-      <!-- DEPOIMENTOS EM VÍDEO (MOVIDO PARA CIMA) -->
-      <section aria-labelledby="depoimentos-video-title">
+      <!-- O QUE DIZEM OS ALUNOS (VÍDEO) -->
+      <section aria-labelledby="alunos-title">
         <div class="container">
-          <h2 class="section-title" id="depoimentos-video-title">
-            Depoimentos em <span class="highlight">vídeo</span>
+          <h2 class="section-title" id="alunos-title">
+            O que dizem os <span class="highlight underline-gold">alunos</span>
           </h2>
+
           <p class="section-subtitle">
-            Veja alguns depoimentos reais de alunos que se formaram em Inseminação Artificial em Bovinos pela Target Agrotech.
+            Depoimentos reais de quem fez a formação e saiu pronto para aplicar a técnica no campo.
           </p>
 
-          <div class="video-slider" aria-label="Depoimentos em vídeo">
-            <div class="video-grid" id="video-grid-drone">
-              <article class="video-card">
-                <video controls preload="metadata">
-                  <source src="assets/depo-inseminacao-1.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeo.
-                </video>
-                <div class="video-card-title">"Aprendi na prática, no curral"</div>
-                <div class="video-card-text">
-                  Depoimento de aluna contando como a prática guiada em curral ajudou a ganhar confiança na técnica.
-                </div>
-              </article>
+          <div class="video-grid" id="video-grid-inseminacao">
+            <article class="video-card">
+              <video controls preload="metadata">
+                <source src="assets/depo-inseminacao-1.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video>
+              <div class="video-card-title">"Aprendi na prática, no curral"</div>
+              <div class="video-card-text">
+                Depoimento de aluna contando como a prática guiada em curral ajudou a ganhar confiança na técnica.
+              </div>
+            </article>
 
-              <article class="video-card">
-                <video controls preload="metadata">
-                  <source src="assets/depo-inseminacao-2.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeo.
-                </video>
-                <div class="video-card-title">"Uma experiencia MUITO proveitosa"</div>
-                <div class="video-card-text">
-                  Relato de aluno sobre o curso.
-                </div>
-              </article>
+            <article class="video-card">
+              <video controls preload="metadata">
+                <source src="assets/depo-inseminacao-2.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video>
+              <div class="video-card-title">"Uma experiência MUITO proveitosa"</div>
+              <div class="video-card-text">
+                Relato de aluno sobre o curso e a qualidade técnica dos instrutores.
+              </div>
+            </article>
 
-              <article class="video-card">
-                <video controls preload="metadata">
-                  <source src="assets/depo-inseminacao-3.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeo.
-                </video>
-                <div class="video-card-title">"Arrasta pra cima e vem com a Target"</div>
-                <div class="video-card-text">
-                  Aluno contando como foi a formação em inseminação artificial .
-                </div>
-              </article>
-            </div>
-
-            <button
-              type="button"
-              class="slider-arrow slider-arrow-left"
-              id="video-prev"
-              aria-label="Ver vídeos anteriores"
-            >
-              ‹
-            </button>
-            <button
-              type="button"
-              class="slider-arrow slider-arrow-right"
-              id="video-next"
-              aria-label="Ver próximos vídeos"
-            >
-              ›
-            </button>
+            <article class="video-card">
+              <video controls preload="metadata">
+                <source src="assets/depo-inseminacao-3.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video>
+              <div class="video-card-title">"Vem com a Target"</div>
+              <div class="video-card-text">
+                Aluno contando como foi a formação intensiva e o suporte da equipe.
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- POR QUE INSEMINAÇÃO -->
-      <section aria-labelledby="porque-inseminacao-title">
+      <!-- POR QUE SE PROFISSIONALIZAR -->
+      <section aria-labelledby="porque-title">
         <div class="container">
-          <h2 class="section-title" id="porque-inseminacao-title">
-            Por que se profissionalizar em <span class="highlight">Inseminação Artificial em Bovinos?</span>
+          <h2 class="section-title" id="porque-title">
+            Por que se <span class="highlight underline-gold">profissionalizar</span>?
           </h2>
           <p class="section-subtitle">
-            A inseminação artificial é uma das principais ferramentas para melhorar genética, produtividade e resultado
-            econômico no rebanho. Faltam profissionais capacitados para atender fazendas em todo o Brasil.
+            Técnica, prática e oportunidade real para atuar no campo com mais resultado e confiança.
           </p>
 
           <div class="why-grid">
             <article class="why-card">
-              <div class="why-icon" aria-hidden="true">📈</div>
+              <div class="why-icon">↗</div>
               <h3 class="why-title">Mais resultado no rebanho</h3>
               <p class="why-text">
-                Aumente a taxa de prenhez, melhore a genética e ajude o produtor a ter um rebanho mais produtivo e lucrativo.
+                Aumente a taxa de prenhez, melhore a genética e ajude o produtor a ter um rebanho mais lucrativo.
               </p>
             </article>
 
             <article class="why-card">
-              <div class="why-icon" aria-hidden="true">🐄</div>
+              <div class="why-icon">👥</div>
               <h3 class="why-title">Demanda constante no campo</h3>
               <p class="why-text">
-                Fazendas de leite e corte buscam profissionais que saibam inseminar com segurança e eficiência no dia a dia.
+                Fazendas buscam profissionais que saibam inseminar com segurança e eficiência no dia a dia.
               </p>
             </article>
 
             <article class="why-card">
-              <div class="why-icon" aria-hidden="true">💼</div>
+              <div class="why-icon">🏅</div>
               <h3 class="why-title">Oportunidade de renda</h3>
               <p class="why-text">
-                Atue como inseminador em fazendas, cooperativas, empresas de genética ou como prestador de serviço na região.
+                Atue como inseminador profissional ou prestador de serviços em toda a sua região.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- COMO FUNCIONA O CURSO -->
-      <section aria-labelledby="como-funciona-title">
+      <!-- NOSSAS PRÁTICAS (galeria) -->
+      <section aria-labelledby="praticas-title">
         <div class="container">
-          <h2 class="section-title" id="como-funciona-title">
-            Como funciona o <span class="highlight">curso na prática</span>
+          <h2 class="section-title" id="praticas-title">
+            Nossas <span class="highlight">Práticas</span>
           </h2>
           <p class="section-subtitle">
-            Formação intensiva, 100% presencial, unindo base teórica de reprodução, manejo em curral e prática guiada de
-            inseminação artificial em bovinos.
+            Veja o ambiente onde você vai dominar a técnica.
           </p>
 
-          <div class="steps-grid">
-            <article class="step-card">
-              <div class="step-number">Etapa 1</div>
-              <div class="step-title">Fundamentos da reprodução</div>
-              <p class="step-text">
-                Anatomia e fisiologia reprodutiva, ciclo estral, sincronização e conceitos essenciais para inseminar com segurança.
-              </p>
-            </article>
-
-            <article class="step-card">
-              <div class="step-number">Etapa 2</div>
-              <div class="step-title">Manejo em curral</div>
-              <p class="step-text">
-                Manejo seguro dos animais, contenção, higiene, organização do curral e rotina prática no dia a dia da fazenda.
-              </p>
-            </article>
-
-            <article class="step-card">
-              <div class="step-number">Etapa 3</div>
-              <div class="step-title">Prática de inseminação</div>
-              <p class="step-text">
-                Execução completa da técnica de inseminação artificial em bovinos, com supervisão próxima dos instrutores.
-              </p>
-            </article>
-
-            <article class="step-card">
-              <div class="step-number">Etapa 4</div>
-              <div class="step-title">Certificação + carta de estágio</div>
-              <p class="step-text">
-                Ao final, você recebe certificado e carta de estágio, saindo pronto para aplicar o que aprendeu no campo.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- O QUE VOCÊ VAI APRENDER -->
-      <section aria-labelledby="conteudo-curso-title">
-        <div class="container">
-          <h2 class="section-title" id="conteudo-curso-title">
-            O que você vai <span class="highlight">aprender</span>
-          </h2>
-          <p class="section-subtitle">
-            Conteúdo pensado para quem quer atuar com inseminação artificial em bovinos, com foco em prática, manejo
-            reprodutivo e resultado no rebanho.
-          </p>
-
-          <div class="content-grid">
-            <article class="content-card">
-              <h3>Módulos teóricos e de manejo</h3>
-              <p>Os principais temas abordados durante o curso:</p>
-              <ul class="bullet-list">
-                <li>Introdução à inseminação artificial em bovinos</li>
-                <li>Anatomia e fisiologia do aparelho reprodutor</li>
-                <li>Ciclo estral, cio e momento ideal para inseminar</li>
-                <li>Manejo nutricional e sanitário ligado à reprodução</li>
-                <li>Armazenamento, descongelamento e manuseio de sêmen</li>
-                <li>Boas práticas de higiene, biossegurança e bem-estar animal</li>
-              </ul>
-            </article>
-
-            <article class="content-card">
-              <h3>Prática guiada em curral</h3>
-              <p>Momento em que você coloca a mão na massa, com acompanhamento dos instrutores:</p>
-              <ul class="bullet-list">
-                <li>Contenção e manejo seguro das vacas no curral</li>
-                <li>Identificação de cio e seleção de animais para inseminação</li>
-                <li>Passo a passo da técnica de inseminação artificial</li>
-                <li>Posicionamento correto, sensibilidade tátil e segurança na aplicação</li>
-                <li>Rotina do inseminador na fazenda, do início ao fim do dia</li>
-                <li>Cuidados pós-inseminação e acompanhamento de resultados</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- TURMAS EM AÇÃO -->
-      <section aria-labelledby="turmas-inseminacao-acao-title">
-        <div class="container">
-          <h2 class="section-title" id="turmas-inseminacao-acao-title">
-            Turmas de <span class="highlight">Inseminação em ação</span>
-          </h2>
-          <p class="section-subtitle">
-            Momentos reais das turmas de Inseminação Artificial em Bovinos da Target Agrotech em prática no curral, aplicando a técnica guiados pelos instrutores.
-          </p>
-
-          <div
-            class="drone-gallery-slider"
-            id="drone-gallery-slider"
-            aria-label="Galeria de fotos das turmas de inseminação em curral"
-          >
-            <!-- SLIDE 1 -->
+          <div class="drone-gallery-slider" id="drone-gallery-slider" aria-label="Galeria de fotos das turmas de inseminação em curral">
             <article class="gallery-card active">
               <div class="gallery-card-image">
                 <img
@@ -1542,12 +1220,11 @@
               <div class="gallery-card-body">
                 <h3 class="gallery-card-title">Prática de palpação</h3>
                 <p class="gallery-card-text">
-                  Momento em que o aluno pratica, no tronco de contenção, a posição correta do animal e o manejo seguro antes da inseminação, com orientação direta do instrutor da Target Agrotech.
+                  Manejo seguro no tronco de contenção, com orientação direta do instrutor.
                 </p>
               </div>
             </article>
 
-            <!-- SLIDE 2 -->
             <article class="gallery-card">
               <div class="gallery-card-image">
                 <img
@@ -1560,235 +1237,171 @@
               <div class="gallery-card-body">
                 <h3 class="gallery-card-title">Certificado em mãos</h3>
                 <p class="gallery-card-text">
-                  Alunos recebendo o certificado de conclusão do curso de Inseminação Artificial em Bovinos, após uma formação intensa e prática no curral, prontos para aplicar a técnica no campo.
+                  Conclusão do curso e certificação após formação prática intensa.
                 </p>
               </div>
             </article>
 
-            <!-- SLIDE 3 -->
             <article class="gallery-card">
               <div class="gallery-card-image">
                 <img
                   src="assets/inseminacao-gallery-turma-curral-manejo.jpg"
                   loading="lazy"
-                  alt="Turma reunida no curral acompanhando a demonstração de inseminação artificial em vaca, com paisagem de montanhas ao fundo."
+                  alt="Turma reunida no curral acompanhando demonstração de inseminação."
                   class="img-inseminacao-gallery-3"
                 />
               </div>
               <div class="gallery-card-body">
-                <h3 class="gallery-card-title">Turma acompanhando a inseminação em campo</h3>
+                <h3 class="gallery-card-title">Demonstração em campo</h3>
                 <p class="gallery-card-text">
-                  Alunos reunidos ao redor do brete acompanhando, passo a passo, a demonstração de inseminação artificial em bovinos, em um ambiente de fazenda real e com supervisão constante dos instrutores.
+                  Passo a passo acompanhado de perto, em ambiente de fazenda real.
                 </p>
               </div>
             </article>
 
-            <!-- SLIDE 4 -->
             <article class="gallery-card">
               <div class="gallery-card-image">
                 <img
                   src="assets/inseminacao-gallery-toque-pecas.jpg"
                   loading="lazy"
-                  alt="Alunos realizando toque retal em peças no curral, com vista aberta para a serra ao fundo."
+                  alt="Alunos realizando toque retal em peças no curral."
                   class="img-inseminacao-gallery-4"
                 />
               </div>
               <div class="gallery-card-body">
-                <h3 class="gallery-card-title">Toque em peças Bovinas</h3>
+                <h3 class="gallery-card-title">Toque em peças bovinas</h3>
                 <p class="gallery-card-text">
-                  Alunos praticando a técnica de toque retal em peças bovinas no curral, desenvolvendo a sensibilidade tátil necessária para identificar o momento ideal da inseminação artificial.
+                  Desenvolvimento de sensibilidade tátil para execução segura da técnica.
                 </p>
               </div>
             </article>
 
-            <button
-              type="button"
-              class="slider-arrow slider-arrow-left"
-              id="gallery-prev"
-              aria-label="Ver foto anterior"
-            >
-              ‹
-            </button>
-            <button
-              type="button"
-              class="slider-arrow slider-arrow-right"
-              id="gallery-next"
-              aria-label="Ver próxima foto"
-            >
-              ›
-            </button>
+            <button type="button" class="slider-arrow slider-arrow-left" id="gallery-prev" aria-label="Ver foto anterior">‹</button>
+            <button type="button" class="slider-arrow slider-arrow-right" id="gallery-next" aria-label="Ver próxima foto">›</button>
 
-            <div
-              class="gallery-dots"
-              id="drone-gallery-dots"
-              role="tablist"
-              aria-label="Selecionar foto da galeria"
-            ></div>
+            <div class="gallery-dots" id="drone-gallery-dots" role="tablist" aria-label="Selecionar foto da galeria"></div>
           </div>
         </div>
       </section>
 
-      <!-- DEPOIMENTOS TEXTO -->
-      <section aria-labelledby="depoimentos-texto-title">
+      <!-- CIDADES E DATAS -->
+      <section id="cidades-datas" aria-labelledby="cidades-title">
         <div class="container">
-          <h2 class="section-title" id="depoimentos-texto-title">
-            O que dizem os <span class="highlight">nossos alunos</span>
+          <h2 class="section-title" id="cidades-title">
+            Cidades e <span class="highlight">Datas</span>
           </h2>
           <p class="section-subtitle">
-            Quem já passou pelo curso de Inseminação Artificial em Bovinos conta como a prática no curral ajudou a mudar
-            a rotina no campo e os resultados do rebanho.
-          </p>
-
-          <div class="testimonials-grid">
-            <article class="testimonial-card">
-              <p class="testimonial-text">
-                "Eu nunca tinha feito inseminação antes e saí do curso confiante para aplicar a técnica na fazenda.
-                A prática no curral fez toda a diferença."
-              </p>
-              <div class="testimonial-author">
-                <div class="testimonial-avatar" aria-hidden="true">CF</div>
-                <div class="testimonial-meta">
-                  <strong>Carlos Ferreira</strong>
-                  Inseminador • Minas Gerais
-                </div>
-              </div>
-            </article>
-
-            <article class="testimonial-card">
-              <p class="testimonial-text">
-                "Aprendi a parte teórica e, principalmente, a prática. Hoje consigo ajudar na reprodução do rebanho e trazer mais resultado para a fazenda."
-              </p>
-              <div class="testimonial-author">
-                <div class="testimonial-avatar" aria-hidden="true">AP</div>
-                <div class="testimonial-meta">
-                  <strong>Ana Paula Sousa</strong>
-                  Produtora rural • Pará
-                </div>
-              </div>
-            </article>
-
-            <article class="testimonial-card">
-              <p class="testimonial-text">
-                "O curso é bem objetivo e focado em campo. Saí com muito mais segurança para trabalhar com inseminação e oferecer esse serviço na região."
-              </p>
-              <div class="testimonial-author">
-                <div class="testimonial-avatar" aria-hidden="true">RM</div>
-                <div class="testimonial-meta">
-                  <strong>Rogério Martins</strong>
-                  Prestador de serviços • Mato Grosso
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- PRÓXIMAS TURMAS DE INSEMINAÇÃO -->
-      <section id="proximas-turmas-drone" aria-labelledby="proximas-turmas-title">
-        <div class="container">
-          <h2 class="section-title" id="proximas-turmas-title">
-            <span class="highlight">Próximas</span> turmas de Inseminação Artificial em Bovinos
-          </h2>
-          <p class="section-subtitle">
-            Escolha a cidade mais próxima de você e garanta sua vaga na próxima turma presencial de Inseminação Artificial em Bovinos da Target Agrotech.
+            Encontre a turma mais próxima de você.
           </p>
 
           <div class="upcoming-controls">
-            <div class="upcoming-search">
+            <div class="search-pill">
               <span aria-hidden="true">🔍</span>
               <input
                 type="text"
-                id="search-city-drone"
+                id="search-city-inseminacao"
                 placeholder="Buscar por cidade ou estado"
                 aria-label="Buscar turmas por cidade ou estado"
               />
             </div>
-            <div class="upcoming-toggle">
-              <button
-                type="button"
-                class="btn btn-ghost btn-small"
-                id="toggle-more-drone"
-                aria-expanded="false"
-              >
-                Ver mais turmas
-              </button>
-            </div>
+
+            <button type="button" class="btn-gold-outline" id="toggle-more-inseminacao" aria-expanded="false">
+              Ver todas as turmas
+            </button>
           </div>
 
-          <div class="upcoming-grid" id="upcoming-grid-drone">
+          <div class="upcoming-grid" id="upcoming-grid-inseminacao">
             <article
               class="upcoming-card"
+              data-course="Inseminação Artificial em Bovinos"
+              data-local="Belo Horizonte (MG)"
               data-course-date="30/01/2026"
               data-city="belo horizonte"
               data-state="mg"
             >
-              <div class="upcoming-date">30/01</div>
+              <div class="upcoming-top">
+                <div class="upcoming-date">30/01</div>
+                <div class="badge-open">INSCRIÇÕES ABERTAS</div>
+              </div>
               <div class="upcoming-location">📍 Belo Horizonte (MG)</div>
               <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
-              <a
-                href="https://wa.me/5566999763455"
-                data-wa="turma"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary"
-              >Fazer inscrição pelo WhatsApp</a>
+              <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-1">
+                GARANTIR MINHA VAGA →
+              </button>
             </article>
 
             <article
               class="upcoming-card"
+              data-course="Inseminação Artificial em Bovinos"
+              data-local="Castelo dos Sonhos (PA)"
               data-course-date="06/02/2026"
               data-city="castelo dos sonhos"
               data-state="pa"
             >
-              <div class="upcoming-date">06/02</div>
+              <div class="upcoming-top">
+                <div class="upcoming-date">06/02</div>
+                <div class="badge-open">INSCRIÇÕES ABERTAS</div>
+              </div>
               <div class="upcoming-location">📍 Castelo dos Sonhos (PA)</div>
               <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
-              <a
-                href="https://wa.me/5566999763455"
-                data-wa="turma"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary"
-              >Fazer inscrição pelo WhatsApp</a>
+              <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-2">
+                GARANTIR MINHA VAGA →
+              </button>
             </article>
 
             <article
               class="upcoming-card"
+              data-course="Inseminação Artificial em Bovinos"
+              data-local="Rolim de Moura (RO)"
               data-course-date="27/02/2026"
               data-city="rolim de moura"
               data-state="ro"
             >
-              <div class="upcoming-date">27/02</div>
+              <div class="upcoming-top">
+                <div class="upcoming-date">27/02</div>
+                <div class="badge-open">INSCRIÇÕES ABERTAS</div>
+              </div>
               <div class="upcoming-location">📍 Rolim de Moura (RO)</div>
               <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
-              <a
-                href="https://wa.me/5566999763455"
-                data-wa="turma"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary"
-              >Fazer inscrição pelo WhatsApp</a>
+              <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-3">
+                GARANTIR MINHA VAGA →
+              </button>
             </article>
           </div>
 
-          <div class="city-suggestion">
-            <h3>Não encontrou sua cidade?</h3>
-            <p>
-              Conte pra gente em qual cidade ou região você gostaria de receber uma turma de Inseminação Artificial em Bovinos.
-            </p>
-            <form class="city-form" id="city-form-drone">
-              <input
-                type="text"
-                id="city-input-drone"
-                placeholder="Digite sua cidade/estado"
-                aria-label="Informe sua cidade ou estado"
-              />
-              <button type="submit" class="btn btn-outline btn-small">
-                Quero uma turma na minha cidade
+          <!-- NÃO ENCONTROU SUA CIDADE? -->
+          <div class="city-suggestion" aria-labelledby="nao-encontrou-title">
+            <h3 id="nao-encontrou-title">Não encontrou sua cidade?</h3>
+            <p>Diga-nos onde você mora e abriremos uma turma na sua região!</p>
+
+            <form class="city-form-col" id="city-form-inseminacao" novalidate>
+              <div class="field">
+                <input type="text" id="nf-nome" placeholder="Seu nome" autocomplete="name" />
+                <div class="error" id="err-nome">Informe seu nome.</div>
+              </div>
+
+              <div class="field">
+                <input type="text" id="nf-cidade" placeholder="Cidade/Estado" autocomplete="address-level2" />
+                <div class="error" id="err-cidade">Informe sua cidade/estado.</div>
+              </div>
+
+              <div class="field">
+                <select id="nf-curso" aria-label="Selecione o curso">
+                  <option value="">Selecione o curso</option>
+                  <option value="Inseminação Artificial em Bovinos">Inseminação Artificial em Bovinos</option>
+                  <option value="Piloto de Drone Agrícola">Piloto de Drone Agrícola</option>
+                  <option value="Operador de Máquinas Pesadas">Operador de Máquinas Pesadas</option>
+                </select>
+                <div class="error" id="err-curso">Selecione um curso.</div>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                Me avise quando chegar turmas!
               </button>
             </form>
+
             <div class="small-note">
-              Ao enviar, abriremos uma conversa no WhatsApp com sua cidade preenchida para nossa equipe avaliar novas turmas.
+              Ao enviar, abriremos uma conversa no WhatsApp com sua mensagem pronta.
             </div>
           </div>
         </div>
@@ -1798,28 +1411,22 @@
       <section class="final-cta" aria-labelledby="cta-final-title">
         <div class="container">
           <div class="final-cta-inner">
-            <div class="final-cta-icon" aria-hidden="true">🐄</div>
+            <div class="final-cta-icon" aria-hidden="true">🏅</div>
             <h2 class="final-cta-title" id="cta-final-title">
-              Pronto para se tornar inseminador de bovinos?
+              Mude sua história no<br /> agronegócio hoje.
             </h2>
             <p class="final-cta-text">
-              Garanta sua vaga em uma das próximas turmas presenciais e comece a atuar com inseminação artificial em bovinos,
-              ajudando produtores a melhorarem genética e resultado do rebanho.
+              Garanta sua vaga e domine a técnica que mais traz lucratividade para a pecuária nacional.
             </p>
-            <div class="btn-row center">
-              <a
-                href="https://wa.me/5566999763455"
-                data-wa="consultor"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary"
-              >
-                Quero falar com um consultor
-              </a>
-              <a href="#proximas-turmas-drone" class="btn btn-ghost">
-                Ver datas disponíveis
-              </a>
-            </div>
+            <a
+              href="https://wa.me/5566999763455"
+              data-wa="consultor"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              Falar com consultor
+            </a>
           </div>
         </div>
       </section>
@@ -1829,7 +1436,6 @@
     <footer>
       <div class="container">
         <div class="footer-top">
-          <!-- LOGO TARGET -->
           <div class="footer-brand">
             <img
               src="assets/logo-target-horizontal.png"
@@ -1837,22 +1443,23 @@
               alt="Logo Target Agrotech"
             />
             <p>
-              Target Agrotech – formação em tecnologia no campo, com foco em prática real e preparo para o mercado de trabalho no agro.
+              Líder em formação tecnológica no campo.<br />
+              Foco em prática real e empregabilidade no mercado agropecuário.
             </p>
           </div>
 
           <div class="footer-links">
             <div>
-              <div class="footer-column-title">Cursos</div>
+              <div class="footer-column-title">Matrículas</div>
               <ul class="footer-list">
-                <li>Inseminação Artificial em Bovinos</li>
-                <li>Piloto de Drone Agrícola</li>
-                <li>Operador de Máquinas Pesadas</li>
+                <li><a href="#cidades-datas">Próximas Turmas</a></li>
+                <li><a href="#cidades-datas">Grade Curricular</a></li>
+                <li><a href="#cidades-datas">Certificação</a></li>
               </ul>
             </div>
 
             <div>
-              <div class="footer-column-title">Contato</div>
+              <div class="footer-column-title">Atendimento</div>
               <ul class="footer-list">
                 <li>
                   Instagram:
@@ -1880,7 +1487,6 @@
             </div>
           </div>
 
-          <!-- LOGO DO ARTHUR / PARCEIRO -->
           <div class="footer-partner">
             <img
               src="assets/logo-arthur-horizontal.png"
@@ -1898,91 +1504,96 @@
     </footer>
   </div>
 
+  <!-- FLOATING WHATSAPP -->
+  <a
+    class="wa-float"
+    id="waFloat"
+    href="https://wa.me/5566999763455"
+    data-wa="consultor"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Falar com consultor no WhatsApp"
+  >
+    <span class="wa-float-dot" aria-hidden="true"></span>
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M19.11 17.74c-.22-.11-1.29-.64-1.49-.71-.2-.07-.35-.11-.5.11-.15.22-.58.71-.71.86-.13.15-.26.17-.48.06-.22-.11-.93-.34-1.77-1.09-.65-.58-1.09-1.3-1.22-1.52-.13-.22-.01-.34.1-.45.1-.1.22-.26.34-.39.11-.13.15-.22.22-.37.07-.15.04-.28-.02-.39-.06-.11-.5-1.21-.69-1.66-.18-.44-.36-.38-.5-.39h-.43c-.15 0-.39.06-.6.28-.2.22-.79.77-.79 1.88 0 1.11.81 2.18.93 2.33.11.15 1.59 2.42 3.86 3.39.54.23.96.37 1.29.48.54.17 1.03.15 1.41.09.43-.06 1.29-.53 1.47-1.04.18-.51.18-.95.13-1.04-.05-.09-.2-.15-.41-.26z"/>
+      <path d="M26.66 5.34C23.91 2.59 20.25 1.07 16.36 1.07 8.34 1.07 1.83 7.58 1.83 15.6c0 2.56.67 5.06 1.94 7.27L1.7 30.93l8.25-2.16c2.14 1.17 4.55 1.78 7.01 1.78h.01c8.02 0 14.53-6.51 14.53-14.53 0-3.89-1.52-7.55-4.27-10.68zm-10.3 22.66h-.01c-2.17 0-4.3-.58-6.14-1.69l-.44-.26-4.9 1.28 1.31-4.77-.29-.49c-1.22-2.02-1.86-4.33-1.86-6.68 0-7.02 5.72-12.74 12.75-12.74 3.41 0 6.61 1.33 9.02 3.74 2.41 2.41 3.73 5.62 3.73 9.03 0 7.03-5.72 12.75-12.75 12.75z"/>
+    </svg>
+  </a>
+
+  <!-- MODAL TURMA -->
+  <div class="modal-overlay" id="turmaModalOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="turmaModalTitle">
+      <div class="modal-header">
+        <div class="modal-title" id="turmaModalTitle">Garantir minha vaga</div>
+        <button type="button" class="modal-close" id="turmaModalClose" aria-label="Fechar">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-desc" id="turmaModalDesc">
+          Só precisamos de dois dados para deixar seu atendimento mais rápido no WhatsApp.
+        </div>
+
+        <div class="field">
+          <input type="text" id="tm-nome" placeholder="Seu nome" autocomplete="name" />
+          <div class="error" id="tm-err-nome">Informe seu nome.</div>
+        </div>
+
+        <div class="field" style="margin-top:0.85rem;">
+          <input type="text" id="tm-cidade" placeholder="Cidade/Estado" autocomplete="address-level2" />
+          <div class="error" id="tm-err-cidade">Informe sua cidade/estado.</div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" id="turmaModalCancel">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="turmaModalConfirm">Continuar no WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     window.addEventListener("DOMContentLoaded", function () {
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      const DAY_IN_MS = 1000 * 60 * 60 * 24;
-
-      // ====== WHATSAPP (NOVO) ======
+      // ====== WHATSAPP FIXO (REGRA: manter número já usado) ======
       const WHATSAPP_PHONE = "5566999763455";
-      const NAME_PLACEHOLDER = "[SEU NOME]";
 
       function waLink(message) {
         return "https://wa.me/" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(message);
       }
 
-      function pad2(n) {
-        return String(n).padStart(2, "0");
+      // ====== CONSULTOR LINKS (mensagem padrão) ======
+      const CONSULTOR_MSG =
+        "Olá! Meu nome é [SEU NOME]. Tenho interesse no curso de Inseminação Artificial em Bovinos. Pode me passar mais informações?";
+
+      document.querySelectorAll('a[data-wa="consultor"]').forEach((a) => {
+        a.setAttribute("href", waLink(CONSULTOR_MSG));
+      });
+
+      // ====== HERO VIDEO (overlay play) ======
+      const heroVideo = document.getElementById("heroVideo");
+      const heroOverlay = document.getElementById("heroPlayOverlay");
+      const heroPlayBtn = document.getElementById("heroPlayBtn");
+
+      function startHeroVideo() {
+        if (!heroVideo) return;
+        heroVideo.setAttribute("controls", "controls");
+        heroVideo.play().catch(() => {});
+        if (heroOverlay) heroOverlay.style.display = "none";
       }
 
-      function formatDateBR(d) {
-        return pad2(d.getDate()) + "/" + pad2(d.getMonth() + 1) + "/" + d.getFullYear();
+      if (heroPlayBtn) heroPlayBtn.addEventListener("click", startHeroVideo);
+
+      // ====== FLOATING WA: aparece após scroll (pra não “contar” na primeira dobra) ======
+      const waFloat = document.getElementById("waFloat");
+      function toggleFloat() {
+        if (!waFloat) return;
+        if (window.scrollY > 220) waFloat.classList.add("show");
+        else waFloat.classList.remove("show");
       }
+      toggleFloat();
+      window.addEventListener("scroll", toggleFloat, { passive: true });
 
-      function titleCase(str) {
-        return (str || "")
-          .toLowerCase()
-          .split(" ")
-          .filter(Boolean)
-          .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-          .join(" ");
-      }
-
-      function initWhatsAppConsultorLinks() {
-        const msg =
-          "Olá! Meu nome é " +
-          NAME_PLACEHOLDER +
-          ". Tenho interesse no curso de Inseminação Artificial em Bovinos. Pode me passar mais informações?";
-
-        document.querySelectorAll('a[data-wa="consultor"]').forEach((a) => {
-          a.setAttribute("href", waLink(msg));
-        });
-      }
-
-      // NOVO: aceita "dd/mm" ou "dd/mm/aaaa"
-      function computeCourseDates(cards) {
-        const map = new Map();
-
-        cards.forEach((card) => {
-          const raw = card.getAttribute("data-course-date");
-          if (!raw) return;
-
-          const parts = raw.split("/");
-          let day, month, year;
-
-          if (parts.length === 3) {
-            day = parseInt(parts[0], 10);
-            month = parseInt(parts[1], 10);
-            year = parseInt(parts[2], 10);
-          } else if (parts.length === 2) {
-            day = parseInt(parts[0], 10);
-            month = parseInt(parts[1], 10);
-            if (Number.isNaN(day) || Number.isNaN(month)) return;
-
-            const currentYear = today.getFullYear();
-            const currentMonth = today.getMonth() + 1;
-
-            // Heurística para datas sem ano: se o mês já passou, assume próximo ano
-            year = currentYear;
-            if (month < currentMonth) {
-              year = currentYear + 1;
-            }
-          } else {
-            return;
-          }
-
-          if (Number.isNaN(day) || Number.isNaN(month) || Number.isNaN(year)) return;
-
-          const d = new Date(year, month - 1, day);
-          d.setHours(0, 0, 0, 0);
-          map.set(card, d);
-        });
-
-        return map;
-      }
-
-      function initDroneGallerySlider() {
+      // ====== GALERIA SLIDER ======
+      function initGallerySlider() {
         const slider = document.getElementById("drone-gallery-slider");
         if (!slider) return;
 
@@ -1996,9 +1607,7 @@
         let autoTimer = null;
 
         function updateSlides(index) {
-          slides.forEach((slide, i) => {
-            slide.classList.toggle("active", i === index);
-          });
+          slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
           const dots = dotsContainer.querySelectorAll(".gallery-dot");
           dots.forEach((dot, i) => {
             const isActive = i === index;
@@ -2023,14 +1632,13 @@
           }
         }
 
-        slides.forEach((slide, index) => {
+        slides.forEach((_, index) => {
           const dot = document.createElement("button");
           dot.type = "button";
           dot.className = "gallery-dot" + (index === 0 ? " active" : "");
           dot.dataset.index = String(index);
           dot.setAttribute("aria-label", "Ir para a foto " + (index + 1));
           dot.setAttribute("aria-pressed", index === 0 ? "true" : "false");
-          dot.setAttribute("role", "tab");
           dotsContainer.appendChild(dot);
         });
 
@@ -2063,201 +1671,190 @@
         startAutoPlay();
       }
 
-      function initUpcomingClasses() {
-        const upcomingGrid = document.getElementById("upcoming-grid-drone");
-        if (!upcomingGrid) return;
+      initGallerySlider();
 
-        const cards = Array.from(
-          upcomingGrid.querySelectorAll(".upcoming-card[data-course-date]")
-        );
-        if (cards.length === 0) return;
+      // ====== CIDADES E DATAS: FILTRO + VER TODAS ======
+      const grid = document.getElementById("upcoming-grid-inseminacao");
+      const searchInput = document.getElementById("search-city-inseminacao");
+      const toggleBtn = document.getElementById("toggle-more-inseminacao");
+      const INITIAL_VISIBLE = 3;
+      let showAll = false;
+      let term = "";
 
-        const courseDateMap = computeCourseDates(cards);
-
-        const searchInput = document.getElementById("search-city-drone");
-        const toggleBtn = document.getElementById("toggle-more-drone");
-        const INITIAL_VISIBLE = 3;
-        let showAll = false;
-        let searchTerm = "";
+      function applyUpcomingFilter() {
+        if (!grid) return;
+        const cards = Array.from(grid.querySelectorAll(".upcoming-card"));
+        const visible = [];
 
         cards.forEach((card) => {
-          const courseDate = courseDateMap.get(card);
-          if (!courseDate) {
-            card.dataset.isPast = "true";
+          const city = (card.getAttribute("data-city") || "").toLowerCase();
+          const state = (card.getAttribute("data-state") || "").toLowerCase();
+          const combined = (city + " " + state).trim();
+          const matches = !term || combined.includes(term);
+
+          if (!matches) {
             card.classList.add("hidden");
-            return;
-          }
-
-          const diffMs = courseDate.getTime() - today.getTime();
-          const diffDays = diffMs / DAY_IN_MS;
-
-          // Aqui garante: no dia do curso (diffDays >= 0) ainda aparece,
-          // só some quando virar para o dia seguinte (diffDays < 0).
-          if (diffDays < 0) {
-            card.dataset.isPast = "true";
-            card.classList.add("hidden");
-            return;
-          }
-
-          card.dataset.isPast = "false";
-
-          // ====== WHATSAPP TURMA (NOVO) ======
-          const btn = card.querySelector('a[data-wa="turma"]');
-          if (btn) {
-            const cityRaw = card.getAttribute("data-city") || "";
-            const stateRaw = card.getAttribute("data-state") || "";
-            const city = titleCase(cityRaw);
-            const state = (stateRaw || "").toUpperCase();
-
-            const dateStr = formatDateBR(courseDate);
-
-            const msgTurma =
-              "Olá! Meu nome é " +
-              NAME_PLACEHOLDER +
-              ". Tenho interesse na turma de Inseminação Artificial em Bovinos da cidade de " +
-              city +
-              (state ? " (" + state + ")" : "") +
-              " no dia " +
-              dateStr +
-              ". Como faço para me inscrever?";
-
-            btn.setAttribute("href", waLink(msgTurma));
-          }
-
-          if (diffDays >= 0 && diffDays <= 30) {
-            const badge = document.createElement("div");
-            badge.className = "upcoming-last-call";
-            badge.innerHTML = "<span>⏰</span><span>Últimas vagas</span>";
-
-            const btnForBadge = card.querySelector(".btn");
-            if (btnForBadge && btnForBadge.parentNode) {
-              btnForBadge.parentNode.insertBefore(badge, btnForBadge);
-            } else {
-              card.appendChild(badge);
-            }
+          } else {
+            card.classList.remove("hidden");
+            visible.push(card);
           }
         });
 
-        function applyFilter() {
-          const visibleFutureCards = [];
-
-          cards.forEach((card) => {
-            const isPast = card.dataset.isPast === "true";
-            if (isPast) {
-              card.classList.add("hidden");
-              return;
-            }
-
-            const city = (card.getAttribute("data-city") || "").toLowerCase();
-            const state = (card.getAttribute("data-state") || "").toLowerCase();
-            const combined = (city + " " + state).trim();
-            let matches = true;
-
-            if (searchTerm) {
-              matches = combined.includes(searchTerm);
-            }
-
-            if (!matches) {
-              card.classList.add("hidden");
-            } else {
-              card.classList.remove("hidden");
-              visibleFutureCards.push(card);
-            }
-          });
-
-          if (!searchTerm && !showAll) {
-            visibleFutureCards.forEach((card, index) => {
-              if (index >= INITIAL_VISIBLE) {
-                card.classList.add("hidden");
-              }
-            });
-          }
-        }
-
-        if (searchInput) {
-          searchInput.addEventListener("input", function (e) {
-            const target = e.target;
-            if (!(target instanceof HTMLInputElement)) return;
-            searchTerm = target.value.toLowerCase().trim();
-            applyFilter();
+        if (!term && !showAll) {
+          visible.forEach((c, idx) => {
+            if (idx >= INITIAL_VISIBLE) c.classList.add("hidden");
           });
         }
-
-        if (toggleBtn) {
-          toggleBtn.addEventListener("click", function () {
-            showAll = !showAll;
-            toggleBtn.textContent = showAll ? "Ver menos turmas" : "Ver mais turmas";
-            toggleBtn.setAttribute("aria-expanded", showAll ? "true" : "false");
-            applyFilter();
-          });
-        }
-
-        applyFilter();
       }
 
-      function initCityForm() {
-        const form = document.getElementById("city-form-drone");
-        const input = document.getElementById("city-input-drone");
-        if (!form || !(input instanceof HTMLInputElement)) return;
+      if (searchInput) {
+        searchInput.addEventListener("input", function (e) {
+          const t = e.target;
+          if (!(t instanceof HTMLInputElement)) return;
+          term = t.value.toLowerCase().trim();
+          applyUpcomingFilter();
+        });
+      }
 
-        form.addEventListener("submit", function (e) {
+      if (toggleBtn) {
+        toggleBtn.addEventListener("click", function () {
+          showAll = !showAll;
+          toggleBtn.textContent = showAll ? "Ver menos turmas" : "Ver todas as turmas";
+          toggleBtn.setAttribute("aria-expanded", showAll ? "true" : "false");
+          applyUpcomingFilter();
+        });
+      }
+
+      applyUpcomingFilter();
+
+      // ====== MODAL TURMAS ======
+      const overlay = document.getElementById("turmaModalOverlay");
+      const closeBtn = document.getElementById("turmaModalClose");
+      const cancelBtn = document.getElementById("turmaModalCancel");
+      const confirmBtn = document.getElementById("turmaModalConfirm");
+
+      const tmNome = document.getElementById("tm-nome");
+      const tmCidade = document.getElementById("tm-cidade");
+      const tmErrNome = document.getElementById("tm-err-nome");
+      const tmErrCidade = document.getElementById("tm-err-cidade");
+
+      let selectedTurma = null;
+
+      function showErr(el, show) {
+        if (!el) return;
+        el.classList.toggle("show", !!show);
+      }
+
+      function openModal(turmaData) {
+        selectedTurma = turmaData;
+        if (!overlay) return;
+        overlay.classList.add("open");
+        overlay.setAttribute("aria-hidden", "false");
+
+        if (tmNome) tmNome.value = "";
+        if (tmCidade) tmCidade.value = "";
+        showErr(tmErrNome, false);
+        showErr(tmErrCidade, false);
+
+        setTimeout(() => { if (tmNome) tmNome.focus(); }, 50);
+      }
+
+      function closeModal() {
+        selectedTurma = null;
+        if (!overlay) return;
+        overlay.classList.remove("open");
+        overlay.setAttribute("aria-hidden", "true");
+      }
+
+      function onOverlayClick(e) { if (e.target === overlay) closeModal(); }
+      function onEsc(e) { if (e.key === "Escape") closeModal(); }
+
+      if (overlay) overlay.addEventListener("click", onOverlayClick);
+      document.addEventListener("keydown", onEsc);
+
+      if (closeBtn) closeBtn.addEventListener("click", closeModal);
+      if (cancelBtn) cancelBtn.addEventListener("click", closeModal);
+
+      document.querySelectorAll(".js-open-turma").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const card = btn.closest(".upcoming-card");
+          if (!card) return;
+
+          const curso = card.getAttribute("data-course") || "Inseminação Artificial em Bovinos";
+          const local = card.getAttribute("data-local") || (card.querySelector(".upcoming-location")?.textContent || "").replace("📍", "").trim();
+          const dataFull = card.getAttribute("data-course-date") || "";
+          const dataShort = (card.querySelector(".upcoming-date")?.textContent || "").trim();
+
+          openModal({ curso, local, dataFull, dataShort });
+        });
+      });
+
+      function isBlank(v) { return !v || !String(v).trim(); }
+
+      if (confirmBtn) {
+        confirmBtn.addEventListener("click", function () {
+          const nome = tmNome ? tmNome.value.trim() : "";
+          const cidade = tmCidade ? tmCidade.value.trim() : "";
+
+          const invalidNome = isBlank(nome);
+          const invalidCidade = isBlank(cidade);
+
+          showErr(tmErrNome, invalidNome);
+          showErr(tmErrCidade, invalidCidade);
+
+          if (invalidNome || invalidCidade || !selectedTurma) return;
+
+          const DATA = selectedTurma.dataFull || selectedTurma.dataShort || "";
+          const msg =
+            "Olá, meu nome é " + nome +
+            ", sou da cidade " + cidade +
+            " e quero garantir minha vaga no curso " + selectedTurma.curso +
+            " em " + selectedTurma.local +
+            " na data " + DATA + ".";
+
+          window.open(waLink(msg), "_blank");
+          closeModal();
+        });
+      }
+
+      // ====== NÃO ENCONTROU SUA CIDADE ======
+      const nfForm = document.getElementById("city-form-inseminacao");
+      const nfNome = document.getElementById("nf-nome");
+      const nfCidade = document.getElementById("nf-cidade");
+      const nfCurso = document.getElementById("nf-curso");
+
+      const errNome = document.getElementById("err-nome");
+      const errCidade = document.getElementById("err-cidade");
+      const errCurso = document.getElementById("err-curso");
+
+      if (nfForm) {
+        nfForm.addEventListener("submit", function (e) {
           e.preventDefault();
-          const value = input.value.trim();
-          if (!value) return;
 
-          const message =
-            "Olá! Meu nome é " +
-            NAME_PLACEHOLDER +
-            ". Tenho interesse no curso de Inseminação Artificial em Bovinos na região de " +
-            value +
-            ". Podem me avisar quando tiver turma aí?";
+          const nome = nfNome ? nfNome.value.trim() : "";
+          const cidade = nfCidade ? nfCidade.value.trim() : "";
+          const curso = nfCurso ? nfCurso.value.trim() : "";
 
-          const url = waLink(message);
-          window.open(url, "_blank");
+          const badNome = isBlank(nome);
+          const badCidade = isBlank(cidade);
+          const badCurso = isBlank(curso);
+
+          showErr(errNome, badNome);
+          showErr(errCidade, badCidade);
+          showErr(errCurso, badCurso);
+
+          if (badNome || badCidade || badCurso) return;
+
+          const msg =
+            "Olá, meu nome é " + nome +
+            ", sou da cidade " + cidade +
+            " e quero o curso de " + curso +
+            " na minha cidade.";
+
+          window.open(waLink(msg), "_blank");
         });
       }
-
-      function initVideoSlider() {
-        const grid = document.getElementById("video-grid-drone");
-        const prevBtn = document.getElementById("video-prev");
-        const nextBtn = document.getElementById("video-next");
-        if (!grid || !prevBtn || !nextBtn) return;
-
-        const cards = Array.from(grid.querySelectorAll(".video-card"));
-        const total = cards.length;
-        if (total === 0) return;
-
-        const VISIBLE = 3;
-        let startIndex = 0;
-
-        function updateVisible() {
-          cards.forEach((card, idx) => {
-            const offset = (idx - startIndex + total) % total;
-            card.classList.toggle("hidden", offset >= VISIBLE);
-          });
-        }
-
-        prevBtn.addEventListener("click", function () {
-          startIndex = (startIndex - 1 + total) % total;
-          updateVisible();
-        });
-
-        nextBtn.addEventListener("click", function () {
-          startIndex = (startIndex + 1) % total;
-          updateVisible();
-        });
-
-        updateVisible();
-      }
-
-      // ====== init ======
-      initWhatsAppConsultorLinks();
-      initDroneGallerySlider();
-      initUpcomingClasses();
-      initCityForm();
-      initVideoSlider();
     });
   </script>
 </body>
 </html>
-
