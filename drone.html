@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Piloto de Drone Agrícola - Target Agrotech</title>
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="shortcut icon" type="image/png" href="assets/favicon-32.png" />
-  
+
   <!-- SEO -->
   <meta
     name="description"
@@ -37,936 +38,741 @@
   <!-- End Meta Pixel Code -->
 
   <style>
-    :root {
-      --background: #06160f;
-      --background-alt: #0b2416;
-      --card: #10251a;
-      --card-soft: #102a1f;
-      --border: #1f3b29;
-      --primary: #00b050;
-      --primary-soft: #0fd266;
-      --secondary: #f2c94c;
-      --text-main: #f5f5f5;
-      --text-muted: #c1c9c5;
-      --radius-lg: 18px;
-      --radius-md: 12px;
-      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
-      --shadow-card: 0 12px 26px rgba(0, 0, 0, 0.45);
+    :root{
+      --bg-0:#020a06;
+      --bg-1:#06160f;
+      --bg-2:#0a2015;
+      --card:#08160f;
+      --card-2:#07140d;
+      --border:rgba(255,255,255,.08);
+      --border-2:rgba(0,176,80,.18);
+      --primary:#00B050;
+      --primary-2:#0FD266;
+      --gold:#D1A827;
+      --yellow:#F2C94C;
+      --text:#F5F5F5;
+      --muted:#B9C3BE;
+      --muted-2:#94A49C;
+      --shadow:0 18px 45px rgba(0,0,0,.55);
+      --shadow2:0 12px 30px rgba(0,0,0,.45);
+      --r-xl:28px;
+      --r-lg:22px;
+      --r-md:16px;
+      --r-sm:12px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #0e2a1d 0, #020a06 45%, #020805 100%);
-      color: var(--text-main);
-      line-height: 1.5;
-      position: relative;
-      overflow-x: hidden;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 50% 0%, rgba(0,176,80,.14), transparent 55%),
+        radial-gradient(900px 600px at 50% 85%, rgba(209,168,39,.10), transparent 60%),
+        linear-gradient(180deg, #06160f 0%, #020a06 55%, #020805 100%);
+      overflow-x:hidden;
+    }
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+
+    .page{min-height:100vh}
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+
+    section{padding:72px 0}
+    @media (max-width:900px){ section{padding:58px 0} }
+
+    /* Header (igual ao print) */
+    header{
+      border-bottom:1px solid rgba(255,255,255,.05);
+      background: linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,0));
+    }
+    .topline{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px 0;
+    }
+    .brand-left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      user-select:none;
+      pointer-events:none; /* evita link/CTA extra no hero */
+    }
+    .brand-left img{
+      width:34px;height:34px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.25);
+      padding:4px;
+    }
+    .tagline{
+      font-size:12px;
+      letter-spacing:.28em;
+      color:rgba(245,245,245,.70);
+      text-transform:uppercase;
+      user-select:none;
+      pointer-events:none; /* evita link/CTA extra no hero */
     }
 
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      width: 320px;
-      height: 320px;
+    /* Hero */
+    .hero{
+      padding-top:64px;
+      padding-bottom:56px;
+      text-align:center;
+    }
+    @media (max-width:900px){ .hero{padding-top:52px;padding-bottom:46px} }
+
+    .hero h1{
+      font-size: clamp(40px, 5.2vw, 68px);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing:-0.02em;
+      max-width: 980px;
+      margin: 0 auto 18px;
+    }
+    .hero h1 .green{color:var(--primary)}
+    .hero p{
+      max-width:720px;
+      margin:0 auto 26px;
+      font-size: 16px;
+      line-height:1.55;
+      color: rgba(245,245,245,.82);
+    }
+    .hero p strong{color:#fff}
+
+    /* CTA único no hero */
+    .hero-cta-wrap{
+      margin-top:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .hero-cta{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:16px 28px;
+      min-width: 360px;
       border-radius: 999px;
-      filter: blur(30px);
-      opacity: 0.45;
-      z-index: -1;
-      pointer-events: none;
+      border:1px solid rgba(0,0,0,.25);
+      background: linear-gradient(180deg, #12d36b 0%, #00B050 100%);
+      box-shadow: 0 18px 45px rgba(0,176,80,.18), var(--shadow);
+      color:#04140b;
+      font-weight:900;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+      cursor:pointer;
+      transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
     }
-
-    body::before {
-      top: -120px;
-      right: -80px;
-      background: radial-gradient(circle at center, rgba(0, 176, 80, 0.5), transparent 70%);
-    }
-
-    body::after {
-      bottom: -140px;
-      left: -90px;
-      background: radial-gradient(circle at center, rgba(242, 201, 76, 0.4), transparent 70%);
-    }
-
-    img { max-width: 100%; display: block; }
-    a { text-decoration: none; color: inherit; }
-
-    .page { min-height: 100vh; }
-    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-
-    section { padding: 4rem 0; }
-    @media (min-width: 1024px) { section { padding: 5rem 0; } }
-
-    .section-title {
-      font-size: clamp(2.1rem, 3vw, 2.6rem);
-      margin-bottom: 0.9rem;
-      text-align: center;
-      position: relative;
-    }
-
-    .section-title span.highlight { color: var(--primary); }
-
-    .section-title::after {
-      content: "";
-      display: block;
-      width: 80px;
-      height: 2px;
-      margin: 0.7rem auto 0;
-      background: linear-gradient(to right, transparent, var(--secondary), transparent);
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: var(--text-muted);
-      max-width: 680px;
-      margin: 0 auto 2.4rem;
-      font-size: 1rem;
-    }
-
-    .btn {
-      padding: 0.9rem 1.7rem;
-      border-radius: 999px;
-      font-size: 1rem;
-      font-weight: 600;
-      border: 1px solid transparent;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
-      transition:
-        transform 0.12s ease-out,
-        box-shadow 0.12s ease-out,
-        background 0.12s ease-out,
-        border-color 0.12s ease-out,
-        opacity 0.12s ease-out;
-      white-space: nowrap;
-    }
-
-    .btn-primary { background: var(--primary); color: #020a06; box-shadow: var(--shadow-soft); }
-    .btn-primary:hover {
-      background: var(--primary-soft);
+    .hero-cta:hover{
       transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(18, 242, 120, 0.27);
+      filter: brightness(1.03);
+      box-shadow: 0 22px 55px rgba(0,176,80,.22), var(--shadow);
+    }
+    .hero-cta:active{
+      transform: translateY(0px) scale(.99);
+    }
+    .hero-cta .wa-ico{
+      width:22px;height:22px;display:inline-block;
+      filter: drop-shadow(0 6px 16px rgba(0,0,0,.25));
     }
 
-    .btn-outline { background: transparent; border-color: var(--border); color: var(--text-main); }
-    .btn-outline:hover {
-      border-color: var(--primary);
-      background: rgba(0, 176, 80, 0.08);
-      transform: translateY(-1px);
+    /* Balão vermelho "ÚLTIMAS VAGAS" (bounce) */
+    .last-spots{
+      position:absolute;
+      right:-22px;
+      top:-14px;
+      background: linear-gradient(180deg, #D14343, #B11E1E);
+      color:#fff;
+      font-weight:900;
+      font-size: 11px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      padding:8px 10px;
+      border-radius: 10px;
+      border:1px solid rgba(0,0,0,.25);
+      transform: rotate(-10deg);
+      box-shadow: 0 12px 28px rgba(0,0,0,.40);
+      animation: badgeBounce 1.1s ease-in-out infinite;
+    }
+    @keyframes badgeBounce{
+      0%,100%{ transform: translateY(0) rotate(-10deg) }
+      50%{ transform: translateY(-6px) rotate(-10deg) }
     }
 
-    .btn-ghost { background: transparent; border-color: rgba(255, 255, 255, 0.08); color: var(--text-muted); }
-    .btn-ghost:hover {
-      border-color: var(--secondary);
-      color: var(--secondary);
-      transform: translateY(-1px);
+    /* checks abaixo do CTA */
+    .hero-checks{
+      margin-top:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color: rgba(245,245,245,.65);
+    }
+    .hero-checks .item{
+      display:flex;align-items:center;gap:8px;
+    }
+    .hero-checks .tick{
+      width:14px;height:14px;border-radius:999px;
+      background: rgba(0,176,80,.18);
+      border:1px solid rgba(0,176,80,.28);
+      display:flex;align-items:center;justify-content:center;
+      color: var(--primary-2);
+      font-size:11px;
+      line-height:1;
     }
 
-    .btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
-    .btn-small { padding: 0.6rem 1.1rem; font-size: 0.86rem; }
-    .hidden { display: none !important; }
-
-    .mb-1_5 { margin-bottom: 1.5rem; }
-    .center { justify-content: center; }
-
-    /* ---------- HERO OTIMIZADA ---------- */
-    .hero-course {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-      text-align: center;
+    /* Box Treinamento de drones */
+    .training-box{
+      margin: 44px auto 0;
+      max-width: 980px;
+      border-radius: 34px;
+      background: rgba(7,20,13,.48);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow: var(--shadow2);
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .training-box::before{
+      content:"";
+      position:absolute;inset:-1px;
+      background:
+        radial-gradient(600px 250px at 50% 0%, rgba(0,176,80,.16), transparent 55%),
+        radial-gradient(700px 320px at 50% 110%, rgba(209,168,39,.10), transparent 55%);
+      pointer-events:none;
+    }
+    .training-label{
+      position:absolute;
+      top:14px;left:22px;
+      font-size:12px;
+      color: rgba(245,245,245,.80);
+      display:flex;align-items:center;gap:8px;
+      z-index:2;
+    }
+    .training-label .slash{
+      width:10px;height:10px;border-left:2px solid var(--primary);border-bottom:2px solid var(--primary);
+      transform: rotate(45deg);
+      opacity:.85;
+    }
+    .training-frame{
+      position:relative;
+      z-index:1;
+      margin-top: 22px;
+      border-radius: 26px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      min-height: 320px;
+    }
+    @media(max-width:900px){
+      .hero-cta{min-width: 320px; width: 100%}
+      .training-frame{min-height: 240px}
     }
 
-    .hero-course-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
+    /* Títulos padrão */
+    .section-title{
+      font-size: clamp(34px, 3.3vw, 46px);
+      line-height:1.1;
+      font-weight: 900;
+      text-align:center;
+      margin-bottom:12px;
     }
-
-    .hero-course-kicker {
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--secondary);
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .hero-course-title {
-      font-size: clamp(2.5rem, 5vw, 3.2rem);
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 1.2rem;
-    }
-
-    .hero-course-title span { color: var(--primary); }
-
-    .hero-course-subtitle {
-      font-size: 1.3rem;
-      color: var(--text-main);
-      margin-bottom: 2rem;
-      line-height: 1.4;
-      max-width: 680px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* ---------- CTA PRINCIPAL ---------- */
-    .hero-cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 2.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .hero-cta-primary {
-      background: var(--primary);
-      color: #020a06;
-      box-shadow: var(--shadow-soft);
-      padding: 1.1rem 2.2rem;
-      font-size: 1.1rem;
-      font-weight: 700;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-      text-decoration: none;
-    }
-
-    .hero-cta-primary:hover {
-      background: var(--primary-soft);
-      transform: translateY(-2px);
-      box-shadow: 0 22px 45px rgba(18, 242, 120, 0.3);
-    }
-
-    .hero-cta-secondary {
-      background: transparent;
-      border: 2px solid rgba(255, 255, 255, 0.15);
-      color: var(--text-main);
-      padding: 1.1rem 2rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-      border-radius: 999px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-      text-decoration: none;
-    }
-
-    .hero-cta-secondary:hover {
-      border-color: var(--primary);
-      background: rgba(0, 176, 80, 0.1);
-      transform: translateY(-2px);
-    }
-
-    /* ---------- BENEFÍCIOS RÁPIDOS ---------- */
-    .hero-benefits-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      justify-content: center;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero-benefit-pill {
-      padding: 0.5rem 1.2rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: radial-gradient(circle at top left, rgba(0, 176, 80, 0.22), rgba(0, 0, 0, 0.7));
-      font-size: 0.9rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      color: var(--text-main);
-    }
-
-    .hero-benefit-pill span.dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--primary);
-    }
-
-    /* ---------- HEADER ---------- */
-    header { padding: 1.2rem 0 0.5rem; }
-
-    .top-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 1.4rem;
-    }
-
-    .top-bar-left { display: flex; align-items: center; gap: 0.9rem; font-size: 0.9rem; }
-
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-    }
-
-    .back-link:hover { border-color: var(--primary); color: var(--primary-soft); }
-
-    .top-bar-right { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; color: var(--text-muted); }
-
-    .pill-label {
-      padding: 0.28rem 0.75rem;
-      border-radius: 999px;
-      border: 1px solid rgba(242, 201, 76, 0.4);
-      color: var(--secondary);
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    /* ---------- HERO MEDIA ---------- */
-    .hero-course-media {
-      background: radial-gradient(circle at top, #152c1f, #07130d);
-      border-radius: 28px;
-      padding: 1rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: var(--shadow-card);
-      position: relative;
-      overflow: hidden;
-      max-width: 800px;
-      margin: 2rem auto 0;
-    }
-
-    .hero-course-media::before {
-      content: "Curso oficial Target Agrotech";
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      font-size: 0.75rem;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(0, 0, 0, 0.55);
-      border: 1px solid rgba(242, 201, 76, 0.6);
-      color: var(--secondary);
-      z-index: 2;
-    }
-
-    .hero-slider { position: relative; border-radius: 22px; overflow: hidden; max-height: 360px; min-height: 260px; }
-
-    .hero-slide-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 70% 50% !important;
-      display: block;
-    }
-
-    .hero-course-media-footer {
-      margin-top: 0.8rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      display: flex;
-      justify-content: space-between;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-    }
-
-    .hero-course-media-footer strong { color: var(--primary-soft); }
-
-    /* ---------- WHY SECTION ---------- */
-    .why-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; }
-    @media (max-width: 900px) { .why-grid { grid-template-columns: 1fr; } }
-
-    .why-card {
-      background: rgba(5, 33, 19, 0.95);
-      border-radius: var(--radius-md);
-      padding: 1.4rem 1.3rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-      transition:
-        transform 0.16s ease-out,
-        box-shadow 0.16s ease-out,
-        border-color 0.16s ease-out;
-    }
-
-    .why-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.78);
-      border-color: rgba(242, 201, 76, 0.4);
-    }
-
-    .why-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: radial-gradient(circle at top, rgba(0, 176, 80, 0.55), rgba(2, 10, 6, 0.65));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .why-title { font-size: 1.05rem; font-weight: 600; }
-    .why-text { font-size: 0.9rem; color: var(--text-muted); }
-
-    /* ---------- STEPS ---------- */
-    .steps-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.1rem; }
-    @media (max-width: 1000px) { .steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 640px) { .steps-grid { grid-template-columns: 1fr; } }
-
-    .step-card {
-      background: linear-gradient(150deg, #0f2519, #07140d);
-      border-radius: var(--radius-lg);
-      padding: 1.3rem 1.1rem 1.2rem;
-      border: 1px solid rgba(0, 255, 128, 0.26);
-      box-shadow: var(--shadow-card);
-      font-size: 0.9rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      transition:
-        transform 0.16s ease-out,
-        box-shadow 0.16s ease-out,
-        border-color 0.16s ease-out;
-    }
-
-    .step-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.78);
-      border-color: rgba(242, 201, 76, 0.6);
-    }
-
-    .step-number { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--secondary); }
-    .step-title { font-weight: 600; font-size: 1rem; }
-    .step-text { color: var(--text-muted); font-size: 0.88rem; }
-
-    /* ---------- CONTENT ---------- */
-    .content-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.3rem; align-items: flex-start; }
-    @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } }
-
-    .content-card {
-      background: rgba(5, 33, 19, 0.96);
-      border-radius: var(--radius-lg);
-      padding: 1.7rem 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: var(--shadow-card);
-    }
-
-    .content-card h3 { font-size: 1.05rem; margin-bottom: 0.7rem; }
-    .content-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.9rem; }
-
-    .bullet-list {
-      list-style: none;
-      padding-left: 0;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .bullet-list li::before { content: "✔"; color: var(--primary-soft); margin-right: 0.45rem; font-size: 0.8rem; }
-
-    /* ---------- GALLERY ---------- */
-    .slider-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      background: rgba(0, 0, 0, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 1.3rem;
-      color: var(--text-main);
-      z-index: 3;
-      transition:
-        background 0.12s ease-out,
-        transform 0.12s ease-out,
-        border-color 0.12s ease-out,
-        opacity 0.12s ease-out;
-    }
-
-    .slider-arrow-left { left: 0.5rem; }
-    .slider-arrow-right { right: 0.5rem; }
-
-    .slider-arrow:hover {
-      background: rgba(0, 0, 0, 0.85);
-      border-color: var(--secondary);
-      transform: translateY(-50%) scale(1.03);
-    }
-
-    @media (max-width: 640px) { .slider-arrow { display: none; } }
-
-    .drone-gallery-slider { position: relative; max-width: 600px; margin: 0 auto; min-height: 600px; }
-
-    .drone-gallery-slider .gallery-card {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      pointer-events: none;
-      transition:
-        opacity 0.45s ease-out,
-        transform 0.45s ease-out,
-        border-color 0.16s ease-out;
-      transform: translateY(6px);
-    }
-
-    .drone-gallery-slider .gallery-card.active { opacity: 1; pointer-events: auto; transform: translateY(0); }
-
-    .gallery-card {
-      background: #07140d;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      display: flex;
-      flex-direction: column;
-      min-height: 100%;
-      box-shadow: var(--shadow-card);
-    }
-
-    .gallery-card-image {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      max-height: 900px;
-      overflow: hidden;
-    }
-
-    @media (max-width: 640px) { .gallery-card-image { aspect-ratio: 4 / 3; } }
-
-    .gallery-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease-out; }
-    .drone-gallery-slider .gallery-card:hover img { transform: scale(1.06); }
-
-    .img-drone-gallery-1 { object-position: 50% 35%; }
-    .img-drone-gallery-2 { object-position: 50% 35%; }
-    .img-drone-gallery-3 { object-position: 50% 40%; }
-    .img-drone-gallery-4 { object-position: 50% 40%; }
-    .img-drone-gallery-5 { object-position: 50% 40%; }
-    .img-drone-gallery-6 { object-position: 50% 35%; }
-
-    .gallery-card-body { padding: 0.95rem 1.05rem 1.2rem; font-size: 0.88rem; }
-    .gallery-card-title { font-size: 0.98rem; font-weight: 600; margin-bottom: 0.25rem; }
-    .gallery-card-text { color: var(--text-muted); }
-
-    .gallery-dots { margin-top: 1.2rem; display: flex; justify-content: center; gap: 0.4rem; }
-    .gallery-dot { width: 8px; height: 8px; border-radius: 999px; border: none; background: rgba(255, 255, 255, 0.25); cursor: pointer; padding: 0; }
-    .gallery-dot.active { background: var(--secondary); }
-
-    /* ---------- TESTIMONIALS ---------- */
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.3rem; }
-    @media (max-width: 992px) { .testimonials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 640px) { .testimonials-grid { grid-template-columns: 1fr; } }
-
-    .testimonial-card {
-      background: rgba(5, 33, 19, 0.96);
-      border-radius: var(--radius-md);
-      padding: 1.4rem 1.3rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
-      font-size: 0.9rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .testimonial-card::before {
-      content: "“";
-      position: absolute;
-      top: -0.5rem;
-      right: 0.8rem;
-      font-size: 3.8rem;
-      color: rgba(242, 201, 76, 0.18);
-      pointer-events: none;
-    }
-
-    .testimonial-text { color: var(--text-muted); }
-
-    .testimonial-author { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.2rem; }
-    .testimonial-avatar {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: radial-gradient(circle at top, rgba(0, 176, 80, 0.7), rgba(2, 10, 6, 0.9));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .testimonial-meta { font-size: 0.8rem; color: var(--text-muted); }
-    .testimonial-meta strong { display: block; color: var(--text-main); }
-
-    /* ---------- VIDEO SECTION ---------- */
-    .video-slider { position: relative; max-width: 1200px; margin: 0 auto; }
-
-    .video-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.3rem; }
-    @media (max-width: 992px) { .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 640px) { .video-grid { grid-template-columns: 1fr; } }
-
-    .video-card {
-      background: #07140d;
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0.9rem 0.9rem 1.1rem;
-      box-shadow: var(--shadow-card);
-      font-size: 0.86rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      height: 100%;
-    }
-
-    .video-card video {
-      width: 100%;
-      min-height: 540px;
-      max-height: 960px;
-      aspect-ratio: 9/16;
-      border-radius: var(--radius-md);
-      display: block;
-      margin-bottom: 0.6rem;
-      background: #000;
-      object-fit: cover;
-      transition: all 0.3s ease;
-    }
-
-    .video-card video:hover {
-      transform: scale(1.02);
-    }
-
-    .video-card video:fullscreen {
-      object-fit: contain;
-    }
-
-    .video-card video::-webkit-media-controls-panel {
-      background: rgba(0,0,0,0.7);
-    }
-
-    .video-card video::-webkit-media-controls-play-button {
-      color: var(--primary);
-    }
-
-    .video-card-title { font-weight: 600; margin-bottom: 0.1rem; font-size: 0.9rem; }
-    .video-card-text { color: var(--text-muted); font-size: 0.86rem; }
-
-    /* ---------- UPCOMING ---------- */
-    .upcoming-controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.6rem;
-    }
-
-    .upcoming-search { display: flex; align-items: center; gap: 0.5rem; flex: 1 1 240px; max-width: 420px; font-size: 0.88rem; color: var(--text-muted); }
-
-    .upcoming-search input {
-      flex: 1;
-      padding: 0.55rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background: rgba(0, 0, 0, 0.35);
-      color: var(--text-main);
-      font-size: 0.88rem;
-      outline: none;
-    }
-
-    .upcoming-search input::placeholder { color: var(--text-muted); }
-    .upcoming-toggle { flex: 0 0 auto; }
-
-    .upcoming-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; }
-    @media (max-width: 992px) { .upcoming-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 640px) { .upcoming-grid { grid-template-columns: 1fr; } }
-
-    .upcoming-card {
-      background: linear-gradient(150deg, #0f2519, #07140d);
-      border-radius: var(--radius-lg);
-      padding: 1.2rem 1rem 1.2rem;
-      border: 1px solid rgba(0, 255, 128, 0.25);
-      box-shadow: var(--shadow-card);
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      font-size: 0.9rem;
-      transition:
-        transform 0.16s ease-out,
-        box-shadow 0.16s ease-out,
-        border-color 0.16s ease-out;
-    }
-
-    .upcoming-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.78);
-      border-color: rgba(242, 201, 76, 0.5);
-    }
-
-    .upcoming-date { font-weight: 600; font-size: 0.95rem; color: var(--primary-soft); }
-    .upcoming-location { color: var(--text-muted); font-size: 0.82rem; }
-    .upcoming-course-name { font-weight: 600; margin-top: 0.2rem; font-size: 1.02rem; }
-
-    .upcoming-last-call {
-      margin-top: 0.4rem;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      font-size: 0.82rem;
-      color: var(--secondary);
-    }
-
-    .upcoming-card .btn {
-      margin-top: 0.7rem;
-      padding: 0.65rem 0.95rem;
-      font-size: 0.86rem;
-      justify-content: center;
-      width: 100%;
-    }
-
-    /* ---------- CITY SUGGESTION ---------- */
-    .city-suggestion {
-      margin-top: 2.4rem;
-      padding: 1.5rem 1.4rem;
-      border-radius: var(--radius-lg);
-      border: 1px dashed rgba(242, 201, 76, 0.6);
-      background: rgba(5, 33, 19, 0.85);
+    .section-title .green{color:var(--primary)}
+    .section-subtitle{
+      text-align:center;
+      color: rgba(245,245,245,.68);
       max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
+      margin:0 auto 38px;
+      font-size: 14px;
+      line-height:1.6;
     }
-
-    .city-suggestion h3 { font-size: 1.05rem; margin-bottom: 0.3rem; }
-    .city-suggestion p { font-size: 0.88rem; color: var(--text-muted); }
-
-    .city-form { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 0.9rem; }
-
-    .city-form input {
-      flex: 1 1 220px;
-      padding: 0.7rem 1rem;
+    .underline{
+      width: 90px;
+      height: 2px;
+      margin: 10px auto 0;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(0, 0, 0, 0.4);
-      color: var(--text-main);
-      font-size: 0.9rem;
-      outline: none;
+      opacity:.9;
     }
 
-    .city-form input::placeholder { color: var(--text-muted); }
+    /* Depoimentos (cards altos com play) */
+    .videos-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 28px;
+      align-items:stretch;
+    }
+    @media (max-width: 992px){ .videos-grid{grid-template-columns: repeat(2, minmax(0,1fr));} }
+    @media (max-width: 640px){ .videos-grid{grid-template-columns: 1fr;} }
 
-    .small-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; }
+    .video-shell{
+      position:relative;
+      border-radius: 26px;
+      background: rgba(0,0,0,.75);
+      border:1px solid rgba(0,176,80,.16);
+      box-shadow: 0 18px 40px rgba(0,0,0,.55);
+      overflow:hidden;
+      min-height: 620px;
+    }
+    @media (max-width: 640px){ .video-shell{min-height: 520px;} }
 
-    /* ---------- FINAL CTA ---------- */
-    .final-cta {
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      background-image: radial-gradient(circle at top, rgba(0, 176, 80, 0.22), rgba(0, 0, 0, 0.9));
-      text-align: center;
+    .video-shell::before{
+      content:"";
+      position:absolute;inset:0;
+      background:
+        radial-gradient(380px 280px at 50% 70%, rgba(0,176,80,.14), transparent 60%);
+      pointer-events:none;
+    }
+    .video-pill{
+      position:absolute;
+      top:16px;left:16px;
+      z-index:2;
+      font-size:11px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      padding:8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color: rgba(245,245,245,.85);
+    }
+    .play-btn{
+      position:absolute;
+      top:50%;left:50%;
+      transform: translate(-50%,-50%);
+      width: 74px;height:74px;
+      border-radius:999px;
+      background: linear-gradient(180deg, #12d36b, #00B050);
+      border:1px solid rgba(0,0,0,.25);
+      box-shadow: 0 18px 45px rgba(0,176,80,.25);
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;
+      z-index:2;
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .play-btn:hover{ transform: translate(-50%,-50%) scale(1.04); filter: brightness(1.02); }
+    .play-tri{
+      width:0;height:0;
+      border-left: 16px solid #072014;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      margin-left: 4px;
+      opacity:.95;
+    }
+    .video-el{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      opacity: .0; /* começa “preto”, igual print */
+      transition: opacity .2s ease;
+      background:#000;
+    }
+    .video-shell.is-ready .video-el{opacity: .18;} /* poster aparece levemente */
+    .video-shell.is-playing .video-el{opacity: 1;}
+    .video-shell.is-playing .play-btn{opacity:.0;pointer-events:none;transform: translate(-50%,-50%) scale(.96);}
+    .video-shell.is-playing .video-pill{opacity:.0}
+
+    /* Próximas Turmas */
+    .upcoming-head{ text-align:center; margin-bottom: 18px; }
+    .upcoming-bar{
+      max-width: 980px;
+      margin: 0 auto 34px;
+      padding: 14px;
+      border-radius: 22px;
+      background: rgba(7,20,13,.55);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .search-wrap{
+      flex: 1 1 auto;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.22);
+    }
+    .search-wrap input{
+      width:100%;
+      background:transparent;
+      border:0;
+      outline:none;
+      color:var(--text);
+      font-size: 14px;
+    }
+    .search-wrap input::placeholder{color: rgba(245,245,245,.45)}
+    .state-select{
+      width: 220px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.22);
+      color: var(--text);
+      outline:none;
+      font-size: 13px;
+    }
+    @media (max-width: 768px){
+      .upcoming-bar{flex-direction:column; align-items:stretch}
+      .state-select{width:100%}
     }
 
-    .final-cta-inner { max-width: 720px; margin: 0 auto; padding: 3rem 1.2rem; }
+    .upcoming-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 22px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    @media (max-width: 992px){ .upcoming-grid{grid-template-columns: repeat(2, minmax(0,1fr));} }
+    @media (max-width: 640px){ .upcoming-grid{grid-template-columns: 1fr;} }
 
-    .final-cta-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 20px;
-      margin: 0 auto 1.2rem;
-      background: radial-gradient(circle at top, rgba(0, 176, 80, 0.6), rgba(2, 10, 6, 0.7));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
+    .class-card{
+      padding: 20px 18px 18px;
+      border-radius: 22px;
+      background: rgba(7,20,13,.60);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: 0 16px 35px rgba(0,0,0,.40);
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+    .class-card:hover{
+      transform: translateY(-4px);
+      border-color: rgba(209,168,39,.28);
+      box-shadow: 0 20px 44px rgba(0,0,0,.50);
+    }
+    .class-date{
+      font-weight: 900;
+      color: var(--primary);
+      font-size: 26px;
+      margin-bottom: 6px;
+    }
+    .class-city{
+      font-weight: 800;
+      font-size: 16px;
+      margin-bottom: 4px;
+      color: rgba(245,245,245,.95);
+    }
+    .class-course{
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(245,245,245,.55);
+      margin-bottom: 14px;
     }
 
-    .final-cta-title { font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 0.7rem; }
-    .final-cta-text { font-size: 1rem; color: var(--text-muted); margin-bottom: 1.8rem; }
+    .btn-yellow{
+      width:100%;
+      border:0;
+      cursor:pointer;
+      padding: 14px 14px;
+      border-radius: 14px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, #F6D463, #F2C94C);
+      color: #1b1402;
+      box-shadow: 0 16px 30px rgba(0,0,0,.35);
+      transition: transform .12s ease, filter .12s ease, background .12s ease;
+    }
+    .btn-yellow:hover{
+      background: linear-gradient(180deg, #12d36b, #00B050);
+      color:#04140b;
+      filter: brightness(1.02);
+      transform: translateY(-1px);
+    }
+    .btn-yellow:active{
+      background: linear-gradient(180deg, #12d36b, #00B050);
+      transform: translateY(0px) scale(.99);
+    }
 
-    /* ---------- FOOTER ---------- */
-    footer {
-      padding: 2.4rem 0 1.7rem;
+    .hidden{display:none !important}
+
+    /* Sugira sua cidade (coluna) */
+    .suggest-wrap{
+      max-width: 980px;
+      margin: 56px auto 0;
+      padding: 42px 24px 26px;
+      border-radius: 34px;
+      background: rgba(7,20,13,.58);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: 0 22px 48px rgba(0,0,0,.45);
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .suggest-wrap::before{
+      content:"";
+      position:absolute;inset:-1px;
+      background:
+        radial-gradient(680px 260px at 50% 0%, rgba(0,176,80,.14), transparent 60%),
+        radial-gradient(680px 300px at 50% 115%, rgba(209,168,39,.10), transparent 60%);
+      pointer-events:none;
+    }
+    .suggest-inner{position:relative;z-index:1;max-width: 620px;margin:0 auto}
+    .suggest-title{
+      font-size: 34px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+    .suggest-sub{
+      color: rgba(245,245,245,.70);
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .form-col{
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+      text-align:left;
+      margin-top: 14px;
+    }
+    .field label{
+      display:block;
+      font-size: 11px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color: rgba(245,245,245,.55);
+      margin-bottom: 8px;
+    }
+    .field input, .field select{
+      width:100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.26);
+      color: var(--text);
+      outline:none;
+      font-size: 14px;
+    }
+    .field input::placeholder{color: rgba(245,245,245,.40)}
+    .error{
+      margin-top: 8px;
+      color:#ff6b6b;
+      font-size: 12px;
+      display:none;
+    }
+    .error.show{display:block}
+
+    .suggest-btn{
+      margin-top: 14px;
+      width:100%;
+      padding: 16px 16px;
+      border-radius: 16px;
+      border:0;
+      cursor:pointer;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, #F6D463, #F2C94C);
+      color: #1b1402;
+      box-shadow: 0 18px 40px rgba(0,0,0,.40);
+      transition: transform .12s ease, background .12s ease, filter .12s ease;
+    }
+    .suggest-btn:hover{
+      background: linear-gradient(180deg, #12d36b, #00B050);
+      color:#04140b;
+      transform: translateY(-1px);
+    }
+    .suggest-btn:active{
+      background: linear-gradient(180deg, #12d36b, #00B050);
+      transform: translateY(0px) scale(.99);
+    }
+
+    /* CTA final (igual print) */
+    .final{
+      padding: 84px 0 88px;
+      text-align:center;
+      border-top: 1px solid rgba(255,255,255,.05);
+      background: radial-gradient(900px 520px at 50% 30%, rgba(0,176,80,.12), transparent 60%);
+    }
+    .final h2{
+      font-size: clamp(40px, 4.2vw, 62px);
+      font-weight: 900;
+      line-height:1.1;
+      margin-bottom: 22px;
+    }
+    .final-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 18px 34px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #12d36b, #00B050);
+      color:#04140b;
+      font-weight: 900;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      box-shadow: 0 22px 60px rgba(0,176,80,.20);
+      cursor:pointer;
+      border:1px solid rgba(0,0,0,.25);
+      transition: transform .14s ease, filter .14s ease;
+    }
+    .final-cta:hover{transform: translateY(-1px); filter: brightness(1.02)}
+    .final-cta:active{transform: translateY(0px) scale(.99)}
+
+    /* Modal (Regra B) */
+    .modal-overlay{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.62);
+      backdrop-filter: blur(6px);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding: 20px;
+      z-index: 9999;
+    }
+    .modal-overlay.show{display:flex}
+    .modal{
+      width:100%;
+      max-width: 520px;
+      border-radius: 22px;
+      background: rgba(7,20,13,.92);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 28px 70px rgba(0,0,0,.60);
+      position:relative;
+      overflow:hidden;
+    }
+    .modal::before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+        radial-gradient(420px 240px at 50% 0%, rgba(0,176,80,.14), transparent 60%),
+        radial-gradient(520px 280px at 50% 120%, rgba(209,168,39,.10), transparent 60%);
+      pointer-events:none;
+    }
+    .modal-inner{
+      position:relative;
+      z-index:1;
+      padding: 22px 20px 20px;
+    }
+    .modal-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 12px;
+    }
+    .modal-title{
+      font-size: 18px;
+      font-weight: 900;
+      line-height:1.2;
+    }
+    .modal-sub{
+      margin-top: 6px;
+      font-size: 13px;
+      color: rgba(245,245,245,.72);
+      line-height: 1.5;
+    }
+    .modal-close{
+      width:36px;height:36px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.25);
+      color: rgba(245,245,245,.85);
+      cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      font-size: 18px;
+      transition: filter .12s ease, transform .12s ease;
+    }
+    .modal-close:hover{filter:brightness(1.06); transform: translateY(-1px)}
+    .modal-close:active{transform: translateY(0px) scale(.99)}
+
+    .modal-form{
+      margin-top: 14px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .modal-actions{
+      margin-top: 14px;
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+    }
+    .modal-btn{
+      flex:1 1 220px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border:0;
+      cursor:pointer;
+      font-weight: 900;
+      letter-spacing:.06em;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, #12d36b, #00B050);
+      color:#04140b;
+      box-shadow: 0 18px 40px rgba(0,176,80,.18);
+      transition: transform .12s ease, filter .12s ease;
+    }
+    .modal-btn:hover{transform: translateY(-1px); filter: brightness(1.02)}
+    .modal-btn:active{transform: translateY(0px) scale(.99)}
+
+    .modal-note{
+      margin-top: 10px;
+      font-size: 12px;
+      color: rgba(245,245,245,.55);
+      line-height:1.5;
+    }
+
+    /* WhatsApp flutuante (aparece após rolar, pra não “quebrar” a regra do hero) */
+    .wa-float{
+      position:fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 58px;
+      height: 58px;
+      border-radius: 999px;
+      border:1px solid rgba(0,0,0,.25);
+      background: radial-gradient(circle at 30% 20%, #2af28a, #00B050 70%);
+      box-shadow: 0 22px 60px rgba(0,176,80,.20), 0 16px 40px rgba(0,0,0,.35);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      z-index: 9000;
+      transition: transform .14s ease, filter .14s ease, opacity .2s ease;
+      opacity: 0;
+      pointer-events:none;
+    }
+    .wa-float.show{
+      opacity: 1;
+      pointer-events:auto;
+    }
+    .wa-float:hover{transform: translateY(-2px); filter: brightness(1.02)}
+    .wa-float:active{transform: translateY(0px) scale(.99)}
+    .wa-float svg{width:26px;height:26px; fill:#07140d}
+
+    /* Footer (mantido, mais discreto) */
+    footer{
+      padding: 40px 0 26px;
+      border-top: 1px solid rgba(255,255,255,.06);
       background: #020805;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      margin-top: 0;
-      font-size: 0.86rem;
+      color: rgba(245,245,245,.65);
+      font-size: 12px;
     }
-
-    .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.6rem; margin-bottom: 1.6rem; }
-
-    .footer-brand { max-width: 260px; }
-    .footer-brand img { height: 80px; margin-bottom: 0.6rem; }
-    .footer-brand p { color: var(--text-muted); font-size: 0.86rem; }
-
-    .footer-links { display: flex; flex-wrap: wrap; gap: 1.8rem; }
-
-    .footer-column-title { font-weight: 600; margin-bottom: 0.5rem; }
-
-    .footer-list { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; color: var(--text-muted); font-size: 0.84rem; }
-    .footer-list a:hover { color: var(--primary-soft); }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding-top: 0.9rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.8rem;
-      color: var(--text-muted);
-      font-size: 0.78rem;
-    }
-
-    /* ---------- UTILITY CLASSES ---------- */
-    .benefit-highlight {
-      border-left: 3px solid var(--primary);
-      padding-left: 1rem;
-      margin: 1.5rem 0;
-    }
-
-    .benefit-highlight strong {
-      color: var(--primary-soft);
-      display: block;
-      margin-bottom: 0.3rem;
-    }
-
-    .step-badge {
-      display: inline-block;
-      background: rgba(242, 201, 76, 0.15);
-      color: var(--secondary);
-      padding: 0.3rem 0.8rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .cta-emphasis {
-      background: linear-gradient(135deg, rgba(0, 176, 80, 0.1), rgba(0, 176, 80, 0.05));
-      border: 1px solid rgba(0, 176, 80, 0.3);
-      border-radius: var(--radius-lg);
-      padding: 1.8rem;
-      margin: 2rem 0;
-      text-align: center;
-    }
-
-    .cta-emphasis h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.8rem;
-      color: var(--primary-soft);
-    }
-
-    .cta-emphasis p {
-      color: var(--text-muted);
-      margin-bottom: 1.2rem;
-      font-size: 0.95rem;
-    }
-
-    .btn-whatsapp {
-      background: #25D366;
-      color: white;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.9rem 1.8rem;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
-    }
-
-    .btn-whatsapp:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
-      background: #1da851;
-    }
-
-    .btn-whatsapp::before {
-      content: "💬";
-      font-size: 1.2rem;
-    }
-
-    /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 768px) {
-      .hero-course {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-      }
-
-      .hero-course-title {
-        font-size: clamp(2rem, 4.5vw, 2.8rem);
-      }
-
-      .hero-course-subtitle {
-        font-size: 1.1rem;
-      }
-
-      .hero-cta-row {
-        flex-direction: column;
-        width: 100%;
-        max-width: 300px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-cta-primary,
-      .hero-cta-secondary {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-      }
-
-      .hero-benefits-row {
-        gap: 0.5rem;
-      }
-
-      .hero-benefit-pill {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.9rem;
-      }
-
-      .video-card video {
-        min-height: 160px;
-        max-height: 200px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.8rem;
-      }
-
-      .top-bar-left,
-      .top-bar-right {
-        width: 100%;
-        justify-content: space-between;
-      }
+    .footer-row{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      gap: 14px;
+      align-items:center;
     }
   </style>
 </head>
+
 <body>
   <!-- Meta Pixel NoScript (NÃO MEXIDO) -->
   <noscript>
@@ -983,716 +789,244 @@
   <div class="page">
     <header>
       <div class="container">
-        <div class="top-bar">
-          <div class="top-bar-left">
-            <a href="index.html" class="back-link">
-              <span>←</span>
-              <span>Voltar para a página principal</span>
-            </a>
-            <div class="pill-label">Curso presencial</div>
+        <div class="topline">
+          <div class="brand-left" aria-label="Target Agrotech">
+            <img src="assets/favicon-32.png" alt="Target" />
           </div>
-
-          <div class="top-bar-right">
-            <span>Target Agrotech • Formação em tecnologia no campo</span>
-          </div>
+          <div class="tagline">TECNOLOGIA QUE MOVE O AGRO</div>
         </div>
       </div>
 
-      <!-- ========== HERO OTIMIZADA ========== -->
-      <section class="hero-course" aria-labelledby="hero-title">
+      <!-- HERO (igual print + regra CTA único) -->
+      <section class="hero" aria-labelledby="hero-title">
         <div class="container">
-          <div class="hero-course-inner">
-            <span class="hero-course-kicker">PILOTO DE DRONE AGRÍCOLA</span>
-            <h1 class="hero-course-title" id="hero-title">
-              Trabalhe com <span>tecnologia de ponta</span> e aumente sua renda no agro
-            </h1>
-            <p class="hero-course-subtitle">
-              Torne-se piloto profissional de drones agrícolas. Curso presencial com CAAR incluso, prática em campo real e certificação para trabalhar imediatamente.
-            </p>
+          <h1 id="hero-title">
+            Torne-se um <span class="green">Piloto</span><br/>
+            <span class="green">Especialista</span> no<br/>
+            Agronegócio
+          </h1>
 
-            <!-- BENEFÍCIOS RÁPIDOS -->
-            <div class="hero-benefits-row" aria-label="Principais benefícios do curso">
-              <div class="hero-benefit-pill">
-                <span class="dot"></span> CAAR Incluso
-              </div>
-              <div class="hero-benefit-pill">
-                <span class="dot"></span> Prática em Campo Real
-              </div>
-              <div class="hero-benefit-pill">
-                <span class="dot"></span> Certificação Nacional
-              </div>
-              <div class="hero-benefit-pill">
-                <span class="dot"></span> Suporte para Emprego
-              </div>
-            </div>
+          <p>
+            Formação prática intensiva com drones agrícolas reais. Saia do curso<br/>
+            pronto para o mercado com <strong>CAAR incluso</strong>.
+          </p>
 
-            <!-- CTA PRINCIPAL -->
-            <div class="hero-cta-row">
-              <a href="#proximas-turmas-drone" class="hero-cta-primary">📅 Ver Turmas Disponíveis</a>
-              <a href="https://wa.me/5566999763455"
-                 target="_blank" rel="noopener noreferrer"
-                 class="hero-cta-secondary">💬 Falar com Consultor</a>
-            </div>
+          <div class="hero-cta-wrap">
+            <a
+              href="https://wa.me/5566999763455"
+              data-wa="hero-consultor"
+              rel="noopener noreferrer"
+              class="hero-cta"
+              aria-label="Falar com o consultor agora no WhatsApp"
+            >
+              <span class="last-spots">ÚLTIMAS VAGAS</span>
 
-            <!-- HERO MEDIA -->
-            <div class="hero-course-media" aria-label="Foto de turma em prática com drone agrícola">
-              <div class="hero-slider">
-                <img
-                  src="assets/drone-hero-novo.jpg"
-                  alt="Alunos da Target Agrotech em prática com drone agrícola"
-                  class="hero-slide-img"
-                />
-              </div>
-              <div class="hero-course-media-footer">
-                <span><strong>100% presencial</strong> • Aulas em campo com drone agrícola real</span>
-                <span>Certificação + CAAR incluso</span>
-              </div>
-            </div>
+              <!-- ícone WhatsApp (svg leve) -->
+              <svg class="wa-ico" viewBox="0 0 32 32" aria-hidden="true">
+                <path fill="#07140d" d="M19.11 17.56c-.25-.12-1.48-.73-1.71-.81-.23-.08-.4-.12-.56.12-.17.25-.64.81-.79.98-.15.17-.29.19-.54.06-.25-.12-1.06-.39-2.02-1.25-.75-.66-1.25-1.48-1.4-1.73-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.02 2.61c.12.17 1.77 2.7 4.29 3.79.6.26 1.06.42 1.42.54.6.19 1.15.16 1.58.1.48-.07 1.48-.6 1.69-1.19.21-.58.21-1.08.15-1.19-.06-.11-.23-.17-.48-.29z"/>
+                <path fill="#07140d" d="M16 3C8.82 3 3 8.62 3 15.56c0 2.45.73 4.72 1.99 6.64L3.5 29l6.99-1.45c1.84.99 3.96 1.56 5.51 1.56 7.18 0 13-5.62 13-12.56S23.18 3 16 3zm0 23.03c-1.41 0-3.2-.48-4.66-1.33l-.33-.19-4.15.86.87-3.96-.21-.33c-1.06-1.66-1.62-3.57-1.62-5.52C5.9 9.93 10.45 5.62 16 5.62s10.1 4.31 10.1 9.94-4.55 10.47-10.1 10.47z"/>
+              </svg>
+
+              FALAR COM O CONSULTOR AGORA
+            </a>
+          </div>
+
+          <div class="hero-checks" aria-label="Benefícios do curso">
+            <div class="item"><span class="tick">✓</span> CURSO PRESENCIAL</div>
+            <div class="item"><span class="tick">✓</span> SUPORTE VITALÍCIO</div>
+            <div class="item"><span class="tick">✓</span> CERTIFICAÇÃO NACIONAL</div>
+          </div>
+
+          <!-- Box Treinamento de drones (como no print) -->
+          <div class="training-box" aria-label="Treinamento de drones">
+            <div class="training-label"><span class="slash"></span> Treinamento de drones</div>
+            <div class="training-frame" aria-hidden="true"></div>
           </div>
         </div>
       </section>
     </header>
 
     <main>
-      <!-- DEPOIMENTOS EM VÍDEO -->
-      <section aria-labelledby="depoimentos-video-title">
+      <!-- O que nossos alunos dizem (vídeos estilo print) -->
+      <section aria-labelledby="alunos-title">
         <div class="container">
-          <h2 class="section-title" id="depoimentos-video-title">
-            Alunos que já <span class="highlight">decolaram na carreira</span>
+          <h2 class="section-title" id="alunos-title">
+            O que nossos <span class="green">alunos dizem</span>
           </h2>
+          <div class="underline" aria-hidden="true"></div>
           <p class="section-subtitle">
-            Veja depoimentos reais de quem já se formou como Piloto de Drone Agrícola pela Target Agrotech.
+            Confira o depoimento de quem já transformou sua rotina no campo com nossos treinamentos.
           </p>
 
-          <div class="video-slider" aria-label="Depoimentos em vídeo">
-            <div class="video-grid" id="video-grid-drone">
-              <article class="video-card">
-                <video controls preload="metadata" poster="assets/video-thumb-1.jpg" style="aspect-ratio: 9/16;">
-                  <source src="assets/depo-drone-1.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeo.
-                </video>
-                <div class="video-card-title">"Rodei 1300 km pra estar aqui e super recomendo."</div>
-                <div class="video-card-text">
-                  Aluno conta sobre a experiência prática e resultados no campo.
-                </div>
-              </article>
-
-              <article class="video-card">
-                <video controls preload="metadata" poster="assets/video-thumb-2.jpg" style="aspect-ratio: 9/16;">
-                  <source src="assets/depo-drone-2.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeo.
-                </video>
-                <div class="video-card-title">"Curso Maravilhoso"</div>
-                <div class="video-card-text">
-                  Relato sobre o funcionamento do curso e impacto na rotina profissional.
-                </div>
-              </article>
-
-              <article class="video-card">
-                <video controls preload="metadata" poster="assets/video-thumb-3.jpg" style="aspect-ratio: 9/16;">
-                  <source src="assets/depo-drone-3.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeo.
-                </video>
-                <div class="video-card-title">"Target é a melhor escola do Brasil"</div>
-                <div class="video-card-text">
-                  Aluno recém formado com certificado em mãos.
-                </div>
-              </article>
-            </div>
-
-            <button type="button" class="slider-arrow slider-arrow-left" id="video-prev" aria-label="Ver vídeos anteriores">‹</button>
-            <button type="button" class="slider-arrow slider-arrow-right" id="video-next" aria-label="Ver próximos vídeos">›</button>
-          </div>
-
-          <!-- CTA INTERMEDIÁRIA -->
-          <div class="cta-emphasis" style="margin-top: 3rem;">
-            <h3>Quer fazer parte do próximo grupo?</h3>
-            <p>Converse agora com nosso time e garanta sua vaga na próxima turma.</p>
-            <a
-              href="https://wa.me/5566999763455"
-              data-wa="consultor"
-              data-course-name="Piloto de Drone Agrícola"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-whatsapp"
-            >
-              Quero minha vaga no próximo curso
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- POR QUE SE TORNAR PILOTO DE DRONE AGRÍCOLA -->
-      <section aria-labelledby="porque-drone-title">
-        <div class="container">
-          <h2 class="section-title" id="porque-drone-title">
-            Por que se tornar <span class="highlight">Piloto de Drone Agrícola?</span>
-          </h2>
-          <p class="section-subtitle">
-            O uso de drones no campo cresce ano após ano. Faltam Pilotos capacitados para atender fazendas, revendas e prestadores de serviço.
-          </p>
-
-          <div class="why-grid">
-            <article class="why-card">
-              <div class="why-icon" aria-hidden="true">📈</div>
-              <h3 class="why-title">Mercado em expansão</h3>
-              <p class="why-text">
-                Produtores e empresas buscam Pilotos qualificados para pulverização, mapeamento e monitoramento de lavouras.
-              </p>
-              <div class="step-badge">Oportunidade real</div>
-            </article>
-
-            <article class="why-card">
-              <div class="why-icon" aria-hidden="true">🛩️</div>
-              <h3 class="why-title">Tecnologia de ponta no agro</h3>
-              <p class="why-text">
-                Você aprende a operar drones agrícolas na prática, em ambiente real, com equipamentos utilizados no dia a dia do campo.
-              </p>
-              <div class="step-badge">Aprendizado prático</div>
-            </article>
-
-            <article class="why-card">
-              <div class="why-icon" aria-hidden="true">💼</div>
-              <h3 class="why-title">Oportunidade de renda</h3>
-              <p class="why-text">
-                Atue como prestador de serviços, pilotando em fazendas, revendas ou empresas de tecnologia agrícola.
-              </p>
-              <div class="step-badge">Renda extra garantida</div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- COMO FUNCIONA O CURSO -->
-      <section aria-labelledby="como-funciona-title">
-        <div class="container">
-          <h2 class="section-title" id="como-funciona-title">
-            Como funciona o <span class="highlight">curso na prática</span>
-          </h2>
-          <p class="section-subtitle">
-            Formação intensiva, 100% presencial, unindo teoria aplicada, simulações e prática em campo com drones agrícolas reais.
-          </p>
-
-          <div class="steps-grid">
-            <article class="step-card">
-              <div class="step-number">Etapa 1</div>
-              <div class="step-title">Fundamentos do drone agrícola</div>
-              <p class="step-text">
-                Segurança de voo, legislação, princípios da pulverização aérea, configuração e leitura de parâmetros.
-              </p>
-            </article>
-
-            <article class="step-card">
-              <div class="step-number">Etapa 2</div>
-              <div class="step-title">Planejamento de missão</div>
-              <p class="step-text">
-                Planejamento de rotas, cálculo de área, volume de calda, faixas de aplicação e ajuste fino para cada tipo de lavoura.
-              </p>
-            </article>
-
-            <article class="step-card">
-              <div class="step-number">Etapa 3</div>
-              <div class="step-title">Prática em campo real</div>
-              <p class="step-text">
-                Operação completa do drone agrícola em área real, simulando o dia a dia do Piloto profissional.
-              </p>
-            </article>
-
-            <article class="step-card">
-              <div class="step-number">Etapa 4</div>
-              <div class="step-title">Certificação + CAAR</div>
-              <p class="step-text">
-                Ao final da formação, você recebe certificado e sai com o CAAR incluido no curso, pronto para atuar no campo.
-              </p>
-            </article>
-          </div>
-
-          <!-- CTA INTERMEDIÁRIA 2 -->
-          <div class="cta-emphasis" style="margin-top: 3rem;">
-            <h3>Pronto para começar?</h3>
-            <p>Nosso consultor pode te explicar cada etapa do curso em detalhes.</p>
-            <a
-              href="https://wa.me/5566999763455"
-              data-wa="consultor"
-              data-course-name="Piloto de Drone Agrícola"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-whatsapp"
-            >
-              Tirar dúvidas sobre o curso
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- O QUE VOCÊ VAI APRENDER -->
-      <section aria-labelledby="conteudo-curso-title">
-        <div class="container">
-          <h2 class="section-title" id="conteudo-curso-title">
-            O que você vai <span class="highlight">aprender</span>
-          </h2>
-          <p class="section-subtitle">
-            Conteúdo pensado para quem quer começar do zero ou se profissionalizar como piloto de drone agrícola, com foco em operação e resultado no campo.
-          </p>
-
-          <div class="content-grid">
-            <article class="content-card">
-              <h3>Módulos teóricos e operacionais</h3>
-              <p>Os principais temas abordados durante o curso:</p>
-              <ul class="bullet-list">
-                <li>Introdução à tecnologia de drones no agronegócio</li>
-                <li>Tipos de drones agrícolas e componentes principais</li>
-                <li>Legislação, segurança e boas práticas de operação</li>
-                <li>Fundamentos de pulverização aérea e deriva</li>
-                <li>Planejamento de voo, rotas e missões</li>
-                <li>Noções de manutenção preventiva</li>
-              </ul>
-            </article>
-
-            <article class="content-card">
-              <h3>Prática guiada em campo</h3>
-              <p>Momento em que você coloca a mão na massa com acompanhamento dos instrutores:</p>
-              <ul class="bullet-list">
-                <li>Configuração de equipamentos em campo</li>
-                <li>Calibração e checagem pré-voo</li>
-                <li>Execução de missões de pulverização em campo real</li>
-                <li>Ajuste fino de parâmetros conforme as condições do dia</li>
-                <li>Rotinas do Piloto profissional em uma jornada completa</li>
-                <li>Boas práticas para entrega de resultado ao produtor</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- TURMAS DE DRONE EM AÇÃO -->
-      <section aria-labelledby="turmas-drone-acao-title">
-        <div class="container">
-          <h2 class="section-title" id="turmas-drone-acao-title">
-            Turmas de <span class="highlight">Drone em ação</span>
-          </h2>
-          <p class="section-subtitle">
-            Momentos reais das turmas de Piloto de Drone Agrícola da Target Agrotech em campo, recebendo certificado e operando drones agrícolas.
-          </p>
-
-          <div class="drone-gallery-slider" id="drone-gallery-slider" aria-label="Galeria de fotos das turmas de drone em campo">
-            <article class="gallery-card active">
-              <div class="gallery-card-image">
-                <img
-                  src="assets/drone-gallery-campo-ajuste.jpg"
-                  loading="lazy"
-                  alt="Turma de Piloto de Drone Agrícola ajustando o drone antes da decolagem em área de campo aberto"
-                  class="img-drone-gallery-1"
-                />
-              </div>
-              <div class="gallery-card-body">
-                <h3 class="gallery-card-title">Ajustes finais antes do voo</h3>
-                <p class="gallery-card-text">
-                  Alunos reunidos em campo realizando os últimos ajustes no drone agrícola antes de iniciar a prática de aplicação.
-                </p>
-              </div>
-            </article>
-
-            <article class="gallery-card">
-              <div class="gallery-card-image">
-                <img
-                  src="assets/drone-gallery-plano-voo.jpg"
-                  loading="lazy"
-                  alt="Instrutor apresentando o plano de voo no controle remoto para a turma de Piloto de Drone Agrícola"
-                  class="img-drone-gallery-2"
-                />
-              </div>
-              <div class="gallery-card-body">
-                <h3 class="gallery-card-title">Plano de voo em equipe</h3>
-                <p class="gallery-card-text">
-                  Alunos analisando o plano de voo diretamente no controle, entendendo cada detalhe da operação.
-                </p>
-              </div>
-            </article>
-
-            <article class="gallery-card">
-              <div class="gallery-card-image">
-                <img
-                  src="assets/drone-gallery-orientacao-controle.jpg"
-                  loading="lazy"
-                  alt="Instrutor da Target Agrotech orientando aluno no uso do controle do drone agrícola"
-                  class="img-drone-gallery-3"
-                />
-              </div>
-              <div class="gallery-card-body">
-                <h3 class="gallery-card-title">Orientação individual no controle</h3>
-                <p class="gallery-card-text">
-                  Momento de acompanhamento de perto, com o instrutor guiando o aluno na operação segura do controle do drone.
-                </p>
-              </div>
-            </article>
-
-            <article class="gallery-card">
-              <div class="gallery-card-image">
-                <img
-                  src="assets/drone-gallery-certificados.jpg"
-                  loading="lazy"
-                  alt="Alunos segurando envelopes de certificados do curso de Piloto de Drone Agrícola"
-                  class="img-drone-gallery-4"
-                />
-              </div>
-              <div class="gallery-card-body">
-                <h3 class="gallery-card-title">Certificação em mãos</h3>
-                <p class="gallery-card-text">
-                  Entrega dos certificados para os alunos formados em Piloto de Drone Agrícola, prontos para atuar no campo.
-                </p>
-              </div>
-            </article>
-
-            <article class="gallery-card">
-              <div class="gallery-card-image">
-                <img
-                  src="assets/drone-gallery-analise-controle.jpg"
-                  loading="lazy"
-                  alt="Grupo de alunos reunidos em volta do controle do drone agrícola analisando os dados de voo"
-                  class="img-drone-gallery-5"
-                />
-              </div>
-              <div class="gallery-card-body">
-                <h3 class="gallery-card-title">Analisando os dados de voo</h3>
-                <p class="gallery-card-text">
-                  Turma acompanhando no detalhe os parâmetros da aplicação diretamente na tela do controle do drone agrícola.
-                </p>
-              </div>
-            </article>
-
-            <article class="gallery-card">
-              <div class="gallery-card-image">
-                <img
-                  src="assets/drone-gallery-planejamento-turma.jpg"
-                  loading="lazy"
-                  alt="Alunos sentados à mesa revisando configurações e rotas de voo do drone agrícola"
-                  class="img-drone-gallery-6"
-                />
-              </div>
-              <div class="gallery-card-body">
-                <h3 class="gallery-card-title">Planejamento antes de decolar</h3>
-                <p class="gallery-card-text">
-                  Alunos reunidos à mesa revisando configurações, rotas e estratégias de aplicação antes de ir para a lavoura.
-                </p>
-              </div>
-            </article>
-
-            <button type="button" class="slider-arrow slider-arrow-left" id="gallery-prev" aria-label="Ver foto anterior">‹</button>
-            <button type="button" class="slider-arrow slider-arrow-right" id="gallery-next" aria-label="Ver próxima foto">›</button>
-            <div class="gallery-dots" id="drone-gallery-dots" role="tablist" aria-label="Selecionar foto da galeria"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- DEPOIMENTOS TEXTO -->
-      <section aria-labelledby="depoimentos-texto-title">
-        <div class="container">
-          <h2 class="section-title" id="depoimentos-texto-title">
-            O que dizem os <span class="highlight">nossos alunos</span>
-          </h2>
-          <p class="section-subtitle">
-            Quem já passou pelo curso de Piloto de Drone Agrícola conta como a experiência em campo ajudou a mudar a rotina de trabalho no agro.
-          </p>
-
-          <div class="testimonials-grid">
-            <article class="testimonial-card">
-              <p class="testimonial-text">
-                "Eu não tinha nenhuma experiência com drones e saí do curso confiante para operar no dia a dia.
-                A prática em campo fez toda a diferença."
-              </p>
-              <div class="testimonial-author">
-                <div class="testimonial-avatar" aria-hidden="true">RA</div>
-                <div class="testimonial-meta">
-                  <strong>Rafael Andrade</strong>
-                  Piloto de Drone Agrícola • Pará
-                </div>
-              </div>
-            </article>
-
-            <article class="testimonial-card">
-              <p class="testimonial-text">
-                "O curso é direto ao ponto e focado em prática. Hoje atendo produtores da região prestando serviço
-                de pulverização com drone."
-              </p>
-              <div class="testimonial-author">
-                <div class="testimonial-avatar" aria-hidden="true">LM</div>
-                <div class="testimonial-meta">
-                  <strong>Larissa Martins</strong>
-                  Prestadora de serviços • Mato Grosso
-                </div>
-              </div>
-            </article>
-
-            <article class="testimonial-card">
-              <p class="testimonial-text">
-                "Além do certificado, o CAAR incluso no curso foi um diferencial enorme para conseguir oportunidades
-                de trabalho mais rápido."
-              </p>
-              <div class="testimonial-author">
-                <div class="testimonial-avatar" aria-hidden="true">JG</div>
-                <div class="testimonial-meta">
-                  <strong>João Guilherme</strong>
-                  Piloto de Drone • Minas Gerais
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- PRÓXIMAS TURMAS DE DRONE -->
-      <section id="proximas-turmas-drone" aria-labelledby="proximas-turmas-title">
-        <div class="container">
-          <h2 class="section-title" id="proximas-turmas-title">
-            <span class="highlight">Próximas</span> turmas de Piloto de Drone Agrícola
-          </h2>
-          <p class="section-subtitle">
-            Escolha a cidade mais próxima de você e garanta sua vaga na próxima turma presencial de Piloto de Drone Agrícola da Target Agrotech.
-          </p>
-
-          <div class="upcoming-controls">
-            <div class="upcoming-search">
-              <span aria-hidden="true">🔍</span>
-              <input
-                type="text"
-                id="search-city-drone"
-                placeholder="Buscar por cidade ou estado"
-                aria-label="Buscar turmas por cidade ou estado"
-              />
-            </div>
-            <div class="upcoming-toggle">
-              <button
-                type="button"
-                class="btn btn-ghost btn-small"
-                id="toggle-more-drone"
-                aria-expanded="false"
-              >
-                Ver mais turmas
+          <div class="videos-grid" aria-label="Depoimentos em vídeo">
+            <article class="video-shell is-ready" data-video="1">
+              <div class="video-pill">DEPOIMENTO REAL</div>
+              <button class="play-btn" type="button" aria-label="Reproduzir depoimento 1">
+                <span class="play-tri" aria-hidden="true"></span>
               </button>
-            </div>
-          </div>
-
-          <div class="upcoming-grid" id="upcoming-grid-drone">
-            <article class="upcoming-card" data-course-date="16/01" data-city="paragominas" data-state="pa">
-              <div class="upcoming-date">16/01</div>
-              <div class="upcoming-location">📍 Paragominas (PA)</div>
-              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
-              <a
-                href="https://wa.me/5566999763455"
-                data-wa="turma"
-                data-course-name="Piloto de Drone Agrícola"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary"
-              >Fazer inscrição pelo WhatsApp</a>
+              <video class="video-el" preload="metadata" playsinline poster="assets/video-thumb-1.jpg">
+                <source src="assets/depo-drone-1.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video>
             </article>
 
-            <article class="upcoming-card" data-course-date="23/01" data-city="confresa" data-state="mt">
-              <div class="upcoming-date">23/01</div>
-              <div class="upcoming-location">📍 Confresa (MT)</div>
-              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
-              <a
-                href="https://wa.me/5566999763455"
-                data-wa="turma"
-                data-course-name="Piloto de Drone Agrícola"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary"
-              >Fazer inscrição pelo WhatsApp</a>
-            </article>
-
-            <article class="upcoming-card" data-course-date="06/02" data-city="novo progresso" data-state="pa">
-              <div class="upcoming-date">06/02</div>
-              <div class="upcoming-location">📍 Novo Progresso (PA)</div>
-              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
-              <a
-                href="https://wa.me/5566999763455"
-                data-wa="turma"
-                data-course-name="Piloto de Drone Agrícola"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary"
-              >Fazer inscrição pelo WhatsApp</a>
-            </article>
-
-            <article class="upcoming-card" data-course-date="13/03" data-city="sinop" data-state="mt">
-              <div class="upcoming-date">13/03</div>
-              <div class="upcoming-location">📍 Sinop (MT)</div>
-              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
-              <a
-                href="https://wa.me/5566999763455"
-                data-wa="turma"
-                data-course-name="Piloto de Drone Agrícola"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary"
-              >Fazer inscrição pelo WhatsApp</a>
-            </article>
-
-            <article class="upcoming-card" data-course-date="13/03" data-city="luis eduardo magalhaes" data-state="ba">
-              <div class="upcoming-date">13/03</div>
-              <div class="upcoming-location">📍 Luís Eduardo Magalhães (BA)</div>
-              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
-              <a
-                href="https://wa.me/5566999763455"
-                data-wa="turma"
-                data-course-name="Piloto de Drone Agrícola"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary"
-              >Fazer inscrição pelo WhatsApp</a>
-            </article>
-
-            <article class="upcoming-card" data-course-date="27/02" data-city="rolim de moura" data-state="ro">
-              <div class="upcoming-date">27/02</div>
-              <div class="upcoming-location">📍 Rolim de Moura (RO)</div>
-              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
-              <a
-                href="https://wa.me/5566999763455"
-                data-wa="turma"
-                data-course-name="Piloto de Drone Agrícola"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary"
-              >Fazer inscrição pelo WhatsApp</a>
-            </article>
-
-            <article class="upcoming-card" data-course-date="06/03" data-city="teixeira de freitas" data-state="ba">
-              <div class="upcoming-date">06/03</div>
-              <div class="upcoming-location">📍 Teixeira de Freitas (BA)</div>
-              <div class="upcoming-course-name">Piloto de Drone Agrícola</div>
-              <a
-                href="https://wa.me/5566999763455"
-                data-wa="turma"
-                data-course-name="Piloto de Drone Agrícola"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary"
-              >Fazer inscrição pelo WhatsApp</a>
-            </article>
-          </div>
-
-          <div class="city-suggestion">
-            <h3>Não encontrou sua cidade?</h3>
-            <p>
-              Conte pra gente em qual cidade ou região você gostaria de receber uma turma de Piloto de Drone Agrícola.
-            </p>
-            <form class="city-form" id="city-form-drone">
-              <input
-                type="text"
-                id="city-input-drone"
-                placeholder="Digite sua cidade/estado"
-                aria-label="Informe sua cidade ou estado"
-              />
-              <button type="submit" class="btn btn-outline btn-small">
-                Quero uma turma na minha cidade
+            <article class="video-shell is-ready" data-video="2">
+              <div class="video-pill">DEPOIMENTO REAL</div>
+              <button class="play-btn" type="button" aria-label="Reproduzir depoimento 2">
+                <span class="play-tri" aria-hidden="true"></span>
               </button>
-            </form>
-            <div class="small-note">
-              Ao enviar, abriremos uma conversa no WhatsApp com sua cidade preenchida para nossa equipe avaliar novas turmas.
+              <video class="video-el" preload="metadata" playsinline poster="assets/video-thumb-2.jpg">
+                <source src="assets/depo-drone-2.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video>
+            </article>
+
+            <article class="video-shell is-ready" data-video="3">
+              <div class="video-pill">DEPOIMENTO REAL</div>
+              <button class="play-btn" type="button" aria-label="Reproduzir depoimento 3">
+                <span class="play-tri" aria-hidden="true"></span>
+              </button>
+              <video class="video-el" preload="metadata" playsinline poster="assets/video-thumb-3.jpg">
+                <source src="assets/depo-drone-3.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Próximas Turmas -->
+      <section id="proximas-turmas-drone" aria-labelledby="turmas-title">
+        <div class="container">
+          <div class="upcoming-head">
+            <h2 class="section-title" id="turmas-title">Próximas <span class="green">Turmas</span></h2>
+            <div class="underline" aria-hidden="true"></div>
+            <p class="section-subtitle">Encontre a cidade mais próxima de você e reserve seu lugar agora mesmo.</p>
+          </div>
+
+          <div class="upcoming-bar" role="region" aria-label="Filtro de turmas">
+            <div class="search-wrap">
+              <span aria-hidden="true" style="opacity:.7">🔎</span>
+              <input id="search-city" type="text" placeholder="Pesquisar cidade..." aria-label="Pesquisar cidade" />
+            </div>
+
+            <select id="state-filter" class="state-select" aria-label="Filtrar por estado">
+              <option value="all">Todos os Estados</option>
+              <option value="pa">PA</option>
+              <option value="mt">MT</option>
+              <option value="ba">BA</option>
+              <option value="ro">RO</option>
+            </select>
+          </div>
+
+          <div class="upcoming-grid" id="classes-grid">
+            <article class="class-card" data-course="Piloto de Drone Agrícola" data-date="16/01" data-city="Paragominas" data-state="PA">
+              <div class="class-date">16/01</div>
+              <div class="class-city">Paragominas - PA</div>
+              <div class="class-course">PILOTO DE DRONE AGRÍCOLA</div>
+              <button type="button" class="btn-yellow" data-action="reserve">GARANTIR MINHA VAGA</button>
+            </article>
+
+            <article class="class-card" data-course="Piloto de Drone Agrícola" data-date="23/01" data-city="Confresa" data-state="MT">
+              <div class="class-date">23/01</div>
+              <div class="class-city">Confresa - MT</div>
+              <div class="class-course">PILOTO DE DRONE AGRÍCOLA</div>
+              <button type="button" class="btn-yellow" data-action="reserve">GARANTIR MINHA VAGA</button>
+            </article>
+
+            <article class="class-card" data-course="Piloto de Drone Agrícola" data-date="06/02" data-city="Novo Progresso" data-state="PA">
+              <div class="class-date">06/02</div>
+              <div class="class-city">Novo Progresso - PA</div>
+              <div class="class-course">PILOTO DE DRONE AGRÍCOLA</div>
+              <button type="button" class="btn-yellow" data-action="reserve">GARANTIR MINHA VAGA</button>
+            </article>
+
+            <article class="class-card" data-course="Piloto de Drone Agrícola" data-date="13/03" data-city="Sinop" data-state="MT">
+              <div class="class-date">13/03</div>
+              <div class="class-city">Sinop - MT</div>
+              <div class="class-course">PILOTO DE DRONE AGRÍCOLA</div>
+              <button type="button" class="btn-yellow" data-action="reserve">GARANTIR MINHA VAGA</button>
+            </article>
+
+            <article class="class-card" data-course="Piloto de Drone Agrícola" data-date="13/03" data-city="Luís Eduardo Magalhães" data-state="BA">
+              <div class="class-date">13/03</div>
+              <div class="class-city">Luís Eduardo Magalhães - BA</div>
+              <div class="class-course">PILOTO DE DRONE AGRÍCOLA</div>
+              <button type="button" class="btn-yellow" data-action="reserve">GARANTIR MINHA VAGA</button>
+            </article>
+
+            <article class="class-card" data-course="Piloto de Drone Agrícola" data-date="27/02" data-city="Rolim de Moura" data-state="RO">
+              <div class="class-date">27/02</div>
+              <div class="class-city">Rolim de Moura - RO</div>
+              <div class="class-course">PILOTO DE DRONE AGRÍCOLA</div>
+              <button type="button" class="btn-yellow" data-action="reserve">GARANTIR MINHA VAGA</button>
+            </article>
+          </div>
+
+          <!-- Sugira sua Cidade (Regra A) -->
+          <div class="suggest-wrap" aria-labelledby="suggest-title">
+            <div class="suggest-inner">
+              <h3 class="suggest-title" id="suggest-title">Sugira sua Cidade</h3>
+              <p class="suggest-sub">
+                Não encontrou turma na sua região? Preencha abaixo e entraremos em contato quando abrirmos novas datas aí.
+              </p>
+
+              <form id="suggest-form" novalidate>
+                <div class="form-col">
+                  <div class="field">
+                    <label for="sug-name">NOME COMPLETO</label>
+                    <input id="sug-name" type="text" placeholder="Seu nome" />
+                    <div class="error" id="err-name">Informe seu nome.</div>
+                  </div>
+
+                  <div class="field">
+                    <label for="sug-city">CIDADE E ESTADO DE INTERESSE</label>
+                    <input id="sug-city" type="text" placeholder="Ex: Primavera do Leste - MT" />
+                    <div class="error" id="err-city">Informe sua cidade/estado.</div>
+                  </div>
+
+                  <div class="field">
+                    <label for="sug-course">CURSO QUE BUSCA</label>
+                    <select id="sug-course">
+                      <option value="">Selecione…</option>
+                      <option value="Piloto de Drone Agrícola">Piloto de Drone Agrícola</option>
+                      <option value="Operador de Máquinas Pesadas">Operador de Máquinas Pesadas</option>
+                      <option value="Inseminação Artificial em Bovinos">Inseminação Artificial em Bovinos</option>
+                    </select>
+                    <div class="error" id="err-course">Selecione o curso.</div>
+                  </div>
+
+                  <!-- Regra A: botão abre WhatsApp com mensagem dinâmica -->
+                  <button type="submit" class="suggest-btn">ME AVISE QUANDO CHEGAR TURMAS!</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- CTA FINAL OTIMIZADA -->
-      <section class="final-cta" aria-labelledby="cta-final-title">
+      <!-- CTA final (igual print) -->
+      <section class="final" aria-labelledby="final-title">
         <div class="container">
-          <div class="final-cta-inner">
-            <div class="final-cta-icon" aria-hidden="true">🛩️</div>
-            <h2 class="final-cta-title" id="cta-final-title">
-              Pronto para decolar como Piloto de Drone Agrícola?
-            </h2>
-            <p class="final-cta-text">
-              Garanta sua vaga em uma das próximas turmas presenciais e comece a atuar com tecnologia de ponta no campo,
-              com suporte de quem vive o agro todos os dias.
-            </p>
-            
-            <div class="benefit-highlight" style="margin: 1.5rem auto; max-width: 600px; text-align: center;">
-              <strong>🎯 O que você leva do curso:</strong>
-              <span>Certificado oficial + CAAR incluso + Prática real em campo + Suporte pós-curso</span>
-            </div>
+          <h2 id="final-title">Pronto para dar o próximo<br/>passo?</h2>
 
-            <div class="btn-row center" style="margin-top: 2rem;">
-              <a
-                href="https://wa.me/5566999763455"
-                data-wa="consultor"
-                data-course-name="Piloto de Drone Agrícola"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-whatsapp"
-                style="font-size: 1.1rem; padding: 1rem 2rem;"
-              >
-                🚀 QUERO MINHA VAGA AGORA
-              </a>
-            </div>
-            
-            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
-              ⏳ Vagas limitadas por turma • Inscrições abertas
-            </p>
-          </div>
+          <a
+            href="https://wa.me/5566999763455"
+            data-wa="final"
+            class="final-cta"
+            rel="noopener noreferrer"
+            aria-label="Quero minha matrícula agora no WhatsApp"
+          >
+            🚀 QUERO MINHA MATRÍCULA AGORA
+          </a>
         </div>
       </section>
     </main>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
       <div class="container">
-        <div class="footer-top">
-          <div class="footer-brand">
-            <img
-              src="assets/logo-target-horizontal.png"
-              loading="lazy"
-              alt="Logo Target Agrotech"
-            />
-            <p>
-              Target Agrotech – formação em tecnologia no campo, com foco em prática real e preparo para o mercado de trabalho no agro.
-            </p>
-          </div>
-
-          <div class="footer-links">
-            <div>
-              <div class="footer-column-title">Cursos</div>
-              <ul class="footer-list">
-                <li>Piloto de Drone Agrícola</li>
-                <li>Operador de Máquinas Pesadas</li>
-                <li>Inseminação Artificial em Bovinos</li>
-              </ul>
-            </div>
-
-            <div>
-              <div class="footer-column-title">Contato</div>
-              <ul class="footer-list">
-                <li>
-                  Instagram:
-                  <a
-                    href="https://www.instagram.com/target_agrotech"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    @target_agrotech
-                  </a>
-                </li>
-                <li>
-                  WhatsApp:
-                  <a
-                    href="https://wa.me/5566999763455"
-                    data-wa="consultor"
-                    data-course-name="Piloto de Drone Agrícola"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    (66) 9 9976-3455
-                  </a>
-                </li>
-                <li>E-mail: contato@targetagrotech.com.br</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
+        <div class="footer-row">
           <div>© 2024 Target Agrotech. Todos os direitos reservados.</div>
           <div>CNPJ 48.448.103/0001-45</div>
         </div>
@@ -1700,339 +1034,323 @@
     </footer>
   </div>
 
+  <!-- Modal (Regra B) -->
+  <div class="modal-overlay" id="reserve-modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="reserve-title">
+      <div class="modal-inner">
+        <div class="modal-top">
+          <div>
+            <div class="modal-title" id="reserve-title">Para garantir sua vaga, preencha seus dados</div>
+            <div class="modal-sub" id="reserve-sub"></div>
+          </div>
+          <button type="button" class="modal-close" id="modal-close" aria-label="Fechar">×</button>
+        </div>
+
+        <form class="modal-form" id="reserve-form" novalidate>
+          <div class="field">
+            <label for="res-name">NOME</label>
+            <input id="res-name" type="text" placeholder="Seu nome" />
+            <div class="error" id="res-err-name">Informe seu nome.</div>
+          </div>
+
+          <div class="field">
+            <label for="res-city">CIDADE/ESTADO</label>
+            <input id="res-city" type="text" placeholder="Ex: Confresa - MT" />
+            <div class="error" id="res-err-city">Informe sua cidade/estado.</div>
+          </div>
+
+          <div class="modal-actions">
+            <button type="submit" class="modal-btn">CONTINUAR NO WHATSAPP</button>
+          </div>
+
+          <div class="modal-note">
+            Ao continuar, abriremos o WhatsApp com sua mensagem pronta para confirmar a matrícula.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp flutuante (aparece após scroll) -->
+  <a
+    class="wa-float"
+    id="wa-float"
+    href="https://wa.me/5566999763455"
+    data-wa="float"
+    aria-label="Abrir WhatsApp"
+    rel="noopener noreferrer"
+  >
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M19.11 17.56c-.25-.12-1.48-.73-1.71-.81-.23-.08-.4-.12-.56.12-.17.25-.64.81-.79.98-.15.17-.29.19-.54.06-.25-.12-1.06-.39-2.02-1.25-.75-.66-1.25-1.48-1.4-1.73-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.02 2.61c.12.17 1.77 2.7 4.29 3.79.6.26 1.06.42 1.42.54.6.19 1.15.16 1.58.1.48-.07 1.48-.6 1.69-1.19.21-.58.21-1.08.15-1.19-.06-.11-.23-.17-.48-.29z"/>
+      <path d="M16 3C8.82 3 3 8.62 3 15.56c0 2.45.73 4.72 1.99 6.64L3.5 29l6.99-1.45c1.84.99 3.96 1.56 5.51 1.56 7.18 0 13-5.62 13-12.56S23.18 3 16 3zm0 23.03c-1.41 0-3.2-.48-4.66-1.33l-.33-.19-4.15.86.87-3.96-.21-.33c-1.06-1.66-1.62-3.57-1.62-5.52C5.9 9.93 10.45 5.62 16 5.62s10.1 4.31 10.1 9.94-4.55 10.47-10.1 10.47z"/>
+    </svg>
+  </a>
+
   <script>
     window.addEventListener("DOMContentLoaded", function () {
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-
       const WHATSAPP_PHONE = "5566999763455";
-      const NAME_PLACEHOLDER = "[SEU NOME]";
 
-      function normalizeCityLabel(value) {
-        if (!value) return "";
-        return String(value).trim().replace(/\s+/g, " ");
-      }
-
-      function formatCityFromData(dataCity) {
-        const clean = normalizeCityLabel(dataCity).toLowerCase();
-        if (!clean) return "";
-        return clean.replace(/\b\w/g, function (m) { return m.toUpperCase(); });
-      }
-
-      function formatStateFromData(dataState) {
-        return normalizeCityLabel(dataState).toUpperCase();
-      }
-
-      function buildWaUrl(message) {
+      function buildWaUrl(message){
         return "https://wa.me/" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(message);
       }
 
-      // ========== CONSULTOR ==========
-      function initWhatsAppConsultorLinks() {
-        const consultorLinks = Array.from(document.querySelectorAll('a[data-wa="consultor"]'));
-        if (!consultorLinks.length) return;
+      // ========= HERO CTA =========
+      (function initHeroCta(){
+        const heroLink = document.querySelector('a[data-wa="hero-consultor"]');
+        if(!heroLink) return;
+        const msg = "Olá! Tenho interesse no curso de Piloto de Drone Agrícola. Podem me passar mais informações, por favor?";
+        heroLink.setAttribute("href", buildWaUrl(msg));
+      })();
 
-        consultorLinks.forEach(function (link) {
-          const courseName = link.getAttribute("data-course-name") || "Piloto de Drone Agrícola";
-          const msg =
-            "Olá! Meu nome é " + NAME_PLACEHOLDER + ". " +
-            "Tenho interesse no curso de " + courseName + ". " +
-            "Podem me passar mais informações, por favor?";
-
-          link.setAttribute("href", buildWaUrl(msg));
-        });
-      }
-
-      // ========== TURMAS ==========
-      function initWhatsAppTurmaLinks() {
-        const turmaLinks = Array.from(document.querySelectorAll('a[data-wa="turma"]'));
-        if (!turmaLinks.length) return;
-
-        turmaLinks.forEach(function (link) {
-          const card = link.closest(".upcoming-card");
-          if (!card) return;
-
-          const courseName = link.getAttribute("data-course-name") || "Piloto de Drone Agrícola";
-          const rawDate = card.getAttribute("data-course-date") || "";
-          const city = formatCityFromData(card.getAttribute("data-city") || "");
-          const state = formatStateFromData(card.getAttribute("data-state") || "");
-
-          const cityState = city && state ? (city + " (" + state + ")") : (city || state || "aí na região");
-
-          const msg =
-            "Olá! Meu nome é " + NAME_PLACEHOLDER + ". " +
-            "Tenho interesse na turma de " + courseName + " em " + cityState + " no dia " + rawDate + ". " +
-            "Como faço para garantir minha vaga?";
-
-          link.setAttribute("href", buildWaUrl(msg));
-        });
-      }
-
-      function parseCourseDate(ddmm) {
-        const parts = ddmm.split("/");
-        if (parts.length !== 2) return null;
-
-        const day = parseInt(parts[0], 10);
-        const month = parseInt(parts[1], 10);
-        if (isNaN(day) || isNaN(month)) return null;
-
-        const currentYear = today.getFullYear();
-        const year = (month === 12) ? currentYear : currentYear + 1;
-
-        return new Date(year, month - 1, day);
-      }
-
-      function initDroneGallerySlider() {
-        const slider = document.getElementById("drone-gallery-slider");
-        if (!slider) return;
-
-        const slides = Array.from(slider.querySelectorAll(".gallery-card"));
-        const dotsContainer = document.getElementById("drone-gallery-dots");
-        const prevBtn = document.getElementById("gallery-prev");
-        const nextBtn = document.getElementById("gallery-next");
-        if (slides.length === 0 || !dotsContainer) return;
-
-        let currentIndex = 0;
-        let autoTimer = null;
-
-        function updateSlides(index) {
-          slides.forEach((slide, i) => {
-            slide.classList.toggle("active", i === index);
-          });
-          const dots = dotsContainer.querySelectorAll(".gallery-dot");
-          dots.forEach((dot, i) => {
-            const isActive = i === index;
-            dot.classList.toggle("active", isActive);
-            dot.setAttribute("aria-pressed", isActive ? "true" : "false");
-          });
-          currentIndex = index;
+      // ========= CTA FINAL / FLOAT =========
+      (function initOtherWa(){
+        const finalLink = document.querySelector('a[data-wa="final"]');
+        if(finalLink){
+          const msg = "Olá! Quero fazer minha matrícula no curso de Piloto de Drone Agrícola. Pode me ajudar?";
+          finalLink.setAttribute("href", buildWaUrl(msg));
         }
-
-        function startAutoPlay() {
-          stopAutoPlay();
-          autoTimer = setInterval(function () {
-            const nextIndex = (currentIndex + 1) % slides.length;
-            updateSlides(nextIndex);
-          }, 4500);
+        const floatLink = document.querySelector('a[data-wa="float"]');
+        if(floatLink){
+          const msg = "Olá! Quero falar com um consultor sobre os cursos da Target AgroTech.";
+          floatLink.setAttribute("href", buildWaUrl(msg));
         }
+      })();
 
-        function stopAutoPlay() {
-          if (autoTimer) {
-            clearInterval(autoTimer);
-            autoTimer = null;
-          }
-        }
+      // ========= Vídeos (overlay play estilo print) =========
+      (function initVideos(){
+        const shells = Array.from(document.querySelectorAll(".video-shell"));
+        if(!shells.length) return;
 
-        slides.forEach((slide, index) => {
-          const dot = document.createElement("button");
-          dot.type = "button";
-          dot.className = "gallery-dot" + (index === 0 ? " active" : "");
-          dot.dataset.index = String(index);
-          dot.setAttribute("aria-label", "Ir para a foto " + (index + 1));
-          dot.setAttribute("aria-pressed", index === 0 ? "true" : "false");
-          dot.setAttribute("role", "tab");
-          dotsContainer.appendChild(dot);
-        });
-
-        dotsContainer.addEventListener("click", function (e) {
-          const target = e.target;
-          if (!(target instanceof HTMLElement)) return;
-          if (!target.classList.contains("gallery-dot")) return;
-          const idx = Number(target.dataset.index || "0");
-          updateSlides(idx);
-          startAutoPlay();
-        });
-
-        if (prevBtn) {
-          prevBtn.addEventListener("click", function () {
-            const nextIndex = (currentIndex - 1 + slides.length) % slides.length;
-            updateSlides(nextIndex);
-            startAutoPlay();
+        function pauseAll(except){
+          shells.forEach(s=>{
+            const v = s.querySelector("video");
+            if(!v) return;
+            if(except && v === except) return;
+            try { v.pause(); } catch(e){}
+            s.classList.remove("is-playing");
           });
         }
 
-        if (nextBtn) {
-          nextBtn.addEventListener("click", function () {
-            const nextIndex = (currentIndex + 1) % slides.length;
-            updateSlides(nextIndex);
-            startAutoPlay();
-          });
-        }
+        shells.forEach(shell=>{
+          const btn = shell.querySelector(".play-btn");
+          const video = shell.querySelector("video");
+          if(!btn || !video) return;
 
-        updateSlides(0);
-        startAutoPlay();
-      }
-
-      function initUpcomingClasses() {
-        const upcomingGrid = document.getElementById("upcoming-grid-drone");
-        if (!upcomingGrid) return;
-
-        const rawCards = Array.from(
-          upcomingGrid.querySelectorAll(".upcoming-card[data-course-date]")
-        );
-
-        const cards = [];
-
-        const searchInput = document.getElementById("search-city-drone");
-        const toggleBtn = document.getElementById("toggle-more-drone");
-        const INITIAL_VISIBLE = 6;
-        let showAll = false;
-        let searchTerm = "";
-
-        rawCards.forEach((card) => {
-          const ddmm = card.getAttribute("data-course-date");
-          const courseDate = ddmm ? parseCourseDate(ddmm) : null;
-          if (!courseDate) {
-            card.remove();
-            return;
-          }
-
-          const diffMs = courseDate.getTime() - today.getTime();
-          const diffDays = diffMs / (1000 * 60 * 60 * 24);
-
-          if (diffDays < 0) {
-            card.remove();
-            return;
-          }
-
-          cards.push(card);
-
-          if (diffDays >= 0 && diffDays <= 30) {
-            const badge = document.createElement("div");
-            badge.className = "upcoming-last-call";
-            badge.innerHTML = "<span>⏰</span><span>Últimas vagas</span>";
-
-            const btn = card.querySelector(".btn");
-            if (btn && btn.parentNode) {
-              btn.parentNode.insertBefore(badge, btn);
-            } else {
-              card.appendChild(badge);
-            }
-          }
-        });
-
-        function applyFilter() {
-          if (!cards.length) {
-            if (toggleBtn) toggleBtn.style.display = "none";
-            return;
-          }
-
-          const filtered = cards.filter((card) => {
-            const city = (card.getAttribute("data-city") || "").toLowerCase();
-            const state = (card.getAttribute("data-state") || "").toLowerCase();
-            const combined = (city + " " + state).trim();
-            if (!searchTerm) return true;
-            return combined.includes(searchTerm);
+          btn.addEventListener("click", function(){
+            pauseAll(video);
+            shell.classList.add("is-playing");
+            try{
+              video.play();
+            }catch(e){}
           });
 
-          cards.forEach((card) => card.classList.add("hidden"));
-
-          filtered.forEach((card, index) => {
-            if (!searchTerm && !showAll && index >= INITIAL_VISIBLE) {
-              card.classList.add("hidden");
-            } else {
-              card.classList.remove("hidden");
+          video.addEventListener("click", function(){
+            // toggle play/pause
+            if(video.paused){
+              pauseAll(video);
+              shell.classList.add("is-playing");
+              try{ video.play(); }catch(e){}
+            }else{
+              try{ video.pause(); }catch(e){}
+              shell.classList.remove("is-playing");
             }
           });
 
-          if (toggleBtn) {
-            if (filtered.length <= INITIAL_VISIBLE || searchTerm) {
-              toggleBtn.style.display = "none";
-            } else {
-              toggleBtn.style.display = "";
-              toggleBtn.textContent = showAll ? "Ver menos turmas" : "Ver mais turmas";
-              toggleBtn.setAttribute("aria-expanded", showAll ? "true" : "false");
-            }
+          video.addEventListener("ended", function(){
+            shell.classList.remove("is-playing");
+          });
+        });
+      })();
+
+      // ========= Próximas turmas: filtro =========
+      (function initClassFilter(){
+        const input = document.getElementById("search-city");
+        const sel = document.getElementById("state-filter");
+        const cards = Array.from(document.querySelectorAll(".class-card"));
+        if(!cards.length) return;
+
+        function norm(s){
+          return String(s||"").toLowerCase().trim();
+        }
+
+        function apply(){
+          const q = norm(input ? input.value : "");
+          const st = sel ? sel.value : "all";
+
+          cards.forEach(card=>{
+            const city = norm(card.getAttribute("data-city"));
+            const state = norm(card.getAttribute("data-state"));
+            const matchQ = !q || (city + " " + state).includes(q);
+            const matchSt = (st === "all") || (state === st);
+            card.classList.toggle("hidden", !(matchQ && matchSt));
+          });
+        }
+
+        if(input) input.addEventListener("input", apply);
+        if(sel) sel.addEventListener("change", apply);
+        apply();
+      })();
+
+      // ========= Modal (Regra B) =========
+      (function initReserveModal(){
+        const overlay = document.getElementById("reserve-modal");
+        const closeBtn = document.getElementById("modal-close");
+        const form = document.getElementById("reserve-form");
+        const sub = document.getElementById("reserve-sub");
+
+        const nameEl = document.getElementById("res-name");
+        const cityEl = document.getElementById("res-city");
+        const errName = document.getElementById("res-err-name");
+        const errCity = document.getElementById("res-err-city");
+
+        let payload = null;
+
+        function openModal(data){
+          payload = data;
+          if(sub){
+            sub.textContent = "Turma: " + data.course + " • " + data.local + " • " + data.date;
           }
+          overlay.classList.add("show");
+          overlay.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+          setTimeout(()=>{ try{ nameEl.focus(); }catch(e){} }, 50);
         }
 
-        if (searchInput) {
-          searchInput.addEventListener("input", function (e) {
-            const target = e.target;
-            if (!(target instanceof HTMLInputElement)) return;
-            searchTerm = target.value.toLowerCase().trim();
-            if (!searchTerm) showAll = false;
-            applyFilter();
+        function closeModal(){
+          overlay.classList.remove("show");
+          overlay.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+          payload = null;
+
+          // limpar erros
+          errName.classList.remove("show");
+          errCity.classList.remove("show");
+        }
+
+        function validate(){
+          const name = (nameEl.value || "").trim();
+          const city = (cityEl.value || "").trim();
+
+          const okName = !!name;
+          const okCity = !!city;
+
+          errName.classList.toggle("show", !okName);
+          errCity.classList.toggle("show", !okCity);
+
+          return okName && okCity;
+        }
+
+        document.addEventListener("click", function(e){
+          const btn = e.target && e.target.closest ? e.target.closest('[data-action="reserve"]') : null;
+          if(!btn) return;
+
+          const card = btn.closest(".class-card");
+          if(!card) return;
+
+          const course = card.getAttribute("data-course") || "Piloto de Drone Agrícola";
+          const date = card.getAttribute("data-date") || "";
+          const city = card.getAttribute("data-city") || "";
+          const state = card.getAttribute("data-state") || "";
+          const local = city + " - " + state;
+
+          openModal({ course, date, local });
+        });
+
+        // fechar por X, clique fundo, ESC
+        if(closeBtn) closeBtn.addEventListener("click", closeModal);
+        overlay.addEventListener("click", function(e){
+          if(e.target === overlay) closeModal();
+        });
+        document.addEventListener("keydown", function(e){
+          if(e.key === "Escape" && overlay.classList.contains("show")){
+            closeModal();
+          }
+        });
+
+        if(form){
+          form.addEventListener("submit", function(e){
+            e.preventDefault();
+            if(!payload) return;
+            if(!validate()) return;
+
+            const name = (nameEl.value || "").trim();
+            const city = (cityEl.value || "").trim();
+
+            const msg =
+              "Olá, meu nome é " + name + ", sou da cidade " + city +
+              " e quero garantir minha vaga no curso " + payload.course +
+              " em " + payload.local + " na data " + payload.date + ".";
+
+            window.open(buildWaUrl(msg), "_blank", "noopener,noreferrer");
+            closeModal();
           });
         }
+      })();
 
-        if (toggleBtn) {
-          toggleBtn.addEventListener("click", function () {
-            showAll = !showAll;
-            applyFilter();
-          });
+      // ========= Sugira sua cidade (Regra A) =========
+      (function initSuggestForm(){
+        const form = document.getElementById("suggest-form");
+        const name = document.getElementById("sug-name");
+        const city = document.getElementById("sug-city");
+        const course = document.getElementById("sug-course");
+
+        const eName = document.getElementById("err-name");
+        const eCity = document.getElementById("err-city");
+        const eCourse = document.getElementById("err-course");
+
+        function show(el, on){ el.classList.toggle("show", !!on); }
+
+        function validate(){
+          const vName = (name.value || "").trim();
+          const vCity = (city.value || "").trim();
+          const vCourse = (course.value || "").trim();
+
+          const okName = !!vName;
+          const okCity = !!vCity;
+          const okCourse = !!vCourse;
+
+          show(eName, !okName);
+          show(eCity, !okCity);
+          show(eCourse, !okCourse);
+
+          return okName && okCity && okCourse;
         }
 
-        applyFilter();
-      }
+        if(!form) return;
 
-      function initCityForm() {
-        const form = document.getElementById("city-form-drone");
-        const input = document.getElementById("city-input-drone");
-        if (!form || !(input instanceof HTMLInputElement)) return;
-
-        form.addEventListener("submit", function (e) {
+        form.addEventListener("submit", function(e){
           e.preventDefault();
-          const value = input.value.trim();
-          if (!value) return;
+          if(!validate()) return;
 
-          const message =
-            "Olá! Meu nome é " + NAME_PLACEHOLDER + ". " +
-            "Tenho interesse no curso de Piloto de Drone Agrícola na região de " + value + ". " +
-            "Podem me avisar quando tiver turma aí?";
+          const vName = (name.value || "").trim();
+          const vCity = (city.value || "").trim();
+          const vCourse = (course.value || "").trim();
 
-          window.open(buildWaUrl(message), "_blank");
+          const msg =
+            "Olá, meu nome é " + vName +
+            ", sou da cidade " + vCity +
+            " e quero o curso de " + vCourse + " na minha cidade.";
+
+          window.open(buildWaUrl(msg), "_blank", "noopener,noreferrer");
         });
-      }
+      })();
 
-      function initVideoSlider() {
-        const grid = document.getElementById("video-grid-drone");
-        const prevBtn = document.getElementById("video-prev");
-        const nextBtn = document.getElementById("video-next");
-        if (!grid || !prevBtn || !nextBtn) return;
+      // ========= WhatsApp flutuante (mostra após scroll) =========
+      (function initFloat(){
+        const floatBtn = document.getElementById("wa-float");
+        if(!floatBtn) return;
 
-        const cards = Array.from(grid.querySelectorAll(".video-card"));
-        const total = cards.length;
-        if (total === 0) return;
-
-        const VISIBLE = 3;
-        let startIndex = 0;
-
-        function updateVisible() {
-          cards.forEach((card, idx) => {
-            const offset = (idx - startIndex + total) % total;
-            card.classList.toggle("hidden", offset >= VISIBLE);
-          });
+        function onScroll(){
+          if(window.scrollY > 220){
+            floatBtn.classList.add("show");
+          }else{
+            floatBtn.classList.remove("show");
+          }
         }
-
-        prevBtn.addEventListener("click", function () {
-          startIndex = (startIndex - 1 + total) % total;
-          updateVisible();
-        });
-
-        nextBtn.addEventListener("click", function () {
-          startIndex = (startIndex + 1) % total;
-          updateVisible();
-        });
-
-        updateVisible();
-      }
-
-      // Inicializar todos os scripts
-      initWhatsAppConsultorLinks();
-      initWhatsAppTurmaLinks();
-      initDroneGallerySlider();
-      initUpcomingClasses();
-      initCityForm();
-      initVideoSlider();
+        window.addEventListener("scroll", onScroll, { passive:true });
+        onScroll();
+      })();
     });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
