@@ -1,84 +1,229 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
 <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Target Agrotech - Formação Profissional para o Agro</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            agro: {
-              background: '#06160f',
-              card: '#10251a',
-              border: '#1f3b29',
-              primary: '#00b050',
-              primarySoft: '#0fd266',
-              secondary: '#f2c94c',
-              textMain: '#f5f5f5',
-              textMuted: '#c1c9c5',
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Target Agrotech - Formação Profissional para o Agro</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          agro: {
+            background: '#06160f',
+            card: '#10251a',
+            border: '#1f3b29',
+            primary: '#00b050',
+            primarySoft: '#0fd266',
+            secondary: '#f2c94c',
+            textMain: '#f5f5f5',
+            textMuted: '#c1c9c5',
           }
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
         }
       }
     }
-  </script>
-  <style>
-    body {
-      background: radial-gradient(circle at top, #0e2a1d 0, #020a06 45%, #020805 100%);
-    }
-    .hero-glow {
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(0, 176, 80, 0.15) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-track {
-      background: #020805;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #1f3b29;
-      border-radius: 10px;
-    }
-  </style>
+  }
+</script>
+
+<style>
+  body {
+    background: radial-gradient(circle at top, #0e2a1d 0, #020a06 45%, #020805 100%);
+  }
+
+  html { scroll-padding-top: 90px; }
+
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+  .animate-blob { animation: blob 7s infinite; }
+  .animation-delay-2000 { animation-delay: 2s; }
+  .animation-delay-4000 { animation-delay: 4s; }
+
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .animated-gradient-text {
+    background-size: 200% 200%;
+    animation: gradientMove 3s linear infinite;
+  }
+
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); opacity: .55; }
+    50% { transform: translateY(10px); opacity: .85; }
+  }
+  .scroll-indicator { animation: bob 1.5s infinite; }
+
+  /* ✅ FIX do "quadrado verde": glow circular + blur */
+  .hero-glow {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 9999px;
+    filter: blur(2px);
+    background: radial-gradient(circle, rgba(0, 176, 80, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: #020805; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: #1f3b29; border-radius: 10px; }
+
+  .modal-hidden { opacity: 0; transform: scale(.96); pointer-events: none; }
+  .modal-visible { opacity: 1; transform: scale(1); pointer-events: auto; }
+  .modal-anim { transition: opacity .18s ease, transform .18s ease; }
+</style>
 </head>
+
 <body class="text-agro-textMain custom-scrollbar overflow-x-hidden">
 
-<header class="relative min-h-[85vh] flex flex-col items-center justify-center pt-20 pb-40 overflow-hidden">
+<!-- NAVBAR FIXA -->
+<nav id="siteNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b bg-transparent border-transparent py-5">
+  <div class="container mx-auto px-4 flex items-center justify-between">
+    <!-- Logo clicável (recorte da logo principal + texto) -->
+    <a href="#" class="flex items-center gap-3 group">
+      <div class="h-11 w-11 rounded-2xl overflow-hidden bg-black/30 border border-white/10 shadow-lg shadow-agro-primary/10 group-hover:scale-105 transition-transform">
+        <img
+          src="assets/logo-target.png"
+          alt="Target AgroTech"
+          class="w-full h-full object-cover"
+          style="object-position: 50% 12%;"
+        />
+      </div>
+
+      <div class="leading-none">
+        <div class="text-base font-black tracking-tight">TARGET</div>
+        <div class="text-[10px] font-extrabold tracking-[0.25em] text-agro-primary">AGROTECH</div>
+      </div>
+    </a>
+
+    <!-- Desktop menu -->
+    <div class="hidden md:flex items-center gap-8">
+      <div class="flex items-center gap-6 text-sm font-medium text-agro-textMuted">
+        <a href="#beneficios" class="hover:text-white transition-colors">Quem Somos</a>
+
+        <!-- Dropdown Cursos -->
+        <div class="relative group">
+          <button type="button" class="flex items-center gap-1 hover:text-white transition-colors py-2">
+            Cursos <span class="text-xs opacity-80">▾</span>
+          </button>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 w-72 pt-2 hidden group-hover:block">
+            <div class="bg-agro-card border border-agro-border rounded-2xl shadow-xl overflow-hidden p-1">
+              <a href="#cursos" class="block px-4 py-3 text-sm text-agro-textMuted hover:text-white hover:bg-white/5 rounded-xl transition-colors">
+                <div class="font-bold text-white mb-0.5">Piloto de Drone Agrícola</div>
+                <div class="text-[10px] uppercase tracking-wider text-agro-primary">Mais Procurado</div>
+              </a>
+              <a href="#cursos" class="block px-4 py-3 text-sm text-agro-textMuted hover:text-white hover:bg-white/5 rounded-xl transition-colors">
+                <div class="font-bold text-white mb-0.5">Operador de Máquinas Pesadas</div>
+                <div class="text-[10px] uppercase tracking-wider text-agro-primary">Alta Demanda</div>
+              </a>
+              <a href="#cursos" class="block px-4 py-3 text-sm text-agro-textMuted hover:text-white hover:bg-white/5 rounded-xl transition-colors">
+                <div class="font-bold text-white mb-0.5">Inseminação Artificial em Bovinos</div>
+                <div class="text-[10px] uppercase tracking-wider text-agro-primary">Especialização</div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="#agenda" class="hover:text-white transition-colors">Agenda</a>
+        <a href="#faq" class="hover:text-white transition-colors">Dúvidas</a>
+      </div>
+
+      <a
+        href="https://wa.me/5566999763455"
+        target="_blank"
+        class="px-5 py-2.5 bg-agro-primary text-black text-xs font-extrabold rounded-xl uppercase tracking-wider hover:bg-white transition-all shadow-lg shadow-agro-primary/20"
+      >
+        FALAR NO WHATSAPP
+      </a>
+    </div>
+
+    <!-- Mobile toggle -->
+    <button id="navToggle" class="md:hidden text-white text-2xl leading-none" aria-label="Abrir menu">
+      ☰
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="md:hidden hidden bg-agro-background/95 backdrop-blur border-b border-agro-border">
+    <div class="px-4 py-6 space-y-4">
+      <a href="#beneficios" class="block text-agro-textMuted hover:text-white font-medium">Quem Somos</a>
+
+      <div class="space-y-2 pl-4 border-l border-white/10">
+        <span class="text-xs font-bold text-agro-primary uppercase tracking-widest">Cursos</span>
+        <a href="./drone.html" class="block text-white py-1">Piloto de Drone Agrícola</a>
+        <a href="./pesadas.html" class="block text-white py-1">Operador de Máquinas Pesadas</a>
+        <a href="./inseminacao.html" class="block text-white py-1">Inseminação Artificial</a>
+      </div>
+
+      <a href="#agenda" class="block text-agro-textMuted hover:text-white font-medium">Agenda de Turmas</a>
+      <a href="#faq" class="block text-agro-textMuted hover:text-white font-medium">Dúvidas Frequentes</a>
+
+      <a
+        href="https://wa.me/5566999763455"
+        target="_blank"
+        class="flex items-center justify-center w-full py-3 bg-agro-primary text-black font-extrabold rounded-xl uppercase tracking-widest mt-4"
+      >
+        FALAR COM CONSULTOR
+      </a>
+    </div>
+  </div>
+</nav>
+
+<header class="relative min-h-[85vh] flex flex-col items-center justify-center pt-28 pb-40 overflow-hidden">
   <div class="hero-glow top-10 -right-20"></div>
-  <div class="hero-glow bottom-0 -left-20 bg-agro-secondary/5"></div>
+  <div class="hero-glow bottom-0 -left-20" style="background: radial-gradient(circle, rgba(242, 201, 76, 0.10) 0%, transparent 70%);"></div>
+
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+    <div class="absolute -top-40 -right-40 w-96 h-96 bg-agro-primary/20 rounded-full blur-[100px] animate-blob"></div>
+    <div class="absolute top-40 -left-20 w-96 h-96 bg-agro-secondary/10 rounded-full blur-[100px] animate-blob animation-delay-2000"></div>
+    <div class="absolute bottom-0 right-1/2 translate-x-1/2 w-[800px] h-[400px] bg-agro-primary/5 rounded-full blur-[120px] animate-blob animation-delay-4000"></div>
+  </div>
 
   <div class="container mx-auto px-4 relative z-10 text-center">
-    <div class="mb-8 animate-fade-in">
-      <img src="assets/logo-target.png" alt="Target Agrotech" class="h-40 md:h-64 mx-auto drop-shadow-2xl" />
+    <!-- ✅ HERO: só a logo DEITADA (removeu a em pé) e responsiva -->
+    <div class="mb-10">
+      <img
+        src="assets/logo-target-horizontal.png"
+        alt="Target Agrotech"
+        class="mx-auto drop-shadow-2xl w-auto max-w-[260px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[430px]"
+      />
     </div>
 
     <div class="max-w-4xl mx-auto">
       <span class="inline-block text-agro-secondary font-bold tracking-[0.2em] mb-4 text-sm md:text-base uppercase">
         Transforme sua carreira no agronegócio
       </span>
+
       <h1 class="text-4xl md:text-7xl font-black leading-tight mb-6">
-        Ganhe <span class="text-agro-primary">mais e domine</span> a tecnologia do campo
+        Ganhe
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-agro-primary via-green-400 to-agro-primary animated-gradient-text">
+          mais e domine
+        </span>
+        a tecnologia do campo
       </h1>
+
       <p class="text-lg md:text-2xl text-agro-textMuted max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
         Formação prática presencial reconhecida pelo mercado. Escolha entre Drones, Máquinas ou Pecuária.
       </p>
 
       <div class="flex flex-col items-center gap-4">
         <div class="relative inline-block">
-          <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-lg animate-bounce z-10">Garanta sua vaga</span>
+          <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-lg animate-bounce z-10">
+            Garanta sua vaga
+          </span>
           <a
             href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20falar%20com%20um%20consultor%20e%20garantir%20minha%20vaga."
             target="_blank"
@@ -100,41 +245,43 @@
       </div>
     </div>
   </div>
-</header>
 
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-agro-textMuted/40 scroll-indicator">
+    <span class="text-2xl">↓</span>
+  </div>
+</header>
 
 <section class="py-12 bg-transparent">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 -mt-20 md:-mt-32 relative z-10">
-      
-<div class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden shadow-2xl transform transition hover:-translate-y-2">
-  <img src="assets/hero-drone.jpg" alt="Piloto de Drone Agrícola" class="w-full h-48 object-cover" />
-  <div class="p-5 text-center">
-    <h3 class="text-xl font-bold mb-2">Piloto de Drone Agrícola</h3>
-    <p class="text-sm text-agro-textMuted leading-relaxed">Quem quer trabalhar com tecnologia de precisão, pulverização e mapeamento agrícola.</p>
-  </div>
-</div>
 
-<div class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden shadow-2xl transform transition hover:-translate-y-2">
-  <img src="assets/hero-maquinas.jpg" alt="Operador de Máquinas Pesadas" class="w-full h-48 object-cover" />
-  <div class="p-5 text-center">
-    <h3 class="text-xl font-bold mb-2">Operador de Máquinas Pesadas</h3>
-    <p class="text-sm text-agro-textMuted leading-relaxed">Quem quer trabalhar com terraplanagem, construção e operação em propriedades rurais.</p>
-  </div>
-</div>
+      <div class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden shadow-2xl transform transition hover:-translate-y-2">
+        <img src="assets/hero-drone.jpg" alt="Piloto de Drone Agrícola" class="w-full h-48 object-cover" />
+        <div class="p-5 text-center">
+          <h3 class="text-xl font-bold mb-2">Piloto de Drone Agrícola</h3>
+          <p class="text-sm text-agro-textMuted leading-relaxed">Quem quer trabalhar com tecnologia de precisão, pulverização e mapeamento agrícola.</p>
+        </div>
+      </div>
 
-<div class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden shadow-2xl transform transition hover:-translate-y-2">
-  <img src="assets/hero-inseminacao.jpg" alt="Inseminação Artificial em Bovinos" class="w-full h-48 object-cover" />
-  <div class="p-5 text-center">
-    <h3 class="text-xl font-bold mb-2">Inseminação Artificial em Bovinos</h3>
-    <p class="text-sm text-agro-textMuted leading-relaxed">Trabalhadores rurais, pecuaristas e quem quer atuar na reprodução animal.</p>
-  </div>
-</div>
+      <div class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden shadow-2xl transform transition hover:-translate-y-2">
+        <img src="assets/hero-maquinas.jpg" alt="Operador de Máquinas Pesadas" class="w-full h-48 object-cover" />
+        <div class="p-5 text-center">
+          <h3 class="text-xl font-bold mb-2">Operador de Máquinas Pesadas</h3>
+          <p class="text-sm text-agro-textMuted leading-relaxed">Quem quer trabalhar com terraplanagem, construção e operação em propriedades rurais.</p>
+        </div>
+      </div>
+
+      <div class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden shadow-2xl transform transition hover:-translate-y-2">
+        <img src="assets/hero-inseminacao.jpg" alt="Inseminação Artificial em Bovinos" class="w-full h-48 object-cover" />
+        <div class="p-5 text-center">
+          <h3 class="text-xl font-bold mb-2">Inseminação Artificial em Bovinos</h3>
+          <p class="text-sm text-agro-textMuted leading-relaxed">Trabalhadores rurais, pecuaristas e quem quer atuar na reprodução animal.</p>
+        </div>
+      </div>
 
     </div>
   </div>
 </section>
-
 
 <section id="cursos" class="py-20">
   <div class="container mx-auto px-4">
@@ -147,122 +294,130 @@
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      
-<!-- ✅ CORRIGIDO: selo não sobrepõe conteúdo (pt-14 + z-10) -->
-<article class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden group hover:border-agro-primary/30 transition-all duration-300 relative">
-  <div class="absolute top-6 right-6 z-10 px-3 py-1 bg-agro-secondary/20 rounded-full text-[10px] font-bold text-agro-secondary uppercase tracking-wider">
-    Mais Procurado
-  </div>
-  <div class="p-8 pt-14">
-    <div class="flex items-center gap-4 mb-6">
-      <div class="w-14 h-14 rounded-2xl bg-agro-primary/10 flex items-center justify-center text-2xl">
-        🛩️
-      </div>
-      <div>
-        <h3 class="text-2xl font-extrabold leading-tight">Piloto de Drone Agrícola</h3>
-        <p class="text-agro-textMuted text-sm mt-1">Quem quer trabalhar com tecnologia de precisão, pulverização e mapeamento agrícola.</p>
-      </div>
-    </div>
 
-    <div class="space-y-2 text-sm text-agro-textMuted mb-8">
-      <ul class="space-y-2">
-        <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>CAAR incluso (Certificação Obrigatória)</span></li><li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Prática com drones agrícolas em área real</span></li><li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Técnicas de pulverização e mapeamento</span></li><li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Certificação nacional reconhecida</span></li><li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Carta de estágio e indicação</span></li>
-      </ul>
-    </div>
+      <article class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden group hover:border-agro-primary/30 transition-all duration-300 relative">
+        <div class="absolute top-6 right-6 z-10 px-3 py-1 bg-agro-secondary/20 rounded-full text-[10px] font-bold text-agro-secondary uppercase tracking-wider">
+          Mais Procurado
+        </div>
+        <div class="p-8 pt-14">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-agro-primary/10 flex items-center justify-center text-2xl">
+              🛩️
+            </div>
+            <div>
+              <h3 class="text-2xl font-extrabold leading-tight">Piloto de Drone Agrícola</h3>
+              <p class="text-agro-textMuted text-sm mt-1">Quem quer trabalhar com tecnologia de precisão, pulverização e mapeamento agrícola.</p>
+            </div>
+          </div>
 
-    <div class="space-y-3">
-      <a href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20me%20inscrever%20no%20curso%20de%20Piloto%20de%20Drone%20Agr%C3%ADcola%20e%20garantir%20minha%20vaga." target="_blank"
-        class="block w-full py-4 bg-agro-primary text-black font-extrabold rounded-xl text-center uppercase tracking-wide transition-all shadow-md hover:-translate-y-1 active:scale-95"
-      >
-        Me Inscrever na Turma
-      </a>
-      <a href="drone.html"
-        class="block w-full py-4 border border-white/10 text-center text-agro-textMain font-medium rounded-xl text-sm hover:border-white/20 transition-all"
-      >
-        Ver Detalhes do Curso
-      </a>
-    </div>
-  </div>
-</article>
+          <div class="space-y-2 text-sm text-agro-textMuted mb-8">
+            <ul class="space-y-2">
+              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>CAAR incluso (Certificação Obrigatória)</span></li>
+              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Prática com drones agrícolas em área real</span></li>
+              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Técnicas de pulverização e mapeamento</span></li>
+              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Certificação nacional reconhecida</span></li>
+              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Carta de estágio e indicação</span></li>
+            </ul>
+          </div>
 
-<!-- ✅ CORRIGIDO: selo não sobrepõe conteúdo (pt-14 + z-10) -->
-<article class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden group hover:border-agro-primary/30 transition-all duration-300 relative">
-  <div class="absolute top-6 right-6 z-10 px-3 py-1 bg-agro-secondary/20 rounded-full text-[10px] font-bold text-agro-secondary uppercase tracking-wider">
-    Alta Demanda
-  </div>
-  <div class="p-8 pt-14">
-    <div class="flex items-center gap-4 mb-6">
-      <div class="w-14 h-14 rounded-2xl bg-agro-primary/10 flex items-center justify-center text-2xl">
-        🚜
-      </div>
-      <div>
-        <h3 class="text-2xl font-extrabold leading-tight">Operador de Máquinas Pesadas</h3>
-        <p class="text-agro-textMuted text-sm mt-1">Quem quer trabalhar com terraplanagem, construção e operação em propriedades rurais.</p>
-      </div>
-    </div>
+          <div class="space-y-3">
+            <a href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20me%20inscrever%20no%20curso%20de%20Piloto%20de%20Drone%20Agr%C3%ADcola%20e%20garantir%20minha%20vaga." target="_blank"
+              class="block w-full py-4 bg-agro-primary text-black font-extrabold rounded-xl text-center uppercase tracking-wide transition-all shadow-md hover:-translate-y-1 active:scale-95"
+            >
+              Me Inscrever na Turma
+            </a>
+            <a href="drone.html"
+              class="block w-full py-4 border border-white/10 text-center text-agro-textMain font-medium rounded-xl text-sm hover:border-white/20 transition-all"
+            >
+              Ver Detalhes do Curso
+            </a>
+          </div>
+        </div>
+      </article>
 
-    <div class="space-y-2 text-sm text-agro-textMuted mb-8">
-      <ul class="space-y-2">
-        <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Operação de retro, pá e escavadeira</span></li><li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Treinamento prático em ambiente real</span></li><li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Segurança e manutenção básica</span></li><li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Certificação reconhecida pelo mercado</span></li><li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Orientação para vagas</span></li>
-      </ul>
-    </div>
+      <article class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden group hover:border-agro-primary/30 transition-all duration-300 relative">
+        <div class="absolute top-6 right-6 z-10 px-3 py-1 bg-agro-secondary/20 rounded-full text-[10px] font-bold text-agro-secondary uppercase tracking-wider">
+          Alta Demanda
+        </div>
+        <div class="p-8 pt-14">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-agro-primary/10 flex items-center justify-center text-2xl">
+              🚜
+            </div>
+            <div>
+              <h3 class="text-2xl font-extrabold leading-tight">Operador de Máquinas Pesadas</h3>
+              <p class="text-agro-textMuted text-sm mt-1">Quem quer trabalhar com terraplanagem, construção e operação em propriedades rurais.</p>
+            </div>
+          </div>
 
-    <div class="space-y-3">
-      <a href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20me%20inscrever%20no%20curso%20de%20Operador%20de%20M%C3%A1quinas%20Pesadas%20e%20garantir%20minha%20vaga." target="_blank"
-        class="block w-full py-4 bg-agro-primary text-black font-extrabold rounded-xl text-center uppercase tracking-wide transition-all shadow-md hover:-translate-y-1 active:scale-95"
-      >
-        Me Inscrever na Turma
-      </a>
-      <a href="pesadas.html"
-        class="block w-full py-4 border border-white/10 text-center text-agro-textMain font-medium rounded-xl text-sm hover:border-white/20 transition-all"
-      >
-        Ver Detalhes do Curso
-      </a>
-    </div>
-  </div>
-</article>
+          <div class="space-y-2 text-sm text-agro-textMuted mb-8">
+            <ul class="space-y-2">
+              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Operação de retro, pá e escavadeira</span></li>
+              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Treinamento prático em ambiente real</span></li>
+              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Segurança e manutenção básica</span></li>
+              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Certificação reconhecida pelo mercado</span></li>
+              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Orientação para vagas</span></li>
+            </ul>
+          </div>
 
-<!-- ✅ CORRIGIDO: selo não sobrepõe conteúdo (pt-14 + z-10) -->
-<article class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden group hover:border-agro-primary/30 transition-all duration-300 relative">
-  <div class="absolute top-6 right-6 z-10 px-3 py-1 bg-agro-secondary/20 rounded-full text-[10px] font-bold text-agro-secondary uppercase tracking-wider">
-    Especialização
-  </div>
-  <div class="p-8 pt-14">
-    <div class="flex items-center gap-4 mb-6">
-      <div class="w-14 h-14 rounded-2xl bg-agro-primary/10 flex items-center justify-center text-2xl">
-        🐄
-      </div>
-      <div>
-        <h3 class="text-2xl font-extrabold leading-tight">Inseminação Artificial em Bovinos</h3>
-        <p class="text-agro-textMuted text-sm mt-1">Trabalhadores rurais, pecuaristas e quem quer atuar na reprodução animal.</p>
-      </div>
-    </div>
+          <div class="space-y-3">
+            <a href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20me%20inscrever%20no%20curso%20de%20Operador%20de%20M%C3%A1quinas%20Pesadas%20e%20garantir%20minha%20vaga." target="_blank"
+              class="block w-full py-4 bg-agro-primary text-black font-extrabold rounded-xl text-center uppercase tracking-wide transition-all shadow-md hover:-translate-y-1 active:scale-95"
+            >
+              Me Inscrever na Turma
+            </a>
+            <a href="pesadas.html"
+              class="block w-full py-4 border border-white/10 text-center text-agro-textMain font-medium rounded-xl text-sm hover:border-white/20 transition-all"
+            >
+              Ver Detalhes do Curso
+            </a>
+          </div>
+        </div>
+      </article>
 
-    <div class="space-y-2 text-sm text-agro-textMuted mb-8">
-      <ul class="space-y-2">
-        <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Técnicas práticas em fazendas</span></li><li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Anatomia, manejo e sanidade animal</span></li><li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Prática real em curral</span></li><li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Garantia de aprendizado</span></li><li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Suporte técnico pós-curso</span></li>
-      </ul>
-    </div>
+      <article class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden group hover:border-agro-primary/30 transition-all duration-300 relative">
+        <div class="absolute top-6 right-6 z-10 px-3 py-1 bg-agro-secondary/20 rounded-full text-[10px] font-bold text-agro-secondary uppercase tracking-wider">
+          Especialização
+        </div>
+        <div class="p-8 pt-14">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-agro-primary/10 flex items-center justify-center text-2xl">
+              🐄
+            </div>
+            <div>
+              <h3 class="text-2xl font-extrabold leading-tight">Inseminação Artificial em Bovinos</h3>
+              <p class="text-agro-textMuted text-sm mt-1">Trabalhadores rurais, pecuaristas e quem quer atuar na reprodução animal.</p>
+            </div>
+          </div>
 
-    <div class="space-y-3">
-      <a href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20me%20inscrever%20no%20curso%20de%20Insemina%C3%A7%C3%A3o%20Artificial%20em%20Bovinos%20e%20garantir%20minha%20vaga." target="_blank"
-        class="block w-full py-4 bg-agro-primary text-black font-extrabold rounded-xl text-center uppercase tracking-wide transition-all shadow-md hover:-translate-y-1 active:scale-95"
-      >
-        Me Inscrever na Turma
-      </a>
-      <a href="inseminacao.html"
-        class="block w-full py-4 border border-white/10 text-center text-agro-textMain font-medium rounded-xl text-sm hover:border-white/20 transition-all"
-      >
-        Ver Detalhes do Curso
-      </a>
-    </div>
-  </div>
-</article>
+          <div class="space-y-2 text-sm text-agro-textMuted mb-8">
+            <ul class="space-y-2">
+              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Técnicas práticas em fazendas</span></li>
+              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Anatomia, manejo e sanidade animal</span></li>
+              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Prática real em curral</span></li>
+              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Garantia de aprendizado</span></li>
+              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Suporte técnico pós-curso</span></li>
+            </ul>
+          </div>
+
+          <div class="space-y-3">
+            <a href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20me%20inscrever%20no%20curso%20de%20Insemina%C3%A7%C3%A3o%20Artificial%20em%20Bovinos%20e%20garantir%20minha%20vaga." target="_blank"
+              class="block w-full py-4 bg-agro-primary text-black font-extrabold rounded-xl text-center uppercase tracking-wide transition-all shadow-md hover:-translate-y-1 active:scale-95"
+            >
+              Me Inscrever na Turma
+            </a>
+            <a href="inseminacao.html"
+              class="block w-full py-4 border border-white/10 text-center text-agro-textMain font-medium rounded-xl text-sm hover:border-white/20 transition-all"
+            >
+              Ver Detalhes do Curso
+            </a>
+          </div>
+        </div>
+      </article>
 
     </div>
   </div>
 </section>
-
 
 <section id="beneficios" class="py-24 bg-black/40">
   <div class="container mx-auto px-4">
@@ -270,48 +425,48 @@
       <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Por que a <span class="text-agro-primary">Target</span>?</h2>
       <p class="text-agro-textMuted max-w-2xl mx-auto">Um método pensado para você aprender rápido, com prática e certificado que o mercado respeita.</p>
     </div>
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      
-<div class="bg-agro-card border border-white/5 rounded-3xl p-8 hover:border-agro-primary/30 transition-all">
-  <div class="text-4xl mb-4">🎓</div>
-  <h3 class="text-xl font-bold mb-3">Do Zero ao Profissional</h3>
-  <p class="text-sm text-agro-textMuted leading-relaxed">Você não precisa ter experiência. Ensinamos desde a base técnica até a operação avançada.</p>
-</div>
 
-<div class="bg-agro-card border border-white/5 rounded-3xl p-8 hover:border-agro-primary/30 transition-all">
-  <div class="text-4xl mb-4">🚜</div>
-  <h3 class="text-xl font-bold mb-3">Prática em Campo Real</h3>
-  <p class="text-sm text-agro-textMuted leading-relaxed">Nada de simulação. Aqui você opera em máquinas e drones reais, em fazendas parceiras.</p>
-</div>
+      <div class="bg-agro-card border border-white/5 rounded-3xl p-8 hover:border-agro-primary/30 transition-all">
+        <div class="text-4xl mb-4">🎓</div>
+        <h3 class="text-xl font-bold mb-3">Do Zero ao Profissional</h3>
+        <p class="text-sm text-agro-textMuted leading-relaxed">Você não precisa ter experiência. Ensinamos desde a base técnica até a operação avançada.</p>
+      </div>
 
-<div class="bg-agro-card border border-white/5 rounded-3xl p-8 hover:border-agro-primary/30 transition-all">
-  <div class="text-4xl mb-4">📜</div>
-  <h3 class="text-xl font-bold mb-3">Certificação de Peso</h3>
-  <p class="text-sm text-agro-textMuted leading-relaxed">Seu certificado é reconhecido em todo o Brasil. No curso de drone, o CAAR já está incluso.</p>
-</div>
+      <div class="bg-agro-card border border-white/5 rounded-3xl p-8 hover:border-agro-primary/30 transition-all">
+        <div class="text-4xl mb-4">🚜</div>
+        <h3 class="text-xl font-bold mb-3">Prática em Campo Real</h3>
+        <p class="text-sm text-agro-textMuted leading-relaxed">Nada de simulação. Aqui você opera em máquinas e drones reais, em fazendas parceiras.</p>
+      </div>
 
-<div class="bg-agro-card border border-white/5 rounded-3xl p-8 hover:border-agro-primary/30 transition-all">
-  <div class="text-4xl mb-4">🤝</div>
-  <h3 class="text-xl font-bold mb-3">Suporte para Emprego</h3>
-  <p class="text-sm text-agro-textMuted leading-relaxed">Te ajudamos a entrar no mercado com carta de estágio, recomendações e orientação de carreira.</p>
-</div>
+      <div class="bg-agro-card border border-white/5 rounded-3xl p-8 hover:border-agro-primary/30 transition-all">
+        <div class="text-4xl mb-4">📜</div>
+        <h3 class="text-xl font-bold mb-3">Certificação de Peso</h3>
+        <p class="text-sm text-agro-textMuted leading-relaxed">Seu certificado é reconhecido em todo o Brasil. No curso de drone, o CAAR já está incluso.</p>
+      </div>
 
-<div class="bg-agro-card border border-white/5 rounded-3xl p-8 hover:border-agro-primary/30 transition-all">
-  <div class="text-4xl mb-4">🔄</div>
-  <h3 class="text-xl font-bold mb-3">Garantia de Aprendizado</h3>
-  <p class="text-sm text-agro-textMuted leading-relaxed">Não aprendeu? Você pode refazer a parte prática quantas vezes quiser, sem custo adicional.</p>
-</div>
+      <div class="bg-agro-card border border-white/5 rounded-3xl p-8 hover:border-agro-primary/30 transition-all">
+        <div class="text-4xl mb-4">🤝</div>
+        <h3 class="text-xl font-bold mb-3">Suporte para Emprego</h3>
+        <p class="text-sm text-agro-textMuted leading-relaxed">Te ajudamos a entrar no mercado com carta de estágio, recomendações e orientação de carreira.</p>
+      </div>
 
-<div class="bg-agro-card border border-white/5 rounded-3xl p-8 hover:border-agro-primary/30 transition-all">
-  <div class="text-4xl mb-4">👨‍🏫</div>
-  <h3 class="text-xl font-bold mb-3">Instrutores Especialistas</h3>
-  <p class="text-sm text-agro-textMuted leading-relaxed">Aprenda com quem está no dia a dia do campo. Instrutores com anos de experiência prática.</p>
-</div>
+      <div class="bg-agro-card border border-white/5 rounded-3xl p-8 hover:border-agro-primary/30 transition-all">
+        <div class="text-4xl mb-4">🔄</div>
+        <h3 class="text-xl font-bold mb-3">Garantia de Aprendizado</h3>
+        <p class="text-sm text-agro-textMuted leading-relaxed">Não aprendeu? Você pode refazer a parte prática quantas vezes quiser, sem custo adicional.</p>
+      </div>
+
+      <div class="bg-agro-card border border-white/5 rounded-3xl p-8 hover:border-agro-primary/30 transition-all">
+        <div class="text-4xl mb-4">👨‍🏫</div>
+        <h3 class="text-xl font-bold mb-3">Instrutores Especialistas</h3>
+        <p class="text-sm text-agro-textMuted leading-relaxed">Aprenda com quem está no dia a dia do campo. Instrutores com anos de experiência prática.</p>
+      </div>
 
     </div>
   </div>
 </section>
-
 
 <section id="agenda" class="py-24 bg-black/30 border-y border-white/5">
   <div class="container mx-auto px-4">
@@ -326,28 +481,22 @@
         <div class="text-xs text-agro-textMuted uppercase tracking-widest mb-2 text-center sm:text-left">Curso</div>
         <select id="filterCourse" class="w-full bg-black/40 border border-white/15 rounded-xl px-4 py-3 text-white/90 focus:outline-none focus:border-agro-primary/70 hover:border-white/25 transition">
           <option value="all">Todos os cursos</option>
-          <option value="drone">Piloto de Drone Agrícola</option>
-          <option value="maquinas">Máquinas Pesadas</option>
-          <option value="inseminacao">Inseminação Artificial</option>
         </select>
       </div>
       <div class="w-full sm:w-64">
         <div class="text-xs text-agro-textMuted uppercase tracking-widest mb-2 text-center sm:text-left">Estado</div>
         <select id="filterState" class="w-full bg-black/40 border border-white/15 rounded-xl px-4 py-3 text-white/90 focus:outline-none focus:border-agro-primary/70 hover:border-white/25 transition">
           <option value="all">Todos os estados</option>
-          <option value="PA">PA</option>
-          <option value="MT">MT</option>
-          <option value="MG">MG</option>
-          <option value="GO">GO</option>
-          <option value="RO">RO</option>
-          <option value="MS">MS</option>
-          <option value="TO">TO</option>
         </select>
       </div>
     </div>
 
     <!-- Cards -->
     <div id="classesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"></div>
+
+    <div id="classesEmpty" class="hidden max-w-6xl mx-auto mt-6 text-center py-10 text-agro-textMuted border border-dashed border-white/15 rounded-2xl">
+      Nenhuma turma encontrada com estes filtros.
+    </div>
 
     <div class="text-center mt-10">
       <button id="btnMore" class="px-10 py-4 rounded-full border border-agro-primary/50 text-agro-primary hover:bg-agro-primary/10 hover:border-agro-primary transition-all font-semibold">
@@ -393,10 +542,252 @@
   </div>
 </section>
 
+<section id="turmas" class="py-24">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Turmas <span class="text-agro-primary">na prática</span></h2>
+      <p class="text-agro-textMuted max-w-2xl mx-auto">Veja um pouco do que você vive durante o treinamento: prática real, equipamentos e certificação.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <div class="group relative overflow-hidden rounded-3xl bg-agro-card border border-white/5 aspect-[4/3]">
+        <img
+          src="assets/gallery-drone-1.jpg"
+          alt="Certificação Conquistada"
+          style="object-fit: cover; object-position: 50% 20%;"
+          class="w-full h-full transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+          <h4 class="text-lg font-bold mb-1">Certificação Conquistada</h4>
+          <p class="text-xs text-agro-textMuted">Alunos recebendo o certificado de Piloto de Drone.</p>
+        </div>
+      </div>
+
+      <div class="group relative overflow-hidden rounded-3xl bg-agro-card border border-white/5 aspect-[4/3]">
+        <img src="assets/gallery-drone-2.jpg" alt="Prática de Voo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+          <h4 class="text-lg font-bold mb-1">Prática de Voo</h4>
+          <p class="text-xs text-agro-textMuted">Treinamento de campo com drones DJI.</p>
+        </div>
+      </div>
+
+      <div class="group relative overflow-hidden rounded-3xl bg-agro-card border border-white/5 aspect-[4/3]">
+        <img src="assets/gallery-pesadas-1.jpg" alt="Operação de Máquinas" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+          <h4 class="text-lg font-bold mb-1">Operação de Máquinas</h4>
+          <p class="text-xs text-agro-textMuted">Instrução direta em máquinas pesadas.</p>
+        </div>
+      </div>
+
+      <div class="group relative overflow-hidden rounded-3xl bg-agro-card border border-white/5 aspect-[4/3]">
+        <img src="assets/gallery-pesadas-2.jpg" alt="Terraplanagem Real" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+          <h4 class="text-lg font-bold mb-1">Terraplanagem Real</h4>
+          <p class="text-xs text-agro-textMuted">Aluno em operação assistida.</p>
+        </div>
+      </div>
+
+      <div class="group relative overflow-hidden rounded-3xl bg-agro-card border border-white/5 aspect-[4/3]">
+        <img src="assets/gallery-inseminacao-1.jpg" alt="Prática no Curral" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+          <h4 class="text-lg font-bold mb-1">Prática no Curral</h4>
+          <p class="text-xs text-agro-textMuted">Técnicas reais de inseminação em bovinos.</p>
+        </div>
+      </div>
+
+      <div class="group relative overflow-hidden rounded-3xl bg-agro-card border border-white/5 aspect-[4/3]">
+        <img src="assets/gallery-inseminacao-2.jpg" alt="Turma Formada" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+          <h4 class="text-lg font-bold mb-1">Turma Formada</h4>
+          <p class="text-xs text-agro-textMuted">Novos profissionais prontos para o mercado.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="py-24 bg-black/30 border-y border-white/5">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Tire suas <span class="text-agro-primary">Dúvidas</span></h2>
+      <p class="text-agro-textMuted max-w-2xl mx-auto">
+        Informações essenciais para você escolher o seu próximo passo profissional.
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        <button class="faq-tab px-6 py-3 rounded-2xl bg-agro-card border border-white/10 hover:border-white/20 transition-all" data-tab="drone">Drone</button>
+        <button class="faq-tab px-6 py-3 rounded-2xl bg-agro-card border border-white/10 hover:border-white/20 transition-all" data-tab="maquinas">Máquinas</button>
+        <button class="faq-tab px-6 py-3 rounded-2xl bg-agro-card border border-white/10 hover:border-white/20 transition-all" data-tab="inseminacao">Inseminação</button>
+      </div>
+
+      <div id="faqList" class="space-y-4"></div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-black pt-20 pb-24 md:pb-12 border-t border-white/5">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+      <div class="col-span-1 md:col-span-1">
+        <!-- Rodapé com a logo principal -->
+        <img src="assets/logo-target.png" alt="Target Agrotech" class="h-28 mb-6" />
+        <p class="text-agro-textMuted text-sm leading-relaxed">
+          Formamos a próxima geração de especialistas para o agronegócio. Prática, tecnologia e resultados reais para sua carreira.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-extrabold mb-4">Navegação</h4>
+        <ul class="space-y-2 text-sm text-agro-textMuted">
+          <li><a class="hover:text-agro-primary transition" href="#cursos">Cursos</a></li>
+          <li><a class="hover:text-agro-primary transition" href="#beneficios">Benefícios</a></li>
+          <li><a class="hover:text-agro-primary transition" href="#agenda">Agenda</a></li>
+          <li><a class="hover:text-agro-primary transition" href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-extrabold mb-4">Páginas</h4>
+        <ul class="space-y-2 text-sm text-agro-textMuted">
+          <li><a class="hover:text-agro-primary transition" href="./drone.html">Drone Agrícola</a></li>
+          <li><a class="hover:text-agro-primary transition" href="./inseminacao.html">Inseminação</a></li>
+          <li><a class="hover:text-agro-primary transition" href="./pesadas.html">Máquinas Pesadas</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-extrabold mb-4">Contato</h4>
+        <p class="text-sm text-agro-textMuted mb-4">Fale com um consultor e garanta sua vaga.</p>
+        <a href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20falar%20com%20um%20consultor%20e%20tirar%20uma%20d%C3%BAvida." target="_blank"
+           class="inline-flex items-center justify-center px-6 py-4 bg-agro-primary text-black font-extrabold rounded-2xl shadow-lg hover:-translate-y-1 transition-all">
+          💬 WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-agro-textMuted uppercase tracking-widest">
+      <div>© 2024 Target Agrotech. Todos os direitos reservados.</div>
+      <div class="flex gap-6"><span>CNPJ 48.448.103/0001-45</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- CTA mobile fixo -->
+<div class="md:hidden fixed bottom-6 left-4 right-4 z-40">
+  <a
+    href="https://wa.me/5566999763455"
+    target="_blank"
+    class="flex items-center justify-center w-full py-4 bg-agro-primary text-black font-extrabold rounded-full shadow-2xl border border-white/20 uppercase tracking-widest animate-bounce"
+  >
+    Falar com Consultor
+  </a>
+</div>
+
+<!-- Modal: Garantir minha vaga (nome + cidade) -->
+<div id="enrollModal" class="fixed inset-0 hidden items-center justify-center p-4" style="z-index: 100;">
+  <div id="enrollBackdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+
+  <div id="enrollPanel" class="relative w-full max-w-md bg-[#0F241B] border border-white/10 rounded-2xl p-6 shadow-2xl modal-anim modal-hidden">
+    <button id="enrollClose" type="button" aria-label="Fechar"
+      class="absolute right-4 top-4 w-10 h-10 rounded-xl bg-black/40 border border-white/10 text-white/80 hover:text-white hover:border-white/20 transition flex items-center justify-center">
+      ✕
+    </button>
+
+    <div class="text-center">
+      <div class="text-xs text-agro-textMuted uppercase tracking-widest">Matrícula rápida</div>
+      <h3 class="text-2xl font-extrabold text-white mt-2">Garantir minha vaga</h3>
+      <p id="enrollInfo" class="text-sm text-agro-textMuted mt-2"></p>
+    </div>
+
+    <div class="mt-6 space-y-4">
+      <div>
+        <div class="text-xs text-agro-textMuted uppercase tracking-widest mb-2">Seu nome</div>
+        <input id="enrollName" type="text" placeholder="Ex: João Silva"
+          class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-agro-primary/40 focus:border-agro-primary/70 transition">
+      </div>
+
+      <div>
+        <div class="text-xs text-agro-textMuted uppercase tracking-widest mb-2">Sua cidade/estado</div>
+        <input id="enrollCity" type="text" placeholder="Ex: Sorriso - MT"
+          class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-agro-primary/40 focus:border-agro-primary/70 transition">
+      </div>
+
+      <p id="enrollError" class="hidden text-xs text-red-400">Preencha seu nome e sua cidade para continuar.</p>
+
+      <button id="enrollSubmit" type="button"
+        class="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#F2C94C] text-black font-extrabold py-4 tracking-wide transition-all hover:bg-agro-primary hover:text-black active:bg-agro-primary focus:outline-none focus:ring-2 focus:ring-agro-primary/70">
+        Conversar no WhatsApp
+      </button>
+
+      <div class="text-[11px] text-agro-textMuted text-center leading-relaxed">
+        Ao continuar, você será direcionado ao WhatsApp com seus dados preenchidos para agilizar o atendimento.
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
+/* NAVBAR */
+(function(){
+  const nav = document.getElementById("siteNav");
+  const toggle = document.getElementById("navToggle");
+  const menu = document.getElementById("mobileMenu");
+
+  function setScrolled(){
+    const scrolled = window.scrollY > 20;
+    if (!nav) return;
+
+    nav.classList.toggle("bg-transparent", !scrolled);
+    nav.classList.toggle("border-transparent", !scrolled);
+    nav.classList.toggle("py-5", !scrolled);
+
+    nav.classList.toggle("bg-agro-background/90", scrolled);
+    nav.classList.toggle("backdrop-blur-md", scrolled);
+    nav.classList.toggle("border-agro-border", scrolled);
+    nav.classList.toggle("py-3", scrolled);
+    nav.classList.toggle("shadow-lg", scrolled);
+  }
+
+  window.addEventListener("scroll", setScrolled, { passive: true });
+  setScrolled();
+
+  toggle?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu?.classList.toggle("hidden");
+  });
+
+  menu?.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => menu.classList.add("hidden"));
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!menu || !nav) return;
+    if (!nav.contains(e.target)) menu.classList.add("hidden");
+  });
+})();
+</script>
+
+<script>
+/* AGENDA + MODAL */
 (function(){
   const WHATSAPP_LINK = "https://wa.me/5566999763455";
-  const DATA = [{"date": "16/01", "location": "Paragominas (PA)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "PA"}, {"date": "23/01", "location": "Confresa (MT)", "courseType": "maquinas", "courseName": "Operador de Máquinas Pesadas", "state": "MT"}, {"date": "23/01", "location": "Confresa (MT)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "MT"}, {"date": "30/01", "location": "Belo Horizonte (MG)", "courseType": "inseminacao", "courseName": "Inseminação Artificial em Bovinos", "state": "MG"}, {"date": "06/02", "location": "Castelo dos Sonhos (PA)", "courseType": "inseminacao", "courseName": "Inseminação Artificial em Bovinos", "state": "PA"}, {"date": "06/02", "location": "Novo Progresso (PA)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "PA"}, {"date": "27/02", "location": "Rolim de Moura (RO)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "RO"}, {"date": "27/02", "location": "Rolim de Moura (RO)", "courseType": "inseminacao", "courseName": "Inseminação Artificial em Bovinos", "state": "RO"}, {"date": "06/03", "location": "Teixeira de Freitas (BA)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "BA"}, {"date": "13/03", "location": "Luís Eduardo Magalhães (BA)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "BA"}, {"date": "13/03", "location": "Sinop (MT)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "MT"}];
+  const DATA = [
+    {"date": "16/01", "location": "Paragominas (PA)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "PA"},
+    {"date": "23/01", "location": "Confresa (MT)", "courseType": "maquinas", "courseName": "Operador de Máquinas Pesadas", "state": "MT"},
+    {"date": "23/01", "location": "Confresa (MT)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "MT"},
+    {"date": "30/01", "location": "Belo Horizonte (MG)", "courseType": "inseminacao", "courseName": "Inseminação Artificial em Bovinos", "state": "MG"},
+    {"date": "06/02", "location": "Castelo dos Sonhos (PA)", "courseType": "inseminacao", "courseName": "Inseminação Artificial em Bovinos", "state": "PA"},
+    {"date": "06/02", "location": "Novo Progresso (PA)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "PA"},
+    {"date": "27/02", "location": "Rolim de Moura (RO)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "RO"},
+    {"date": "27/02", "location": "Rolim de Moura (RO)", "courseType": "inseminacao", "courseName": "Inseminação Artificial em Bovinos", "state": "RO"},
+    {"date": "06/03", "location": "Teixeira de Freitas (BA)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "BA"},
+    {"date": "13/03", "location": "Luís Eduardo Magalhães (BA)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "BA"},
+    {"date": "13/03", "location": "Sinop (MT)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "MT"}
+  ];
   const INITIAL_COUNT = 4;
 
   let filterCourse = "all";
@@ -430,11 +821,9 @@
     const selState  = $("filterState");
     if (!selCourse || !selState) return;
 
-    // Preserve current selection if possible
     const prevCourse = selCourse.value || "all";
     const prevState  = selState.value || "all";
 
-    // Courses
     const courseTypes = Array.from(new Set(DATA.map(d => normalizeCourseType(d.courseType)))).filter(Boolean);
     selCourse.innerHTML = "";
     const optAllC = document.createElement("option");
@@ -448,7 +837,6 @@
       selCourse.appendChild(opt);
     });
 
-    // States
     const states = Array.from(new Set(DATA.map(d => d.state))).filter(Boolean).sort();
     selState.innerHTML = "";
     const optAllS = document.createElement("option");
@@ -462,7 +850,6 @@
       selState.appendChild(opt);
     });
 
-    // Restore selection if still valid
     selCourse.value = courseTypes.includes(prevCourse) ? prevCourse : "all";
     selState.value  = states.includes(prevState) ? prevState : "all";
 
@@ -473,14 +860,13 @@
   function openEnrollModal(cls) {
     selectedClass = cls;
     const modal = $("enrollModal");
+    const panel = $("enrollPanel");
     const info  = $("enrollInfo");
     const err   = $("enrollError");
-    if (!modal) return;
+    if (!modal || !panel) return;
 
-    if (info) {
-      info.textContent = `${cls.date} • ${cls.location} • ${cls.courseName}`;
-    }
-    if (err) err.classList.add("hidden");
+    if (info) info.textContent = `${cls.date} • ${cls.location} • ${cls.courseName}`;
+    err?.classList.add("hidden");
 
     const nameInput = $("enrollName");
     const cityInput = $("enrollCity");
@@ -490,15 +876,24 @@
     modal.classList.remove("hidden");
     modal.classList.add("flex");
 
-    // focus
+    panel.classList.remove("modal-hidden");
+    panel.classList.add("modal-visible");
+
     setTimeout(() => nameInput?.focus(), 50);
   }
 
   function closeEnrollModal() {
     const modal = $("enrollModal");
-    if (!modal) return;
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
+    const panel = $("enrollPanel");
+    if (!modal || !panel) return;
+
+    panel.classList.remove("modal-visible");
+    panel.classList.add("modal-hidden");
+
+    setTimeout(() => {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }, 180);
   }
 
   function submitEnroll() {
@@ -528,9 +923,9 @@
     const backdrop = $("enrollBackdrop");
     const submitBtn = $("enrollSubmit");
 
-    if (closeBtn) closeBtn.addEventListener("click", closeEnrollModal);
-    if (backdrop) backdrop.addEventListener("click", closeEnrollModal);
-    if (submitBtn) submitBtn.addEventListener("click", submitEnroll);
+    closeBtn?.addEventListener("click", closeEnrollModal);
+    backdrop?.addEventListener("click", closeEnrollModal);
+    submitBtn?.addEventListener("click", submitEnroll);
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeEnrollModal();
@@ -546,13 +941,22 @@
 
   function renderCards() {
     const grid = $("classesGrid");
+    const empty = $("classesEmpty");
     const btnMore = $("btnMore");
-    if (!grid || !btnMore) return;
+    if (!grid || !btnMore || !empty) return;
 
     const list = filteredList();
     const visibleCount = expanded ? list.length : Math.min(INITIAL_COUNT, list.length);
 
     grid.innerHTML = "";
+
+    if (list.length === 0) {
+      empty.classList.remove("hidden");
+      btnMore.classList.add("hidden");
+      return;
+    } else {
+      empty.classList.add("hidden");
+    }
 
     list.slice(0, visibleCount).forEach((cls) => {
       const card = document.createElement("div");
@@ -560,7 +964,7 @@
 
       const inner = document.createElement("div");
       inner.className = "p-6 relative";
-      // left green accent
+
       const accent = document.createElement("div");
       accent.className = "absolute left-0 top-0 h-full w-1 bg-agro-primary/80";
       inner.appendChild(accent);
@@ -594,7 +998,6 @@
       grid.appendChild(card);
     });
 
-    // Toggle "Ver mais/menos"
     if (list.length <= INITIAL_COUNT) {
       btnMore.classList.add("hidden");
     } else {
@@ -624,8 +1027,7 @@
       expanded = !expanded;
       renderCards();
       if (!expanded) {
-        // Volta pro topo da seção de turmas
-        document.getElementById("proximas-turmas")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        document.getElementById("agenda")?.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
   }
@@ -671,98 +1073,27 @@
 })();
 </script>
 
-
-
-<section id="turmas" class="py-24">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Turmas <span class="text-agro-primary">na prática</span></h2>
-      <p class="text-agro-textMuted max-w-2xl mx-auto">Veja um pouco do que você vive durante o treinamento: prática real, equipamentos e certificação.</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      
-<div class="group relative overflow-hidden rounded-3xl bg-agro-card border border-white/5 aspect-[4/3]">
- <img
-  src="assets/gallery-drone-1.jpg"
-  alt="Certificação Conquistada"
-  style="object-fit: cover; object-position: 50% 20%;"
-  class="w-full h-full transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
-/>
-  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
-    <h4 class="text-lg font-bold mb-1">Certificação Conquistada</h4>
-    <p class="text-xs text-agro-textMuted">Alunos recebendo o certificado de Piloto de Drone.</p>
-  </div>
-</div>
-
-<div class="group relative overflow-hidden rounded-3xl bg-agro-card border border-white/5 aspect-[4/3]">
-  <img src="assets/gallery-drone-2.jpg" alt="Prática de Voo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
-  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
-    <h4 class="text-lg font-bold mb-1">Prática de Voo</h4>
-    <p class="text-xs text-agro-textMuted">Treinamento de campo com drones DJI.</p>
-  </div>
-</div>
-
-<div class="group relative overflow-hidden rounded-3xl bg-agro-card border border-white/5 aspect-[4/3]">
-  <img src="assets/gallery-pesadas-1.jpg" alt="Operação de Máquinas" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
-  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
-    <h4 class="text-lg font-bold mb-1">Operação de Máquinas</h4>
-    <p class="text-xs text-agro-textMuted">Instrução direta em máquinas pesadas.</p>
-  </div>
-</div>
-
-<div class="group relative overflow-hidden rounded-3xl bg-agro-card border border-white/5 aspect-[4/3]">
-  <img src="assets/gallery-pesadas-2.jpg" alt="Terraplanagem Real" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
-  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
-    <h4 class="text-lg font-bold mb-1">Terraplanagem Real</h4>
-    <p class="text-xs text-agro-textMuted">Aluno em operação assistida.</p>
-  </div>
-</div>
-
-<div class="group relative overflow-hidden rounded-3xl bg-agro-card border border-white/5 aspect-[4/3]">
-  <img src="assets/gallery-inseminacao-1.jpg" alt="Prática no Curral" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
-  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
-    <h4 class="text-lg font-bold mb-1">Prática no Curral</h4>
-    <p class="text-xs text-agro-textMuted">Técnicas reais de inseminação em bovinos.</p>
-  </div>
-</div>
-
-<div class="group relative overflow-hidden rounded-3xl bg-agro-card border border-white/5 aspect-[4/3]">
-  <img src="assets/gallery-inseminacao-2.jpg" alt="Turma Formada" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
-  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
-    <h4 class="text-lg font-bold mb-1">Turma Formada</h4>
-    <p class="text-xs text-agro-textMuted">Novos profissionais prontos para o mercado.</p>
-  </div>
-</div>
-
-    </div>
-  </div>
-</section>
-
-
-<section id="faq" class="py-24 bg-black/30 border-y border-white/5">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Tire suas <span class="text-agro-primary">Dúvidas</span></h2>
-      <p class="text-agro-textMuted max-w-2xl mx-auto">
-        Informações essenciais para você escolher o seu próximo passo profissional.
-      </p>
-    </div>
-
-    <div class="max-w-4xl mx-auto">
-      <div class="flex flex-wrap justify-center gap-3 mb-8">
-        <button class="faq-tab px-6 py-3 rounded-2xl bg-agro-card border border-white/10 hover:border-white/20 transition-all" data-tab="drone">Drone</button>
-        <button class="faq-tab px-6 py-3 rounded-2xl bg-agro-card border border-white/10 hover:border-white/20 transition-all" data-tab="maquinas">Máquinas</button>
-        <button class="faq-tab px-6 py-3 rounded-2xl bg-agro-card border border-white/10 hover:border-white/20 transition-all" data-tab="inseminacao">Inseminação</button>
-      </div>
-
-      <div id="faqList" class="space-y-4"></div>
-    </div>
-  </div>
-</section>
-
 <script>
+/* FAQ */
 (function(){
-  const FAQS = {"drone": [{"question": "Preciso ter experiência com drones?", "answer": "Não. O curso começa do zero, desde os fundamentos até a operação profissional e pulverização."}, {"question": "O CAAR está incluso?", "answer": "Sim. Cuidamos de todo o processo para você obter sua certificação obrigatória do MAPA."}, {"question": "O mercado de trabalho é bom?", "answer": "Altíssimo. A pulverização com drones é a tecnologia que mais cresce no agro brasileiro hoje."}], "maquinas": [{"question": "Quais máquinas vou aprender?", "answer": "Retroescavadeira, pá-carregadeira e escavadeira hidráulica em situações reais de campo."}, {"question": "O certificado é válido?", "answer": "Sim, certificado reconhecido nacionalmente e aceito em grandes empresas e fazendas."}, {"question": "Qual a idade mínima?", "answer": "A partir de 18 anos, com ou sem experiência prévia em operação."}], "inseminacao": [{"question": "As aulas são práticas?", "answer": "100% práticas no curral. Você aprende fazendo o manejo real em animais."}, {"question": "O curso serve para quem é da cidade?", "answer": "Sim, muitas pessoas buscam essa especialização para entrar no mercado pecuário."}, {"question": "Tem garantia de aprendizado?", "answer": "Sim! Se não se sentir seguro, pode refazer a parte prática sem custo adicional."}]};
+  const FAQS = {
+    "drone": [
+      { "question": "Preciso ter experiência com drones?", "answer": "Não. O curso começa do zero, desde os fundamentos até a operação profissional e pulverização." },
+      { "question": "O CAAR está incluso?", "answer": "Sim. Cuidamos de todo o processo para você obter sua certificação obrigatória do MAPA." },
+      { "question": "O mercado de trabalho é bom?", "answer": "Altíssimo. A pulverização com drones é a tecnologia que mais cresce no agro brasileiro hoje." }
+    ],
+    "maquinas": [
+      { "question": "Quais máquinas vou aprender?", "answer": "Retroescavadeira, pá-carregadeira e escavadeira hidráulica em situações reais de campo." },
+      { "question": "O certificado é válido?", "answer": "Sim, certificado reconhecido nacionalmente e aceito em grandes empresas e fazendas." },
+      { "question": "Qual a idade mínima?", "answer": "A partir de 18 anos, com ou sem experiência prévia em operação." }
+    ],
+    "inseminacao": [
+      { "question": "As aulas são práticas?", "answer": "100% práticas no curral. Você aprende fazendo o manejo real em animais." },
+      { "question": "O curso serve para quem é da cidade?", "answer": "Sim, muitas pessoas buscam essa especialização para entrar no mercado pecuário." },
+      { "question": "Tem garantia de aprendizado?", "answer": "Sim! Se não se sentir seguro, pode refazer a parte prática sem custo adicional." }
+    ]
+  };
+
   let activeTab = 'drone';
   let openIndex = 0;
 
@@ -817,96 +1148,6 @@
   renderList();
 })();
 </script>
-
-
-<footer class="bg-black pt-20 pb-24 md:pb-12 border-t border-white/5">
-  <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-      <div class="col-span-1 md:col-span-1">
-        <img src="assets/logo-target-horizontal.png" alt="Target Agrotech" class="h-40 mb-6" />
-        <p class="text-agro-textMuted text-sm leading-relaxed">
-          Formamos a próxima geração de especialistas para o agronegócio. Prática, tecnologia e resultados reais para sua carreira.
-        </p>
-      </div>
-
-      <div>
-        <h4 class="font-extrabold mb-4">Navegação</h4>
-        <ul class="space-y-2 text-sm text-agro-textMuted">
-          <li><a class="hover:text-agro-primary transition" href="#cursos">Cursos</a></li>
-          <li><a class="hover:text-agro-primary transition" href="#beneficios">Benefícios</a></li>
-          <li><a class="hover:text-agro-primary transition" href="#agenda">Agenda</a></li>
-          <li><a class="hover:text-agro-primary transition" href="#faq">FAQ</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="font-extrabold mb-4">Páginas</h4>
-        <ul class="space-y-2 text-sm text-agro-textMuted">
-          <li><a class="hover:text-agro-primary transition" href="./drone.html">Drone Agrícola</a></li>
-          <li><a class="hover:text-agro-primary transition" href="./inseminacao.html">Inseminação</a></li>
-          <li><a class="hover:text-agro-primary transition" href="./pesadas.html">Máquinas Pesadas</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="font-extrabold mb-4">Contato</h4>
-        <p class="text-sm text-agro-textMuted mb-4">Fale com um consultor e garanta sua vaga.</p>
-        <a href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20falar%20com%20um%20consultor%20e%20tirar%20uma%20d%C3%BAvida." target="_blank" class="inline-flex items-center justify-center px-6 py-4 bg-agro-primary text-black font-extrabold rounded-2xl shadow-lg hover:-translate-y-1 transition-all">
-          💬 WhatsApp
-        </a>
-      </div>
-    </div>
-
-    <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-agro-textMuted uppercase tracking-widest">
-      <div>© 2024 Target Agrotech. Todos os direitos reservados.</div>
-      <div class="flex gap-6"><span>CNPJ 48.448.103/0001-45</span></div>
-    </div>
-  </div>
-</footer>
-
-
-<!-- Modal: Garantir minha vaga (nome + cidade) -->
-<div id="enrollModal" class="fixed inset-0 hidden items-center justify-center p-4" style="z-index: 100;">
-  <div id="enrollBackdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-
-  <div class="relative w-full max-w-md bg-[#0F241B] border border-white/10 rounded-2xl p-6 shadow-2xl">
-    <button id="enrollClose" type="button" aria-label="Fechar"
-      class="absolute right-4 top-4 w-10 h-10 rounded-xl bg-black/40 border border-white/10 text-white/80 hover:text-white hover:border-white/20 transition flex items-center justify-center">
-      ✕
-    </button>
-
-    <div class="text-center">
-      <div class="text-xs text-agro-textMuted uppercase tracking-widest">Matrícula rápida</div>
-      <h3 class="text-2xl font-extrabold text-white mt-2">Garantir minha vaga</h3>
-      <p id="enrollInfo" class="text-sm text-agro-textMuted mt-2"></p>
-    </div>
-
-    <div class="mt-6 space-y-4">
-      <div>
-        <div class="text-xs text-agro-textMuted uppercase tracking-widest mb-2">Seu nome</div>
-        <input id="enrollName" type="text" placeholder="Ex: João Silva"
-          class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-agro-primary/40 focus:border-agro-primary/70 transition">
-      </div>
-
-      <div>
-        <div class="text-xs text-agro-textMuted uppercase tracking-widest mb-2">Sua cidade/estado</div>
-        <input id="enrollCity" type="text" placeholder="Ex: Sorriso - MT"
-          class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-agro-primary/40 focus:border-agro-primary/70 transition">
-      </div>
-
-      <p id="enrollError" class="hidden text-xs text-red-400">Preencha seu nome e sua cidade para continuar.</p>
-
-      <button id="enrollSubmit" type="button"
-        class="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#F2C94C] text-black font-extrabold py-4 tracking-wide transition-all hover:bg-agro-primary hover:text-black active:bg-agro-primary focus:outline-none focus:ring-2 focus:ring-agro-primary/70">
-        Conversar no WhatsApp
-      </button>
-
-      <div class="text-[11px] text-agro-textMuted text-center leading-relaxed">
-        Ao continuar, você será direcionado ao WhatsApp com seus dados preenchidos para agilizar o atendimento.
-      </div>
-    </div>
-  </div>
-</div>
 
 </body>
 </html>
