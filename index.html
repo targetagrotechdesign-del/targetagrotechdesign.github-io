@@ -24,19 +24,14 @@
             textMuted: '#c1c9c5',
           }
         },
-        fontFamily: {
-          sans: ['Inter', 'system-ui', 'sans-serif'],
-        }
+        fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
       }
     }
   }
 </script>
 
 <style>
-  body {
-    background: radial-gradient(circle at top, #0e2a1d 0, #020a06 45%, #020805 100%);
-  }
-
+  body { background: radial-gradient(circle at top, #0e2a1d 0, #020a06 45%, #020805 100%); }
   html { scroll-padding-top: 90px; }
 
   @keyframes blob {
@@ -54,10 +49,7 @@
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
-  .animated-gradient-text {
-    background-size: 200% 200%;
-    animation: gradientMove 3s linear infinite;
-  }
+  .animated-gradient-text { background-size: 200% 200%; animation: gradientMove 3s linear infinite; }
 
   @keyframes bob {
     0%, 100% { transform: translateY(0); opacity: .55; }
@@ -65,7 +57,6 @@
   }
   .scroll-indicator { animation: bob 1.5s infinite; }
 
-  /* ✅ FIX do "quadrado verde": glow circular + blur */
   .hero-glow {
     position: absolute;
     width: 420px;
@@ -92,29 +83,20 @@
 <!-- NAVBAR FIXA -->
 <nav id="siteNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b bg-transparent border-transparent py-5">
   <div class="container mx-auto px-4 flex items-center justify-between">
-    <!-- Logo clicável (recorte da logo principal + texto) -->
     <a href="#" class="flex items-center gap-3 group">
       <div class="h-11 w-11 rounded-2xl overflow-hidden bg-black/30 border border-white/10 shadow-lg shadow-agro-primary/10 group-hover:scale-105 transition-transform">
-        <img
-          src="assets/logo-target.png"
-          alt="Target AgroTech"
-          class="w-full h-full object-cover"
-          style="object-position: 50% 12%;"
-        />
+        <img src="assets/logo-target.png" alt="Target AgroTech" class="w-full h-full object-cover" style="object-position: 50% 12%;" />
       </div>
-
       <div class="leading-none">
         <div class="text-base font-black tracking-tight">TARGET</div>
         <div class="text-[10px] font-extrabold tracking-[0.25em] text-agro-primary">AGROTECH</div>
       </div>
     </a>
 
-    <!-- Desktop menu -->
     <div class="hidden md:flex items-center gap-8">
       <div class="flex items-center gap-6 text-sm font-medium text-agro-textMuted">
         <a href="#beneficios" class="hover:text-white transition-colors">Quem Somos</a>
 
-        <!-- Dropdown Cursos -->
         <div class="relative group">
           <button type="button" class="flex items-center gap-1 hover:text-white transition-colors py-2">
             Cursos <span class="text-xs opacity-80">▾</span>
@@ -141,22 +123,15 @@
         <a href="#faq" class="hover:text-white transition-colors">Dúvidas</a>
       </div>
 
-      <a
-        href="https://wa.me/5566999763455"
-        target="_blank"
-        class="px-5 py-2.5 bg-agro-primary text-black text-xs font-extrabold rounded-xl uppercase tracking-wider hover:bg-white transition-all shadow-lg shadow-agro-primary/20"
-      >
+      <a href="https://wa.me/5566999763455" target="_blank"
+        class="px-5 py-2.5 bg-agro-primary text-black text-xs font-extrabold rounded-xl uppercase tracking-wider hover:bg-white transition-all shadow-lg shadow-agro-primary/20">
         FALAR NO WHATSAPP
       </a>
     </div>
 
-    <!-- Mobile toggle -->
-    <button id="navToggle" class="md:hidden text-white text-2xl leading-none" aria-label="Abrir menu">
-      ☰
-    </button>
+    <button id="navToggle" class="md:hidden text-white text-2xl leading-none" aria-label="Abrir menu">☰</button>
   </div>
 
-  <!-- Mobile menu -->
   <div id="mobileMenu" class="md:hidden hidden bg-agro-background/95 backdrop-blur border-b border-agro-border">
     <div class="px-4 py-6 space-y-4">
       <a href="#beneficios" class="block text-agro-textMuted hover:text-white font-medium">Quem Somos</a>
@@ -171,11 +146,8 @@
       <a href="#agenda" class="block text-agro-textMuted hover:text-white font-medium">Agenda de Turmas</a>
       <a href="#faq" class="block text-agro-textMuted hover:text-white font-medium">Dúvidas Frequentes</a>
 
-      <a
-        href="https://wa.me/5566999763455"
-        target="_blank"
-        class="flex items-center justify-center w-full py-3 bg-agro-primary text-black font-extrabold rounded-xl uppercase tracking-widest mt-4"
-      >
+      <a href="https://wa.me/5566999763455" target="_blank"
+        class="flex items-center justify-center w-full py-3 bg-agro-primary text-black font-extrabold rounded-xl uppercase tracking-widest mt-4">
         FALAR COM CONSULTOR
       </a>
     </div>
@@ -193,13 +165,9 @@
   </div>
 
   <div class="container mx-auto px-4 relative z-10 text-center">
-    <!-- ✅ HERO: só a logo DEITADA (removeu a em pé) e responsiva -->
     <div class="mb-10">
-      <img
-        src="assets/logo-target-horizontal.png"
-        alt="Target Agrotech"
-        class="mx-auto drop-shadow-2xl w-auto max-w-[260px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[430px]"
-      />
+      <img src="assets/logo-target-horizontal.png" alt="Target Agrotech"
+        class="mx-auto drop-shadow-2xl w-auto max-w-[260px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[430px]" />
     </div>
 
     <div class="max-w-4xl mx-auto">
@@ -224,11 +192,9 @@
           <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-lg animate-bounce z-10">
             Garanta sua vaga
           </span>
-          <a
-            href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20falar%20com%20um%20consultor%20e%20garantir%20minha%20vaga."
+          <a href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20falar%20com%20um%20consultor%20e%20garantir%20minha%20vaga."
             target="_blank"
-            class="relative inline-flex items-center justify-center px-10 py-5 md:px-14 md:py-6 bg-agro-primary text-black font-extrabold rounded-2xl shadow-2xl text-base md:text-lg uppercase tracking-wide transition-all hover:-translate-y-1 hover:scale-105 active:scale-95"
-          >
+            class="relative inline-flex items-center justify-center px-10 py-5 md:px-14 md:py-6 bg-agro-primary text-black font-extrabold rounded-2xl shadow-2xl text-base md:text-lg uppercase tracking-wide transition-all hover:-translate-y-1 hover:scale-105 active:scale-95">
             <span class="flex items-center gap-3">💬 Falar com Consultor Agora</span>
           </a>
         </div>
@@ -301,9 +267,7 @@
         </div>
         <div class="p-8 pt-14">
           <div class="flex items-center gap-4 mb-6">
-            <div class="w-14 h-14 rounded-2xl bg-agro-primary/10 flex items-center justify-center text-2xl">
-              🛩️
-            </div>
+            <div class="w-14 h-14 rounded-2xl bg-agro-primary/10 flex items-center justify-center text-2xl">🛩️</div>
             <div>
               <h3 class="text-2xl font-extrabold leading-tight">Piloto de Drone Agrícola</h3>
               <p class="text-agro-textMuted text-sm mt-1">Quem quer trabalhar com tecnologia de precisão, pulverização e mapeamento agrícola.</p>
@@ -321,14 +285,13 @@
           </div>
 
           <div class="space-y-3">
-            <a href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20me%20inscrever%20no%20curso%20de%20Piloto%20de%20Drone%20Agr%C3%ADcola%20e%20garantir%20minha%20vaga." target="_blank"
-              class="block w-full py-4 bg-agro-primary text-black font-extrabold rounded-xl text-center uppercase tracking-wide transition-all shadow-md hover:-translate-y-1 active:scale-95"
-            >
+            <a href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20me%20inscrever%20no%20curso%20de%20Piloto%20de%20Drone%20Agr%C3%ADcola%20e%20garantir%20minha%20vaga."
+              target="_blank"
+              class="block w-full py-4 bg-agro-primary text-black font-extrabold rounded-xl text-center uppercase tracking-wide transition-all shadow-md hover:-translate-y-1 active:scale-95">
               Me Inscrever na Turma
             </a>
             <a href="drone.html"
-              class="block w-full py-4 border border-white/10 text-center text-agro-textMain font-medium rounded-xl text-sm hover:border-white/20 transition-all"
-            >
+              class="block w-full py-4 border border-white/10 text-center text-agro-textMain font-medium rounded-xl text-sm hover:border-white/20 transition-all">
               Ver Detalhes do Curso
             </a>
           </div>
@@ -341,9 +304,7 @@
         </div>
         <div class="p-8 pt-14">
           <div class="flex items-center gap-4 mb-6">
-            <div class="w-14 h-14 rounded-2xl bg-agro-primary/10 flex items-center justify-center text-2xl">
-              🚜
-            </div>
+            <div class="w-14 h-14 rounded-2xl bg-agro-primary/10 flex items-center justify-center text-2xl">🚜</div>
             <div>
               <h3 class="text-2xl font-extrabold leading-tight">Operador de Máquinas Pesadas</h3>
               <p class="text-agro-textMuted text-sm mt-1">Quem quer trabalhar com terraplanagem, construção e operação em propriedades rurais.</p>
@@ -361,14 +322,13 @@
           </div>
 
           <div class="space-y-3">
-            <a href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20me%20inscrever%20no%20curso%20de%20Operador%20de%20M%C3%A1quinas%20Pesadas%20e%20garantir%20minha%20vaga." target="_blank"
-              class="block w-full py-4 bg-agro-primary text-black font-extrabold rounded-xl text-center uppercase tracking-wide transition-all shadow-md hover:-translate-y-1 active:scale-95"
-            >
+            <a href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20me%20inscrever%20no%20curso%20de%20Operador%20de%20M%C3%A1quinas%20Pesadas%20e%20garantir%20minha%20vaga."
+              target="_blank"
+              class="block w-full py-4 bg-agro-primary text-black font-extrabold rounded-xl text-center uppercase tracking-wide transition-all shadow-md hover:-translate-y-1 active:scale-95">
               Me Inscrever na Turma
             </a>
             <a href="pesadas.html"
-              class="block w-full py-4 border border-white/10 text-center text-agro-textMain font-medium rounded-xl text-sm hover:border-white/20 transition-all"
-            >
+              class="block w-full py-4 border border-white/10 text-center text-agro-textMain font-medium rounded-xl text-sm hover:border-white/20 transition-all">
               Ver Detalhes do Curso
             </a>
           </div>
@@ -381,9 +341,7 @@
         </div>
         <div class="p-8 pt-14">
           <div class="flex items-center gap-4 mb-6">
-            <div class="w-14 h-14 rounded-2xl bg-agro-primary/10 flex items-center justify-center text-2xl">
-              🐄
-            </div>
+            <div class="w-14 h-14 rounded-2xl bg-agro-primary/10 flex items-center justify-center text-2xl">🐄</div>
             <div>
               <h3 class="text-2xl font-extrabold leading-tight">Inseminação Artificial em Bovinos</h3>
               <p class="text-agro-textMuted text-sm mt-1">Trabalhadores rurais, pecuaristas e quem quer atuar na reprodução animal.</p>
@@ -401,14 +359,13 @@
           </div>
 
           <div class="space-y-3">
-            <a href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20me%20inscrever%20no%20curso%20de%20Insemina%C3%A7%C3%A3o%20Artificial%20em%20Bovinos%20e%20garantir%20minha%20vaga." target="_blank"
-              class="block w-full py-4 bg-agro-primary text-black font-extrabold rounded-xl text-center uppercase tracking-wide transition-all shadow-md hover:-translate-y-1 active:scale-95"
-            >
+            <a href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20me%20inscrever%20no%20curso%20de%20Insemina%C3%A7%C3%A3o%20Artificial%20em%20Bovinos%20e%20garantir%20minha%20vaga."
+              target="_blank"
+              class="block w-full py-4 bg-agro-primary text-black font-extrabold rounded-xl text-center uppercase tracking-wide transition-all shadow-md hover:-translate-y-1 active:scale-95">
               Me Inscrever na Turma
             </a>
             <a href="inseminacao.html"
-              class="block w-full py-4 border border-white/10 text-center text-agro-textMain font-medium rounded-xl text-sm hover:border-white/20 transition-all"
-            >
+              class="block w-full py-4 border border-white/10 text-center text-agro-textMain font-medium rounded-xl text-sm hover:border-white/20 transition-all">
               Ver Detalhes do Curso
             </a>
           </div>
@@ -427,7 +384,6 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
       <div class="bg-agro-card border border-white/5 rounded-3xl p-8 hover:border-agro-primary/30 transition-all">
         <div class="text-4xl mb-4">🎓</div>
         <h3 class="text-xl font-bold mb-3">Do Zero ao Profissional</h3>
@@ -463,7 +419,6 @@
         <h3 class="text-xl font-bold mb-3">Instrutores Especialistas</h3>
         <p class="text-sm text-agro-textMuted leading-relaxed">Aprenda com quem está no dia a dia do campo. Instrutores com anos de experiência prática.</p>
       </div>
-
     </div>
   </div>
 </section>
@@ -475,7 +430,6 @@
       <p class="text-agro-textMuted max-w-2xl mx-auto">Turmas presenciais com vagas limitadas. Selecione sua cidade e garanta sua matrícula.</p>
     </div>
 
-    <!-- Filtros -->
     <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
       <div class="w-full sm:w-64">
         <div class="text-xs text-agro-textMuted uppercase tracking-widest mb-2 text-center sm:text-left">Curso</div>
@@ -491,7 +445,6 @@
       </div>
     </div>
 
-    <!-- Cards -->
     <div id="classesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"></div>
 
     <div id="classesEmpty" class="hidden max-w-6xl mx-auto mt-6 text-center py-10 text-agro-textMuted border border-dashed border-white/15 rounded-2xl">
@@ -504,7 +457,6 @@
       </button>
     </div>
 
-    <!-- Não encontrou sua cidade -->
     <div class="mt-14 flex justify-center">
       <div class="w-full max-w-2xl bg-agro-card/70 backdrop-blur border border-agro-primary/15 rounded-3xl p-8 md:p-10 shadow-2xl">
         <h3 class="text-2xl md:text-3xl font-extrabold text-center mb-2">Não encontrou sua cidade?</h3>
@@ -542,72 +494,6 @@
   </div>
 </section>
 
-<section id="turmas" class="py-24">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Turmas <span class="text-agro-primary">na prática</span></h2>
-      <p class="text-agro-textMuted max-w-2xl mx-auto">Veja um pouco do que você vive durante o treinamento: prática real, equipamentos e certificação.</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-      <div class="group relative overflow-hidden rounded-3xl bg-agro-card border border-white/5 aspect-[4/3]">
-        <img
-          src="assets/gallery-drone-1.jpg"
-          alt="Certificação Conquistada"
-          style="object-fit: cover; object-position: 50% 20%;"
-          class="w-full h-full transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
-          <h4 class="text-lg font-bold mb-1">Certificação Conquistada</h4>
-          <p class="text-xs text-agro-textMuted">Alunos recebendo o certificado de Piloto de Drone.</p>
-        </div>
-      </div>
-
-      <div class="group relative overflow-hidden rounded-3xl bg-agro-card border border-white/5 aspect-[4/3]">
-        <img src="assets/gallery-drone-2.jpg" alt="Prática de Voo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
-          <h4 class="text-lg font-bold mb-1">Prática de Voo</h4>
-          <p class="text-xs text-agro-textMuted">Treinamento de campo com drones DJI.</p>
-        </div>
-      </div>
-
-      <div class="group relative overflow-hidden rounded-3xl bg-agro-card border border-white/5 aspect-[4/3]">
-        <img src="assets/gallery-pesadas-1.jpg" alt="Operação de Máquinas" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
-          <h4 class="text-lg font-bold mb-1">Operação de Máquinas</h4>
-          <p class="text-xs text-agro-textMuted">Instrução direta em máquinas pesadas.</p>
-        </div>
-      </div>
-
-      <div class="group relative overflow-hidden rounded-3xl bg-agro-card border border-white/5 aspect-[4/3]">
-        <img src="assets/gallery-pesadas-2.jpg" alt="Terraplanagem Real" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
-          <h4 class="text-lg font-bold mb-1">Terraplanagem Real</h4>
-          <p class="text-xs text-agro-textMuted">Aluno em operação assistida.</p>
-        </div>
-      </div>
-
-      <div class="group relative overflow-hidden rounded-3xl bg-agro-card border border-white/5 aspect-[4/3]">
-        <img src="assets/gallery-inseminacao-1.jpg" alt="Prática no Curral" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
-          <h4 class="text-lg font-bold mb-1">Prática no Curral</h4>
-          <p class="text-xs text-agro-textMuted">Técnicas reais de inseminação em bovinos.</p>
-        </div>
-      </div>
-
-      <div class="group relative overflow-hidden rounded-3xl bg-agro-card border border-white/5 aspect-[4/3]">
-        <img src="assets/gallery-inseminacao-2.jpg" alt="Turma Formada" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
-          <h4 class="text-lg font-bold mb-1">Turma Formada</h4>
-          <p class="text-xs text-agro-textMuted">Novos profissionais prontos para o mercado.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <section id="faq" class="py-24 bg-black/30 border-y border-white/5">
   <div class="container mx-auto px-4">
     <div class="text-center mb-16">
@@ -633,7 +519,6 @@
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
       <div class="col-span-1 md:col-span-1">
-        <!-- Rodapé com a logo principal -->
         <img src="assets/logo-target.png" alt="Target Agrotech" class="h-28 mb-6" />
         <p class="text-agro-textMuted text-sm leading-relaxed">
           Formamos a próxima geração de especialistas para o agronegócio. Prática, tecnologia e resultados reais para sua carreira.
@@ -662,8 +547,9 @@
       <div>
         <h4 class="font-extrabold mb-4">Contato</h4>
         <p class="text-sm text-agro-textMuted mb-4">Fale com um consultor e garanta sua vaga.</p>
-        <a href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20falar%20com%20um%20consultor%20e%20tirar%20uma%20d%C3%BAvida." target="_blank"
-           class="inline-flex items-center justify-center px-6 py-4 bg-agro-primary text-black font-extrabold rounded-2xl shadow-lg hover:-translate-y-1 transition-all">
+        <a href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20falar%20com%20um%20consultor%20e%20tirar%20uma%20d%C3%BAvida."
+          target="_blank"
+          class="inline-flex items-center justify-center px-6 py-4 bg-agro-primary text-black font-extrabold rounded-2xl shadow-lg hover:-translate-y-1 transition-all">
           💬 WhatsApp
         </a>
       </div>
@@ -676,18 +562,13 @@
   </div>
 </footer>
 
-<!-- CTA mobile fixo -->
 <div class="md:hidden fixed bottom-6 left-4 right-4 z-40">
-  <a
-    href="https://wa.me/5566999763455"
-    target="_blank"
-    class="flex items-center justify-center w-full py-4 bg-agro-primary text-black font-extrabold rounded-full shadow-2xl border border-white/20 uppercase tracking-widest animate-bounce"
-  >
+  <a href="https://wa.me/5566999763455" target="_blank"
+    class="flex items-center justify-center w-full py-4 bg-agro-primary text-black font-extrabold rounded-full shadow-2xl border border-white/20 uppercase tracking-widest animate-bounce">
     Falar com Consultor
   </a>
 </div>
 
-<!-- Modal: Garantir minha vaga (nome + cidade) -->
 <div id="enrollModal" class="fixed inset-0 hidden items-center justify-center p-4" style="z-index: 100;">
   <div id="enrollBackdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
 
@@ -772,22 +653,19 @@
 </script>
 
 <script>
-/* AGENDA + MODAL (AGENDA CORRIGIDA: JAN -> JUN) */
+/* AGENDA + MODAL (SÓ TURMAS FUTURAS + "ÚLTIMAS VAGAS" QUANDO FALTAR <= 30 DIAS) */
 (function(){
   const WHATSAPP_LINK = "https://wa.me/5566999763455";
 
-  // ✅ AGENDA NOVA (conforme enviado)
-  // courseType: "drone" | "maquinas" | "inseminacao" | "evento"
+  // ✅ Só TURMAS (sem feriados / sem recesso) e sem Paragominas (já passou)
+  // Formato date: "DD/MM"
   const DATA = [
     // JANEIRO
-    {"date":"16/01","location":"Paragominas (PA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"PA"},
     {"date":"23/01","location":"Confresa (MT)","courseType":"maquinas","courseName":"Operador de Máquinas Pesadas","state":"MT"},
     {"date":"23/01","location":"Confresa (MT)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"MT"},
 
     // FEVEREIRO
     {"date":"06/02","location":"Novo Progresso (PA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"PA"},
-    {"date":"13/02","location":"Feriado / Recesso","courseType":"evento","courseName":"Carnaval","state":"BR"},
-    {"date":"20/02","location":"Feriado / Recesso","courseType":"evento","courseName":"Carnaval","state":"BR"},
     {"date":"27/02","location":"Rolim de Moura (RO)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"RO"},
 
     // MARÇO
@@ -797,16 +675,13 @@
     {"date":"27/03","location":"Rio Verde (GO)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"GO"},
 
     // ABRIL
-    {"date":"03/04","location":"Feriado Nacional","courseType":"evento","courseName":"Sexta-feira Santa","state":"BR"},
     {"date":"10/04","location":"Goiânia (GO)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"GO"},
     {"date":"10/04","location":"Ceres (GO)","courseType":"inseminacao","courseName":"Inseminação Artificial em Bovinos","state":"GO"},
-    {"date":"21/04","location":"Feriado Nacional","courseType":"evento","courseName":"Tiradentes","state":"BR"},
     {"date":"24/04","location":"Castelo dos Sonhos (PA)","courseType":"inseminacao","courseName":"Inseminação Artificial em Bovinos","state":"PA"},
     {"date":"24/04","location":"Novo Progresso (PA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"PA"},
 
     // MAIO
     {"date":"01/05","location":"Campos dos Goytacazes (RJ)","courseType":"inseminacao","courseName":"Inseminação Artificial em Bovinos","state":"RJ"},
-    {"date":"09/05","location":"Data comemorativa","courseType":"evento","courseName":"Dia das Mães","state":"BR"},
     {"date":"15/05","location":"Santarém (PA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"PA"},
     {"date":"22/05","location":"Teixeira de Freitas (BA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"BA"},
 
@@ -829,7 +704,6 @@
     if (t === "drone") return "Piloto de Drone Agrícola";
     if (t === "maquinas") return "Operador de Máquinas Pesadas";
     if (t === "inseminacao") return "Inseminação Artificial em Bovinos";
-    if (t === "evento") return "Eventos / Feriados";
     return "Curso";
   }
 
@@ -837,7 +711,6 @@
     if (t === "drone") return "🚁";
     if (t === "maquinas") return "🚜";
     if (t === "inseminacao") return "🐄";
-    if (t === "evento") return "📌";
     return "✅";
   }
 
@@ -845,20 +718,46 @@
     return (v || "").toString().trim().toLowerCase();
   }
 
+  // ✅ Converte "DD/MM" -> Date (ano atual; se já passou, joga pro próximo ano)
+  function dateToObj(ddmm) {
+    const parts = (ddmm || "").split("/");
+    const d = parseInt(parts[0], 10);
+    const m = parseInt(parts[1], 10);
+    const now = new Date();
+    let y = now.getFullYear();
+
+    let dt = new Date(y, (m - 1), d, 12, 0, 0, 0);
+    // se a data (ano atual) já passou, assume próximo ano
+    if (dt.getTime() < new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0).getTime()) {
+      dt = new Date(y + 1, (m - 1), d, 12, 0, 0, 0);
+    }
+    return dt;
+  }
+
+  // ✅ Diferença em dias (inteiro) de hoje até a data da turma
+  function daysUntil(ddmm) {
+    const now = new Date();
+    const startToday = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
+    const dt = dateToObj(ddmm);
+    const diffMs = dt.getTime() - startToday.getTime();
+    return Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+  }
+
+  // ✅ "Últimas vagas" se faltar <= 30 dias
+  function isLastSpots(ddmm) {
+    const d = daysUntil(ddmm);
+    return d >= 0 && d <= 30;
+  }
+
   function filteredList() {
-    return DATA.filter((c) => {
-      const type = normalizeCourseType(c.courseType);
-
-      const okCourse = (filterCourse === "all") || type === normalizeCourseType(filterCourse);
-
-      // Eventos (BR) aparecem independentemente do estado selecionado (pra não “sumir” feriado)
-      const okState =
-        (filterState === "all") ||
-        (c.state === filterState) ||
-        (type === "evento" && c.state === "BR");
-
-      return okCourse && okState;
-    });
+    return DATA
+      .slice()
+      .sort((a,b) => dateToObj(a.date) - dateToObj(b.date))
+      .filter((c) => {
+        const okCourse = (filterCourse === "all") || normalizeCourseType(c.courseType) === normalizeCourseType(filterCourse);
+        const okState = (filterState === "all") || (c.state === filterState);
+        return okCourse && okState;
+      });
   }
 
   function populateFilters() {
@@ -890,19 +789,12 @@
     optAllS.textContent = "Todos os estados";
     selState.appendChild(optAllS);
 
-    // Exibe BR também (eventos), mas no final
-    states.filter(s => s !== "BR").forEach((s) => {
+    states.forEach((s) => {
       const opt = document.createElement("option");
       opt.value = s;
       opt.textContent = s;
       selState.appendChild(opt);
     });
-    if (states.includes("BR")) {
-      const opt = document.createElement("option");
-      opt.value = "BR";
-      opt.textContent = "BR (Eventos)";
-      selState.appendChild(opt);
-    }
 
     selCourse.value = courseTypes.includes(prevCourse) ? prevCourse : "all";
     selState.value  = states.includes(prevState) ? prevState : "all";
@@ -912,9 +804,6 @@
   }
 
   function openEnrollModal(cls) {
-    // Eventos não abrem modal de matrícula
-    if (normalizeCourseType(cls.courseType) === "evento") return;
-
     selectedClass = cls;
     const modal = $("enrollModal");
     const panel = $("enrollPanel");
@@ -963,7 +852,6 @@
       return;
     }
     err?.classList.add("hidden");
-
     if (!selectedClass) return;
 
     const msg =
@@ -976,13 +864,9 @@
   }
 
   function attachEnrollModalHandlers() {
-    const closeBtn = $("enrollClose");
-    const backdrop = $("enrollBackdrop");
-    const submitBtn = $("enrollSubmit");
-
-    closeBtn?.addEventListener("click", closeEnrollModal);
-    backdrop?.addEventListener("click", closeEnrollModal);
-    submitBtn?.addEventListener("click", submitEnroll);
+    $("enrollClose")?.addEventListener("click", closeEnrollModal);
+    $("enrollBackdrop")?.addEventListener("click", closeEnrollModal);
+    $("enrollSubmit")?.addEventListener("click", submitEnroll);
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeEnrollModal();
@@ -1017,20 +901,28 @@
 
     list.slice(0, visibleCount).forEach((cls) => {
       const type = normalizeCourseType(cls.courseType);
-      const isEvent = type === "evento";
+      const lastSpots = isLastSpots(cls.date);
 
       const card = document.createElement("div");
-      card.className = "rounded-2xl bg-[#0F241B] border border-white/10 shadow-lg overflow-hidden";
+      card.className = "rounded-2xl bg-[#0F241B] border border-white/10 shadow-lg overflow-hidden relative";
+
+      // ✅ Balão "Últimas vagas" (<= 30 dias)
+      if (lastSpots) {
+        const badge = document.createElement("div");
+        badge.className = "absolute top-3 left-3 z-10 bg-red-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full shadow-lg animate-bounce";
+        badge.textContent = "ÚLTIMAS VAGAS";
+        card.appendChild(badge);
+      }
 
       const inner = document.createElement("div");
       inner.className = "p-6 relative";
 
       const accent = document.createElement("div");
-      accent.className = `absolute left-0 top-0 h-full w-1 ${isEvent ? "bg-agro-secondary/80" : "bg-agro-primary/80"}`;
+      accent.className = "absolute left-0 top-0 h-full w-1 bg-agro-primary/80";
       inner.appendChild(accent);
 
       const date = document.createElement("div");
-      date.className = `${isEvent ? "text-agro-secondary" : "text-agro-primary"} font-extrabold text-xl flex items-center gap-2`;
+      date.className = "text-agro-primary font-extrabold text-xl flex items-center gap-2";
       date.innerHTML = `<span>${cls.date}</span><span class="text-base opacity-90">${courseEmoji(type)}</span>`;
 
       const loc = document.createElement("div");
@@ -1043,31 +935,16 @@
       title.className = "mt-4 text-white font-extrabold text-lg leading-snug";
       title.textContent = cls.courseName;
 
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "mt-8 w-full rounded-xl bg-[#F2C94C] text-black font-extrabold py-3 tracking-wide transition-all hover:bg-agro-primary active:bg-agro-primary";
+      btn.textContent = "GARANTIR MINHA VAGA";
+      btn.addEventListener("click", () => openEnrollModal(cls));
+
       inner.appendChild(date);
       inner.appendChild(loc);
       inner.appendChild(title);
-
-      if (isEvent) {
-        const note = document.createElement("div");
-        note.className = "mt-6 text-xs text-agro-textMuted/80 leading-relaxed";
-        note.textContent = "Data informativa do calendário. Para confirmar turmas e logística, fale com a coordenação.";
-        inner.appendChild(note);
-
-        const btn = document.createElement("a");
-        btn.href = `${WHATSAPP_LINK}?text=${encodeURIComponent("Olá! Quero confirmar a agenda de turmas e as próximas datas disponíveis.")}`;
-        btn.target = "_blank";
-        btn.rel = "noopener";
-        btn.className = "mt-6 block w-full rounded-xl border border-white/15 text-white/90 font-extrabold py-3 tracking-wide transition-all hover:border-white/25 hover:bg-white/5 text-center";
-        btn.textContent = "FALAR COM A COORDENAÇÃO";
-        inner.appendChild(btn);
-      } else {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "mt-8 w-full rounded-xl bg-[#F2C94C] text-black font-extrabold py-3 tracking-wide transition-all hover:bg-agro-primary active:bg-agro-primary";
-        btn.textContent = "GARANTIR MINHA VAGA";
-        btn.addEventListener("click", () => openEnrollModal(cls));
-        inner.appendChild(btn);
-      }
+      inner.appendChild(btn);
 
       card.appendChild(inner);
       grid.appendChild(card);
@@ -1140,11 +1017,8 @@
     renderCards();
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
 })();
 </script>
 
