@@ -772,22 +772,50 @@
 </script>
 
 <script>
-/* AGENDA + MODAL */
+/* AGENDA + MODAL (AGENDA CORRIGIDA: JAN -> JUN) */
 (function(){
   const WHATSAPP_LINK = "https://wa.me/5566999763455";
+
+  // ✅ AGENDA NOVA (conforme enviado)
+  // courseType: "drone" | "maquinas" | "inseminacao" | "evento"
   const DATA = [
-    {"date": "16/01", "location": "Paragominas (PA)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "PA"},
-    {"date": "23/01", "location": "Confresa (MT)", "courseType": "maquinas", "courseName": "Operador de Máquinas Pesadas", "state": "MT"},
-    {"date": "23/01", "location": "Confresa (MT)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "MT"},
-    {"date": "30/01", "location": "Belo Horizonte (MG)", "courseType": "inseminacao", "courseName": "Inseminação Artificial em Bovinos", "state": "MG"},
-    {"date": "06/02", "location": "Castelo dos Sonhos (PA)", "courseType": "inseminacao", "courseName": "Inseminação Artificial em Bovinos", "state": "PA"},
-    {"date": "06/02", "location": "Novo Progresso (PA)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "PA"},
-    {"date": "27/02", "location": "Rolim de Moura (RO)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "RO"},
-    {"date": "27/02", "location": "Rolim de Moura (RO)", "courseType": "inseminacao", "courseName": "Inseminação Artificial em Bovinos", "state": "RO"},
-    {"date": "06/03", "location": "Teixeira de Freitas (BA)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "BA"},
-    {"date": "13/03", "location": "Luís Eduardo Magalhães (BA)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "BA"},
-    {"date": "13/03", "location": "Sinop (MT)", "courseType": "drone", "courseName": "Piloto de Drone Agrícola", "state": "MT"}
+    // JANEIRO
+    {"date":"16/01","location":"Paragominas (PA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"PA"},
+    {"date":"23/01","location":"Confresa (MT)","courseType":"maquinas","courseName":"Operador de Máquinas Pesadas","state":"MT"},
+    {"date":"23/01","location":"Confresa (MT)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"MT"},
+
+    // FEVEREIRO
+    {"date":"06/02","location":"Novo Progresso (PA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"PA"},
+    {"date":"13/02","location":"Feriado / Recesso","courseType":"evento","courseName":"Carnaval","state":"BR"},
+    {"date":"20/02","location":"Feriado / Recesso","courseType":"evento","courseName":"Carnaval","state":"BR"},
+    {"date":"27/02","location":"Rolim de Moura (RO)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"RO"},
+
+    // MARÇO
+    {"date":"13/03","location":"Belo Horizonte (MG)","courseType":"inseminacao","courseName":"Inseminação Artificial em Bovinos","state":"MG"},
+    {"date":"13/03","location":"Sinop (MT)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"MT"},
+    {"date":"20/03","location":"São Miguel do Araguaia (GO)","courseType":"inseminacao","courseName":"Inseminação Artificial em Bovinos","state":"GO"},
+    {"date":"27/03","location":"Rio Verde (GO)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"GO"},
+
+    // ABRIL
+    {"date":"03/04","location":"Feriado Nacional","courseType":"evento","courseName":"Sexta-feira Santa","state":"BR"},
+    {"date":"10/04","location":"Goiânia (GO)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"GO"},
+    {"date":"10/04","location":"Ceres (GO)","courseType":"inseminacao","courseName":"Inseminação Artificial em Bovinos","state":"GO"},
+    {"date":"21/04","location":"Feriado Nacional","courseType":"evento","courseName":"Tiradentes","state":"BR"},
+    {"date":"24/04","location":"Castelo dos Sonhos (PA)","courseType":"inseminacao","courseName":"Inseminação Artificial em Bovinos","state":"PA"},
+    {"date":"24/04","location":"Novo Progresso (PA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"PA"},
+
+    // MAIO
+    {"date":"01/05","location":"Campos dos Goytacazes (RJ)","courseType":"inseminacao","courseName":"Inseminação Artificial em Bovinos","state":"RJ"},
+    {"date":"09/05","location":"Data comemorativa","courseType":"evento","courseName":"Dia das Mães","state":"BR"},
+    {"date":"15/05","location":"Santarém (PA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"PA"},
+    {"date":"22/05","location":"Teixeira de Freitas (BA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"BA"},
+
+    // JUNHO
+    {"date":"12/06","location":"Teixeira de Freitas (BA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"BA"},
+    {"date":"19/06","location":"Jataí (GO)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"GO"},
+    {"date":"19/06","location":"Jataí (GO)","courseType":"inseminacao","courseName":"Inseminação Artificial em Bovinos","state":"GO"}
   ];
+
   const INITIAL_COUNT = 4;
 
   let filterCourse = "all";
@@ -801,7 +829,16 @@
     if (t === "drone") return "Piloto de Drone Agrícola";
     if (t === "maquinas") return "Operador de Máquinas Pesadas";
     if (t === "inseminacao") return "Inseminação Artificial em Bovinos";
+    if (t === "evento") return "Eventos / Feriados";
     return "Curso";
+  }
+
+  function courseEmoji(t) {
+    if (t === "drone") return "🚁";
+    if (t === "maquinas") return "🚜";
+    if (t === "inseminacao") return "🐄";
+    if (t === "evento") return "📌";
+    return "✅";
   }
 
   function normalizeCourseType(v) {
@@ -810,8 +847,16 @@
 
   function filteredList() {
     return DATA.filter((c) => {
-      const okCourse = (filterCourse === "all") || normalizeCourseType(c.courseType) === normalizeCourseType(filterCourse);
-      const okState = (filterState === "all") || (c.state === filterState);
+      const type = normalizeCourseType(c.courseType);
+
+      const okCourse = (filterCourse === "all") || type === normalizeCourseType(filterCourse);
+
+      // Eventos (BR) aparecem independentemente do estado selecionado (pra não “sumir” feriado)
+      const okState =
+        (filterState === "all") ||
+        (c.state === filterState) ||
+        (type === "evento" && c.state === "BR");
+
       return okCourse && okState;
     });
   }
@@ -830,6 +875,7 @@
     optAllC.value = "all";
     optAllC.textContent = "Todos os cursos";
     selCourse.appendChild(optAllC);
+
     courseTypes.forEach((t) => {
       const opt = document.createElement("option");
       opt.value = t;
@@ -843,12 +889,20 @@
     optAllS.value = "all";
     optAllS.textContent = "Todos os estados";
     selState.appendChild(optAllS);
-    states.forEach((s) => {
+
+    // Exibe BR também (eventos), mas no final
+    states.filter(s => s !== "BR").forEach((s) => {
       const opt = document.createElement("option");
       opt.value = s;
       opt.textContent = s;
       selState.appendChild(opt);
     });
+    if (states.includes("BR")) {
+      const opt = document.createElement("option");
+      opt.value = "BR";
+      opt.textContent = "BR (Eventos)";
+      selState.appendChild(opt);
+    }
 
     selCourse.value = courseTypes.includes(prevCourse) ? prevCourse : "all";
     selState.value  = states.includes(prevState) ? prevState : "all";
@@ -858,6 +912,9 @@
   }
 
   function openEnrollModal(cls) {
+    // Eventos não abrem modal de matrícula
+    if (normalizeCourseType(cls.courseType) === "evento") return;
+
     selectedClass = cls;
     const modal = $("enrollModal");
     const panel = $("enrollPanel");
@@ -959,6 +1016,9 @@
     }
 
     list.slice(0, visibleCount).forEach((cls) => {
+      const type = normalizeCourseType(cls.courseType);
+      const isEvent = type === "evento";
+
       const card = document.createElement("div");
       card.className = "rounded-2xl bg-[#0F241B] border border-white/10 shadow-lg overflow-hidden";
 
@@ -966,12 +1026,12 @@
       inner.className = "p-6 relative";
 
       const accent = document.createElement("div");
-      accent.className = "absolute left-0 top-0 h-full w-1 bg-agro-primary/80";
+      accent.className = `absolute left-0 top-0 h-full w-1 ${isEvent ? "bg-agro-secondary/80" : "bg-agro-primary/80"}`;
       inner.appendChild(accent);
 
       const date = document.createElement("div");
-      date.className = "text-agro-primary font-extrabold text-xl";
-      date.textContent = cls.date;
+      date.className = `${isEvent ? "text-agro-secondary" : "text-agro-primary"} font-extrabold text-xl flex items-center gap-2`;
+      date.innerHTML = `<span>${cls.date}</span><span class="text-base opacity-90">${courseEmoji(type)}</span>`;
 
       const loc = document.createElement("div");
       loc.className = "flex items-center gap-2 mt-2 text-sm text-agro-textMuted";
@@ -983,16 +1043,31 @@
       title.className = "mt-4 text-white font-extrabold text-lg leading-snug";
       title.textContent = cls.courseName;
 
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "mt-8 w-full rounded-xl bg-[#F2C94C] text-black font-extrabold py-3 tracking-wide transition-all hover:bg-agro-primary active:bg-agro-primary";
-      btn.textContent = "GARANTIR MINHA VAGA";
-      btn.addEventListener("click", () => openEnrollModal(cls));
-
       inner.appendChild(date);
       inner.appendChild(loc);
       inner.appendChild(title);
-      inner.appendChild(btn);
+
+      if (isEvent) {
+        const note = document.createElement("div");
+        note.className = "mt-6 text-xs text-agro-textMuted/80 leading-relaxed";
+        note.textContent = "Data informativa do calendário. Para confirmar turmas e logística, fale com a coordenação.";
+        inner.appendChild(note);
+
+        const btn = document.createElement("a");
+        btn.href = `${WHATSAPP_LINK}?text=${encodeURIComponent("Olá! Quero confirmar a agenda de turmas e as próximas datas disponíveis.")}`;
+        btn.target = "_blank";
+        btn.rel = "noopener";
+        btn.className = "mt-6 block w-full rounded-xl border border-white/15 text-white/90 font-extrabold py-3 tracking-wide transition-all hover:border-white/25 hover:bg-white/5 text-center";
+        btn.textContent = "FALAR COM A COORDENAÇÃO";
+        inner.appendChild(btn);
+      } else {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "mt-8 w-full rounded-xl bg-[#F2C94C] text-black font-extrabold py-3 tracking-wide transition-all hover:bg-agro-primary active:bg-agro-primary";
+        btn.textContent = "GARANTIR MINHA VAGA";
+        btn.addEventListener("click", () => openEnrollModal(cls));
+        inner.appendChild(btn);
+      }
 
       card.appendChild(inner);
       grid.appendChild(card);
