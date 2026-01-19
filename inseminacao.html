@@ -727,6 +727,13 @@
       background: rgba(0,0,0,0.18);
       white-space: nowrap;
     }
+    /* ✅ quando faltar <= 30 dias */
+    .badge-last {
+      border-color: rgba(255, 255, 255, 0.22);
+      background: #e53935;
+      color: #fff;
+      box-shadow: 0 12px 26px rgba(0,0,0,0.45);
+    }
 
     .upcoming-location {
       color: rgba(255,255,255,0.70);
@@ -1310,17 +1317,19 @@
             </button>
           </div>
 
+          <!-- ✅ AJUSTADO: SOMENTE TURMAS DE INSEMINAÇÃO (removido 30/01 e qualquer turma fora da lista) -->
           <div class="upcoming-grid" id="upcoming-grid-inseminacao">
+
             <article
               class="upcoming-card"
               data-course="Inseminação Artificial em Bovinos"
               data-local="Belo Horizonte (MG)"
-              data-course-date="30/01/2026"
+              data-course-date="13/03/2026"
               data-city="belo horizonte"
               data-state="mg"
             >
               <div class="upcoming-top">
-                <div class="upcoming-date">30/01</div>
+                <div class="upcoming-date">13/03</div>
                 <div class="badge-open">INSCRIÇÕES ABERTAS</div>
               </div>
               <div class="upcoming-location">📍 Belo Horizonte (MG)</div>
@@ -1333,16 +1342,16 @@
             <article
               class="upcoming-card"
               data-course="Inseminação Artificial em Bovinos"
-              data-local="Castelo dos Sonhos (PA)"
-              data-course-date="06/02/2026"
-              data-city="castelo dos sonhos"
-              data-state="pa"
+              data-local="São Miguel do Araguaia (GO)"
+              data-course-date="20/03/2026"
+              data-city="sao miguel do araguaia"
+              data-state="go"
             >
               <div class="upcoming-top">
-                <div class="upcoming-date">06/02</div>
+                <div class="upcoming-date">20/03</div>
                 <div class="badge-open">INSCRIÇÕES ABERTAS</div>
               </div>
-              <div class="upcoming-location">📍 Castelo dos Sonhos (PA)</div>
+              <div class="upcoming-location">📍 São Miguel do Araguaia (GO)</div>
               <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
               <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-2">
                 GARANTIR MINHA VAGA →
@@ -1352,21 +1361,79 @@
             <article
               class="upcoming-card"
               data-course="Inseminação Artificial em Bovinos"
-              data-local="Rolim de Moura (RO)"
-              data-course-date="27/02/2026"
-              data-city="rolim de moura"
-              data-state="ro"
+              data-local="Ceres (GO)"
+              data-course-date="10/04/2026"
+              data-city="ceres"
+              data-state="go"
             >
               <div class="upcoming-top">
-                <div class="upcoming-date">27/02</div>
+                <div class="upcoming-date">10/04</div>
                 <div class="badge-open">INSCRIÇÕES ABERTAS</div>
               </div>
-              <div class="upcoming-location">📍 Rolim de Moura (RO)</div>
+              <div class="upcoming-location">📍 Ceres (GO)</div>
               <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
               <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-3">
                 GARANTIR MINHA VAGA →
               </button>
             </article>
+
+            <article
+              class="upcoming-card"
+              data-course="Inseminação Artificial em Bovinos"
+              data-local="Castelo dos Sonhos (PA)"
+              data-course-date="24/04/2026"
+              data-city="castelo dos sonhos"
+              data-state="pa"
+            >
+              <div class="upcoming-top">
+                <div class="upcoming-date">24/04</div>
+                <div class="badge-open">INSCRIÇÕES ABERTAS</div>
+              </div>
+              <div class="upcoming-location">📍 Castelo dos Sonhos (PA)</div>
+              <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
+              <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-4">
+                GARANTIR MINHA VAGA →
+              </button>
+            </article>
+
+            <article
+              class="upcoming-card"
+              data-course="Inseminação Artificial em Bovinos"
+              data-local="Campos dos Goytacazes (RJ)"
+              data-course-date="01/05/2026"
+              data-city="campos dos goytacazes"
+              data-state="rj"
+            >
+              <div class="upcoming-top">
+                <div class="upcoming-date">01/05</div>
+                <div class="badge-open">INSCRIÇÕES ABERTAS</div>
+              </div>
+              <div class="upcoming-location">📍 Campos dos Goytacazes (RJ)</div>
+              <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
+              <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-5">
+                GARANTIR MINHA VAGA →
+              </button>
+            </article>
+
+            <article
+              class="upcoming-card"
+              data-course="Inseminação Artificial em Bovinos"
+              data-local="Jataí (GO)"
+              data-course-date="19/06/2026"
+              data-city="jatai"
+              data-state="go"
+            >
+              <div class="upcoming-top">
+                <div class="upcoming-date">19/06</div>
+                <div class="badge-open">INSCRIÇÕES ABERTAS</div>
+              </div>
+              <div class="upcoming-location">📍 Jataí (GO)</div>
+              <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
+              <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-6">
+                GARANTIR MINHA VAGA →
+              </button>
+            </article>
+
           </div>
 
           <!-- NÃO ENCONTROU SUA CIDADE? -->
@@ -1725,7 +1792,45 @@
         });
       }
 
+      // ✅ Badge "ÚLTIMAS VAGAS" quando faltar <= 30 dias (somente Inseminação)
+      function parseDateBR(ddmmyyyy) {
+        const parts = String(ddmmyyyy || "").split("/");
+        const d = parseInt(parts[0], 10);
+        const m = parseInt(parts[1], 10);
+        const y = parseInt(parts[2], 10);
+        if (!d || !m || !y) return null;
+        return new Date(y, m - 1, d, 12, 0, 0, 0);
+      }
+      function daysUntil(dateObj) {
+        const now = new Date();
+        const startToday = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
+        const diffMs = dateObj.getTime() - startToday.getTime();
+        return Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+      }
+      function applyLastSpotsBadges() {
+        if (!grid) return;
+        const cards = Array.from(grid.querySelectorAll(".upcoming-card"));
+
+        cards.forEach((card) => {
+          const full = card.getAttribute("data-course-date") || "";
+          const dt = parseDateBR(full);
+          const badge = card.querySelector(".badge-open");
+          if (!dt || !badge) return;
+
+          const diff = daysUntil(dt);
+
+          if (diff >= 0 && diff <= 30) {
+            badge.textContent = "ÚLTIMAS VAGAS";
+            badge.classList.add("badge-last");
+          } else {
+            badge.textContent = "INSCRIÇÕES ABERTAS";
+            badge.classList.remove("badge-last");
+          }
+        });
+      }
+
       applyUpcomingFilter();
+      applyLastSpotsBadges();
 
       // ====== MODAL TURMAS ======
       const overlay = document.getElementById("turmaModalOverlay");
@@ -1858,3 +1963,4 @@
   </script>
 </body>
 </html>
+
