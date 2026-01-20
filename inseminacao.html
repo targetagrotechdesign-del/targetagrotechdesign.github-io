@@ -406,6 +406,8 @@
       background: transparent;
       border: 0;
       padding: 0;
+      /* ✅ BUGFIX: esse botão cobria o vídeo e travava o clique no pause.
+         Ele vai ser escondido via JS após iniciar o vídeo. */
     }
 
     /* ====== STRIP DIFERENCIAIS (abaixo do hero) ====== */
@@ -1640,14 +1642,45 @@
       const heroOverlay = document.getElementById("heroPlayOverlay");
       const heroPlayBtn = document.getElementById("heroPlayBtn");
 
+      // ✅ BUGFIX: o botão (#heroPlayBtn) ficava por cima do vídeo depois de dar play,
+      // interceptando o clique nos controles (pause). Agora ele some após iniciar.
+      function hideHeroClickLayer() {
+        if (!heroPlayBtn) return;
+        heroPlayBtn.style.display = "none";
+        heroPlayBtn.style.pointerEvents = "none";
+        heroPlayBtn.setAttribute("aria-hidden", "true");
+      }
+
+      function showHeroClickLayer() {
+        if (!heroPlayBtn) return;
+        heroPlayBtn.style.display = "block";
+        heroPlayBtn.style.pointerEvents = "auto";
+        heroPlayBtn.setAttribute("aria-hidden", "false");
+      }
+
       function startHeroVideo() {
         if (!heroVideo) return;
-        heroVideo.setAttribute("controls", "controls");
+
+        // habilita controles de forma confiável
+        heroVideo.controls = true;
+
+        // tenta reproduzir
         heroVideo.play().catch(() => {});
+
+        // some com overlay e "camada" clicável
         if (heroOverlay) heroOverlay.style.display = "none";
+        hideHeroClickLayer();
       }
 
       if (heroPlayBtn) heroPlayBtn.addEventListener("click", startHeroVideo);
+
+      // quando terminar, volta o overlay (opcional) pra indicar replay
+      if (heroVideo) {
+        heroVideo.addEventListener("ended", function () {
+          if (heroOverlay) heroOverlay.style.display = "flex";
+          showHeroClickLayer();
+        });
+      }
 
       // ====== FLOATING WA: aparece após scroll (pra não “contar” na primeira dobra) ======
       const waFloat = document.getElementById("waFloat");
@@ -1963,4 +1996,3 @@
   </script>
 </body>
 </html>
-
