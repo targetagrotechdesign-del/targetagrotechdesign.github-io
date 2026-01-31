@@ -1,81 +1,104 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Target Agrotech - Formação Profissional para o Agro</title>
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          agro: {
-            background: '#06160f',
-            card: '#10251a',
-            border: '#1f3b29',
-            primary: '#00b050',
-            primarySoft: '#0fd266',
-            secondary: '#f2c94c',
-            textMain: '#f5f5f5',
-            textMuted: '#c1c9c5',
-          }
-        },
-        fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+  <!-- TITLE (já existia) -->
+  <title>Target Agrotech - Formação Profissional para o Agro</title>
+
+  <!-- SEO BÁSICO (NOVO) -->
+  <meta name="description" content="Target AgroTech: cursos presenciais e práticos de Piloto de Drone Agrícola (CAAR incluso), Operador de Máquinas Pesadas e Inseminação Artificial em Bovinos. Turmas em várias cidades do Brasil." />
+  <link rel="canonical" href="https://targetagrotech.com.br/" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- OPEN GRAPH (NOVO: prévia bonita no WhatsApp / redes) -->
+  <meta property="og:site_name" content="Target AgroTech" />
+  <meta property="og:title" content="Target AgroTech - Formação Profissional para o Agro" />
+  <meta property="og:description" content="Cursos presenciais e práticos: Drone Agrícola (CAAR incluso), Máquinas Pesadas e Inseminação Artificial." />
+  <meta property="og:url" content="https://targetagrotech.com.br/" />
+  <meta property="og:type" content="website" />
+
+  <!-- TEMA NO MOBILE (NOVO: detalhe visual no navegador do celular) -->
+  <meta name="theme-color" content="#00b050" />
+
+  <!-- FAVICON (já existia) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+
+  <!-- TAILWIND (já existia) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FONTE (já existia) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- CONFIG TAILWIND (já existia) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            agro: {
+              background: '#06160f',
+              card: '#10251a',
+              border: '#1f3b29',
+              primary: '#00b050',
+              primarySoft: '#0fd266',
+              secondary: '#f2c94c',
+              textMain: '#f5f5f5',
+              textMuted: '#c1c9c5',
+            }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
       }
     }
-  }
-</script>
+  </script>
 
-<style>
-  body { background: radial-gradient(circle at top, #0e2a1d 0, #020a06 45%, #020805 100%); }
-  html { scroll-padding-top: 90px; }
+  <!-- SEU CSS (já existia) -->
+  <style>
+    body { background: radial-gradient(circle at top, #0e2a1d 0, #020a06 45%, #020805 100%); }
+    html { scroll-padding-top: 90px; }
 
-  @keyframes blob {
-    0% { transform: translate(0px, 0px) scale(1); }
-    33% { transform: translate(30px, -50px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.9); }
-    100% { transform: translate(0px, 0px) scale(1); }
-  }
-  .animate-blob { animation: blob 7s infinite; }
-  .animation-delay-2000 { animation-delay: 2s; }
-  .animation-delay-4000 { animation-delay: 4s; }
+    @keyframes blob {
+      0% { transform: translate(0px, 0px) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+      100% { transform: translate(0px, 0px) scale(1); }
+    }
+    .animate-blob { animation: blob 7s infinite; }
+    .animation-delay-2000 { animation-delay: 2s; }
+    .animation-delay-4000 { animation-delay: 4s; }
 
-  @keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  .animated-gradient-text { background-size: 200% 200%; animation: gradientMove 3s linear infinite; }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animated-gradient-text { background-size: 200% 200%; animation: gradientMove 3s linear infinite; }
 
-  @keyframes bob {
-    0%, 100% { transform: translateY(0); opacity: .55; }
-    50% { transform: translateY(10px); opacity: .85; }
-  }
-  .scroll-indicator { animation: bob 1.5s infinite; }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); opacity: .55; }
+      50% { transform: translateY(10px); opacity: .85; }
+    }
+    .scroll-indicator { animation: bob 1.5s infinite; }
 
-  .hero-glow {
-    position: absolute;
-    width: 420px;
-    height: 420px;
-    border-radius: 9999px;
-    filter: blur(2px);
-    background: radial-gradient(circle, rgba(0, 176, 80, 0.15) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
+    .hero-glow {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 9999px;
+      filter: blur(2px);
+      background: radial-gradient(circle, rgba(0, 176, 80, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-  .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-  .custom-scrollbar::-webkit-scrollbar-track { background: #020805; }
-  .custom-scrollbar::-webkit-scrollbar-thumb { background: #1f3b29; border-radius: 10px; }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #020805; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #1f3b29; border-radius: 10px; }
 
-  .modal-hidden { opacity: 0; transform: scale(.96); pointer-events: none; }
-  .modal-visible { opacity: 1; transform: scale(1); pointer-events: auto; }
-  .modal-anim { transition: opacity .18s ease, transform .18s ease; }
-</style>
+    .modal-hidden { opacity: 0; transform: scale(.96); pointer-events: none; }
+    .modal-visible { opacity: 1; transform: scale(1); pointer-events: auto; }
+    .modal-anim { transition: opacity .18s ease, transform .18s ease; }
+  </style>
 </head>
 
 <body class="text-agro-textMain custom-scrollbar overflow-x-hidden">
@@ -1100,3 +1123,4 @@
 
 </body>
 </html>
+
