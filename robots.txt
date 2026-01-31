@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://targetagrotech.com.br/sitemap.xml
