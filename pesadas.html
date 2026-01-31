@@ -5,25 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Operador de Máquinas Pesadas - Target Agrotech</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
-  <link rel="shortcut icon" type="image/png" href="assets/favicon-32.png" />
-
   <!-- SEO -->
   <meta
     name="description"
     content="Curso presencial de Operador de Máquinas Pesadas com prática intensa em pista preparada, foco total em segurança, produtividade e empregabilidade no agro, certificado e carta de estágio."
   />
+  <link rel="canonical" href="https://targetagrotech.com.br/maquinas-pesadas.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#00b050" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="shortcut icon" type="image/png" href="assets/favicon-32.png" />
 
   <!-- Open Graph / Social -->
+  <meta property="og:site_name" content="Target AgroTech" />
+  <meta property="og:locale" content="pt_BR" />
   <meta property="og:title" content="Operador de Máquinas Pesadas - Target Agrotech" />
   <meta
     property="og:description"
     content="Formação presencial com prática real em máquinas pesadas, foco em segurança e empregabilidade no campo."
   />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://seu-dominio.com/assets/pesadas-hero.jpg" />
-  <meta property="og:url" content="https://seu-dominio.com/curso-maquinas-pesadas" />
+  <meta property="og:image" content="https://targetagrotech.com.br/assets/pesadas-hero.jpg" />
+  <meta property="og:url" content="https://targetagrotech.com.br/maquinas-pesadas.html" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Operador de Máquinas Pesadas - Target Agrotech" />
+  <meta
+    name="twitter:description"
+    content="Formação presencial com prática real em máquinas pesadas, foco em segurança e empregabilidade no campo."
+  />
+  <meta name="twitter:image" content="https://targetagrotech.com.br/assets/pesadas-hero.jpg" />
 
   <!-- Meta Pixel Code -->
   <script>
@@ -1386,16 +1400,24 @@
       const today = new Date();
       today.setHours(0, 0, 0, 0);
 
+      // ✅ FIX: calcula ano corretamente (usa ano atual; se já passou, joga pro próximo)
       function parseCourseDate(ddmm) {
         const parts = (ddmm || "").split("/");
         if (parts.length !== 2) return null;
+
         const day = parseInt(parts[0], 10);
         const month = parseInt(parts[1], 10);
         if (isNaN(day) || isNaN(month)) return null;
 
         const currentYear = today.getFullYear();
-        const year = (month === 12) ? currentYear : currentYear + 1;
-        return new Date(year, month - 1, day);
+        let date = new Date(currentYear, month - 1, day);
+        date.setHours(0, 0, 0, 0);
+
+        if (date.getTime() < today.getTime()) {
+          date = new Date(currentYear + 1, month - 1, day);
+          date.setHours(0, 0, 0, 0);
+        }
+        return date;
       }
 
       function initUpcomingClassesPesadas() {
