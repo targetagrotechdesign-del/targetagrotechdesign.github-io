@@ -1,35 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- TITLE (já existia) -->
   <title>Target Agrotech - Formação Profissional para o Agro</title>
 
-  <!-- SEO BÁSICO (NOVO) -->
-  <meta name="description" content="Target AgroTech: cursos presenciais e práticos de Piloto de Drone Agrícola (CAAR incluso), Operador de Máquinas Pesadas e Inseminação Artificial em Bovinos. Turmas em várias cidades do Brasil." />
+  <!-- SEO -->
+  <meta name="description" content="Target AgroTech: cursos presenciais e práticos de Piloto de Drone Agrícola (CAAR incluso) e Inseminação Artificial em Bovinos. Turmas em várias cidades do Brasil." />
   <link rel="canonical" href="https://targetagrotech.com.br/index.html" />
   <meta name="robots" content="index,follow" />
 
-  <!-- OPEN GRAPH (NOVO: prévia bonita no WhatsApp / redes) -->
+  <!-- Open Graph -->
   <meta property="og:site_name" content="Target AgroTech" />
   <meta property="og:title" content="Target AgroTech - Formação Profissional para o Agro" />
-  <meta property="og:description" content="Cursos presenciais e práticos: Drone Agrícola (CAAR incluso), Máquinas Pesadas e Inseminação Artificial." />
+  <meta property="og:description" content="Cursos presenciais e práticos: Drone Agrícola (CAAR incluso) e Inseminação Artificial em Bovinos." />
   <meta property="og:url" content="https://targetagrotech.com.br/" />
   <meta property="og:type" content="website" />
 
-  <!-- TEMA NO MOBILE (NOVO: detalhe visual no navegador do celular) -->
   <meta name="theme-color" content="#00b050" />
-
-  <!-- FAVICON (já existia) -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 
-  <!-- TAILWIND (já existia) -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- FONTE (já existia) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- CONFIG TAILWIND (já existia) -->
   <script>
     tailwind.config = {
       theme: {
@@ -52,7 +46,6 @@
     }
   </script>
 
-  <!-- SEU CSS (já existia) -->
   <style>
     body { background: radial-gradient(circle at top, #0e2a1d 0, #020a06 45%, #020805 100%); }
     html { scroll-padding-top: 90px; }
@@ -131,10 +124,6 @@
                 <div class="text-[10px] uppercase tracking-wider text-agro-primary">Mais Procurado</div>
               </a>
               <a href="#cursos" class="block px-4 py-3 text-sm text-agro-textMuted hover:text-white hover:bg-white/5 rounded-xl transition-colors">
-                <div class="font-bold text-white mb-0.5">Operador de Máquinas Pesadas</div>
-                <div class="text-[10px] uppercase tracking-wider text-agro-primary">Alta Demanda</div>
-              </a>
-              <a href="#cursos" class="block px-4 py-3 text-sm text-agro-textMuted hover:text-white hover:bg-white/5 rounded-xl transition-colors">
                 <div class="font-bold text-white mb-0.5">Inseminação Artificial em Bovinos</div>
                 <div class="text-[10px] uppercase tracking-wider text-agro-primary">Especialização</div>
               </a>
@@ -162,7 +151,6 @@
       <div class="space-y-2 pl-4 border-l border-white/10">
         <span class="text-xs font-bold text-agro-primary uppercase tracking-widest">Cursos</span>
         <a href="./drone.html" class="block text-white py-1">Piloto de Drone Agrícola</a>
-        <a href="./pesadas.html" class="block text-white py-1">Operador de Máquinas Pesadas</a>
         <a href="./inseminacao.html" class="block text-white py-1">Inseminação Artificial</a>
       </div>
 
@@ -207,7 +195,7 @@
       </h1>
 
       <p class="text-lg md:text-2xl text-agro-textMuted max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
-        Formação prática presencial reconhecida pelo mercado. Escolha entre Drones, Máquinas ou Pecuária.
+        Formação prática presencial reconhecida pelo mercado. Escolha entre Drone Agrícola e Inseminação em Bovinos.
       </p>
 
       <div class="flex flex-col items-center gap-4">
@@ -240,23 +228,16 @@
   </div>
 </header>
 
+<!-- Cards do topo: 3 -> 2 -->
 <section class="py-12 bg-transparent">
   <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 -mt-20 md:-mt-32 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 -mt-20 md:-mt-32 relative z-10">
 
       <div class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden shadow-2xl transform transition hover:-translate-y-2">
         <img src="assets/hero-drone.jpg" alt="Piloto de Drone Agrícola" class="w-full h-48 object-cover" />
         <div class="p-5 text-center">
           <h3 class="text-xl font-bold mb-2">Piloto de Drone Agrícola</h3>
           <p class="text-sm text-agro-textMuted leading-relaxed">Quem quer trabalhar com tecnologia de precisão, pulverização e mapeamento agrícola.</p>
-        </div>
-      </div>
-
-      <div class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden shadow-2xl transform transition hover:-translate-y-2">
-        <img src="assets/hero-maquinas.jpg" alt="Operador de Máquinas Pesadas" class="w-full h-48 object-cover" />
-        <div class="p-5 text-center">
-          <h3 class="text-xl font-bold mb-2">Operador de Máquinas Pesadas</h3>
-          <p class="text-sm text-agro-textMuted leading-relaxed">Quem quer trabalhar com terraplanagem, construção e operação em propriedades rurais.</p>
         </div>
       </div>
 
@@ -282,8 +263,10 @@
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <!-- 3 -> 2 colunas no desktop -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
 
+      <!-- DRONE -->
       <article class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden group hover:border-agro-primary/30 transition-all duration-300 relative">
         <div class="absolute top-6 right-6 z-10 px-3 py-1 bg-agro-secondary/20 rounded-full text-[10px] font-bold text-agro-secondary uppercase tracking-wider">
           Mais Procurado
@@ -321,43 +304,7 @@
         </div>
       </article>
 
-      <article class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden group hover:border-agro-primary/30 transition-all duration-300 relative">
-        <div class="absolute top-6 right-6 z-10 px-3 py-1 bg-agro-secondary/20 rounded-full text-[10px] font-bold text-agro-secondary uppercase tracking-wider">
-          Alta Demanda
-        </div>
-        <div class="p-8 pt-14">
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-14 h-14 rounded-2xl bg-agro-primary/10 flex items-center justify-center text-2xl">🚜</div>
-            <div>
-              <h3 class="text-2xl font-extrabold leading-tight">Operador de Máquinas Pesadas</h3>
-              <p class="text-agro-textMuted text-sm mt-1">Quem quer trabalhar com terraplanagem, construção e operação em propriedades rurais.</p>
-            </div>
-          </div>
-
-          <div class="space-y-2 text-sm text-agro-textMuted mb-8">
-            <ul class="space-y-2">
-              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Operação de retro, pá e escavadeira</span></li>
-              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Treinamento prático em ambiente real</span></li>
-              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Segurança e manutenção básica</span></li>
-              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Certificação reconhecida pelo mercado</span></li>
-              <li class='flex gap-2'><span class='text-agro-secondary'>✓</span><span>Orientação para vagas</span></li>
-            </ul>
-          </div>
-
-          <div class="space-y-3">
-            <a href="https://wa.me/5566999763455?text=Ol%C3%A1%21%20Quero%20me%20inscrever%20no%20curso%20de%20Operador%20de%20M%C3%A1quinas%20Pesadas%20e%20garantir%20minha%20vaga."
-              target="_blank"
-              class="block w-full py-4 bg-agro-primary text-black font-extrabold rounded-xl text-center uppercase tracking-wide transition-all shadow-md hover:-translate-y-1 active:scale-95">
-              Me Inscrever na Turma
-            </a>
-            <a href="pesadas.html"
-              class="block w-full py-4 border border-white/10 text-center text-agro-textMain font-medium rounded-xl text-sm hover:border-white/20 transition-all">
-              Ver Detalhes do Curso
-            </a>
-          </div>
-        </div>
-      </article>
-
+      <!-- INSEMINAÇÃO -->
       <article class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden group hover:border-agro-primary/30 transition-all duration-300 relative">
         <div class="absolute top-6 right-6 z-10 px-3 py-1 bg-agro-secondary/20 rounded-full text-[10px] font-bold text-agro-secondary uppercase tracking-wider">
           Especialização
@@ -414,9 +361,9 @@
       </div>
 
       <div class="bg-agro-card border border-white/5 rounded-3xl p-8 hover:border-agro-primary/30 transition-all">
-        <div class="text-4xl mb-4">🚜</div>
+        <div class="text-4xl mb-4">🌾</div>
         <h3 class="text-xl font-bold mb-3">Prática em Campo Real</h3>
-        <p class="text-sm text-agro-textMuted leading-relaxed">Nada de simulação. Aqui você opera em máquinas e drones reais, em fazendas parceiras.</p>
+        <p class="text-sm text-agro-textMuted leading-relaxed">Nada de simulação. Aqui você aprende no campo, com rotina real e orientação de especialistas.</p>
       </div>
 
       <div class="bg-agro-card border border-white/5 rounded-3xl p-8 hover:border-agro-primary/30 transition-all">
@@ -501,7 +448,6 @@
             <select id="notifyCourse" class="mt-2 w-full bg-black/40 border border-white/15 rounded-xl px-4 py-3 text-white/90 focus:outline-none focus:border-agro-primary/70 hover:border-white/25 transition">
               <option value="drone">Piloto de Drone Agrícola</option>
               <option value="inseminacao">Inseminação Artificial em Bovinos</option>
-              <option value="maquinas">Operador de Máquinas Pesadas</option>
             </select>
           </div>
 
@@ -529,7 +475,6 @@
     <div class="max-w-4xl mx-auto">
       <div class="flex flex-wrap justify-center gap-3 mb-8">
         <button class="faq-tab px-6 py-3 rounded-2xl bg-agro-card border border-white/10 hover:border-white/20 transition-all" data-tab="drone">Drone</button>
-        <button class="faq-tab px-6 py-3 rounded-2xl bg-agro-card border border-white/10 hover:border-white/20 transition-all" data-tab="maquinas">Máquinas</button>
         <button class="faq-tab px-6 py-3 rounded-2xl bg-agro-card border border-white/10 hover:border-white/20 transition-all" data-tab="inseminacao">Inseminação</button>
       </div>
 
@@ -563,7 +508,6 @@
         <ul class="space-y-2 text-sm text-agro-textMuted">
           <li><a class="hover:text-agro-primary transition" href="./drone.html">Drone Agrícola</a></li>
           <li><a class="hover:text-agro-primary transition" href="./inseminacao.html">Inseminação</a></li>
-          <li><a class="hover:text-agro-primary transition" href="./pesadas.html">Máquinas Pesadas</a></li>
         </ul>
       </div>
 
@@ -592,6 +536,7 @@
   </a>
 </div>
 
+<!-- Modal matrícula (mantido) -->
 <div id="enrollModal" class="fixed inset-0 hidden items-center justify-center p-4" style="z-index: 100;">
   <div id="enrollBackdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
 
@@ -680,13 +625,8 @@
 (function(){
   const WHATSAPP_LINK = "https://wa.me/5566999763455";
 
-  // ✅ Só TURMAS (sem feriados / sem recesso) e sem Paragominas (já passou)
-  // Formato date: "DD/MM"
+  // ✅ Somente DRONE e INSEMINAÇÃO
   const DATA = [
-    // JANEIRO
-    {"date":"23/01","location":"Confresa (MT)","courseType":"maquinas","courseName":"Operador de Máquinas Pesadas","state":"MT"},
-    {"date":"23/01","location":"Confresa (MT)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"MT"},
-
     // FEVEREIRO
     {"date":"06/02","location":"Novo Progresso (PA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"PA"},
     {"date":"27/02","location":"Rolim de Moura (RO)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"RO"},
@@ -725,14 +665,12 @@
 
   function courseLabel(t) {
     if (t === "drone") return "Piloto de Drone Agrícola";
-    if (t === "maquinas") return "Operador de Máquinas Pesadas";
     if (t === "inseminacao") return "Inseminação Artificial em Bovinos";
     return "Curso";
   }
 
   function courseEmoji(t) {
     if (t === "drone") return "🚁";
-    if (t === "maquinas") return "🚜";
     if (t === "inseminacao") return "🐄";
     return "✅";
   }
@@ -741,7 +679,6 @@
     return (v || "").toString().trim().toLowerCase();
   }
 
-  // ✅ Converte "DD/MM" -> Date (ano atual; se já passou, joga pro próximo ano)
   function dateToObj(ddmm) {
     const parts = (ddmm || "").split("/");
     const d = parseInt(parts[0], 10);
@@ -750,14 +687,12 @@
     let y = now.getFullYear();
 
     let dt = new Date(y, (m - 1), d, 12, 0, 0, 0);
-    // se a data (ano atual) já passou, assume próximo ano
     if (dt.getTime() < new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0).getTime()) {
       dt = new Date(y + 1, (m - 1), d, 12, 0, 0, 0);
     }
     return dt;
   }
 
-  // ✅ Diferença em dias (inteiro) de hoje até a data da turma
   function daysUntil(ddmm) {
     const now = new Date();
     const startToday = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
@@ -766,7 +701,6 @@
     return Math.ceil(diffMs / (1000 * 60 * 60 * 24));
   }
 
-  // ✅ "Últimas vagas" se faltar <= 30 dias
   function isLastSpots(ddmm) {
     const d = daysUntil(ddmm);
     return d >= 0 && d <= 30;
@@ -929,7 +863,6 @@
       const card = document.createElement("div");
       card.className = "rounded-2xl bg-[#0F241B] border border-white/10 shadow-lg overflow-hidden relative";
 
-      // ✅ Balão "Últimas vagas" (<= 30 dias)
       if (lastSpots) {
         const badge = document.createElement("div");
         badge.className = "absolute top-3 left-3 z-10 bg-red-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full shadow-lg animate-bounce";
@@ -1022,12 +955,11 @@
 
       const courseTxt =
         course === "inseminacao" ? "Inseminação Artificial em Bovinos" :
-        course === "maquinas" ? "Máquinas Pesadas" :
         course === "drone" ? "Piloto de Drone Agrícola" :
         "Target AgroTech";
 
       const msg = `Olá, meu nome é ${name}, sou da cidade ${city} e quero o curso de ${courseTxt} na minha cidade.`;
-      const url = `${WHATSAPP_LINK}?text=${encodeURIComponent(msg)}`;
+      const url = `https://wa.me/5566999763455?text=${encodeURIComponent(msg)}`;
       window.open(url, "_blank", "noopener");
     });
   }
@@ -1053,11 +985,6 @@
       { "question": "Preciso ter experiência com drones?", "answer": "Não. O curso começa do zero, desde os fundamentos até a operação profissional e pulverização." },
       { "question": "O CAAR está incluso?", "answer": "Sim. Cuidamos de todo o processo para você obter sua certificação obrigatória do MAPA." },
       { "question": "O mercado de trabalho é bom?", "answer": "Altíssimo. A pulverização com drones é a tecnologia que mais cresce no agro brasileiro hoje." }
-    ],
-    "maquinas": [
-      { "question": "Quais máquinas vou aprender?", "answer": "Retroescavadeira, pá-carregadeira e escavadeira hidráulica em situações reais de campo." },
-      { "question": "O certificado é válido?", "answer": "Sim, certificado reconhecido nacionalmente e aceito em grandes empresas e fazendas." },
-      { "question": "Qual a idade mínima?", "answer": "A partir de 18 anos, com ou sem experiência prévia em operação." }
     ],
     "inseminacao": [
       { "question": "As aulas são práticas?", "answer": "100% práticas no curral. Você aprende fazendo o manejo real em animais." },
@@ -1123,5 +1050,3 @@
 
 </body>
 </html>
-
-
