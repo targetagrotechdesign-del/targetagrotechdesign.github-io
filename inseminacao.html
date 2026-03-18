@@ -4,10 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- TITLE -->
   <title>Inseminação Artificial em Bovinos - Target Agrotech</title>
 
-  <!-- SEO -->
   <meta
     name="description"
     content="Curso presencial de Inseminação Artificial em Bovinos com prática intensa em curral, foco em manejo reprodutivo e produtividade do rebanho, certificado e carta de estágio."
@@ -15,7 +13,6 @@
   <link rel="canonical" href="https://targetagrotech.com.br/inseminacao.html" />
   <meta name="robots" content="index,follow" />
 
-  <!-- Open Graph / Social -->
   <meta property="og:site_name" content="Target AgroTech" />
   <meta property="og:title" content="Inseminação Artificial em Bovinos - Target Agrotech" />
   <meta
@@ -26,14 +23,11 @@
   <meta property="og:image" content="https://targetagrotech.com.br/assets/inseminacao-hero.jpg" />
   <meta property="og:url" content="https://targetagrotech.com.br/inseminacao.html" />
 
-  <!-- Tema no mobile -->
   <meta name="theme-color" content="#00b050" />
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="shortcut icon" type="image/png" href="assets/favicon-32.png" />
 
-  <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -46,7 +40,6 @@
     fbq('init', '2103148137124992');
     fbq('track', 'PageView');
   </script>
-  <!-- End Meta Pixel Code -->
 
   <style>
     :root {
@@ -100,7 +93,6 @@
 
     .hidden { display: none !important; }
 
-    /* ====== TITLES (igual print) ====== */
     .section-title {
       font-size: clamp(2.2rem, 3vw, 2.9rem);
       text-align: center;
@@ -134,7 +126,6 @@
       font-size: 1rem;
     }
 
-    /* ====== BUTTONS ====== */
     .btn {
       padding: 0.95rem 1.9rem;
       border-radius: 999px;
@@ -185,7 +176,6 @@
       transform: translateY(-1px);
     }
 
-    /* amarelo (turmas) */
     .btn-yellow {
       background: var(--gold);
       color: #06160f;
@@ -199,7 +189,6 @@
       color: #04110b;
     }
 
-    /* ====== TOP BAR (igual print) ====== */
     header { padding: 1.1rem 0 0; }
     .topbar {
       display: flex;
@@ -249,7 +238,6 @@
       font-weight: 800;
     }
 
-    /* ====== HERO (primeira dobra: 1 CTA) ====== */
     .hero { padding: 1.2rem 0 2.5rem; }
     .hero-grid {
       display: grid;
@@ -341,7 +329,6 @@
       font-size: 0.75rem;
     }
 
-    /* HERO MEDIA (moldura + play overlay como print) */
     .hero-media {
       position: relative;
       border-radius: var(--radius-xl);
@@ -414,11 +401,8 @@
       background: transparent;
       border: 0;
       padding: 0;
-      /* ✅ BUGFIX: esse botão cobria o vídeo e travava o clique no pause.
-         Ele vai ser escondido via JS após iniciar o vídeo. */
     }
 
-    /* ====== STRIP DIFERENCIAIS (abaixo do hero) ====== */
     .feature-strip {
       padding: 1.4rem 0;
       border-top: 1px solid rgba(255,255,255,0.06);
@@ -458,7 +442,6 @@
     @media (max-width: 980px) { .feature-row { grid-template-columns: repeat(2, minmax(0,1fr)); } }
     @media (max-width: 560px) { .feature-row { grid-template-columns: 1fr; } }
 
-    /* ====== VIDEO CARDS ====== */
     .video-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -496,7 +479,6 @@
       font-size: 0.9rem;
     }
 
-    /* ====== POR QUE ====== */
     .why-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -537,7 +519,6 @@
     .why-title { font-size: 1.02rem; font-weight: 900; }
     .why-text { font-size: 0.92rem; color: rgba(255,255,255,0.72); }
 
-    /* ====== GALERIA ====== */
     .drone-gallery-slider {
       position: relative;
       max-width: 760px;
@@ -633,7 +614,6 @@
     }
     .gallery-dot.active { background: var(--gold); }
 
-    /* ====== CIDADES E DATAS ====== */
     .upcoming-controls {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -737,7 +717,6 @@
       background: rgba(0,0,0,0.18);
       white-space: nowrap;
     }
-    /* ✅ quando faltar <= 30 dias */
     .badge-last {
       border-color: rgba(255, 255, 255, 0.22);
       background: #e53935;
@@ -768,7 +747,6 @@
       font-size: 0.92rem;
     }
 
-    /* ====== NÃO ENCONTROU SUA CIDADE ====== */
     .city-suggestion {
       margin: 2.6rem auto 0;
       padding: 1.9rem 1.6rem;
@@ -834,7 +812,6 @@
       margin-top: 0.8rem;
     }
 
-    /* ====== CTA FINAL ====== */
     .final-cta {
       border-top: 1px solid rgba(255,255,255,0.06);
       background: radial-gradient(900px 420px at 50% 0%, rgba(0,176,80,0.28), transparent 62%),
@@ -872,7 +849,6 @@
       max-width: 680px;
     }
 
-    /* ====== FOOTER ====== */
     footer {
       padding: 2.6rem 0 1.8rem;
       background: #020805;
@@ -913,7 +889,6 @@
       .hero-cta { min-width: 100%; }
     }
 
-    /* ====== FLOATING WHATSAPP (só aparece após scroll p/ não “contar” na primeira dobra) ====== */
     .wa-float {
       position: fixed;
       right: 18px;
@@ -952,7 +927,6 @@
       border: 2px solid rgba(0,0,0,0.35);
     }
 
-    /* ====== MODAL (turmas) ====== */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -1019,9 +993,7 @@
   </style>
 </head>
 
-
 <body>
-  <!-- Meta Pixel noscript -->
   <noscript>
     <img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=2103148137124992&ev=PageView&noscript=1" alt="" />
@@ -1042,7 +1014,6 @@
         </div>
       </div>
 
-      <!-- HERO -->
       <section class="hero" aria-labelledby="hero-title">
         <div class="container">
           <div class="hero-grid">
@@ -1059,7 +1030,6 @@
                 Prática direta no curral com quem entende de resultados reais no campo.
               </p>
 
-              <!-- REGRA: na primeira dobra, apenas 1 CTA clicável -->
               <div class="hero-cta-wrap">
                 <div class="badge-bounce">ÚLTIMAS VAGAS</div>
 
@@ -1084,7 +1054,6 @@
               </div>
             </div>
 
-            <!-- MÍDIA -->
             <aside class="hero-media" aria-label="Vídeo demonstrativo do curso de inseminação artificial em bovinos">
               <div class="hero-media-inner">
                 <video preload="metadata" class="hero-video" id="heroVideo" playsinline>
@@ -1103,7 +1072,6 @@
         </div>
       </section>
 
-      <!-- STRIP DIFERENCIAIS -->
       <div class="feature-strip" aria-label="Diferenciais do curso">
         <div class="container">
           <div class="feature-row">
@@ -1129,7 +1097,6 @@
     </header>
 
     <main>
-      <!-- O QUE DIZEM OS ALUNOS (VÍDEO) -->
       <section aria-labelledby="alunos-title">
         <div class="container">
           <h2 class="section-title" id="alunos-title">
@@ -1177,7 +1144,6 @@
         </div>
       </section>
 
-      <!-- POR QUE SE PROFISSIONALIZAR -->
       <section aria-labelledby="porque-title">
         <div class="container">
           <h2 class="section-title" id="porque-title">
@@ -1215,7 +1181,6 @@
         </div>
       </section>
 
-      <!-- NOSSAS PRÁTICAS (galeria) -->
       <section aria-labelledby="praticas-title">
         <div class="container">
           <h2 class="section-title" id="praticas-title">
@@ -1302,7 +1267,6 @@
         </div>
       </section>
 
-      <!-- CIDADES E DATAS -->
       <section id="cidades-datas" aria-labelledby="cidades-title">
         <div class="container">
           <h2 class="section-title" id="cidades-title">
@@ -1328,27 +1292,7 @@
             </button>
           </div>
 
-          <!-- ✅ AJUSTADO: SOMENTE TURMAS DE INSEMINAÇÃO (removido 30/01 e qualquer turma fora da lista) -->
           <div class="upcoming-grid" id="upcoming-grid-inseminacao">
-
-            <article
-              class="upcoming-card"
-              data-course="Inseminação Artificial em Bovinos"
-              data-local="Belo Horizonte (MG)"
-              data-course-date="13/03/2026"
-              data-city="belo horizonte"
-              data-state="mg"
-            >
-              <div class="upcoming-top">
-                <div class="upcoming-date">13/03</div>
-                <div class="badge-open">INSCRIÇÕES ABERTAS</div>
-              </div>
-              <div class="upcoming-location">📍 Belo Horizonte (MG)</div>
-              <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
-              <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-1">
-                GARANTIR MINHA VAGA →
-              </button>
-            </article>
 
             <article
               class="upcoming-card"
@@ -1364,7 +1308,7 @@
               </div>
               <div class="upcoming-location">📍 São Miguel do Araguaia (GO)</div>
               <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
-              <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-2">
+              <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-1">
                 GARANTIR MINHA VAGA →
               </button>
             </article>
@@ -1383,7 +1327,7 @@
               </div>
               <div class="upcoming-location">📍 Ceres (GO)</div>
               <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
-              <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-3">
+              <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-2">
                 GARANTIR MINHA VAGA →
               </button>
             </article>
@@ -1402,7 +1346,7 @@
               </div>
               <div class="upcoming-location">📍 Castelo dos Sonhos (PA)</div>
               <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
-              <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-4">
+              <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-3">
                 GARANTIR MINHA VAGA →
               </button>
             </article>
@@ -1421,7 +1365,7 @@
               </div>
               <div class="upcoming-location">📍 Campos dos Goytacazes (RJ)</div>
               <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
-              <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-5">
+              <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-4">
                 GARANTIR MINHA VAGA →
               </button>
             </article>
@@ -1440,14 +1384,13 @@
               </div>
               <div class="upcoming-location">📍 Jataí (GO)</div>
               <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
-              <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-6">
+              <button type="button" class="btn btn-yellow js-open-turma" data-ref="turma-5">
                 GARANTIR MINHA VAGA →
               </button>
             </article>
 
           </div>
 
-          <!-- NÃO ENCONTROU SUA CIDADE? -->
           <div class="city-suggestion" aria-labelledby="nao-encontrou-title">
             <h3 id="nao-encontrou-title">Não encontrou sua cidade?</h3>
             <p>Diga-nos onde você mora e abriremos uma turma na sua região!</p>
@@ -1468,7 +1411,6 @@
                   <option value="">Selecione o curso</option>
                   <option value="Inseminação Artificial em Bovinos">Inseminação Artificial em Bovinos</option>
                   <option value="Piloto de Drone Agrícola">Piloto de Drone Agrícola</option>
-                  <option value="Operador de Máquinas Pesadas">Operador de Máquinas Pesadas</option>
                 </select>
                 <div class="error" id="err-curso">Selecione um curso.</div>
               </div>
@@ -1485,7 +1427,6 @@
         </div>
       </section>
 
-      <!-- CTA FINAL -->
       <section class="final-cta" aria-labelledby="cta-final-title">
         <div class="container">
           <div class="final-cta-inner">
@@ -1510,7 +1451,6 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
     <footer>
       <div class="container">
         <div class="footer-top">
@@ -1582,7 +1522,6 @@
     </footer>
   </div>
 
-  <!-- FLOATING WHATSAPP -->
   <a
     class="wa-float"
     id="waFloat"
@@ -1599,7 +1538,6 @@
     </svg>
   </a>
 
-  <!-- MODAL TURMA -->
   <div class="modal-overlay" id="turmaModalOverlay" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="turmaModalTitle">
       <div class="modal-header">
@@ -1631,14 +1569,12 @@
 
   <script>
     window.addEventListener("DOMContentLoaded", function () {
-      // ====== WHATSAPP FIXO (REGRA: manter número já usado) ======
       const WHATSAPP_PHONE = "5566999763455";
 
       function waLink(message) {
         return "https://wa.me/" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(message);
       }
 
-      // ====== CONSULTOR LINKS (mensagem padrão) ======
       const CONSULTOR_MSG =
         "Olá! Meu nome é [SEU NOME]. Tenho interesse no curso de Inseminação Artificial em Bovinos. Pode me passar mais informações?";
 
@@ -1646,13 +1582,10 @@
         a.setAttribute("href", waLink(CONSULTOR_MSG));
       });
 
-      // ====== HERO VIDEO (overlay play) ======
       const heroVideo = document.getElementById("heroVideo");
       const heroOverlay = document.getElementById("heroPlayOverlay");
       const heroPlayBtn = document.getElementById("heroPlayBtn");
 
-      // ✅ BUGFIX: o botão (#heroPlayBtn) ficava por cima do vídeo depois de dar play,
-      // interceptando o clique nos controles (pause). Agora ele some após iniciar.
       function hideHeroClickLayer() {
         if (!heroPlayBtn) return;
         heroPlayBtn.style.display = "none";
@@ -1669,21 +1602,14 @@
 
       function startHeroVideo() {
         if (!heroVideo) return;
-
-        // habilita controles de forma confiável
         heroVideo.controls = true;
-
-        // tenta reproduzir
         heroVideo.play().catch(() => {});
-
-        // some com overlay e "camada" clicável
         if (heroOverlay) heroOverlay.style.display = "none";
         hideHeroClickLayer();
       }
 
       if (heroPlayBtn) heroPlayBtn.addEventListener("click", startHeroVideo);
 
-      // quando terminar, volta o overlay (opcional) pra indicar replay
       if (heroVideo) {
         heroVideo.addEventListener("ended", function () {
           if (heroOverlay) heroOverlay.style.display = "flex";
@@ -1691,7 +1617,6 @@
         });
       }
 
-      // ====== FLOATING WA: aparece após scroll (pra não “contar” na primeira dobra) ======
       const waFloat = document.getElementById("waFloat");
       function toggleFloat() {
         if (!waFloat) return;
@@ -1701,7 +1626,6 @@
       toggleFloat();
       window.addEventListener("scroll", toggleFloat, { passive: true });
 
-      // ====== GALERIA SLIDER ======
       function initGallerySlider() {
         const slider = document.getElementById("drone-gallery-slider");
         if (!slider) return;
@@ -1782,7 +1706,6 @@
 
       initGallerySlider();
 
-      // ====== CIDADES E DATAS: FILTRO + VER TODAS ======
       const grid = document.getElementById("upcoming-grid-inseminacao");
       const searchInput = document.getElementById("search-city-inseminacao");
       const toggleBtn = document.getElementById("toggle-more-inseminacao");
@@ -1834,7 +1757,6 @@
         });
       }
 
-      // ✅ Badge "ÚLTIMAS VAGAS" quando faltar <= 30 dias (somente Inseminação)
       function parseDateBR(ddmmyyyy) {
         const parts = String(ddmmyyyy || "").split("/");
         const d = parseInt(parts[0], 10);
@@ -1874,7 +1796,6 @@
       applyUpcomingFilter();
       applyLastSpotsBadges();
 
-      // ====== MODAL TURMAS ======
       const overlay = document.getElementById("turmaModalOverlay");
       const closeBtn = document.getElementById("turmaModalClose");
       const cancelBtn = document.getElementById("turmaModalCancel");
@@ -1964,7 +1885,6 @@
         });
       }
 
-      // ====== NÃO ENCONTROU SUA CIDADE ======
       const nfForm = document.getElementById("city-form-inseminacao");
       const nfNome = document.getElementById("nf-nome");
       const nfCidade = document.getElementById("nf-cidade");
@@ -2005,4 +1925,3 @@
   </script>
 </body>
 </html>
-
