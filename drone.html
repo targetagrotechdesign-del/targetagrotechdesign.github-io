@@ -77,7 +77,6 @@
     section{padding:64px 0}
     @media (min-width:1024px){ section{padding:80px 0} }
 
-    /* TOP BAR (igual print) */
     header{padding:18px 0 0}
     .topbar{
       display:flex;align-items:center;justify-content:space-between;
@@ -101,7 +100,6 @@
       white-space:nowrap;
     }
 
-    /* HERO (print) */
     .hero{padding:58px 0 28px;text-align:center}
     .hero h1{
       font-size:clamp(38px,5.1vw,64px);
@@ -119,17 +117,14 @@
       line-height:1.6;
     }
 
-    /* CTA principal único na primeira dobra */
     .hero-cta-wrap{
       margin:28px auto 0;
       display:flex;
       justify-content:center;
       position:relative;
-      /* garante “respiro” e evita qualquer chance de sobreposição com textos acima */
       padding-top:10px;
     }
 
-    /* ✅ FIX 1: badge agora fica colado NO BOTÃO (sem subir em cima do texto) */
     .badge-ultimas{
       position:absolute;
       right:22px;
@@ -196,7 +191,6 @@
       transform:rotate(35deg);
     }
 
-    /* BOX “Treinamento de drones” (print) + imagem */
     .training-box{
       margin:40px auto 0;
       max-width:980px;
@@ -227,8 +221,6 @@
       background:#07140d;
       overflow:hidden;
     }
-
-    /* ✅ FIX 2: “corta” o filete branco no topo com um zoom leve + posição */
     .training-media img{
       width:100%;height:100%;
       object-fit:cover;
@@ -239,7 +231,6 @@
       will-change:transform;
       display:block;
     }
-
     .training-media:after{
       content:"";
       position:absolute;inset:0;
@@ -248,7 +239,6 @@
     }
     @media (max-width:900px){ .btn-hero{min-width:100%} .training-media{height:260px} }
 
-    /* TITLES */
     .section-title{
       text-align:center;
       font-size:clamp(28px,3.2vw,44px);
@@ -274,7 +264,6 @@
       opacity:.9;
     }
 
-    /* DEPOIMENTOS (cards estilo print) */
     .video-grid{
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
@@ -339,7 +328,6 @@
       margin-left:4px;
     }
 
-    /* PRÓXIMAS TURMAS (print) */
     .controls{
       max-width:980px;margin:0 auto 26px;
       display:flex;gap:14px;flex-wrap:wrap;
@@ -423,7 +411,6 @@
       box-shadow:0 18px 38px rgba(0,176,80,.18);
     }
 
-    /* Sugira sua Cidade (print) */
     .suggest-wrap{
       max-width:980px;margin:56px auto 0;
       border-radius:34px;
@@ -446,7 +433,6 @@
       font-size:13px;
     }
 
-    /* FORM obrigatório (coluna) */
     .formcol{
       display:flex;
       flex-direction:column;
@@ -503,7 +489,6 @@
       box-shadow:0 22px 46px rgba(0,176,80,.18);
     }
 
-    /* CTA final (print) */
     .final{
       padding:90px 0;
       text-align:center;
@@ -536,7 +521,6 @@
     .btn-final:hover{background:var(--green2);transform:translateY(-2px);box-shadow:0 28px 55px rgba(0,176,80,.28)}
     @media (max-width:900px){ .btn-final{min-width:100%} }
 
-    /* Floating WhatsApp */
     .wa-float{
       position:fixed;
       right:18px;
@@ -552,7 +536,6 @@
     .wa-float:hover{transform:translateY(-2px);background:var(--green2)}
     .wa-float svg{width:26px;height:26px;fill:#04110b}
 
-    /* Modal (obrigatório para turmas) */
     .modal-backdrop{
       position:fixed;inset:0;
       background:rgba(0,0,0,.65);
@@ -612,7 +595,6 @@
       transform:translateY(-1px);
     }
 
-    /* Acessibilidade */
     .sr-only{
       position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
     }
@@ -643,7 +625,6 @@
         <div class="topbar-right">TECNOLOGIA QUE MOVE O AGRO</div>
       </div>
 
-      <!-- HERO (1 CTA principal) -->
       <section class="hero" aria-labelledby="hero-title">
         <h1 id="hero-title">
           Torne-se um <span class="g">Piloto</span><br>
@@ -677,7 +658,6 @@
           <span><i aria-hidden="true"></i> CERTIFICAÇÃO NACIONAL</span>
         </div>
 
-        <!-- BOX estilo print + imagem -->
         <div class="training-box" aria-label="Treinamento de drones">
           <div class="label">Treinamento de drones</div>
           <div class="training-media">
@@ -689,7 +669,6 @@
   </header>
 
   <main>
-    <!-- DEPOIMENTOS (vídeo) -->
     <section aria-labelledby="dep-title">
       <div class="container">
         <h2 class="section-title" id="dep-title">O que nossos <span class="g">alunos dizem</span></h2>
@@ -734,7 +713,6 @@
       </div>
     </section>
 
-    <!-- PRÓXIMAS TURMAS -->
     <section id="proximas-turmas-drone" aria-labelledby="turmas-title">
       <div class="container">
         <h2 class="section-title" id="turmas-title">Próximas <span class="g">Turmas</span></h2>
@@ -748,38 +726,126 @@
         </div>
 
         <div class="grid" id="classes-grid">
-          <!-- cards (botão amarelo + modal obrigatório) -->
-      
-          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Novo Progresso - PA" data-date="06/02" data-city="novo progresso" data-state="pa">
-            <div class="date">06/02</div>
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Palmas - TO" data-date="27/03" data-city="palmas" data-state="to">
+            <div class="date">27/03</div>
+            <div class="loc">Palmas - TO</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Brasnorte - MT" data-date="10/04" data-city="brasnorte" data-state="mt">
+            <div class="date">10/04</div>
+            <div class="loc">Brasnorte - MT</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Rorainópolis - RR" data-date="10/04" data-city="rorainopolis" data-state="rr">
+            <div class="date">10/04</div>
+            <div class="loc">Rorainópolis - RR</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Novo Progresso - PA" data-date="24/04" data-city="novo progresso" data-state="pa">
+            <div class="date">24/04</div>
             <div class="loc">Novo Progresso - PA</div>
             <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
             <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
           </article>
 
-          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Sinop - MT" data-date="13/03" data-city="sinop" data-state="mt">
-            <div class="date">13/03</div>
-            <div class="loc">Sinop - MT</div>
-            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
-            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
-          </article>
-
-          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Luís Eduardo Magalhães - BA" data-date="13/03" data-city="luis eduardo magalhaes" data-state="ba">
-            <div class="date">13/03</div>
-            <div class="loc">Luís Eduardo Magalhães - BA</div>
-            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
-            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
-          </article>
-
-          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Rolim de Moura - RO" data-date="27/02" data-city="rolim de moura" data-state="ro">
-            <div class="date">27/02</div>
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Rolim de Moura - RO" data-date="01/05" data-city="rolim de moura" data-state="ro">
+            <div class="date">01/05</div>
             <div class="loc">Rolim de Moura - RO</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Sena Madureira - AC" data-date="01/05" data-city="sena madureira" data-state="ac">
+            <div class="date">01/05</div>
+            <div class="loc">Sena Madureira - AC</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Santarém - PA" data-date="15/05" data-city="santarem" data-state="pa">
+            <div class="date">15/05</div>
+            <div class="loc">Santarém - PA</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Eunápolis - BA" data-date="22/05" data-city="eunapolis" data-state="ba">
+            <div class="date">22/05</div>
+            <div class="loc">Eunápolis - BA</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Balsas - MA" data-date="05/06" data-city="balsas" data-state="ma">
+            <div class="date">05/06</div>
+            <div class="loc">Balsas - MA</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Uruçuí - PI" data-date="05/06" data-city="urucui" data-state="pi">
+            <div class="date">05/06</div>
+            <div class="loc">Uruçuí - PI</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Paragominas - PA" data-date="12/06" data-city="paragominas" data-state="pa">
+            <div class="date">12/06</div>
+            <div class="loc">Paragominas - PA</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Colniza - MT" data-date="19/06" data-city="colniza" data-state="mt">
+            <div class="date">19/06</div>
+            <div class="loc">Colniza - MT</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Confresa - MT" data-date="03/07" data-city="confresa" data-state="mt">
+            <div class="date">03/07</div>
+            <div class="loc">Confresa - MT</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Açailândia - PA" data-date="03/07" data-city="acailandia" data-state="pa">
+            <div class="date">03/07</div>
+            <div class="loc">Açailândia - PA</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Altamira - PA" data-date="17/07" data-city="altamira" data-state="pa">
+            <div class="date">17/07</div>
+            <div class="loc">Altamira - PA</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Garanhuns - PE" data-date="17/07" data-city="garanhuns" data-state="pe">
+            <div class="date">17/07</div>
+            <div class="loc">Garanhuns - PE</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Campina Grande - PB" data-date="31/07" data-city="campina grande" data-state="pb">
+            <div class="date">31/07</div>
+            <div class="loc">Campina Grande - PB</div>
             <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
             <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
           </article>
         </div>
 
-        <!-- Sugira sua Cidade (form obrigatório A) -->
         <div class="suggest-wrap" aria-labelledby="sugira-title">
           <h3 id="sugira-title">Sugira sua Cidade</h3>
           <p>Não encontrou turma na sua região? Preencha abaixo e entraremos em contato quando abrirmos novas datas aí.</p>
@@ -804,7 +870,6 @@
                   <option value="">Selecione um curso</option>
                   <option value="Piloto de Drone Agrícola">Piloto de Drone Agrícola</option>
                   <option value="Inseminação Artificial em Bovinos">Inseminação Artificial em Bovinos</option>
-                  <option value="Operador de Máquinas Pesadas">Operador de Máquinas Pesadas</option>
                 </select>
                 <div class="err" id="err-course">Selecione um curso.</div>
               </div>
@@ -816,7 +881,6 @@
       </div>
     </section>
 
-    <!-- CTA final (print) -->
     <section class="final" aria-labelledby="final-title">
       <div class="container">
         <h2 id="final-title">Pronto para dar o próximo<br>passo?</h2>
@@ -835,7 +899,6 @@
     </section>
   </main>
 
-  <!-- Floating WhatsApp -->
   <a
     class="wa-float"
     href="https://wa.me/5566999763455"
@@ -850,7 +913,6 @@
     </svg>
   </a>
 
-  <!-- Modal obrigatório turmas -->
   <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <div class="modal-head">
@@ -887,9 +949,13 @@
         return "https://wa.me/" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(message);
       }
 
-      function clean(v){ return (v || "").toString().trim().replace(/\s+/g," "); }
+      function clean(v){
+        return (v || "")
+          .toString()
+          .trim()
+          .replace(/\s+/g," ");
+      }
 
-      // ========= Consultor links (mantém mesmo número e padroniza mensagem) =========
       (function initWhatsAppConsultorLinks(){
         const links = Array.from(document.querySelectorAll('a[data-wa="consultor"]'));
         links.forEach(function(link){
@@ -899,7 +965,6 @@
         });
       })();
 
-      // ========= Depoimentos: play overlay =========
       (function initVideoCards(){
         const cards = Array.from(document.querySelectorAll(".vcard"));
         cards.forEach(function(card){
@@ -930,14 +995,20 @@
         });
       })();
 
-      // ========= Próximas turmas: filtro cidade + estado =========
       const searchInput = document.getElementById("search-city");
       const stateSelect = document.getElementById("filter-state");
       const grid = document.getElementById("classes-grid");
       const cards = Array.from(grid.querySelectorAll(".card"));
 
       (function buildStateOptions(){
-        const states = Array.from(new Set(cards.map(c => (c.getAttribute("data-state")||"").toLowerCase().trim()).filter(Boolean))).sort();
+        const states = Array.from(
+          new Set(
+            cards
+              .map(c => (c.getAttribute("data-state") || "").toLowerCase().trim())
+              .filter(Boolean)
+          )
+        ).sort();
+
         states.forEach(function(st){
           const opt = document.createElement("option");
           opt.value = st;
@@ -965,7 +1036,6 @@
       if(searchInput) searchInput.addEventListener("input", applyFilter);
       if(stateSelect) stateSelect.addEventListener("change", applyFilter);
 
-      // ========= Modal obrigatório turmas =========
       const modalBackdrop = document.getElementById("modal-backdrop");
       const modalClose = document.getElementById("modal-close");
       const modalConfirm = document.getElementById("modal-confirm");
@@ -986,7 +1056,7 @@
         modalErrCity.classList.remove("show");
         modalBackdrop.classList.add("open");
         modalBackdrop.setAttribute("aria-hidden","false");
-        setTimeout(()=> modalName.focus(), 10);
+        setTimeout(() => modalName.focus(), 10);
       }
 
       function closeModal(){
@@ -994,7 +1064,6 @@
         modalBackdrop.setAttribute("aria-hidden","true");
       }
 
-      // fechar: X, fundo, ESC
       modalClose.addEventListener("click", closeModal);
       modalBackdrop.addEventListener("click", function(e){
         if(e.target === modalBackdrop) closeModal();
@@ -1003,7 +1072,6 @@
         if(e.key === "Escape" && modalBackdrop.classList.contains("open")) closeModal();
       });
 
-      // click nos botões “GARANTIR MINHA VAGA”
       document.addEventListener("click", function(e){
         const btn = e.target.closest(".btn-reservar");
         if(!btn) return;
@@ -1017,7 +1085,6 @@
         });
       });
 
-      // confirmar modal => WhatsApp com msg obrigatória
       modalConfirm.addEventListener("click", function(){
         const name = clean(modalName.value);
         const city = clean(modalCity.value);
@@ -1036,7 +1103,6 @@
         closeModal();
       });
 
-      // ========= Form “Me avise quando chegar turmas!” (obrigatório) =========
       const form = document.getElementById("notify-form");
       const nName = document.getElementById("notify-name");
       const nCity = document.getElementById("notify-city");
@@ -1053,9 +1119,9 @@
         const course = clean(nCourse.value);
 
         let ok = true;
-        if(!name){ errName.classList.add("show"); ok=false; } else errName.classList.remove("show");
-        if(!city){ errCity.classList.add("show"); ok=false; } else errCity.classList.remove("show");
-        if(!course){ errCourse.classList.add("show"); ok=false; } else errCourse.classList.remove("show");
+        if(!name){ errName.classList.add("show"); ok = false; } else errName.classList.remove("show");
+        if(!city){ errCity.classList.add("show"); ok = false; } else errCity.classList.remove("show");
+        if(!course){ errCourse.classList.add("show"); ok = false; } else errCourse.classList.remove("show");
         if(!ok) return;
 
         const msg =
@@ -1070,4 +1136,3 @@
   </script>
 </body>
 </html>
-
