@@ -627,31 +627,43 @@
 
   // ✅ Somente DRONE e INSEMINAÇÃO
   const DATA = [
-    // FEVEREIRO
-    {"date":"06/02","location":"Novo Progresso (PA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"PA"},
-    {"date":"27/02","location":"Rolim de Moura (RO)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"RO"},
+ <script>
+/* AGENDA + MODAL (SÓ TURMAS FUTURAS + "ÚLTIMAS VAGAS" QUANDO FALTAR <= 30 DIAS) */
+(function(){
+  const WHATSAPP_LINK = "https://wa.me/5566999763455";
 
+  const DATA = [
     // MARÇO
-    {"date":"13/03","location":"Belo Horizonte (MG)","courseType":"inseminacao","courseName":"Inseminação Artificial em Bovinos","state":"MG"},
-    {"date":"13/03","location":"Sinop (MT)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"MT"},
     {"date":"20/03","location":"São Miguel do Araguaia (GO)","courseType":"inseminacao","courseName":"Inseminação Artificial em Bovinos","state":"GO"},
-    {"date":"27/03","location":"Rio Verde (GO)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"GO"},
+    {"date":"27/03","location":"Palmas (TO)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"TO"},
 
     // ABRIL
-    {"date":"10/04","location":"Goiânia (GO)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"GO"},
+    {"date":"10/04","location":"Brasnorte (MT)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"MT"},
+    {"date":"10/04","location":"Rorainópolis (RR)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"RR"},
     {"date":"10/04","location":"Ceres (GO)","courseType":"inseminacao","courseName":"Inseminação Artificial em Bovinos","state":"GO"},
     {"date":"24/04","location":"Castelo dos Sonhos (PA)","courseType":"inseminacao","courseName":"Inseminação Artificial em Bovinos","state":"PA"},
     {"date":"24/04","location":"Novo Progresso (PA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"PA"},
 
     // MAIO
     {"date":"01/05","location":"Campos dos Goytacazes (RJ)","courseType":"inseminacao","courseName":"Inseminação Artificial em Bovinos","state":"RJ"},
+    {"date":"01/05","location":"Rolim de Moura (RO)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"RO"},
+    {"date":"01/05","location":"Sena Madureira (AC)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"AC"},
     {"date":"15/05","location":"Santarém (PA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"PA"},
-    {"date":"22/05","location":"Teixeira de Freitas (BA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"BA"},
+    {"date":"22/05","location":"Eunápolis (BA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"BA"},
 
     // JUNHO
-    {"date":"12/06","location":"Teixeira de Freitas (BA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"BA"},
-    {"date":"19/06","location":"Jataí (GO)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"GO"},
-    {"date":"19/06","location":"Jataí (GO)","courseType":"inseminacao","courseName":"Inseminação Artificial em Bovinos","state":"GO"}
+    {"date":"05/06","location":"Balsas (MA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"MA"},
+    {"date":"05/06","location":"Uruçuí (PI)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"PI"},
+    {"date":"12/06","location":"Paragominas (PA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"PA"},
+    {"date":"19/06","location":"Colniza (MT)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"MT"},
+    {"date":"19/06","location":"Jataí (GO)","courseType":"inseminacao","courseName":"Inseminação Artificial em Bovinos","state":"GO"},
+
+    // JULHO
+    {"date":"03/07","location":"Confresa (MT)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"MT"},
+    {"date":"03/07","location":"Açailândia (PA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"PA"},
+    {"date":"17/07","location":"Altamira (PA)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"PA"},
+    {"date":"17/07","location":"Garanhuns (PE)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"PE"},
+    {"date":"31/07","location":"Campina Grande (PB)","courseType":"drone","courseName":"Piloto de Drone Agrícola","state":"PB"}
   ];
 
   const INITIAL_COUNT = 4;
@@ -976,8 +988,6 @@
   else init();
 })();
 </script>
-
-<script>
 /* FAQ */
 (function(){
   const FAQS = {
