@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Piloto de Drone Agrícola - Target Agrotech</title>
+
+  <!-- SEO -->
+  <meta
+    name="description"
+    content="Curso presencial de Piloto de Drone Agrícola com CAAR incluso, prática em campo real, parcelamento facilitado e foco total na operação profissional de drones para pulverização, mapeamento e aplicações de precisão."
+  />
+  <link rel="canonical" href="https://targetagrotech.com.br/drone.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#00b050" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="shortcut icon" type="image/png" href="assets/favicon-32.png" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:site_name" content="Target AgroTech" />
+  <meta property="og:title" content="Piloto de Drone Agrícola - Target Agrotech" />
+  <meta property="og:description" content="Formação presencial com prática real em campo, CAAR incluso, certificado e parcelamento facilitado." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://targetagrotech.com.br/assets/drone-hero-novo.jpg" />
+  <meta property="og:url" content="https://targetagrotech.com.br/drone.html" />
+
+  <!-- Meta Pixel Code (NÃO MEXIDO) -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/pt_BR/fbevents.js');
+    fbq('init', '2103148137124992');
+    fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    :root{
+      --bg:#06160f;
+      --bg2:#020805;
+      --card:#0b2416;
+      --border:rgba(255,255,255,.10);
+      --border2:rgba(255,255,255,.06);
+      --green:#00b050;
+      --green2:#0fd266;
+      --yellow:#f2c94c;
+      --text:#f5f5f5;
+      --muted:#c1c9c5;
+      --shadow:0 18px 45px rgba(0,0,0,.55);
+      --shadow2:0 12px 26px rgba(0,0,0,.45);
+      --danger:#d94a4a;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 50% 8%, rgba(0,176,80,.16), transparent 60%),
+        radial-gradient(500px 420px at 85% 92%, rgba(242,201,76,.12), transparent 62%),
+        linear-gradient(180deg, #04110b 0%, #020805 65%, #020805 100%);
+      overflow-x:hidden;
+    }
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+    section{padding:64px 0}
+    @media (min-width:1024px){ section{padding:80px 0} }
+
+    header{padding:18px 0 0}
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 0 14px;border-bottom:1px solid var(--border2);
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+    }
+    .brand-logo{
+      width:38px;height:38px;border-radius:10px;overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.25);
+      display:flex;align-items:center;justify-content:center;
+    }
+    .brand-logo img{width:100%;height:100%;object-fit:cover}
+    .topbar-right{
+      color:rgba(255,255,255,.55);
+      font-size:12px;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .hero{padding:56px 0 28px;text-align:center}
+    .hero-topline{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:10px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      font-size:11px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.78);
+      margin-bottom:18px;
+    }
+    .hero-topline:before{
+      content:"";
+      width:8px;height:8px;border-radius:999px;
+      background:var(--green);
+      box-shadow:0 0 14px rgba(0,176,80,.5);
+    }
+
+    .hero h1{
+      font-size:clamp(38px,5.1vw,66px);
+      line-height:1.02;
+      font-weight:900;
+      letter-spacing:-.03em;
+      margin-top:10px;
+    }
+    .hero h1 .g{color:var(--green)}
+    .hero p{
+      max-width:800px;
+      margin:18px auto 0;
+      color:rgba(255,255,255,.80);
+      font-size:17px;
+      line-height:1.65;
+    }
+
+    .offer-box{
+      margin:30px auto 0;
+      max-width:920px;
+      padding:28px 24px;
+      border-radius:30px;
+      background:linear-gradient(180deg, rgba(0,0,0,.34), rgba(0,0,0,.18));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .offer-box:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at top center, rgba(0,176,80,.12), transparent 48%),
+        radial-gradient(circle at bottom right, rgba(242,201,76,.08), transparent 36%);
+      pointer-events:none;
+    }
+    .offer-badge{
+      position:absolute;
+      top:18px;
+      right:18px;
+      background:linear-gradient(180deg, #ff5a5a, #c92f2f);
+      color:#fff;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.08em;
+      box-shadow:0 10px 24px rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.18);
+      z-index:2;
+      animation:bounce 1.25s infinite;
+    }
+    @keyframes bounce{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-5px)}
+    }
+
+    .offer-content{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:1.3fr .8fr;
+      gap:18px;
+      align-items:center;
+    }
+    @media (max-width:900px){
+      .offer-content{grid-template-columns:1fr}
+    }
+
+    .price-area{
+      text-align:left;
+    }
+    .price-kicker{
+      color:rgba(255,255,255,.62);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:11px;
+      margin-bottom:8px;
+    }
+    .parcel-price{
+      display:flex;
+      align-items:flex-end;
+      flex-wrap:wrap;
+      gap:10px;
+      line-height:1;
+    }
+    .parcel-price .small{
+      font-size:24px;
+      font-weight:800;
+      color:rgba(255,255,255,.88);
+      transform:translateY(-8px);
+    }
+    .parcel-price .big{
+      font-size:clamp(50px,7vw,78px);
+      font-weight:1000;
+      color:#fff;
+      letter-spacing:-.05em;
+    }
+
+    .full-price{
+      margin-top:14px;
+      color:rgba(255,255,255,.78);
+      font-size:17px;
+      line-height:1.5;
+    }
+    .full-price strong{
+      color:var(--yellow);
+      font-size:28px;
+      letter-spacing:-.02em;
+    }
+
+    .offer-points{
+      display:grid;
+      gap:10px;
+      margin-top:18px;
+      color:rgba(255,255,255,.86);
+      font-size:14px;
+    }
+    .offer-points span{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+    }
+    .offer-points i{
+      width:18px;height:18px;border-radius:999px;
+      background:rgba(0,176,80,.22);
+      border:1px solid rgba(0,176,80,.35);
+      display:inline-block;
+      position:relative;
+      flex:0 0 18px;
+      margin-top:2px;
+    }
+    .offer-points i:after{
+      content:"";
+      position:absolute;left:5px;top:3px;
+      width:5px;height:8px;border-right:2px solid rgba(0,176,80,.9);
+      border-bottom:2px solid rgba(0,176,80,.9);
+      transform:rotate(35deg);
+    }
+
+    .cta-box{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      justify-content:center;
+    }
+    .cta-primary{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      width:100%;
+      padding:18px 20px;
+      border-radius:18px;
+      background:var(--green);
+      color:#04110b;
+      font-weight:1000;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 22px 45px rgba(0,176,80,.20);
+      transition:transform .15s ease, background .15s ease, box-shadow .15s ease;
+      text-align:center;
+    }
+    .cta-primary:hover{
+      background:var(--green2);
+      transform:translateY(-2px);
+      box-shadow:0 28px 55px rgba(0,176,80,.28);
+    }
+    .cta-secondary{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:100%;
+      padding:14px 18px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      color:#fff;
+      font-weight:800;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      transition:transform .15s ease, border-color .15s ease, background .15s ease;
+      text-align:center;
+    }
+    .cta-secondary:hover{
+      transform:translateY(-2px);
+      background:rgba(255,255,255,.08);
+      border-color:rgba(255,255,255,.22);
+    }
+    .cta-note{
+      color:rgba(255,255,255,.58);
+      font-size:12px;
+      line-height:1.5;
+      text-align:center;
+    }
+
+    .hero-checks{
+      margin:18px auto 0;
+      display:flex;gap:18px;justify-content:center;flex-wrap:wrap;
+      color:rgba(255,255,255,.58);
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .hero-checks span{display:inline-flex;align-items:center;gap:8px}
+    .hero-checks i{
+      width:14px;height:14px;border-radius:999px;
+      background:rgba(0,176,80,.22);
+      border:1px solid rgba(0,176,80,.35);
+      display:inline-block;
+      position:relative;
+    }
+    .hero-checks i:after{
+      content:"";
+      position:absolute;left:4px;top:3px;
+      width:5px;height:8px;border-right:2px solid rgba(0,176,80,.9);
+      border-bottom:2px solid rgba(0,176,80,.9);
+      transform:rotate(35deg);
+    }
+
+    .training-box{
+      margin:40px auto 0;
+      max-width:980px;
+      border-radius:34px;
+      background:rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow2);
+      overflow:hidden;
+      position:relative;
+    }
+    .training-box .label{
+      position:absolute;
+      top:14px;left:18px;
+      font-size:12px;
+      color:rgba(255,255,255,.70);
+      display:flex;align-items:center;gap:8px;
+      z-index:2;
+    }
+    .training-box .label:before{
+      content:"";
+      width:10px;height:10px;border-radius:999px;
+      background:rgba(0,176,80,.95);
+      box-shadow:0 0 18px rgba(0,176,80,.55);
+    }
+    .training-media{
+      height:360px;
+      position:relative;
+      background:#07140d;
+      overflow:hidden;
+    }
+    .training-media img{
+      width:100%;height:100%;
+      object-fit:cover;
+      object-position:50% 62%;
+      filter:saturate(1.05) contrast(1.02);
+      transform:scale(1.04);
+      transform-origin:center;
+      will-change:transform;
+      display:block;
+    }
+    .training-media:after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.58));
+      pointer-events:none;
+    }
+    @media (max-width:900px){
+      .training-media{height:260px}
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:clamp(28px,3.2vw,44px);
+      font-weight:900;
+      letter-spacing:-.01em;
+      margin-bottom:10px;
+    }
+    .section-title .g{color:var(--green)}
+    .subtitle{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 38px;
+      color:rgba(255,255,255,.68);
+      line-height:1.7;
+      font-size:14px;
+    }
+    .section-title:after{
+      content:"";
+      display:block;
+      width:86px;height:2px;
+      margin:14px auto 0;
+      background:linear-gradient(90deg, transparent, var(--yellow), transparent);
+      opacity:.9;
+    }
+
+    .benefits{
+      max-width:980px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+    }
+    @media (max-width:992px){ .benefits{grid-template-columns:repeat(2,minmax(0,1fr))} }
+    @media (max-width:640px){ .benefits{grid-template-columns:1fr} }
+
+    .benefit-card{
+      background:rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:24px;
+      padding:22px;
+      box-shadow:var(--shadow2);
+    }
+    .benefit-card .num{
+      font-size:34px;
+      font-weight:1000;
+      color:var(--yellow);
+      letter-spacing:-.04em;
+    }
+    .benefit-card h3{
+      margin-top:8px;
+      font-size:17px;
+      font-weight:900;
+    }
+    .benefit-card p{
+      margin-top:8px;
+      color:rgba(255,255,255,.70);
+      line-height:1.65;
+      font-size:14px;
+    }
+
+    .video-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+      margin-top:24px;
+    }
+    @media (max-width:992px){ .video-grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+    @media (max-width:640px){ .video-grid{grid-template-columns:1fr} }
+
+    .vcard{
+      border-radius:26px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.35);
+      box-shadow:var(--shadow2);
+      overflow:hidden;
+      position:relative;
+      min-height:520px;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .vcard .pill{
+      position:absolute;top:18px;left:18px;
+      padding:7px 12px;border-radius:999px;
+      font-size:11px;font-weight:800;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.70);
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      z-index:3;
+    }
+    .vcard video{
+      width:100%;height:100%;
+      object-fit:cover;
+      background:#000;
+      display:block;
+    }
+    .vcard .overlay{
+      position:absolute;inset:0;
+      background:radial-gradient(circle at center, rgba(0,0,0,.35), rgba(0,0,0,.65));
+      display:flex;align-items:center;justify-content:center;
+      z-index:2;
+      transition:opacity .2s ease;
+    }
+    .vcard.playing .overlay{opacity:0;pointer-events:none}
+    .playbtn{
+      width:78px;height:78px;border-radius:999px;
+      background:rgba(0,176,80,.92);
+      box-shadow:0 0 0 10px rgba(0,176,80,.10), 0 18px 38px rgba(0,0,0,.45);
+      display:flex;align-items:center;justify-content:center;
+      border:1px solid rgba(255,255,255,.14);
+      cursor:pointer;
+      transform:translateY(4px);
+      transition:transform .15s ease, background .15s ease;
+    }
+    .playbtn:hover{background:var(--green2);transform:translateY(2px)}
+    .playbtn:before{
+      content:"";
+      width:0;height:0;
+      border-left:18px solid #04110b;
+      border-top:12px solid transparent;
+      border-bottom:12px solid transparent;
+      margin-left:4px;
+    }
+
+    .price-strip{
+      max-width:980px;
+      margin:0 auto;
+      padding:26px 22px;
+      border-radius:28px;
+      background:linear-gradient(90deg, rgba(0,176,80,.12), rgba(242,201,76,.10));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow2);
+      text-align:center;
+    }
+    .price-strip .mini{
+      color:rgba(255,255,255,.62);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:11px;
+    }
+    .price-strip .big{
+      margin-top:8px;
+      font-size:clamp(36px,5vw,58px);
+      font-weight:1000;
+      line-height:1;
+      letter-spacing:-.05em;
+      color:#fff;
+    }
+    .price-strip .sub{
+      margin-top:10px;
+      color:rgba(255,255,255,.82);
+      font-size:16px;
+      line-height:1.6;
+    }
+    .price-strip .sub strong{
+      color:var(--yellow);
+      font-size:22px;
+    }
+
+    .controls{
+      max-width:980px;margin:0 auto 26px;
+      display:flex;gap:14px;flex-wrap:wrap;
+      padding:14px;
+      border-radius:22px;
+      background:rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow2);
+    }
+    .controls input, .controls select{
+      flex:1 1 260px;
+      padding:14px 16px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.35);
+      color:rgba(255,255,255,.85);
+      outline:none;
+      font-size:14px;
+    }
+    .controls input::placeholder{color:rgba(255,255,255,.45)}
+    .controls select{flex:0 0 240px}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+      max-width:980px;margin:0 auto;
+    }
+    @media (max-width:992px){ .grid{grid-template-columns:repeat(2,minmax(0,1fr))} .controls select{flex:1 1 240px} }
+    @media (max-width:640px){ .grid{grid-template-columns:1fr} }
+
+    .card{
+      background:rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:26px;
+      padding:22px;
+      box-shadow:var(--shadow2);
+      transition:transform .15s ease, border-color .15s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .card:hover{transform:translateY(-6px);border-color:rgba(242,201,76,.35)}
+    .date{
+      font-size:30px;
+      font-weight:900;
+      color:rgba(0,176,80,.95);
+      letter-spacing:-.02em;
+    }
+    .loc{
+      margin-top:10px;
+      font-weight:800;
+      font-size:16px;
+    }
+    .course{
+      margin-top:6px;
+      color:rgba(255,255,255,.45);
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-size:11px;
+    }
+
+    .btn-yellow{
+      margin-top:18px;
+      width:100%;
+      padding:15px 16px;
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.25);
+      background:var(--yellow);
+      color:#04110b;
+      font-weight:1000;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+      cursor:pointer;
+      transition:background .15s ease, transform .15s ease, box-shadow .15s ease;
+      box-shadow:0 14px 30px rgba(0,0,0,.35);
+    }
+    .btn-yellow:hover,
+    .btn-yellow:active{
+      background:var(--green);
+      transform:translateY(-1px);
+      box-shadow:0 18px 38px rgba(0,176,80,.18);
+    }
+
+    .suggest-wrap{
+      max-width:980px;margin:56px auto 0;
+      border-radius:34px;
+      border:1px solid rgba(242,201,76,.22);
+      background:rgba(0,0,0,.18);
+      box-shadow:var(--shadow2);
+      padding:34px 26px;
+    }
+    .suggest-wrap h3{
+      text-align:center;
+      font-size:32px;
+      font-weight:900;
+      margin-bottom:10px;
+    }
+    .suggest-wrap p{
+      text-align:center;
+      color:rgba(255,255,255,.60);
+      max-width:680px;margin:0 auto 22px;
+      line-height:1.6;
+      font-size:13px;
+    }
+
+    .formcol{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      max-width:560px;
+      margin:0 auto;
+    }
+    .formcol label{
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.55);
+      margin-bottom:6px;
+      display:block;
+    }
+    .field{
+      width:100%;
+      padding:14px 16px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.35);
+      color:rgba(255,255,255,.88);
+      outline:none;
+      font-size:14px;
+    }
+    .field::placeholder{color:rgba(255,255,255,.45)}
+    .err{
+      color:#ff6b6b;
+      font-size:12px;
+      margin-top:6px;
+      display:none;
+    }
+    .err.show{display:block}
+
+    .btn-suggest{
+      margin-top:14px;
+      width:100%;
+      padding:16px 16px;
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.25);
+      background:var(--yellow);
+      color:#04110b;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      cursor:pointer;
+      transition:background .15s ease, transform .15s ease, box-shadow .15s ease;
+      box-shadow:0 18px 40px rgba(0,0,0,.40);
+    }
+    .btn-suggest:hover,
+    .btn-suggest:active{
+      background:var(--green);
+      transform:translateY(-1px);
+      box-shadow:0 22px 46px rgba(0,176,80,.18);
+    }
+
+    .final{
+      padding:90px 0;
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,.06);
+      background:
+        radial-gradient(900px 520px at 50% 15%, rgba(0,176,80,.16), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.22));
+    }
+    .final h2{
+      font-size:clamp(34px,3.6vw,52px);
+      font-weight:900;
+      line-height:1.08;
+      letter-spacing:-.02em;
+      margin-bottom:16px;
+    }
+    .final p{
+      max-width:760px;
+      margin:0 auto 24px;
+      color:rgba(255,255,255,.74);
+      line-height:1.7;
+      font-size:16px;
+    }
+    .btn-final{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      min-width:420px;
+      padding:18px 22px;
+      border-radius:999px;
+      background:var(--green);
+      color:#04110b;
+      font-weight:1000;
+      text-transform:uppercase;
+      letter-spacing:.03em;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 22px 45px rgba(0,176,80,.22);
+      transition:transform .15s ease, background .15s ease, box-shadow .15s ease;
+    }
+    .btn-final:hover{background:var(--green2);transform:translateY(-2px);box-shadow:0 28px 55px rgba(0,176,80,.28)}
+    @media (max-width:900px){ .btn-final{min-width:100%} }
+
+    .wa-float{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      width:58px;height:58px;border-radius:999px;
+      background:var(--green);
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 18px 40px rgba(0,0,0,.45), 0 0 0 10px rgba(0,176,80,.10);
+      border:1px solid rgba(255,255,255,.16);
+      z-index:999;
+      transition:transform .15s ease, background .15s ease;
+    }
+    .wa-float:hover{transform:translateY(-2px);background:var(--green2)}
+    .wa-float svg{width:26px;height:26px;fill:#04110b}
+
+    .modal-backdrop{
+      position:fixed;inset:0;
+      background:rgba(0,0,0,.65);
+      display:none;
+      align-items:center;justify-content:center;
+      z-index:1000;
+      padding:18px;
+    }
+    .modal-backdrop.open{display:flex}
+    .modal{
+      width:100%;max-width:520px;
+      background:rgba(7,20,13,.96);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .modal-head{
+      padding:16px 18px;
+      display:flex;align-items:center;justify-content:space-between;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .modal-head strong{font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+    .modal-close{
+      width:38px;height:38px;border-radius:12px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.06);
+      color:rgba(255,255,255,.85);
+      cursor:pointer;
+      font-size:18px;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .modal-body{padding:18px}
+    .modal-meta{
+      color:rgba(255,255,255,.68);
+      font-size:13px;
+      line-height:1.5;
+      margin-bottom:14px;
+    }
+    .modal-actions{margin-top:14px}
+    .modal-actions button{
+      width:100%;
+      padding:14px 16px;
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.25);
+      background:var(--yellow);
+      color:#04110b;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      cursor:pointer;
+      transition:background .15s ease, transform .15s ease;
+    }
+    .modal-actions button:hover,
+    .modal-actions button:active{
+      background:var(--green);
+      transform:translateY(-1px);
+    }
+
+    .sr-only{
+      position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Meta Pixel NoScript (NÃO MEXIDO) -->
+  <noscript>
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src="https://www.facebook.com/tr?id=2103148137124992&ev=PageView&noscript=1"
+      alt=""
+    />
+  </noscript>
+  <!-- End Meta Pixel NoScript -->
+
+  <header>
+    <div class="container">
+      <div class="topbar">
+        <a class="brand" href="./index.html" aria-label="Ir para a página principal">
+          <span class="brand-logo">
+            <img src="assets/favicon-32.png" alt="Target" />
+          </span>
+        </a>
+        <div class="topbar-right">TECNOLOGIA QUE MOVE O AGRO</div>
+      </div>
+
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-topline">Curso presencial com prática real em campo</div>
+
+        <h1 id="hero-title">
+          Curso de <span class="g">Piloto de Drone Agrícola</span><br>
+          para quem quer entrar forte no mercado do agro
+        </h1>
+
+        <p>
+          Formação intensiva com drones agrícolas reais, <strong>CAAR incluso</strong>,
+          certificado e suporte para você sair pronto para operar com mais segurança,
+          confiança e visão profissional.
+        </p>
+
+        <div class="offer-box" aria-label="Oferta principal do curso">
+          <div class="offer-badge">ÚLTIMAS VAGAS</div>
+
+          <div class="offer-content">
+            <div class="price-area">
+              <div class="price-kicker">Condição comercial da turma</div>
+
+              <div class="parcel-price">
+                <span class="small">12x de</span>
+                <span class="big">R$ 447</span>
+              </div>
+
+              <div class="full-price">
+                ou à vista por <strong>R$ 4.497</strong>
+              </div>
+
+              <div class="offer-points">
+                <span><i aria-hidden="true"></i> Curso presencial com prática real</span>
+                <span><i aria-hidden="true"></i> Formação voltada para operação profissional</span>
+                <span><i aria-hidden="true"></i> Ideal para quem quer entrar ou crescer no mercado</span>
+              </div>
+            </div>
+
+            <div class="cta-box">
+              <a
+                class="cta-primary"
+                href="https://wa.me/5566999763455"
+                data-wa="consultor"
+                data-course-name="Piloto de Drone Agrícola"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                💬 QUERO GARANTIR MINHA VAGA
+              </a>
+
+              <a
+                class="cta-secondary"
+                href="https://wa.me/5566999763455"
+                data-wa="consultor"
+                data-course-name="Piloto de Drone Agrícola"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                TIRAR DÚVIDAS NO WHATSAPP
+              </a>
+
+              <div class="cta-note">
+                Fale com um consultor agora e receba todas as informações sobre turma,
+                matrícula e formas de pagamento.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-checks" aria-label="Destaques do curso">
+          <span><i aria-hidden="true"></i> CURSO PRESENCIAL</span>
+          <span><i aria-hidden="true"></i> SUPORTE VITALÍCIO</span>
+          <span><i aria-hidden="true"></i> CERTIFICAÇÃO NACIONAL</span>
+        </div>
+
+        <div class="training-box" aria-label="Treinamento de drones">
+          <div class="label">Treinamento de drones</div>
+          <div class="training-media">
+            <img src="assets/drone-hero-novo.jpg" alt="Treinamento presencial com drone agrícola" />
+          </div>
+        </div>
+      </section>
+    </div>
+  </header>
+
+  <main>
+    <section aria-labelledby="benefits-title">
+      <div class="container">
+        <h2 class="section-title" id="benefits-title">Por que essa formação <span class="g">vale o investimento</span></h2>
+        <p class="subtitle">
+          Estruturamos esse treinamento para que o aluno não saia apenas com teoria,
+          mas com visão prática, segurança operacional e preparo para atuar no campo.
+        </p>
+
+        <div class="benefits">
+          <article class="benefit-card">
+            <div class="num">01</div>
+            <h3>Aprendizado prático</h3>
+            <p>Contato com drones agrícolas reais e dinâmica voltada para aplicação no dia a dia do agro.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="num">02</div>
+            <h3>CAAR incluso</h3>
+            <p>Mais comodidade e mais valor agregado na sua formação profissional.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="num">03</div>
+            <h3>Mercado em expansão</h3>
+            <p>Uma habilidade cada vez mais valorizada no campo, com demanda crescente por operação especializada.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="num">04</div>
+            <h3>Suporte após o curso</h3>
+            <p>Você não fica sozinho após a formação. Nossa equipe continua ao seu lado no processo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="dep-title">
+      <div class="container">
+        <h2 class="section-title" id="dep-title">O que nossos <span class="g">alunos dizem</span></h2>
+        <p class="subtitle">
+          Confira o depoimento de quem já transformou sua rotina no campo com nossos treinamentos.
+        </p>
+
+        <div class="video-grid">
+          <article class="vcard" aria-label="Depoimento real 1">
+            <div class="pill">DEPOIMENTO REAL</div>
+            <video preload="metadata" poster="assets/video-thumb-1.jpg" playsinline>
+              <source src="assets/depo-drone-1.mp4" type="video/mp4" />
+              Seu navegador não suporta vídeo.
+            </video>
+            <div class="overlay">
+              <button class="playbtn" type="button" aria-label="Reproduzir depoimento 1"></button>
+            </div>
+          </article>
+
+          <article class="vcard" aria-label="Depoimento real 2">
+            <div class="pill">DEPOIMENTO REAL</div>
+            <video preload="metadata" poster="assets/video-thumb-2.jpg" playsinline>
+              <source src="assets/depo-drone-2.mp4" type="video/mp4" />
+              Seu navegador não suporta vídeo.
+            </video>
+            <div class="overlay">
+              <button class="playbtn" type="button" aria-label="Reproduzir depoimento 2"></button>
+            </div>
+          </article>
+
+          <article class="vcard" aria-label="Depoimento real 3">
+            <div class="pill">DEPOIMENTO REAL</div>
+            <video preload="metadata" poster="assets/video-thumb-3.jpg" playsinline>
+              <source src="assets/depo-drone-3.mp4" type="video/mp4" />
+              Seu navegador não suporta vídeo.
+            </video>
+            <div class="overlay">
+              <button class="playbtn" type="button" aria-label="Reproduzir depoimento 3"></button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="price-title">
+      <div class="container">
+        <h2 class="section-title" id="price-title">Condição especial de <span class="g">pagamento</span></h2>
+        <p class="subtitle">
+          Uma oferta pensada para facilitar sua entrada no curso sem perder o foco na qualidade da formação.
+        </p>
+
+        <div class="price-strip">
+          <div class="mini">Oferta da turma</div>
+          <div class="big">12x de R$ 447</div>
+          <div class="sub">
+            ou à vista por <strong>R$ 4.497</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proximas-turmas-drone" aria-labelledby="turmas-title">
+      <div class="container">
+        <h2 class="section-title" id="turmas-title">Próximas <span class="g">Turmas</span></h2>
+        <p class="subtitle">Encontre a cidade mais próxima de você e reserve seu lugar agora mesmo.</p>
+
+        <div class="controls" aria-label="Filtros de turmas">
+          <input id="search-city" type="text" placeholder="Pesquisar cidade..." aria-label="Pesquisar cidade" />
+          <select id="filter-state" aria-label="Filtrar por estado">
+            <option value="">Todos os Estados</option>
+          </select>
+        </div>
+
+        <div class="grid" id="classes-grid">
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Palmas - TO" data-date="27/03" data-city="palmas" data-state="to">
+            <div class="date">27/03</div>
+            <div class="loc">Palmas - TO</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Brasnorte - MT" data-date="10/04" data-city="brasnorte" data-state="mt">
+            <div class="date">10/04</div>
+            <div class="loc">Brasnorte - MT</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Rorainópolis - RR" data-date="10/04" data-city="rorainopolis" data-state="rr">
+            <div class="date">10/04</div>
+            <div class="loc">Rorainópolis - RR</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Novo Progresso - PA" data-date="24/04" data-city="novo progresso" data-state="pa">
+            <div class="date">24/04</div>
+            <div class="loc">Novo Progresso - PA</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Rolim de Moura - RO" data-date="01/05" data-city="rolim de moura" data-state="ro">
+            <div class="date">01/05</div>
+            <div class="loc">Rolim de Moura - RO</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Sena Madureira - AC" data-date="01/05" data-city="sena madureira" data-state="ac">
+            <div class="date">01/05</div>
+            <div class="loc">Sena Madureira - AC</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Santarém - PA" data-date="15/05" data-city="santarem" data-state="pa">
+            <div class="date">15/05</div>
+            <div class="loc">Santarém - PA</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Eunápolis - BA" data-date="22/05" data-city="eunapolis" data-state="ba">
+            <div class="date">22/05</div>
+            <div class="loc">Eunápolis - BA</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Balsas - MA" data-date="05/06" data-city="balsas" data-state="ma">
+            <div class="date">05/06</div>
+            <div class="loc">Balsas - MA</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Uruçuí - PI" data-date="05/06" data-city="urucui" data-state="pi">
+            <div class="date">05/06</div>
+            <div class="loc">Uruçuí - PI</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Paragominas - PA" data-date="12/06" data-city="paragominas" data-state="pa">
+            <div class="date">12/06</div>
+            <div class="loc">Paragominas - PA</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Colniza - MT" data-date="19/06" data-city="colniza" data-state="mt">
+            <div class="date">19/06</div>
+            <div class="loc">Colniza - MT</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Confresa - MT" data-date="03/07" data-city="confresa" data-state="mt">
+            <div class="date">03/07</div>
+            <div class="loc">Confresa - MT</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Açailândia - MA" data-date="03/07" data-city="acailandia" data-state="pa">
+            <div class="date">03/07</div>
+            <div class="loc">Açailândia - PA</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Altamira - PA" data-date="17/07" data-city="altamira" data-state="pa">
+            <div class="date">17/07</div>
+            <div class="loc">Altamira - PA</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Garanhuns - PE" data-date="17/07" data-city="garanhuns" data-state="pe">
+            <div class="date">17/07</div>
+            <div class="loc">Garanhuns - PE</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+
+          <article class="card" data-course="Piloto de Drone Agrícola" data-local="Campina Grande - PB" data-date="31/07" data-city="campina grande" data-state="pb">
+            <div class="date">31/07</div>
+            <div class="loc">Campina Grande - PB</div>
+            <div class="course">PILOTO DE DRONE AGRÍCOLA</div>
+            <button class="btn-yellow btn-reservar" type="button">GARANTIR MINHA VAGA</button>
+          </article>
+        </div>
+
+        <div class="suggest-wrap" aria-labelledby="sugira-title">
+          <h3 id="sugira-title">Sugira sua Cidade</h3>
+          <p>Não encontrou turma na sua região? Preencha abaixo e entraremos em contato quando abrirmos novas datas aí.</p>
+
+          <form id="notify-form" novalidate>
+            <div class="formcol">
+              <div>
+                <label for="notify-name">Nome completo</label>
+                <input class="field" id="notify-name" type="text" placeholder="Seu nome" autocomplete="name" />
+                <div class="err" id="err-name">Informe seu nome.</div>
+              </div>
+
+              <div>
+                <label for="notify-city">Cidade e estado de interesse</label>
+                <input class="field" id="notify-city" type="text" placeholder="Ex: Primavera do Leste - MT" />
+                <div class="err" id="err-city">Informe sua cidade/estado.</div>
+              </div>
+
+              <div>
+                <label for="notify-course">Curso que busca</label>
+                <select class="field" id="notify-course">
+                  <option value="">Selecione um curso</option>
+                  <option value="Piloto de Drone Agrícola">Piloto de Drone Agrícola</option>
+                  <option value="Inseminação Artificial em Bovinos">Inseminação Artificial em Bovinos</option>
+                </select>
+                <div class="err" id="err-course">Selecione um curso.</div>
+              </div>
+
+              <button class="btn-suggest" type="submit">Me avise quando chegar turmas!</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="final" aria-labelledby="final-title">
+      <div class="container">
+        <h2 id="final-title">Comece agora sua formação em<br>Piloto de Drone Agrícola</h2>
+        <p>
+          Fale com a equipe, tire suas dúvidas e veja a melhor forma de entrar
+          na próxima turma disponível.
+        </p>
+
+        <a
+          class="btn-final"
+          href="https://wa.me/5566999763455"
+          data-wa="consultor"
+          data-course-name="Piloto de Drone Agrícola"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          🚀 QUERO MINHA MATRÍCULA AGORA
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <a
+    class="wa-float"
+    href="https://wa.me/5566999763455"
+    data-wa="consultor"
+    data-course-name="Piloto de Drone Agrícola"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Falar no WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M19.11 17.2c-.28-.14-1.65-.81-1.9-.9-.26-.1-.45-.14-.63.14-.19.28-.73.9-.9 1.09-.17.19-.33.21-.62.07-.28-.14-1.2-.44-2.28-1.4-.84-.75-1.4-1.67-1.56-1.95-.16-.28-.02-.43.12-.57.12-.12.28-.33.42-.5.14-.17.19-.28.28-.47.09-.19.05-.35-.02-.5-.07-.14-.63-1.52-.87-2.08-.23-.55-.47-.47-.63-.48-.16-.01-.35-.01-.53-.01-.19 0-.5.07-.76.35-.26.28-1 1-1 2.43 0 1.43 1.03 2.8 1.17 2.99.14.19 2.03 3.1 4.93 4.34.69.3 1.23.48 1.65.62.69.22 1.32.19 1.82.12.55-.08 1.65-.67 1.88-1.32.23-.65.23-1.2.16-1.32-.07-.12-.26-.19-.54-.33zM16 3C9.37 3 4 8.1 4 14.4c0 2.39.8 4.62 2.16 6.45L5 29l8.4-1.97c1.22.35 2.52.54 3.6.54 6.63 0 12-5.1 12-11.4C29 8.1 23.63 3 16 3zm0 20.52c-1 0-2.04-.19-2.95-.54l-.7-.26-4.98 1.17 1.07-4.74-.45-.71A9.1 9.1 0 0 1 6.9 14.4c0-5.02 4.2-9.1 9.1-9.1 5.02 0 9.1 4.08 9.1 9.1 0 5.02-4.08 9.12-9.1 9.12z"/>
+    </svg>
+  </a>
+
+  <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-head">
+        <strong id="modal-title">Garantir minha vaga</strong>
+        <button type="button" class="modal-close" id="modal-close" aria-label="Fechar">×</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-meta" id="modal-meta"></p>
+
+        <div>
+          <label for="modal-name" style="display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:6px;">Seu nome</label>
+          <input class="field" id="modal-name" type="text" placeholder="Digite seu nome" autocomplete="name" />
+          <div class="err" id="modal-err-name">Informe seu nome.</div>
+        </div>
+
+        <div style="margin-top:12px;">
+          <label for="modal-city" style="display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:6px;">Cidade/Estado</label>
+          <input class="field" id="modal-city" type="text" placeholder="Ex: Confresa - MT" />
+          <div class="err" id="modal-err-city">Informe sua cidade/estado.</div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="modal-confirm">Continuar no WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      const WHATSAPP_PHONE = "5566999763455";
+
+      function buildWaUrl(message){
+        return "https://wa.me/" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(message);
+      }
+
+      function clean(v){
+        return (v || "")
+          .toString()
+          .trim()
+          .replace(/\s+/g," ");
+      }
+
+      (function initWhatsAppConsultorLinks(){
+        const links = Array.from(document.querySelectorAll('a[data-wa="consultor"]'));
+        links.forEach(function(link){
+          const courseName = link.getAttribute("data-course-name") || "Piloto de Drone Agrícola";
+          const msg =
+            "Olá, gostaria de garantir minha vaga no curso de " + courseName +
+            ". Vi a condição de 12x de R$ 447 ou R$ 4.497 à vista. Pode me passar as informações para matrícula?";
+          link.setAttribute("href", buildWaUrl(msg));
+        });
+      })();
+
+      (function initVideoCards(){
+        const cards = Array.from(document.querySelectorAll(".vcard"));
+        cards.forEach(function(card){
+          const video = card.querySelector("video");
+          const btn = card.querySelector(".playbtn");
+          if(!video || !btn) return;
+
+          btn.addEventListener("click", function(){
+            try{
+              card.classList.add("playing");
+              video.setAttribute("controls", "controls");
+              video.play();
+            }catch(e){}
+          });
+
+          video.addEventListener("pause", function(){
+            if(video.currentTime < 0.5){
+              card.classList.remove("playing");
+              video.removeAttribute("controls");
+            }
+          });
+
+          video.addEventListener("ended", function(){
+            card.classList.remove("playing");
+            video.removeAttribute("controls");
+            video.currentTime = 0;
+          });
+        });
+      })();
+
+      const searchInput = document.getElementById("search-city");
+      const stateSelect = document.getElementById("filter-state");
+      const grid = document.getElementById("classes-grid");
+      const cards = Array.from(grid.querySelectorAll(".card"));
+
+      (function buildStateOptions(){
+        const states = Array.from(
+          new Set(
+            cards
+              .map(c => (c.getAttribute("data-state") || "").toLowerCase().trim())
+              .filter(Boolean)
+          )
+        ).sort();
+
+        states.forEach(function(st){
+          const opt = document.createElement("option");
+          opt.value = st;
+          opt.textContent = st.toUpperCase();
+          stateSelect.appendChild(opt);
+        });
+      })();
+
+      function applyFilter(){
+        const term = (searchInput.value || "").toLowerCase().trim();
+        const st = (stateSelect.value || "").toLowerCase().trim();
+
+        cards.forEach(function(card){
+          const city = (card.getAttribute("data-city") || "").toLowerCase();
+          const state = (card.getAttribute("data-state") || "").toLowerCase();
+          const hay = (city + " " + state).trim();
+
+          const okTerm = !term || hay.includes(term);
+          const okState = !st || state === st;
+
+          card.style.display = (okTerm && okState) ? "" : "none";
+        });
+      }
+
+      if(searchInput) searchInput.addEventListener("input", applyFilter);
+      if(stateSelect) stateSelect.addEventListener("change", applyFilter);
+
+      const modalBackdrop = document.getElementById("modal-backdrop");
+      const modalClose = document.getElementById("modal-close");
+      const modalConfirm = document.getElementById("modal-confirm");
+      const modalMeta = document.getElementById("modal-meta");
+      const modalName = document.getElementById("modal-name");
+      const modalCity = document.getElementById("modal-city");
+      const modalErrName = document.getElementById("modal-err-name");
+      const modalErrCity = document.getElementById("modal-err-city");
+
+      let currentData = { course:"", local:"", date:"" };
+
+      function openModal(data){
+        currentData = data;
+        modalMeta.textContent =
+          "Turma: " + data.course + " • " + data.local + " • Data " + data.date;
+        modalName.value = "";
+        modalCity.value = "";
+        modalErrName.classList.remove("show");
+        modalErrCity.classList.remove("show");
+        modalBackdrop.classList.add("open");
+        modalBackdrop.setAttribute("aria-hidden","false");
+        setTimeout(() => modalName.focus(), 10);
+      }
+
+      function closeModal(){
+        modalBackdrop.classList.remove("open");
+        modalBackdrop.setAttribute("aria-hidden","true");
+      }
+
+      modalClose.addEventListener("click", closeModal);
+      modalBackdrop.addEventListener("click", function(e){
+        if(e.target === modalBackdrop) closeModal();
+      });
+      window.addEventListener("keydown", function(e){
+        if(e.key === "Escape" && modalBackdrop.classList.contains("open")) closeModal();
+      });
+
+      document.addEventListener("click", function(e){
+        const btn = e.target.closest(".btn-reservar");
+        if(!btn) return;
+        const card = btn.closest(".card");
+        if(!card) return;
+
+        openModal({
+          course: card.getAttribute("data-course") || "Piloto de Drone Agrícola",
+          local: card.getAttribute("data-local") || "sua cidade",
+          date: card.getAttribute("data-date") || ""
+        });
+      });
+
+      modalConfirm.addEventListener("click", function(){
+        const name = clean(modalName.value);
+        const city = clean(modalCity.value);
+
+        let ok = true;
+        if(!name){ modalErrName.classList.add("show"); ok = false; } else modalErrName.classList.remove("show");
+        if(!city){ modalErrCity.classList.add("show"); ok = false; } else modalErrCity.classList.remove("show");
+        if(!ok) return;
+
+        const msg =
+          "Olá, meu nome é " + name + ", sou da cidade " + city +
+          " e quero garantir minha vaga no curso " + currentData.course +
+          " em " + currentData.local + " na data " + currentData.date +
+          ". Tenho interesse na condição de 12x de R$ 447 ou R$ 4.497 à vista.";
+
+        window.open(buildWaUrl(msg), "_blank");
+        closeModal();
+      });
+
+      const form = document.getElementById("notify-form");
+      const nName = document.getElementById("notify-name");
+      const nCity = document.getElementById("notify-city");
+      const nCourse = document.getElementById("notify-course");
+      const errName = document.getElementById("err-name");
+      const errCity = document.getElementById("err-city");
+      const errCourse = document.getElementById("err-course");
+
+      form.addEventListener("submit", function(e){
+        e.preventDefault();
+
+        const name = clean(nName.value);
+        const city = clean(nCity.value);
+        const course = clean(nCourse.value);
+
+        let ok = true;
+        if(!name){ errName.classList.add("show"); ok = false; } else errName.classList.remove("show");
+        if(!city){ errCity.classList.add("show"); ok = false; } else errCity.classList.remove("show");
+        if(!course){ errCourse.classList.add("show"); ok = false; } else errCourse.classList.remove("show");
+        if(!ok) return;
+
+        const msg =
+          "Olá, meu nome é " + name +
+          ", sou da cidade " + city +
+          " e quero o curso de " + course +
+          " na minha cidade. Vi a condição de 12x de R$ 447 ou R$ 4.497 à vista e quero mais informações.";
+
+        window.open(buildWaUrl(msg), "_blank");
+      });
+    });
+  </script>
+</body>
+</html>
