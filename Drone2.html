@@ -943,7 +943,7 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         if (video.duration && isFinite(video.duration)) {
           if (posterMode === 'mid') {
-            video.currentTime = Math.max(video.duration * 0.5, 0.1);
+            video.currentTime = Math.max(video.duration * 1.0, 0.1);
           } else {
             video.currentTime = Math.min(0.08, Math.max(video.duration - 0.01, 0));
           }
