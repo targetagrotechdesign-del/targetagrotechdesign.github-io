@@ -26,7 +26,7 @@ content="Curso presencial de Piloto de Drone Agrícola com CAAR incluso, prátic
 <meta property="og:url" content="https://targetagrotech.com.br/drone.html" />
 
 <!-- Meta Pixel Code -->
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=ViWf7li1B-lG034ze1mGMkMOR2Fy-9MTOZxiVkno5tYUIHsYekH1mSfZMgDqJ8gB3ya-O_P-olYNq3Rz7ey74a5HcRZXTUqhpiAp5CmyoITyOEBXNE81kk11W231nj0Q4SoBPO8qvDOTJ5C-Nh9Nr_PR6G7ImwjCKX8Qthnhxx-cUK3-qyikIkej9c-UpKXwcT6muu8He8Ae3L3ynUahUHYAeqa0B7amIzK91GBoWiZRjpmZZFkq87u7UBR4_CSqja9nRfxbGDp8WYxos4Ijow" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=HVGQ2HLvRAeeJ1qEuMFYC3kycc9OV6itKGx3Il1OW2I0wZwLoIw4Uj8zSM-2QtNl5bvM3kGekaYXOD7ykJOEgQml6eL8uH3MgU1zvoF2tqOl6afjOIn0JNemvqe-M14qBSw6q58D8dtySOJvvIrS1vT10mAWAD7LOqTkYo9WOFtHhAT566GVGxFCAK6gIwUN3UNg-gfPMvMzU8fCAfJ1cU4td474ECzeydn9Huum_PJy3eUVEiqBKfd32HCFHTl-Ue9_3Ojtr69VKkcLeLPl4A" charset="UTF-8"></script><script>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=DI-jJ41JYvnP83wR-03my4DibAo5mJ5_V6jmxUb9IK9hzey5wWSNBrKti81u_xzfFfhELxl70W28ZH4yJrEdryF1Q3MX_k3_eV_Dd0_SAGEhywPjT3tKR6AnccOgdj1OLwfM9dJyMMWPD3vKHg9wQ92cWX326rIgfsIjio5koPLbVxFqHP10gIPcKy1KMpQYCcKpImwKJCp0dSJbGorgU-FZ8A6y0fqyiRb4tyvoyEhta3I19DTDbEsHscaFMIrZsR088nCazw1kzmnq5tw64A" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=ViWf7li1B-lG034ze1mGMkMOR2Fy-9MTOZxiVkno5tYUIHsYekH1mSfZMgDqJ8gB3ya-O_P-olYNq3Rz7ey74a5HcRZXTUqhpiAp5CmyoITyOEBXNE81kk11W231nj0Q4SoBPO8qvDOTJ5C-Nh9Nr_PR6G7ImwjCKX8Qthnhxx-cUK3-qyikIkej9c-UpKXwcT6muu8He8Ae3L3ynUahUHYAeqa0B7amIzK91GBoWiZRjpmZZFkq87u7UBR4_CSqja9nRfxbGDp8WYxos4Ijow" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=HVGQ2HLvRAeeJ1qEuMFYC3kycc9OV6itKGx3Il1OW2I0wZwLoIw4Uj8zSM-2QtNl5bvM3kGekaYXOD7ykJOEgQml6eL8uH3MgU1zvoF2tqOl6afjOIn0JNemvqe-M14qBSw6q58D8dtySOJvvIrS1vT10mAWAD7LOqTkYo9WOFtHhAT566GVGxFCAK6gIwUN3UNg-gfPMvMzU8fCAfJ1cU4td474ECzeydn9Huum_PJy3eUVEiqBKfd32HCFHTl-Ue9_3Ojtr69VKkcLeLPl4A" charset="UTF-8"></script><script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -222,7 +222,17 @@ transition:all .3s ease;
 
 .benefits-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(240px,1fr));gap:20px;}
 .benefit-card{
-background:rgba(255,255,255,.03);padding:30px;border-radius:24px;border:1px solid var(--border);
+background:rgba(255,255,255,.04);
+padding:30px;
+border-radius:24px;
+border:1px solid var(--border);
+box-shadow:var(--shadow2);
+transition:all .3s ease;
+}
+.benefit-card:hover{
+border-color:var(--green);
+transform:translateY(-5px);
+box-shadow:0 18px 38px rgba(0,0,0,.32);
 }
 .benefit-card .num{font-size:40px;font-weight:900;color:var(--yellow);margin-bottom:10px;opacity:.5}
 .benefit-card h3{font-size:20px;margin-bottom:10px;}
@@ -394,19 +404,19 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 
       <div class="video-grid">
         <article class="vcard">
-          <video preload="metadata" poster="assets/video-thumb-1.jpg" playsinline>
+          <video preload="metadata" playsinline>
             <source src="assets/depo-drone-1.mp4" type="video/mp4" />
           </video>
           <div class="overlay"><button class="playbtn" type="button" aria-label="Reproduzir vídeo 1"></button></div>
         </article>
         <article class="vcard">
-          <video preload="metadata" poster="assets/video-thumb-2.jpg" playsinline>
+          <video preload="metadata" playsinline>
             <source src="assets/depo-drone-2.mp4" type="video/mp4" />
           </video>
           <div class="overlay"><button class="playbtn" type="button" aria-label="Reproduzir vídeo 2"></button></div>
         </article>
         <article class="vcard">
-          <video preload="metadata" poster="assets/video-thumb-3.jpg" playsinline>
+          <video preload="metadata" playsinline>
             <source src="assets/depo-drone-3.mp4" type="video/mp4" />
           </video>
           <div class="overlay"><button class="playbtn" type="button" aria-label="Reproduzir vídeo 3"></button></div>
@@ -911,12 +921,57 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('countdown').innerText = "VAGAS ENCERRADAS PARA ESTE MÊS - CONSULTE NOVAS DATAS";
   }
 
+  function generateVideoPoster(video) {
+    if (!video) return;
+
+    const captureFrame = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        canvas.width = video.videoWidth || 720;
+        canvas.height = video.videoHeight || 1280;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        video.setAttribute('poster', canvas.toDataURL('image/jpeg', 0.92));
+        video.currentTime = 0;
+        video.pause();
+      } catch (e) {}
+    };
+
+    const seekAndCapture = () => {
+      try {
+        if (video.duration && isFinite(video.duration)) {
+          video.currentTime = Math.min(0.08, Math.max(video.duration - 0.01, 0));
+        } else {
+          captureFrame();
+        }
+      } catch (e) {
+        captureFrame();
+      }
+    };
+
+    if (video.readyState >= 2) {
+      seekAndCapture();
+    } else {
+      video.addEventListener('loadeddata', seekAndCapture, { once: true });
+    }
+
+    video.addEventListener('seeked', captureFrame, { once: true });
+  }
+
   document.querySelectorAll('.vcard').forEach(card => {
     const video = card.querySelector('video');
     const btn = card.querySelector('.playbtn');
+
+    if (video) {
+      video.setAttribute('preload', 'auto');
+      video.muted = true;
+      generateVideoPoster(video);
+    }
+
     if(btn && video) {
       btn.addEventListener('click', () => {
         card.classList.add('playing');
+        video.muted = false;
         video.setAttribute('controls', 'true');
         video.play();
       });
