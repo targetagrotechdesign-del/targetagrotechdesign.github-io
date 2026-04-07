@@ -26,9 +26,6 @@
 <meta property="og:url" content="https://targetagrotech.com.br/drone.html" />
 
 <!-- Meta Pixel Code -->
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=2y2tqvGwwSBditMx_D1CGuDwSQKr558X-O5okvI9Z6nfpRlXXcC1j4GX8yjR6w9FDJ2XG2OYESyGFFa2Cy1Vgzvmaq4UYpyMf23WxEUABAhdlMY3L7M13Zx5zBILJN1qtg8DoMKf6LUCdONev2m48tMphjDGsQIITfXX7XhSkB7HVIbJp31sTrDQ0OfGJSo-VlTkStOMvPgBGEHoeXyBW15hsdDqmy0Hv2EZkwCqtdV-HGcdUE5ljqIeAon-IvHaAqOPhiPQbm97TZ-eh2zaXQ" charset="UTF-8"></script>
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=ViWf7li1B-lG034ze1mGMkMOR2Fy-9MTOZxiVkno5tYUIHsYekH1mSfZMgDqJ8gB3ya-O_P-olYNq3Rz7ey74a5HcRZXTUqhpiAp5CmyoITyOEBXNE81kk11W231nj0Q4SoBPO8qvDOTJ5C-Nh9Nr_PR6G7ImwjCKX8Qthnhxx-cUK3-qyikIkej9c-UpKXwcT6muu8He8Ae3L3ynUahUHYAeqa0B7amIzK91GBoWiZRjpmZZFkq87u7UBR4_CSqja9nRfxbGDp8WYxos4Ijow" charset="UTF-8"></script>
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=HVGQ2HLvRAeeJ1qEuMFYC3kycc9OV6itKGx3Il1OW2I0wZwLoIw4Uj8zSM-2QtNl5bvM3kGekaYXOD7ykJOEgQml6eL8uH3MgU1zvoF2tqOl6afjOIn0JNemvqe-M14qBSw6q58D8dtySOJvvIrS1vT10mAWAD7LOqTkYo9WOFtHhAT566GVGxFCAK6gIwUN3UNg-gfPMvMzU8fCAfJ1cU4td474ECzeydn9Huum_PJy3eUVEiqBKfd32HCFHTl-Ue9_3Ojtr69VKkcLeLPl4A" charset="UTF-8"></script>
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -460,7 +457,7 @@ header{padding:18px 0 0}
 
       <div class="training-box">
         <div class="training-media">
-          <img src="assets/drone-hero-novo.jpg" alt="Treinamento Real Target Agrotech" />
+          <img src="assets/drone-hero-novo.jpg" alt="Treinamento Real Target Agrotech" fetchpriority="high" decoding="async" />
         </div>
       </div>
 
@@ -485,24 +482,33 @@ header{padding:18px 0 0}
 
       <div class="video-grid">
         <article class="vcard">
-          <video preload="metadata" playsinline>
+          <video preload="none" playsinline poster="assets/depo-drone-1-thumb.jpg">
             <source src="assets/depo-drone-1.mp4" type="video/mp4" />
           </video>
-          <div class="overlay"><button class="playbtn" type="button" aria-label="Reproduzir vídeo 1"></button></div>
+          <div class="overlay">
+            <img class="video-thumb" src="assets/depo-drone-1-thumb.jpg" alt="Capa do depoimento 1" />
+            <button class="playbtn" type="button" aria-label="Reproduzir vídeo 1"></button>
+          </div>
         </article>
 
         <article class="vcard">
-          <video preload="metadata" playsinline>
+          <video preload="none" playsinline poster="assets/depo-drone-2-thumb.jpg">
             <source src="assets/depo-drone-2.mp4" type="video/mp4" />
           </video>
-          <div class="overlay"><button class="playbtn" type="button" aria-label="Reproduzir vídeo 2"></button></div>
+          <div class="overlay">
+            <img class="video-thumb" src="assets/depo-drone-2-thumb.jpg" alt="Capa do depoimento 2" />
+            <button class="playbtn" type="button" aria-label="Reproduzir vídeo 2"></button>
+          </div>
         </article>
 
         <article class="vcard">
-          <video preload="metadata" playsinline data-poster-mode="mid">
+          <video preload="none" playsinline poster="assets/depo-drone-3-thumb.jpg">
             <source src="assets/depo-drone-3.mp4" type="video/mp4" />
           </video>
-          <div class="overlay"><button class="playbtn" type="button" aria-label="Reproduzir vídeo 3"></button></div>
+          <div class="overlay">
+            <img class="video-thumb" src="assets/depo-drone-3-thumb.jpg" alt="Capa do depoimento 3" />
+            <button class="playbtn" type="button" aria-label="Reproduzir vídeo 3"></button>
+          </div>
         </article>
       </div>
     </div>
@@ -862,7 +868,7 @@ header{padding:18px 0 0}
   <section class="company-section">
     <div class="container">
       <div class="company-content">
-        <img src="assets/drone-hero-novo.jpg" class="company-img" alt="Equipe Target Agrotech">
+        <img src="assets/drone-hero-novo.jpg" class="company-img" alt="Equipe Target Agrotech" loading="lazy" decoding="async">
         <div class="company-text">
           <h2 style="font-size:32px;margin-bottom:20px;">Sobre a <span class="g">Target Agrotech</span></h2>
           <p style="margin-bottom:15px;font-weight:700;">Referência nacional com mais de 1.000 alunos formados.</p>
@@ -1026,78 +1032,13 @@ document.addEventListener('DOMContentLoaded', () => {
     countdown.innerText = 'VAGAS ENCERRADAS PARA ESTE MÊS - CONSULTE NOVAS DATAS';
   }
 
-  function generateVideoPoster(video) {
-    if (!video) return;
-
-    const posterMode = video.getAttribute('data-poster-mode') || 'start';
-    const card = video.closest('.vcard');
-    const overlay = card ? card.querySelector('.overlay') : null;
-    if (!overlay) return;
-
-    let thumb = overlay.querySelector('img.video-thumb');
-    if (!thumb) {
-      thumb = document.createElement('img');
-      thumb.className = 'video-thumb';
-      thumb.alt = 'Capa do depoimento';
-      overlay.prepend(thumb);
-    }
-
-    let captured = false;
-
-    const saveFrame = () => {
-      if (captured) return;
-      if (!video.videoWidth || !video.videoHeight) return;
-
-      try {
-        const canvas = document.createElement('canvas');
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-        thumb.src = canvas.toDataURL('image/jpeg', 0.92);
-        captured = true;
-        video.pause();
-      } catch (e) {}
-    };
-
-    const captureAtTargetTime = () => {
-      try {
-        if (video.duration && isFinite(video.duration)) {
-          const targetTime = posterMode === 'mid'
-            ? Math.min(Math.max(video.duration * 0.5, 0.35), Math.max(video.duration - 0.2, 0.35))
-            : Math.min(0.12, Math.max(video.duration - 0.2, 0.12));
-
-          const handleSeeked = () => {
-            saveFrame();
-            video.removeEventListener('seeked', handleSeeked);
-          };
-
-          video.addEventListener('seeked', handleSeeked);
-          video.currentTime = targetTime;
-        } else {
-          saveFrame();
-        }
-      } catch (e) {
-        saveFrame();
-      }
-    };
-
-    if (video.readyState >= 2) {
-      captureAtTargetTime();
-    } else {
-      video.addEventListener('loadeddata', captureAtTargetTime, { once: true });
-    }
-  }
-
   document.querySelectorAll('.vcard').forEach(card => {
     const video = card.querySelector('video');
     const btn = card.querySelector('.playbtn');
     const overlay = card.querySelector('.overlay');
 
     if (video) {
-      video.setAttribute('preload', 'auto');
       video.muted = true;
-      generateVideoPoster(video);
 
       video.addEventListener('ended', () => {
         card.classList.remove('playing');
