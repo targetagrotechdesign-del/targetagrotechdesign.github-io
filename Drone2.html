@@ -142,6 +142,37 @@ header{padding:18px 0 0}
   display:block;
   background:#07140d;
 }
+
+.hero-audio-btn{
+  position:absolute;
+  right:14px;
+  bottom:14px;
+  z-index:4;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(0,0,0,.58);
+  color:#fff;
+  border-radius:999px;
+  padding:10px 14px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.03em;
+  cursor:pointer;
+  backdrop-filter:blur(6px);
+}
+.hero-audio-btn:hover{background:rgba(0,0,0,.75);}
+.hero-audio-hint{
+  position:absolute;
+  left:14px;
+  bottom:14px;
+  z-index:3;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(0,0,0,.48);
+  color:rgba(255,255,255,.86);
+  font-size:11px;
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(6px);
+}
 @media (max-width:768px){
   .training-box{max-width:min(92vw,420px);}
   .training-media{max-height:82vh;}
@@ -547,12 +578,12 @@ header{padding:18px 0 0}
             playsinline
             webkit-playsinline
             preload="auto"
-            poster="assets/drone-hero-novo.jpg"
             aria-label="Vídeo principal do curso de drone agrícola"
-          >
-            <source src="assets/video-hero-landing.mp4" type="video/mp4" />
-            Seu navegador não suporta vídeo HTML5.
-          </video>
+          ></video>
+          <div class="hero-audio-hint" id="heroAudioHint">Toque para ativar o áudio</div>
+          <button class="hero-audio-btn" id="heroAudioBtn" type="button" aria-label="Ativar ou desativar áudio do vídeo principal">
+            Ativar áudio
+          </button>
         </div>
       </div>
 
@@ -1038,9 +1069,74 @@ document.addEventListener('DOMContentLoaded', () => {
   const stateFilter = document.getElementById('stateFilter');
   const matriculaHoras = document.getElementById('matriculaHoras');
   const heroVideo = document.getElementById('heroVideo');
+  const heroAudioBtn = document.getElementById('heroAudioBtn');
+  const heroAudioHint = document.getElementById('heroAudioHint');
 
   if (matriculaHoras) {
     matriculaHoras.textContent = String(Math.floor(Math.random() * 13) + 12);
+  }
+
+  function updateHeroAudioUi() {
+    if (!heroVideo || !heroAudioBtn) return;
+    heroAudioBtn.textContent = heroVideo.muted ? 'Ativar áudio' : 'Desativar áudio';
+    if (heroAudioHint) {
+      heroAudioHint.style.display = heroVideo.muted ? 'inline-flex' : 'none';
+    }
+  }
+
+  function tryHeroSources(video, sources, index = 0) {
+    if (!video || index >= sources.length) return;
+    const candidate = sources[index];
+    const onLoaded = () => {
+      video.dataset.loadedSrc = candidate;
+      video.removeEventListener('loadeddata', onLoaded);
+      video.removeEventListener('error', onError);
+      video.play().catch(() => {});
+    };
+    const onError = () => {
+      video.removeEventListener('loadeddata', onLoaded);
+      video.removeEventListener('error', onError);
+      tryHeroSources(video, sources, index + 1);
+    };
+
+    video.addEventListener('loadeddata', onLoaded, { once: true });
+    video.addEventListener('error', onError, { once: true });
+    video.src = encodeURI(candidate);
+    video.load();
+  }
+
+  if (heroVideo) {
+    const heroCandidates = [
+      './assets/video-HeroLand.mp4',
+      'assets/video-HeroLand.mp4',
+      './assets/video-hero-landing.mp4',
+      'assets/video-hero-landing.mp4',
+      './assets/video-Hero landi.mp4',
+      'assets/video-Hero landi.mp4',
+      './assets/video-hero-landi.mp4',
+      'assets/video-hero-landi.mp4'
+    ];
+
+    heroVideo.muted = true;
+    heroVideo.loop = true;
+    heroVideo.playsInline = true;
+    tryHeroSources(heroVideo, heroCandidates);
+    updateHeroAudioUi();
+
+    heroVideo.addEventListener('click', () => {
+      heroVideo.muted = !heroVideo.muted;
+      heroVideo.play().catch(() => {});
+      updateHeroAudioUi();
+    });
+
+    if (heroAudioBtn) {
+      heroAudioBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        heroVideo.muted = !heroVideo.muted;
+        heroVideo.play().catch(() => {});
+        updateHeroAudioUi();
+      });
+    }
   }
 
   function pauseHeroVideo() {
@@ -1307,7 +1403,8 @@ document.addEventListener('DOMContentLoaded', () => {
         userName ? `Nome: ${userName}` : '',
         userCity ? `Cidade: ${userCity}` : '',
         selectedTurmaText ? `Turma: ${selectedTurmaText}` : ''
-      ].filter(Boolean).join('\n');
+      ].filter(Boolean).join('
+');
 
       const url = `https://wa.me/5566999763455?text=${encodeURIComponent(mensagem)}`;
       window.open(url, '_blank');
