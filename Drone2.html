@@ -26,9 +26,6 @@
 <meta property="og:url" content="https://targetagrotech.com.br/drone.html" />
 
 <!-- Meta Pixel Code -->
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=2y2tqvGwwSBditMx_D1CGuDwSQKr558X-O5okvI9Z6nfpRlXXcC1j4GX8yjR6w9FDJ2XG2OYESyGFFa2Cy1Vgzvmaq4UYpyMf23WxEUABAhdlMY3L7M13Zx5zBILJN1qtg8DoMKf6LUCdONev2m48tMphjDGsQIITfXX7XhSkB7HVIbJp31sTrDQ0OfGJSo-VlTkStOMvPgBGEHoeXyBW15hsdDqmy0Hv2EZkwCqtdV-HGcdUE5ljqIeAon-IvHaAqOPhiPQbm97TZ-eh2zaXQ" charset="UTF-8"></script>
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=ViWf7li1B-lG034ze1mGMkMOR2Fy-9MTOZxiVkno5tYUIHsYekH1mSfZMgDqJ8gB3ya-O_P-olYNq3Rz7ey74a5HcRZXTUqhpiAp5CmyoITyOEBXNE81kk11W231nj0Q4SoBPO8qvDOTJ5C-Nh9Nr_PR6G7ImwjCKX8Qthnhxx-cUK3-qyikIkej9c-UpKXwcT6muu8He8Ae3L3ynUahUHYAeqa0B7amIzK91GBoWiZRjpmZZFkq87u7UBR4_CSqja9nRfxbGDp8WYxos4Ijow" charset="UTF-8"></script>
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=HVGQ2HLvRAeeJ1qEuMFYC3kycc9OV6itKGx3Il1OW2I0wZwLoIw4Uj8zSM-2QtNl5bvM3kGekaYXOD7ykJOEgQml6eL8uH3MgU1zvoF2tqOl6afjOIn0JNemvqe-M14qBSw6q58D8dtySOJvvIrS1vT10mAWAD7LOqTkYo9WOFtHhAT566GVGxFCAK6gIwUN3UNg-gfPMvMzU8fCAfJ1cU4td474ECzeydn9Huum_PJy3eUVEiqBKfd32HCFHTl-Ue9_3Ojtr69VKkcLeLPl4A" charset="UTF-8"></script>
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -121,13 +118,35 @@ header{padding:18px 0 0}
 }
 
 .training-box{
-  margin:40px auto 0;max-width:980px;border-radius:34px;
-  background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.12);
-  box-shadow:var(--shadow2);overflow:hidden;position:relative;
+  margin:40px auto 0;
+  max-width:420px;
+  border-radius:34px;
+  background:rgba(0,0,0,.18);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:var(--shadow2);
+  overflow:hidden;
+  position:relative;
 }
-.training-media{height:420px;position:relative;background:#07140d;overflow:hidden;}
-.training-media img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;}
-@media (max-width:768px){ .training-media{height:250px} }
+.training-media{
+  position:relative;
+  background:#07140d;
+  overflow:hidden;
+  aspect-ratio:9/16;
+  width:100%;
+}
+.training-media img,
+.training-media video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  background:#07140d;
+}
+@media (max-width:768px){
+  .training-box{max-width:min(92vw,420px);}
+  .training-media{max-height:82vh;}
+}
 
 .hero-extra-cta{
   margin-top:20px;
@@ -188,6 +207,67 @@ header{padding:18px 0 0}
   border-bottom:10px solid transparent;
   margin-left:5px;
 }
+.video-control{
+  position:absolute;
+  right:16px;
+  bottom:16px;
+  z-index:3;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(0,0,0,.55);
+  color:#fff;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .25s ease, transform .25s ease, background .25s ease;
+  transform:translateY(6px);
+}
+.vcard.ready .video-control,
+.vcard.playing .video-control,
+.vcard.paused .video-control{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
+}
+.video-control:hover{background:rgba(0,0,0,.72);}
+.video-control .icon-play,
+.video-control .icon-pause{
+  display:none;
+  line-height:1;
+}
+.vcard.playing .video-control .icon-pause{display:block;}
+.vcard.paused .video-control .icon-play,
+.vcard.ready .video-control .icon-play{display:block;}
+.video-control .icon-play{
+  width:0;
+  height:0;
+  border-left:12px solid #fff;
+  border-top:8px solid transparent;
+  border-bottom:8px solid transparent;
+  margin-left:3px;
+}
+.video-control .icon-pause{
+  width:14px;
+  height:16px;
+  position:relative;
+}
+.video-control .icon-pause:before,
+.video-control .icon-pause:after{
+  content:"";
+  position:absolute;
+  top:0;
+  width:4px;
+  height:16px;
+  background:#fff;
+  border-radius:2px;
+}
+.video-control .icon-pause:before{left:1px;}
+.video-control .icon-pause:after{right:1px;}
 
 .offer-box{
   margin:40px auto;max-width:920px;padding:35px;border-radius:30px;
@@ -204,15 +284,41 @@ header{padding:18px 0 0}
   70%{box-shadow:0 0 0 10px rgba(217,74,74,0)}
   100%{box-shadow:0 0 0 0 rgba(217,74,74,0)}
 }
-.offer-content{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  align-items:center;
-}
+.offer-content{display:grid;grid-template-columns:1.2fr 0.8fr;gap:30px;align-items:center;}
 @media (max-width:850px){ .offer-content{grid-template-columns:1fr} }
 
-.offer-points{display:grid;gap:12px;}
+.price-area .price-kicker{font-size:12px;text-transform:uppercase;color:var(--muted);letter-spacing:1px;margin-bottom:10px;}
+.parcel-price{display:flex;align-items:flex-end;gap:8px;line-height:1;}
+.parcel-price .small{font-size:24px;font-weight:700;margin-bottom:8px;}
+.parcel-price .big{font-size:72px;font-weight:900;color:#fff;}
+.full-price{margin-top:15px;font-size:18px;color:rgba(255,255,255,.8)}
+.full-price strong{color:var(--yellow);font-size:28px;}
+
+.matricula-highlight{
+  margin-top:18px;
+  padding:18px 18px 16px;
+  border-radius:22px;
+  background:linear-gradient(180deg, rgba(242,201,76,.12), rgba(242,201,76,.05));
+  border:1px solid rgba(242,201,76,.25);
+  box-shadow:0 12px 28px rgba(0,0,0,.18);
+}
+.matricula-highlight .matricula-top{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  margin-bottom:8px;
+}
+.matricula-highlight .matricula-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 12px;border-radius:999px;
+  background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.08);
+  font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#fff;
+}
+.matricula-highlight .matricula-badge:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yellow);}
+.matricula-highlight .matricula-price{font-size:15px;color:rgba(255,255,255,.92);}
+.matricula-highlight .matricula-price strong{font-size:30px;color:var(--yellow);letter-spacing:-.03em;}
+.matricula-highlight .matricula-copy{font-size:14px;line-height:1.6;color:rgba(255,255,255,.76);}
+.matricula-highlight .matricula-copy strong{color:#fff;font-size:inherit;}
+
+.offer-points{margin-top:20px;display:grid;gap:12px;}
 .offer-points span{display:flex;align-items:center;gap:10px;font-size:15px;}
 .offer-points i{
   width:18px;height:18px;background:var(--green);border-radius:50%;
@@ -434,7 +540,9 @@ header{padding:18px 0 0}
 
       <div class="training-box">
         <div class="training-media">
-          <img src="assets/drone-hero-novo.jpg" alt="Treinamento Real Target Agrotech" />
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/drone-hero-novo.jpg" aria-label="Vídeo principal do curso de drone agrícola">
+            <source src="assets/video-hero-landing.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
 
@@ -458,25 +566,46 @@ header{padding:18px 0 0}
       <p class="subtitle">Resultados reais de quem decidiu profissionalizar sua operação no agro.</p>
 
       <div class="video-grid">
-        <article class="vcard">
-          <video preload="metadata" playsinline>
+        <article class="vcard ready">
+          <video preload="none" playsinline poster="assets/depo-drone-1-thumb.jpg">
             <source src="assets/depo-drone-1.mp4" type="video/mp4" />
           </video>
-          <div class="overlay"><button class="playbtn" type="button" aria-label="Reproduzir vídeo 1"></button></div>
+          <div class="overlay">
+            <img class="video-thumb" src="assets/depo-drone-1-thumb.jpg" alt="Capa do depoimento 1" />
+            <button class="playbtn" type="button" aria-label="Reproduzir vídeo 1"></button>
+          </div>
+          <button class="video-control" type="button" aria-label="Pausar ou continuar vídeo 1">
+            <span class="icon-play" aria-hidden="true"></span>
+            <span class="icon-pause" aria-hidden="true"></span>
+          </button>
         </article>
 
-        <article class="vcard">
-          <video preload="metadata" playsinline>
+        <article class="vcard ready">
+          <video preload="none" playsinline poster="assets/depo-drone-2-thumb.jpg">
             <source src="assets/depo-drone-2.mp4" type="video/mp4" />
           </video>
-          <div class="overlay"><button class="playbtn" type="button" aria-label="Reproduzir vídeo 2"></button></div>
+          <div class="overlay">
+            <img class="video-thumb" src="assets/depo-drone-2-thumb.jpg" alt="Capa do depoimento 2" />
+            <button class="playbtn" type="button" aria-label="Reproduzir vídeo 2"></button>
+          </div>
+          <button class="video-control" type="button" aria-label="Pausar ou continuar vídeo 2">
+            <span class="icon-play" aria-hidden="true"></span>
+            <span class="icon-pause" aria-hidden="true"></span>
+          </button>
         </article>
 
-        <article class="vcard">
-          <video preload="metadata" playsinline data-poster-mode="mid">
+        <article class="vcard ready">
+          <video preload="none" playsinline poster="assets/depo-drone-3-thumb.jpg">
             <source src="assets/depo-drone-3.mp4" type="video/mp4" />
           </video>
-          <div class="overlay"><button class="playbtn" type="button" aria-label="Reproduzir vídeo 3"></button></div>
+          <div class="overlay">
+            <img class="video-thumb" src="assets/depo-drone-3-thumb.jpg" alt="Capa do depoimento 3" />
+            <button class="playbtn" type="button" aria-label="Reproduzir vídeo 3"></button>
+          </div>
+          <button class="video-control" type="button" aria-label="Pausar ou continuar vídeo 3">
+            <span class="icon-play" aria-hidden="true"></span>
+            <span class="icon-pause" aria-hidden="true"></span>
+          </button>
         </article>
       </div>
     </div>
@@ -487,10 +616,29 @@ header{padding:18px 0 0}
       <div class="offer-box">
         <div class="offer-badge">LOTE PROMOCIONAL POR TEMPO LIMITADO</div>
         <div class="offer-content">
-          <div class="offer-points" style="max-width:520px;">
-            <span><i></i> CAAR Incluso (Certificado de Aplicador Aeroagrícola Remoto)</span>
-            <span><i></i> Prática Real com Drones de Pulverização</span>
-            <span><i></i> Mentoria pós-curso para início de operação</span>
+          <div class="price-area">
+            <div class="price-kicker">Investimento para sua Carreira</div>
+            <div class="parcel-price">
+              <span class="small">12x de</span>
+              <span class="big">R$ 447</span>
+            </div>
+            <div class="full-price">ou <strong>R$ 4.497</strong> à vista</div>
+
+            <div class="offer-points">
+              <span><i></i> CAAR Incluso (Certificado de Aplicador Aeroagrícola Remoto)</span>
+              <span><i></i> Prática Real com Drones de Pulverização</span>
+              <span><i></i> Mentoria pós-curso para início de operação</span>
+            </div>
+
+            <div class="matricula-highlight" aria-label="Condição promocional da matrícula">
+              <div class="matricula-top">
+                <span class="matricula-badge">Matrícula promocional</span>
+                <span class="matricula-price">Hoje por apenas <strong>R$ 197</strong></span>
+              </div>
+              <div class="matricula-copy">
+                Garanta sua vaga nas <strong>próximas <span id="matriculaHoras">18</span> horas</strong> e aproveite a matrícula no valor promocional antes da virada do lote.
+              </div>
+            </div>
           </div>
 
           <div class="cta-side">
@@ -817,7 +965,7 @@ header{padding:18px 0 0}
   <section class="company-section">
     <div class="container">
       <div class="company-content">
-        <img src="assets/drone-hero-novo.jpg" class="company-img" alt="Equipe Target Agrotech">
+        <img src="assets/drone-hero-novo.jpg" class="company-img" alt="Equipe Target Agrotech" loading="lazy" decoding="async">
         <div class="company-text">
           <h2 style="font-size:32px;margin-bottom:20px;">Sobre a <span class="g">Target Agrotech</span></h2>
           <p style="margin-bottom:15px;font-weight:700;">Referência nacional com mais de 1.000 alunos formados.</p>
@@ -878,6 +1026,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const citySearch = document.getElementById('citySearch');
   const stateFilter = document.getElementById('stateFilter');
+  const matriculaHoras = document.getElementById('matriculaHoras');
+
+  if (matriculaHoras) {
+    matriculaHoras.textContent = String(Math.floor(Math.random() * 13) + 12);
+  }
 
   function filterClasses() {
     const cityVal = (citySearch?.value || '').toLowerCase();
@@ -976,114 +1129,85 @@ document.addEventListener('DOMContentLoaded', () => {
     countdown.innerText = 'VAGAS ENCERRADAS PARA ESTE MÊS - CONSULTE NOVAS DATAS';
   }
 
-  function generateVideoPoster(video) {
-    if (!video) return;
-
-    const posterMode = video.getAttribute('data-poster-mode') || 'start';
-    const card = video.closest('.vcard');
-    const overlay = card ? card.querySelector('.overlay') : null;
-    if (!overlay) return;
-
-    let thumb = overlay.querySelector('img.video-thumb');
-    if (!thumb) {
-      thumb = document.createElement('img');
-      thumb.className = 'video-thumb';
-      thumb.alt = 'Capa do depoimento';
-      overlay.prepend(thumb);
-    }
-
-    let captured = false;
-
-    const saveFrame = () => {
-      if (captured) return;
-      if (!video.videoWidth || !video.videoHeight) return;
-
-      try {
-        const canvas = document.createElement('canvas');
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-        thumb.src = canvas.toDataURL('image/jpeg', 0.92);
-        captured = true;
-        video.pause();
-      } catch (e) {}
-    };
-
-    const captureAtTargetTime = () => {
-      try {
-        if (video.duration && isFinite(video.duration)) {
-          const targetTime = posterMode === 'mid'
-            ? Math.min(Math.max(video.duration * 0.5, 0.35), Math.max(video.duration - 0.2, 0.35))
-            : Math.min(0.12, Math.max(video.duration - 0.2, 0.12));
-
-          const handleSeeked = () => {
-            saveFrame();
-            video.removeEventListener('seeked', handleSeeked);
-          };
-
-          video.addEventListener('seeked', handleSeeked);
-          video.currentTime = targetTime;
-        } else {
-          saveFrame();
-        }
-      } catch (e) {
-        saveFrame();
-      }
-    };
-
-    if (video.readyState >= 2) {
-      captureAtTargetTime();
-    } else {
-      video.addEventListener('loadeddata', captureAtTargetTime, { once: true });
-    }
+  function setVideoCardState(card, state) {
+    card.classList.remove('ready', 'playing', 'paused');
+    card.classList.add(state);
   }
 
   document.querySelectorAll('.vcard').forEach(card => {
     const video = card.querySelector('video');
-    const btn = card.querySelector('.playbtn');
+    const playBtn = card.querySelector('.playbtn');
     const overlay = card.querySelector('.overlay');
+    const controlBtn = card.querySelector('.video-control');
 
-    if (video) {
-      video.setAttribute('preload', 'auto');
-      video.muted = true;
-      generateVideoPoster(video);
+    if (!video || !playBtn || !overlay || !controlBtn) return;
 
-      video.addEventListener('ended', () => {
-        card.classList.remove('playing');
-        video.currentTime = 0;
-        video.removeAttribute('controls');
-      });
+    video.muted = false;
+    setVideoCardState(card, 'ready');
 
-      video.addEventListener('pause', () => {
-        if (video.currentTime < video.duration) {
-          card.classList.remove('playing');
-          video.removeAttribute('controls');
+    function pauseAndReset(otherCard, otherVideo) {
+      otherVideo.pause();
+      otherVideo.currentTime = 0;
+      setVideoCardState(otherCard, 'ready');
+    }
+
+    function pauseOnly() {
+      video.pause();
+      setVideoCardState(card, 'paused');
+    }
+
+    function playVideo() {
+      document.querySelectorAll('.vcard video').forEach(otherVideo => {
+        if (otherVideo !== video) {
+          const otherCard = otherVideo.closest('.vcard');
+          if (otherCard) {
+            pauseAndReset(otherCard, otherVideo);
+          }
         }
       });
-    }
 
-    if (btn && video && overlay) {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.vcard video').forEach(otherVideo => {
-          if (otherVideo !== video) {
-            otherVideo.pause();
-            otherVideo.removeAttribute('controls');
-            const otherCard = otherVideo.closest('.vcard');
-            if (otherCard) otherCard.classList.remove('playing');
-          }
-        });
-
-        card.classList.add('playing');
-        video.muted = false;
-        video.setAttribute('controls', 'true');
-        video.play().catch(() => {});
-      });
-
-      overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) btn.click();
+      video.play().then(() => {
+        setVideoCardState(card, 'playing');
+      }).catch(() => {
+        setVideoCardState(card, 'paused');
       });
     }
+
+    playBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      playVideo();
+    });
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay || e.target.classList.contains('video-thumb')) {
+        playVideo();
+      }
+    });
+
+    controlBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+
+      if (video.paused || video.ended) {
+        playVideo();
+      } else {
+        pauseOnly();
+      }
+    });
+
+    video.addEventListener('ended', () => {
+      video.currentTime = 0;
+      setVideoCardState(card, 'ready');
+    });
+
+    video.addEventListener('pause', () => {
+      if (!video.ended && video.currentTime > 0) {
+        setVideoCardState(card, 'paused');
+      }
+    });
+
+    video.addEventListener('play', () => {
+      setVideoCardState(card, 'playing');
+    });
   });
 
   document.querySelectorAll('.faq-item').forEach(item => {
@@ -1097,41 +1221,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const modal = document.getElementById('modalReserva');
   const closeModal = document.querySelector('.close-modal');
-  const modalTitleLabel = document.getElementById('modalTitleLabel');
   const modalInfo = document.getElementById('modalInfo');
   const btnSendLead = document.getElementById('btnSendLead');
-  let activeClassData = { type: 'vaga' };
+  let selectedTurmaText = '';
 
-  document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('btn-reserva')) {
-      const card = e.target.closest('.class-card');
-      activeClassData = {
-        type: 'vaga',
-        city: card.getAttribute('data-city'),
-        state: card.getAttribute('data-state'),
-        date: card.querySelector('.date').innerText
-      };
-      modalTitleLabel.innerText = 'Garantir minha vaga';
-      modalInfo.innerText = `Turma selecionada: ${activeClassData.city} - ${activeClassData.state} (${activeClassData.date})`;
-      modal.classList.add('active');
-    }
+  function openModal(infoText = 'Preencha seus dados para continuar.') {
+    if (!modal) return;
+    modal.classList.add('active');
+    if (modalInfo) modalInfo.textContent = infoText;
+  }
 
-    if (e.target.classList.contains('btn-reserva-lead')) {
+  function closeModalFn() {
+    if (!modal) return;
+    modal.classList.remove('active');
+  }
+
+  document.querySelectorAll('.btn-reserva, .btn-reserva-lead').forEach(btn => {
+    btn.addEventListener('click', (e) => {
       e.preventDefault();
-      activeClassData = { type: 'conteudo' };
-      modalTitleLabel.innerText = 'Baixar Conteúdo Programático';
-      modalInfo.innerText = 'Informe seus dados para receber o PDF completo do curso.';
-      modal.classList.add('active');
-    }
+
+      const card = btn.closest('.class-card');
+      if (card) {
+        const location = card.querySelector('.location')?.textContent?.trim() || '';
+        const date = card.querySelector('.date')?.textContent?.trim() || '';
+        selectedTurmaText = `${location} - ${date}`;
+        openModal(`Turma selecionada: ${selectedTurmaText}`);
+      } else {
+        selectedTurmaText = '';
+        openModal('Preencha seus dados para continuar.');
+      }
+    });
   });
 
   if (closeModal) {
-    closeModal.addEventListener('click', () => modal.classList.remove('active'));
+    closeModal.addEventListener('click', closeModalFn);
   }
 
   if (modal) {
     modal.addEventListener('click', (e) => {
-      if (e.target === modal) modal.classList.remove('active');
+      if (e.target === modal) closeModalFn();
     });
   }
 
@@ -1140,22 +1268,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const userName = document.getElementById('userName')?.value?.trim() || '';
       const userCity = document.getElementById('userCity')?.value?.trim() || '';
 
-      let mensagem = '';
-
-      if (activeClassData.type === 'vaga') {
-        mensagem =
-`Olá! Quero garantir minha vaga no curso de Drone Agrícola.
-
-Nome: ${userName}
-Cidade atual: ${userCity}
-Turma selecionada: ${activeClassData.city} - ${activeClassData.state} (${activeClassData.date})`;
-      } else {
-        mensagem =
-`Olá! Quero receber o conteúdo programático do curso de Drone Agrícola.
-
-Nome: ${userName}
-Cidade atual: ${userCity}`;
-      }
+      const mensagem = [
+        'Olá! Quero continuar meu atendimento.',
+        userName ? `Nome: ${userName}` : '',
+        userCity ? `Cidade: ${userCity}` : '',
+        selectedTurmaText ? `Turma: ${selectedTurmaText}` : ''
+      ].filter(Boolean).join('\n');
 
       const url = `https://wa.me/5566999763455?text=${encodeURIComponent(mensagem)}`;
       window.open(url, '_blank');
