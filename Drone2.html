@@ -204,41 +204,15 @@ header{padding:18px 0 0}
   70%{box-shadow:0 0 0 10px rgba(217,74,74,0)}
   100%{box-shadow:0 0 0 0 rgba(217,74,74,0)}
 }
-.offer-content{display:grid;grid-template-columns:1.2fr 0.8fr;gap:30px;align-items:center;}
+.offer-content{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  align-items:center;
+}
 @media (max-width:850px){ .offer-content{grid-template-columns:1fr} }
 
-.price-area .price-kicker{font-size:12px;text-transform:uppercase;color:var(--muted);letter-spacing:1px;margin-bottom:10px;}
-.parcel-price{display:flex;align-items:flex-end;gap:8px;line-height:1;}
-.parcel-price .small{font-size:24px;font-weight:700;margin-bottom:8px;}
-.parcel-price .big{font-size:72px;font-weight:900;color:#fff;}
-.full-price{margin-top:15px;font-size:18px;color:rgba(255,255,255,.8)}
-.full-price strong{color:var(--yellow);font-size:28px;}
-
-.matricula-highlight{
-  margin-top:18px;
-  padding:18px 18px 16px;
-  border-radius:22px;
-  background:linear-gradient(180deg, rgba(242,201,76,.12), rgba(242,201,76,.05));
-  border:1px solid rgba(242,201,76,.25);
-  box-shadow:0 12px 28px rgba(0,0,0,.18);
-}
-.matricula-highlight .matricula-top{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
-  margin-bottom:8px;
-}
-.matricula-highlight .matricula-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:7px 12px;border-radius:999px;
-  background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.08);
-  font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#fff;
-}
-.matricula-highlight .matricula-badge:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yellow);}
-.matricula-highlight .matricula-price{font-size:15px;color:rgba(255,255,255,.92);}
-.matricula-highlight .matricula-price strong{font-size:30px;color:var(--yellow);letter-spacing:-.03em;}
-.matricula-highlight .matricula-copy{font-size:14px;line-height:1.6;color:rgba(255,255,255,.76);}
-.matricula-highlight .matricula-copy strong{color:#fff;font-size:inherit;}
-
-.offer-points{margin-top:20px;display:grid;gap:12px;}
+.offer-points{display:grid;gap:12px;}
 .offer-points span{display:flex;align-items:center;gap:10px;font-size:15px;}
 .offer-points i{
   width:18px;height:18px;background:var(--green);border-radius:50%;
@@ -513,29 +487,10 @@ header{padding:18px 0 0}
       <div class="offer-box">
         <div class="offer-badge">LOTE PROMOCIONAL POR TEMPO LIMITADO</div>
         <div class="offer-content">
-          <div class="price-area">
-            <div class="price-kicker">Investimento para sua Carreira</div>
-            <div class="parcel-price">
-              <span class="small">12x de</span>
-              <span class="big">R$ 447</span>
-            </div>
-            <div class="full-price">ou <strong>R$ 4.497</strong> à vista</div>
-
-            <div class="offer-points">
-              <span><i></i> CAAR Incluso (Certificado de Aplicador Aeroagrícola Remoto)</span>
-              <span><i></i> Prática Real com Drones de Pulverização</span>
-              <span><i></i> Mentoria pós-curso para início de operação</span>
-            </div>
-
-            <div class="matricula-highlight" aria-label="Condição promocional da matrícula">
-              <div class="matricula-top">
-                <span class="matricula-badge">Matrícula promocional</span>
-                <span class="matricula-price">Hoje por apenas <strong>R$ 197</strong></span>
-              </div>
-              <div class="matricula-copy">
-                Garanta sua vaga nas <strong>próximas <span id="matriculaHoras">18</span> horas</strong> e aproveite a matrícula no valor promocional antes da virada do lote.
-              </div>
-            </div>
+          <div class="offer-points" style="max-width:520px;">
+            <span><i></i> CAAR Incluso (Certificado de Aplicador Aeroagrícola Remoto)</span>
+            <span><i></i> Prática Real com Drones de Pulverização</span>
+            <span><i></i> Mentoria pós-curso para início de operação</span>
           </div>
 
           <div class="cta-side">
@@ -923,11 +878,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const citySearch = document.getElementById('citySearch');
   const stateFilter = document.getElementById('stateFilter');
-  const matriculaHoras = document.getElementById('matriculaHoras');
-
-  if (matriculaHoras) {
-    matriculaHoras.textContent = String(Math.floor(Math.random() * 13) + 12);
-  }
 
   function filterClasses() {
     const cityVal = (citySearch?.value || '').toLowerCase();
@@ -1102,11 +1052,13 @@ document.addEventListener('DOMContentLoaded', () => {
       video.addEventListener('ended', () => {
         card.classList.remove('playing');
         video.currentTime = 0;
+        video.removeAttribute('controls');
       });
 
       video.addEventListener('pause', () => {
         if (video.currentTime < video.duration) {
           card.classList.remove('playing');
+          video.removeAttribute('controls');
         }
       });
     }
@@ -1116,6 +1068,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.vcard video').forEach(otherVideo => {
           if (otherVideo !== video) {
             otherVideo.pause();
+            otherVideo.removeAttribute('controls');
             const otherCard = otherVideo.closest('.vcard');
             if (otherCard) otherCard.classList.remove('playing');
           }
@@ -1123,13 +1076,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         card.classList.add('playing');
         video.muted = false;
+        video.setAttribute('controls', 'true');
         video.play().catch(() => {});
       });
 
       overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) {
-          btn.click();
-        }
+        if (e.target === overlay) btn.click();
       });
     }
   });
@@ -1145,45 +1097,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const modal = document.getElementById('modalReserva');
   const closeModal = document.querySelector('.close-modal');
+  const modalTitleLabel = document.getElementById('modalTitleLabel');
   const modalInfo = document.getElementById('modalInfo');
   const btnSendLead = document.getElementById('btnSendLead');
-  let selectedTurmaText = '';
+  let activeClassData = { type: 'vaga' };
 
-  function openModal(infoText = 'Preencha seus dados para continuar.') {
-    if (!modal) return;
-    modal.classList.add('active');
-    if (modalInfo) modalInfo.textContent = infoText;
-  }
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('btn-reserva')) {
+      const card = e.target.closest('.class-card');
+      activeClassData = {
+        type: 'vaga',
+        city: card.getAttribute('data-city'),
+        state: card.getAttribute('data-state'),
+        date: card.querySelector('.date').innerText
+      };
+      modalTitleLabel.innerText = 'Garantir minha vaga';
+      modalInfo.innerText = `Turma selecionada: ${activeClassData.city} - ${activeClassData.state} (${activeClassData.date})`;
+      modal.classList.add('active');
+    }
 
-  function closeModalFn() {
-    if (!modal) return;
-    modal.classList.remove('active');
-  }
-
-  document.querySelectorAll('.btn-reserva, .btn-reserva-lead').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    if (e.target.classList.contains('btn-reserva-lead')) {
       e.preventDefault();
-
-      const card = btn.closest('.class-card');
-      if (card) {
-        const location = card.querySelector('.location')?.textContent?.trim() || '';
-        const date = card.querySelector('.date')?.textContent?.trim() || '';
-        selectedTurmaText = `${location} - ${date}`;
-        openModal(`Turma selecionada: ${selectedTurmaText}`);
-      } else {
-        selectedTurmaText = '';
-        openModal('Preencha seus dados para continuar.');
-      }
-    });
+      activeClassData = { type: 'conteudo' };
+      modalTitleLabel.innerText = 'Baixar Conteúdo Programático';
+      modalInfo.innerText = 'Informe seus dados para receber o PDF completo do curso.';
+      modal.classList.add('active');
+    }
   });
 
   if (closeModal) {
-    closeModal.addEventListener('click', closeModalFn);
+    closeModal.addEventListener('click', () => modal.classList.remove('active'));
   }
 
   if (modal) {
     modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModalFn();
+      if (e.target === modal) modal.classList.remove('active');
     });
   }
 
@@ -1192,12 +1140,22 @@ document.addEventListener('DOMContentLoaded', () => {
       const userName = document.getElementById('userName')?.value?.trim() || '';
       const userCity = document.getElementById('userCity')?.value?.trim() || '';
 
-      const mensagem = [
-        'Olá! Quero continuar meu atendimento.',
-        userName ? `Nome: ${userName}` : '',
-        userCity ? `Cidade: ${userCity}` : '',
-        selectedTurmaText ? `Turma: ${selectedTurmaText}` : ''
-      ].filter(Boolean).join('\n');
+      let mensagem = '';
+
+      if (activeClassData.type === 'vaga') {
+        mensagem =
+`Olá! Quero garantir minha vaga no curso de Drone Agrícola.
+
+Nome: ${userName}
+Cidade atual: ${userCity}
+Turma selecionada: ${activeClassData.city} - ${activeClassData.state} (${activeClassData.date})`;
+      } else {
+        mensagem =
+`Olá! Quero receber o conteúdo programático do curso de Drone Agrícola.
+
+Nome: ${userName}
+Cidade atual: ${userCity}`;
+      }
 
       const url = `https://wa.me/5566999763455?text=${encodeURIComponent(mensagem)}`;
       window.open(url, '_blank');
