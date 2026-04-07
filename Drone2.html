@@ -118,35 +118,13 @@ header{padding:18px 0 0}
 }
 
 .training-box{
-  margin:40px auto 0;
-  max-width:420px;
-  border-radius:34px;
-  background:rgba(0,0,0,.18);
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow:var(--shadow2);
-  overflow:hidden;
-  position:relative;
+  margin:40px auto 0;max-width:980px;border-radius:34px;
+  background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.12);
+  box-shadow:var(--shadow2);overflow:hidden;position:relative;
 }
-.training-media{
-  position:relative;
-  background:#07140d;
-  overflow:hidden;
-  aspect-ratio:9/16;
-  width:100%;
-}
-.training-media img,
-.training-media video{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center;
-  display:block;
-  background:#07140d;
-}
-@media (max-width:768px){
-  .training-box{max-width:min(92vw,420px);}
-  .training-media{max-height:82vh;}
-}
+.training-media{position:relative;background:#07140d;overflow:hidden;width:min(100%, 430px);margin:0 auto;aspect-ratio:9/16;border-radius:28px;}
+.training-media img,.training-media video{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block;}
+@media (max-width:768px){ .training-media{width:min(100%, 360px);max-height:75svh;} }
 
 .hero-extra-cta{
   margin-top:20px;
@@ -194,6 +172,7 @@ header{padding:18px 0 0}
   z-index:1;pointer-events:none;
 }
 .vcard.playing .overlay{opacity:0;pointer-events:none}
+.vcard.paused .overlay{opacity:1;pointer-events:auto}
 .playbtn{
   width:70px;height:70px;border-radius:50%;background:var(--green);
   display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;
@@ -207,67 +186,6 @@ header{padding:18px 0 0}
   border-bottom:10px solid transparent;
   margin-left:5px;
 }
-.video-control{
-  position:absolute;
-  right:16px;
-  bottom:16px;
-  z-index:3;
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(0,0,0,.55);
-  color:#fff;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .25s ease, transform .25s ease, background .25s ease;
-  transform:translateY(6px);
-}
-.vcard.ready .video-control,
-.vcard.playing .video-control,
-.vcard.paused .video-control{
-  opacity:1;
-  pointer-events:auto;
-  transform:translateY(0);
-}
-.video-control:hover{background:rgba(0,0,0,.72);}
-.video-control .icon-play,
-.video-control .icon-pause{
-  display:none;
-  line-height:1;
-}
-.vcard.playing .video-control .icon-pause{display:block;}
-.vcard.paused .video-control .icon-play,
-.vcard.ready .video-control .icon-play{display:block;}
-.video-control .icon-play{
-  width:0;
-  height:0;
-  border-left:12px solid #fff;
-  border-top:8px solid transparent;
-  border-bottom:8px solid transparent;
-  margin-left:3px;
-}
-.video-control .icon-pause{
-  width:14px;
-  height:16px;
-  position:relative;
-}
-.video-control .icon-pause:before,
-.video-control .icon-pause:after{
-  content:"";
-  position:absolute;
-  top:0;
-  width:4px;
-  height:16px;
-  background:#fff;
-  border-radius:2px;
-}
-.video-control .icon-pause:before{left:1px;}
-.video-control .icon-pause:after{right:1px;}
 
 .offer-box{
   margin:40px auto;max-width:920px;padding:35px;border-radius:30px;
@@ -566,7 +484,7 @@ header{padding:18px 0 0}
       <p class="subtitle">Resultados reais de quem decidiu profissionalizar sua operação no agro.</p>
 
       <div class="video-grid">
-        <article class="vcard ready">
+        <article class="vcard">
           <video preload="none" playsinline poster="assets/depo-drone-1-thumb.jpg">
             <source src="assets/depo-drone-1.mp4" type="video/mp4" />
           </video>
@@ -574,13 +492,9 @@ header{padding:18px 0 0}
             <img class="video-thumb" src="assets/depo-drone-1-thumb.jpg" alt="Capa do depoimento 1" />
             <button class="playbtn" type="button" aria-label="Reproduzir vídeo 1"></button>
           </div>
-          <button class="video-control" type="button" aria-label="Pausar ou continuar vídeo 1">
-            <span class="icon-play" aria-hidden="true"></span>
-            <span class="icon-pause" aria-hidden="true"></span>
-          </button>
         </article>
 
-        <article class="vcard ready">
+        <article class="vcard">
           <video preload="none" playsinline poster="assets/depo-drone-2-thumb.jpg">
             <source src="assets/depo-drone-2.mp4" type="video/mp4" />
           </video>
@@ -588,13 +502,9 @@ header{padding:18px 0 0}
             <img class="video-thumb" src="assets/depo-drone-2-thumb.jpg" alt="Capa do depoimento 2" />
             <button class="playbtn" type="button" aria-label="Reproduzir vídeo 2"></button>
           </div>
-          <button class="video-control" type="button" aria-label="Pausar ou continuar vídeo 2">
-            <span class="icon-play" aria-hidden="true"></span>
-            <span class="icon-pause" aria-hidden="true"></span>
-          </button>
         </article>
 
-        <article class="vcard ready">
+        <article class="vcard">
           <video preload="none" playsinline poster="assets/depo-drone-3-thumb.jpg">
             <source src="assets/depo-drone-3.mp4" type="video/mp4" />
           </video>
@@ -602,10 +512,6 @@ header{padding:18px 0 0}
             <img class="video-thumb" src="assets/depo-drone-3-thumb.jpg" alt="Capa do depoimento 3" />
             <button class="playbtn" type="button" aria-label="Reproduzir vídeo 3"></button>
           </div>
-          <button class="video-control" type="button" aria-label="Pausar ou continuar vídeo 3">
-            <span class="icon-play" aria-hidden="true"></span>
-            <span class="icon-pause" aria-hidden="true"></span>
-          </button>
         </article>
       </div>
     </div>
@@ -965,7 +871,7 @@ header{padding:18px 0 0}
   <section class="company-section">
     <div class="container">
       <div class="company-content">
-        <img src="assets/drone-hero-novo.jpg" class="company-img" alt="Equipe Target Agrotech" loading="lazy" decoding="async">
+        <img src="assets/drone-hero-novo.jpg" class="company-img" alt="Equipe Target Agrotech">
         <div class="company-text">
           <h2 style="font-size:32px;margin-bottom:20px;">Sobre a <span class="g">Target Agrotech</span></h2>
           <p style="margin-bottom:15px;font-weight:700;">Referência nacional com mais de 1.000 alunos formados.</p>
@@ -1129,84 +1035,82 @@ document.addEventListener('DOMContentLoaded', () => {
     countdown.innerText = 'VAGAS ENCERRADAS PARA ESTE MÊS - CONSULTE NOVAS DATAS';
   }
 
-  function setVideoCardState(card, state) {
-    card.classList.remove('ready', 'playing', 'paused');
-    card.classList.add(state);
+  function resetVideoCard(card, video) {
+    card.classList.remove('playing');
+    card.classList.add('paused');
+    if (video) {
+      video.pause();
+      if (video.currentTime >= video.duration || !isFinite(video.duration)) {
+        video.currentTime = 0;
+      }
+    }
+  }
+
+  function playVideoCard(card, video) {
+    document.querySelectorAll('.vcard').forEach(otherCard => {
+      const otherVideo = otherCard.querySelector('video');
+      if (otherVideo && otherVideo !== video) {
+        otherVideo.pause();
+        otherVideo.currentTime = 0;
+        otherCard.classList.remove('playing');
+        otherCard.classList.add('paused');
+      }
+    });
+
+    card.classList.add('playing');
+    card.classList.remove('paused');
+    video.muted = false;
+    video.play().catch(() => {});
   }
 
   document.querySelectorAll('.vcard').forEach(card => {
     const video = card.querySelector('video');
-    const playBtn = card.querySelector('.playbtn');
+    const btn = card.querySelector('.playbtn');
     const overlay = card.querySelector('.overlay');
-    const controlBtn = card.querySelector('.video-control');
 
-    if (!video || !playBtn || !overlay || !controlBtn) return;
+    if (!video || !btn || !overlay) return;
 
-    video.muted = false;
-    setVideoCardState(card, 'ready');
+    card.classList.add('paused');
+    video.controls = false;
+    video.muted = true;
 
-    function pauseAndReset(otherCard, otherVideo) {
-      otherVideo.pause();
-      otherVideo.currentTime = 0;
-      setVideoCardState(otherCard, 'ready');
-    }
-
-    function pauseOnly() {
-      video.pause();
-      setVideoCardState(card, 'paused');
-    }
-
-    function playVideo() {
-      document.querySelectorAll('.vcard video').forEach(otherVideo => {
-        if (otherVideo !== video) {
-          const otherCard = otherVideo.closest('.vcard');
-          if (otherCard) {
-            pauseAndReset(otherCard, otherVideo);
-          }
-        }
-      });
-
-      video.play().then(() => {
-        setVideoCardState(card, 'playing');
-      }).catch(() => {
-        setVideoCardState(card, 'paused');
-      });
-    }
-
-    playBtn.addEventListener('click', (e) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
       e.stopPropagation();
-      playVideo();
+      playVideoCard(card, video);
     });
 
     overlay.addEventListener('click', (e) => {
       if (e.target === overlay || e.target.classList.contains('video-thumb')) {
-        playVideo();
+        playVideoCard(card, video);
       }
     });
 
-    controlBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-
-      if (video.paused || video.ended) {
-        playVideo();
+    video.addEventListener('click', () => {
+      if (video.paused) {
+        playVideoCard(card, video);
       } else {
-        pauseOnly();
+        resetVideoCard(card, video);
       }
     });
 
     video.addEventListener('ended', () => {
       video.currentTime = 0;
-      setVideoCardState(card, 'ready');
+      card.classList.remove('playing');
+      card.classList.add('paused');
+      video.muted = true;
     });
 
     video.addEventListener('pause', () => {
-      if (!video.ended && video.currentTime > 0) {
-        setVideoCardState(card, 'paused');
+      if (video.currentTime < video.duration) {
+        card.classList.remove('playing');
+        card.classList.add('paused');
       }
     });
 
     video.addEventListener('play', () => {
-      setVideoCardState(card, 'playing');
+      card.classList.add('playing');
+      card.classList.remove('paused');
     });
   });
 
