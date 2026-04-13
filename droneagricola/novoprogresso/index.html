@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Curso de Piloto de Drone Agrícola em Novo Progresso - PA - Target Agrotech</title>
+<title>Piloto de Drone Agrícola Profissional - Novo Progresso - PA - Target Agrotech</title>
 
 <meta
 name="description"
@@ -20,7 +20,7 @@ content="Curso presencial de Piloto de Drone Agrícola em Novo Progresso - PA co
 
 <meta property="og:site_name" content="Target AgroTech" />
 <meta property="og:title" content="Formação Piloto de Drone Agrícola - Novo Progresso - PA" />
-<meta property="og:description" content="Turma 24 de Abril. Prática real em campo, CAAR incluso e certificado. Saia pronto para o mercado." />
+<meta property="og:description" content="Prática real em campo, CAAR incluso e certificado. Saia pronto para o mercado que mais cresce no agro." />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://targetagrotech.com.br/assets/drone-hero-novo.jpg" />
 
@@ -126,12 +126,12 @@ color:rgba(255,255,255,.80);font-size:18px;line-height:1.65;
 .summary-item {
     background: rgba(255,255,255,0.05);
     border: 1px solid var(--border);
-    padding: 15px 25px;
-    border-radius: 20px;
+    padding: 12px 20px;
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 180px;
+    min-width: 170px;
     backdrop-filter: blur(10px);
 }
 .summary-item span:first-child {
@@ -139,20 +139,20 @@ color:rgba(255,255,255,.80);font-size:18px;line-height:1.65;
     color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 .summary-item span:last-child {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 800;
     color: #fff;
 }
 .summary-item.vagas-box span:last-child { color: var(--yellow); }
 
+/* Training Box Estilo Original */
 .training-box{
 margin:40px auto 0;max-width:480px;border-radius:34px;
 background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.12);
 box-shadow:var(--shadow2);overflow:hidden;position:relative;
-aspect-ratio: 9/16; /* Força proporção correta para o vídeo principal vertical */
 }
 @media (max-width:768px){ .training-box{max-width:320px} }
 
@@ -188,20 +188,20 @@ overflow:hidden;
 }
 .vcard .overlay img.video-thumb{
 position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-z-index:1;display:block;
+z-index:0;display:block;
 }
 .vcard .overlay::after{
 content:"";
 position:absolute;inset:0;
-background:rgba(0,0,0,0.3);
-z-index:2;pointer-events:none;
+background:radial-gradient(circle at center, rgba(0,0,0,.18), rgba(0,0,0,.48));
+z-index:1;pointer-events:none;
 }
 .vcard.playing .overlay{opacity:0;pointer-events:none}
 .playbtn{
 width:70px;height:70px;border-radius:50%;background:var(--green);
 display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;
 box-shadow:0 0 20px rgba(0,176,80,.4);
-position:relative;z-index:3;
+position:relative;z-index:2;
 }
 .playbtn:after{
 content:"";
@@ -284,7 +284,7 @@ animation:pulse-whatsapp 1.8s infinite;
 }
 @keyframes pulse-whatsapp{
 0%{transform:scale(1);box-shadow:0 0 0 0 rgba(37,211,102,0.6);}
-70%{transform:scale(1.02);box-shadow:0 0 0 15px rgba(37,211,102,0);}
+70%{transform:scale(1.02);box-shadow:0 0 0 18px rgba(37,211,102,0);}
 100%{transform:scale(1);box-shadow:0 0 0 0 rgba(37,211,102,0);}
 }
 
@@ -331,7 +331,6 @@ display:flex;align-items:center;gap:40px;border:1px solid var(--border);
 .market-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px;flex-shrink:0;}
 .stat-card{background:rgba(255,255,255,.05);padding:20px;border-radius:20px;text-align:center;}
 .stat-card .val{font-size:32px;font-weight:900;color:var(--yellow);display:block;}
-.stat-card .lab{font-size:12px;text-transform:uppercase;color:var(--muted);}
 
 .filter-area{
 margin-bottom:30px;display:flex;gap:15px;flex-wrap:wrap;justify-content:center;
@@ -352,13 +351,12 @@ background:rgba(11,36,22,.6);border:1px solid var(--border);padding:25px;border-
 .btn-reserva{
 margin-top:20px;width:100%;padding:14px;background:var(--yellow);border:none;border-radius:12px;font-weight:900;cursor:pointer;transition:all .2s;
 }
-.btn-reserva:hover{background:var(--green);color:#000;}
 
 .faq-container{max-width:800px;margin:0 auto;}
 .faq-item{margin-bottom:12px;background:rgba(255,255,255,.03);border-radius:16px;border:1px solid var(--border2);overflow:hidden;}
 .faq-question{padding:20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;}
-.faq-question:after{content:"+";font-size:22px;color:var(--green);transition:transform .3s;}
-.faq-item.open .faq-question:after{content:"−";transform:rotate(180deg);}
+.faq-question:after{content:"+";font-size:22px;color:var(--green);}
+.faq-item.open .faq-question:after{content:"−";}
 .faq-answer{padding:0 20px 20px;display:none;color:rgba(255,255,255,.7);font-size:15px;line-height:1.6;}
 .faq-item.open .faq-answer{display:block;}
 
@@ -408,27 +406,27 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 <div class="topbar-right">A MAIOR ESCOLA DE DRONES DO BRASIL</div>
 </div>
 <section class="hero">
-  <div class="hero-topline">TURMA PRESENCIAL: NOVO PROGRESSO - PA</div>
-  <h1>Torne-se <span class="g">Piloto de Drone</span> Agrícola em Novo Progresso</h1>
-  <p>Domine a tecnologia que está revolucionando o campo no Pará. Formação 100% presencial com drones profissionais, CAAR incluso e prática real em campo.</p>
+  <div class="hero-topline">CURSO PRESENCIAL COM PRÁTICA EM CAMPO REAL</div>
+  <h1>Torne-se um <span class="g">Piloto de Drone</span> em Novo Progresso</h1>
+  <p>Domine a tecnologia de pulverização e mapeamento que está transformando o campo. Formação completa com drones profissionais, CAAR incluso e suporte focado em resultados.</p>
 
   <div class="local-summary">
     <div class="summary-item">
-        <span>Cidade</span>
+        <span>Cidade da Turma</span>
         <span>Novo Progresso - PA</span>
     </div>
     <div class="summary-item">
-        <span>Data</span>
+        <span>Data Prevista</span>
         <span>24 de Abril</span>
     </div>
     <div class="summary-item vagas-box">
-        <span>Vagas Restantes</span>
-        <span>Apenas 5</span>
+        <span>Disponibilidade</span>
+        <span>Apenas 5 Vagas</span>
     </div>
   </div>
 
   <div class="training-box">
-    <article class="vcard" style="min-height: 100%; border: none; box-shadow: none;">
+    <article class="vcard" style="min-height: 600px; border: none; box-shadow: none;">
       <video preload="none" playsinline poster="../assets/drone-hero-novo.jpg">
         <source src="../assets/video-hero-landing.mp4" type="video/mp4" />
       </video>
@@ -441,7 +439,7 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 
   <div style="margin-top:35px; display:flex; justify-content:center;">
     <a href="https://wa.me/5566999763455?text=Quero+garantir+minha+vaga+na+turma+de+Novo+Progresso" class="cta-primary pulse-whatsapp" style="max-width:400px;width:100%;">
-      RESERVAR MINHA VAGA EM NOVO PROGRESSO
+      FALAR NO WHATSAPP
     </a>
   </div>
 </section>
@@ -485,11 +483,11 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 </div>
 </section>
 
-<!-- Bloco de Preço Robusto -->
-<section id="preco">
+<!-- Bloco de Preço -->
+<section>
 <div class="container">
 <div class="offer-box">
-<div class="offer-badge">LOTE PROMOCIONAL - VAGAS LIMITADAS</div>
+<div class="offer-badge">LOTE PROMOCIONAL POR TEMPO LIMITADO</div>
 <div class="offer-content">
 <div class="price-area">
 <div class="price-kicker">Investimento para sua Carreira</div>
@@ -501,17 +499,17 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 <div class="full-price">ou <strong>R$ 4.497</strong> à vista</div>
 <div class="offer-points">
           <span><i></i> CAAR Incluso (Certificado de Aplicador Aeroagrícola Remoto)</span>
-          <span><i></i> Prática Real em Novo Progresso</span>
-          <span><i></i> Mentoria pós-curso inclusa</span>
+          <span><i></i> Prática Real em Campo em Novo Progresso</span>
+          <span><i></i> Mentoria pós-curso para início de operação</span>
         </div>
 
         <div class="matricula-highlight">
           <div class="matricula-top">
-            <span class="matricula-badge">Matrícula Antecipada</span>
+            <span class="matricula-badge">Matrícula promocional</span>
             <span class="matricula-price">Hoje por apenas <strong>R$ 197</strong></span>
           </div>
           <div class="matricula-copy">
-            Garanta sua vaga para a turma de 24/04 nas <strong>próximas <span id="matriculaHoras">18</span> horas</strong> para travar o desconto do lote atual.
+            Garanta sua vaga para a turma de 24/04 nas <strong>próximas <span id="matriculaHoras">18</span> horas</strong> e aproveite a matrícula com desconto.
           </div>
         </div>
       </div>
@@ -532,12 +530,12 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 <div class="benefit-card">
 <div class="num">01</div>
 <h3>Foco 100% Prático</h3>
-<p>Nada de apenas teoria em tela. Você pega no controle e executa missões reais de pulverização em campo.</p>
+<p>Nada de apenas teoria em tela. Você assume o controle, planeja a missão e executa a aplicação em campo real.</p>
 </div>
 <div class="benefit-card">
       <div class="num">02</div>
       <h3>Habilitação Legal</h3>
-      <p>O curso contempla o CAAR, exigência obrigatória do MAPA para operar drones de pulverização profissionalmente.</p>
+      <p>O curso já contempla o CAAR, exigência do MAPA para operar drones de pulverização profissionalmente.</p>
     </div>
     <div class="benefit-card">
       <div class="num">03</div>
@@ -547,7 +545,7 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
     <div class="benefit-card">
       <div class="num">04</div>
       <h3>Suporte Vitalício</h3>
-      <p>Teve dúvida no primeiro serviço sozinho? Nossa equipe técnica fica disponível para te auxiliar no que precisar.</p>
+      <p>Dúvidas no primeiro serviço sozinho? Nossa equipe técnica está disponível para te ajudar via suporte exclusivo.</p>
     </div>
   </div>
 </div>
@@ -575,7 +573,7 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 <img src="../assets/washington-prado.jpg" class="instructor-img" alt="Washington Prado">
 <div class="tag">Engenheiro Agrônomo</div>
 <h3>Washington Prado</h3>
-<p>Um dos maiores especialistas em drones do Brasil. Engenheiro agrônomo com atuação direta no campo, pronto para entregar o caminho das pedras para você faturar no mercado aeroagrícola.</p>
+<p>Um dos maiores especialistas em tecnologia aeroagrícola do país. Engenheiro agrônomo com vasta experiência real, pronto para formar você para um mercado de alta lucratividade.</p>
 </div>
 </div>
 </section>
@@ -586,7 +584,7 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 <div class="market-text">
 <h2 style="font-size:32px;margin-bottom:20px;">O Mercado do <span class="g">Futuro é Agora</span></h2>
 <p style="color:rgba(255,255,255,.8);margin-bottom:20px;">O Brasil tem um déficit de mais de 10 mil pilotos qualificados. O setor no Pará cresce exponencialmente e os salários estão entre os mais altos da operação agrícola.</p>
-<p style="font-weight:700;color:var(--yellow);">Domine a tecnologia antes da concorrência e seja o profissional disputado.</p>
+<p style="font-weight:700;color:var(--yellow);">Não seja apenas um espectador, seja o profissional que o mercado disputa.</p>
 </div>
 <div class="market-stats">
       <div class="stat-card"><span class="val">R$ 5k - 15k</span><span class="lab">Renda Mensal Média</span></div>
@@ -602,25 +600,25 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 <div class="faq-container">
 <div class="faq-item">
     <div class="faq-question">Onde será realizada a turma em Novo Progresso?</div>
-    <div class="faq-answer">As aulas ocorrem em local estratégico no município de Novo Progresso - PA, com a parte prática realizada em fazenda parceira com estrutura completa para operação.</div>
+    <div class="faq-answer">As aulas teóricas ocorrem no centro da cidade e as práticas em fazenda parceira na região de Novo Progresso - PA, com toda estrutura de suporte necessária.</div>
 </div>
 <div class="faq-item">
     <div class="faq-question">Ainda há vagas para a turma de 24 de Abril?</div>
-    <div class="faq-answer">No momento sim, mas restam apenas 5 vagas. O preenchimento é feito por ordem de reserva de matrícula via WhatsApp.</div>
+    <div class="faq-answer">Sim, mas restam apenas 5 vagas no momento. O preenchimento ocorre conforme confirmação das reservas de matrícula.</div>
 </div>
 <div class="faq-item">
-    <div class="faq-question">Preciso ter experiência anterior com drones?</div>
-    <div class="faq-answer">Não. Nosso curso leva você do zero absoluto até a operação profissional e segura de drones de pulverização.</div>
-</div>
-<div class="faq-item">
-    <div class="faq-question">O curso inclui o CAAR?</div>
-    <div class="faq-answer">Sim! Ao concluir o curso você recebe o certificado de Aplicador Aeroagrícola Remoto, exigido pelo MAPA.</div>
-</div>
-<div class="faq-item">
-    <div class="faq-question">Quais as formas de pagamento?</div>
-    <div class="faq-answer">Aceitamos parcelamento em até 12x no cartão de crédito ou pagamento à vista via PIX com desconto.</div>
-</div>
-</div>
+      <div class="faq-question">Preciso levar meu próprio drone para o curso?</div>
+      <div class="faq-answer">Não é necessário. A Target fornece drones de última geração para que todos os alunos pratiquem intensivamente.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">O CAAR é válido em todo território nacional?</div>
+      <div class="faq-answer">Sim! Ao concluir o curso e as provas, você recebe o certificado reconhecido pelo MAPA e válido em todo o Brasil.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Quais as formas de pagamento?</div>
+      <div class="faq-answer">Aceitamos parcelamento em até 12x no cartão de crédito ou pagamento à vista com desconto via PIX/Boleto.</div>
+    </div>
+  </div>
 </div>
 </section>
 
@@ -642,6 +640,8 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
       <option value="PI">Piauí</option>
       <option value="RR">Roraima</option>
       <option value="TO">Tocantins</option>
+      <option value="PE">Pernambuco</option>
+      <option value="PB">Paraíba</option>
     </select>
   </div>
 
@@ -700,7 +700,7 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
   </div>
 
   <div style="text-align:center;margin-top:30px;">
-    <button id="toggleTurmas" class="cta-secondary" style="color:#fff; display: inline-flex; align-items: center; gap: 8px;">
+    <button id="toggleTurmas" class="cta-secondary" style="color:#fff;">
       VER MAIS TURMAS
     </button>
   </div>
@@ -709,8 +709,8 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 
 <section style="background:linear-gradient(to bottom, #020805, #00b05020);">
 <div class="container" style="text-align:center;">
-<h2 class="section-title">Seja você sua prioridade,<span class="g">sempre.</span></h2>
-<p class="subtitle">As vagas para Novo Progresso são limitadas e o mercado não para de crescer.</p>
+<h2 class="section-title">O agro de elite <span class="g">não espera.</span></h2>
+<p class="subtitle">As vagas para Novo Progresso são limitadas. Garanta seu futuro profissional hoje mesmo.</p>
 <a href="https://wa.me/5566999763455?text=Quero+falar+com+um+consultor+sobre+a+turma+de+Novo+Progresso" class="cta-primary" style="max-width:400px;margin:0 auto;">FALAR COM UM CONSULTOR</a>
 </div>
 </section>
@@ -757,19 +757,17 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateTimer, 1000);
     updateTimer();
 
-    // Controle de Vídeos (Fix: Thumbs e Play Unificado)
+    // Controle de Vídeos (Fix: Thumbs e Play)
     function toggleVideo(card) {
         const video = card.querySelector('video');
         if (!video) return;
 
         if (video.paused) {
-            // Pausa outros vídeos tocando
             document.querySelectorAll('.vcard.playing').forEach(activeCard => {
                 const activeVid = activeCard.querySelector('video');
                 if(activeVid) activeVid.pause();
                 activeCard.classList.remove('playing');
             });
-
             video.play();
             card.classList.add('playing');
         } else {
@@ -787,9 +785,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const question = item.querySelector('.faq-question');
         question.addEventListener('click', () => {
             const isOpen = item.classList.contains('open');
-            // Fecha outros
             document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-            // Abre o atual
             if (!isOpen) item.classList.add('open');
         });
     });
@@ -869,7 +865,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Gerador de horas aleatórias para escassez na matrícula
     const matHours = document.getElementById('matriculaHoras');
     if(matHours) matHours.innerText = Math.floor(Math.random() * (22 - 12 + 1)) + 12;
 });
