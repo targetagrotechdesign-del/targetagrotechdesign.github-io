@@ -4,14 +4,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Piloto de Drone Agrícola em Novo Progresso - PA - Target Agrotech</title>
+<title>Curso de Piloto de Drone Agrícola em Novo Progresso - PA - Target Agrotech</title>
 
 <meta
 name="description"
-content="Curso presencial de Piloto de Drone Agrícola em Novo Progresso - PA. Formação com CAAR incluso, prática em campo real e foco em pulverização."
+content="Curso presencial de Piloto de Drone Agrícola em Novo Progresso - PA com CAAR incluso, prática em campo real e certificação profissional."
 />
 
-<link rel="canonical" href="https://targetagrotech.com.br/novo-progresso/" />
+<link rel="canonical" href="https://targetagrotech.com.br/novoprogresso/" />
 <meta name="robots" content="index,follow" />
 <meta name="theme-color" content="#00b050" />
 
@@ -19,8 +19,8 @@ content="Curso presencial de Piloto de Drone Agrícola em Novo Progresso - PA. F
 <link rel="shortcut icon" type="image/png" href="../assets/favicon-32.png" />
 
 <meta property="og:site_name" content="Target AgroTech" />
-<meta property="og:title" content="Curso de Drone Agrícola em Novo Progresso - PA - Target Agrotech" />
-<meta property="og:description" content="Turma presencial confirmada para 24 de Abril. Prática real em campo, CAAR incluso e certificado." />
+<meta property="og:title" content="Formação Piloto de Drone Agrícola - Novo Progresso - PA" />
+<meta property="og:description" content="Turma 24 de Abril. Prática real em campo, CAAR incluso e certificado. Saia pronto para o mercado." />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://targetagrotech.com.br/assets/drone-hero-novo.jpg" />
 
@@ -106,12 +106,12 @@ content:"";width:8px;height:8px;border-radius:999px;
 background:var(--green);box-shadow:0 0 14px rgba(0,176,80,.5);
 }
 .hero h1{
-font-size:clamp(36px,5vw,62px);line-height:1.02;
+font-size:clamp(38px,5.1vw,66px);line-height:1.02;
 font-weight:900;letter-spacing:-.03em;margin-top:10px;
 }
 .hero h1 .g{color:var(--green)}
 .hero p{
-max-width:850px;margin:18px auto 0;
+max-width:800px;margin:18px auto 0;
 color:rgba(255,255,255,.80);font-size:18px;line-height:1.65;
 }
 
@@ -119,41 +119,42 @@ color:rgba(255,255,255,.80);font-size:18px;line-height:1.65;
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-top: 35px;
+    margin: 30px auto 0;
     flex-wrap: wrap;
+    max-width: 900px;
 }
 .summary-item {
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.05);
     border: 1px solid var(--border);
-    padding: 14px 24px;
-    border-radius: 18px;
+    padding: 15px 25px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 170px;
+    min-width: 180px;
     backdrop-filter: blur(10px);
 }
 .summary-item span:first-child {
-    font-size: 10px;
+    font-size: 11px;
     color: var(--muted);
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 6px;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
 }
 .summary-item span:last-child {
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 800;
     color: #fff;
 }
-.summary-item.vagas-alert span:last-child {
-    color: var(--yellow);
-}
+.summary-item.vagas-box span:last-child { color: var(--yellow); }
 
 .training-box{
 margin:40px auto 0;max-width:480px;border-radius:34px;
 background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.12);
 box-shadow:var(--shadow2);overflow:hidden;position:relative;
+aspect-ratio: 9/16; /* Força proporção correta para o vídeo principal vertical */
 }
+@media (max-width:768px){ .training-box{max-width:320px} }
 
 .section-title{
 text-align:center;font-size:clamp(30px,3.5vw,46px);
@@ -187,14 +188,20 @@ overflow:hidden;
 }
 .vcard .overlay img.video-thumb{
 position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-z-index:0;display:block;
+z-index:1;display:block;
+}
+.vcard .overlay::after{
+content:"";
+position:absolute;inset:0;
+background:rgba(0,0,0,0.3);
+z-index:2;pointer-events:none;
 }
 .vcard.playing .overlay{opacity:0;pointer-events:none}
 .playbtn{
 width:70px;height:70px;border-radius:50%;background:var(--green);
 display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;
 box-shadow:0 0 20px rgba(0,176,80,.4);
-position:relative;z-index:2;
+position:relative;z-index:3;
 }
 .playbtn:after{
 content:"";
@@ -276,8 +283,8 @@ box-shadow:0 15px 30px rgba(37,211,102,.25);
 animation:pulse-whatsapp 1.8s infinite;
 }
 @keyframes pulse-whatsapp{
-0%{transform:scale(1);box-shadow:0 0 0 0 rgba(37,211,102,.55);}
-70%{transform:scale(1.02);box-shadow:0 0 0 18px rgba(37,211,102,0);}
+0%{transform:scale(1);box-shadow:0 0 0 0 rgba(37,211,102,0.6);}
+70%{transform:scale(1.02);box-shadow:0 0 0 15px rgba(37,211,102,0);}
 100%{transform:scale(1);box-shadow:0 0 0 0 rgba(37,211,102,0);}
 }
 
@@ -308,7 +315,7 @@ display:flex;gap:15px;background:rgba(0,0,0,.2);padding:20px;border-radius:16px;
 .learn-item p{font-size:14px;color:rgba(255,255,255,.6);}
 
 .instructor-card.solo{
-max-width:520px;width:100%;margin: 40px auto 0;padding:42px 38px;text-align:center;
+max-width:520px;width:100%;margin:40px auto 0;padding:42px 38px;text-align:center;
 background:linear-gradient(145deg, rgba(11,36,22,.95), rgba(4,17,11,.92));
 border:1px solid rgba(0,176,80,.35);border-radius:30px;box-shadow:0 22px 50px rgba(0,0,0,.35);
 }
@@ -324,6 +331,7 @@ display:flex;align-items:center;gap:40px;border:1px solid var(--border);
 .market-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px;flex-shrink:0;}
 .stat-card{background:rgba(255,255,255,.05);padding:20px;border-radius:20px;text-align:center;}
 .stat-card .val{font-size:32px;font-weight:900;color:var(--yellow);display:block;}
+.stat-card .lab{font-size:12px;text-transform:uppercase;color:var(--muted);}
 
 .filter-area{
 margin-bottom:30px;display:flex;gap:15px;flex-wrap:wrap;justify-content:center;
@@ -344,12 +352,13 @@ background:rgba(11,36,22,.6);border:1px solid var(--border);padding:25px;border-
 .btn-reserva{
 margin-top:20px;width:100%;padding:14px;background:var(--yellow);border:none;border-radius:12px;font-weight:900;cursor:pointer;transition:all .2s;
 }
+.btn-reserva:hover{background:var(--green);color:#000;}
 
 .faq-container{max-width:800px;margin:0 auto;}
 .faq-item{margin-bottom:12px;background:rgba(255,255,255,.03);border-radius:16px;border:1px solid var(--border2);overflow:hidden;}
 .faq-question{padding:20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;}
-.faq-question:after{content:"+";font-size:22px;color:var(--green);}
-.faq-item.open .faq-question:after{content:"−";}
+.faq-question:after{content:"+";font-size:22px;color:var(--green);transition:transform .3s;}
+.faq-item.open .faq-question:after{content:"−";transform:rotate(180deg);}
 .faq-answer{padding:0 20px 20px;display:none;color:rgba(255,255,255,.7);font-size:15px;line-height:1.6;}
 .faq-item.open .faq-answer{display:block;}
 
@@ -399,27 +408,27 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 <div class="topbar-right">A MAIOR ESCOLA DE DRONES DO BRASIL</div>
 </div>
 <section class="hero">
-  <div class="hero-topline">TURMA PRESENCIAL CONFIRMADA: NOVO PROGRESSO - PA</div>
-  <h1>Piloto de <span class="g">Drone Agrícola</span> Profissional em Novo Progresso</h1>
-  <p>Domine a tecnologia de pulverização e mapeamento que está transformando o agro no Pará. Formação intensiva com prática em campo real e CAAR incluso.</p>
+  <div class="hero-topline">TURMA PRESENCIAL: NOVO PROGRESSO - PA</div>
+  <h1>Torne-se <span class="g">Piloto de Drone</span> Agrícola em Novo Progresso</h1>
+  <p>Domine a tecnologia que está revolucionando o campo no Pará. Formação 100% presencial com drones profissionais, CAAR incluso e prática real em campo.</p>
 
   <div class="local-summary">
     <div class="summary-item">
-        <span>Local da Turma</span>
+        <span>Cidade</span>
         <span>Novo Progresso - PA</span>
     </div>
     <div class="summary-item">
-        <span>Data Início</span>
+        <span>Data</span>
         <span>24 de Abril</span>
     </div>
-    <div class="summary-item vagas-alert">
-        <span>Disponibilidade</span>
-        <span>Restam 5 Vagas</span>
+    <div class="summary-item vagas-box">
+        <span>Vagas Restantes</span>
+        <span>Apenas 5</span>
     </div>
   </div>
 
   <div class="training-box">
-    <article class="vcard" style="min-height: 500px; border: none; box-shadow: none;">
+    <article class="vcard" style="min-height: 100%; border: none; box-shadow: none;">
       <video preload="none" playsinline poster="../assets/drone-hero-novo.jpg">
         <source src="../assets/video-hero-landing.mp4" type="video/mp4" />
       </video>
@@ -431,12 +440,8 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
   </div>
 
   <div style="margin-top:35px; display:flex; justify-content:center;">
-    <a
-      href="https://wa.me/5566999763455?text=Quero+garantir+minha+vaga+na+turma+de+Novo+Progresso"
-      class="cta-primary pulse-whatsapp"
-      style="max-width:380px;width:100%;"
-    >
-      GARANTIR VAGA EM NOVO PROGRESSO
+    <a href="https://wa.me/5566999763455?text=Quero+garantir+minha+vaga+na+turma+de+Novo+Progresso" class="cta-primary pulse-whatsapp" style="max-width:400px;width:100%;">
+      RESERVAR MINHA VAGA EM NOVO PROGRESSO
     </a>
   </div>
 </section>
@@ -480,11 +485,11 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 </div>
 </section>
 
-<!-- Bloco de Preço -->
-<section>
+<!-- Bloco de Preço Robusto -->
+<section id="preco">
 <div class="container">
 <div class="offer-box">
-<div class="offer-badge">LOTE PROMOCIONAL POR TEMPO LIMITADO</div>
+<div class="offer-badge">LOTE PROMOCIONAL - VAGAS LIMITADAS</div>
 <div class="offer-content">
 <div class="price-area">
 <div class="price-kicker">Investimento para sua Carreira</div>
@@ -496,17 +501,17 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 <div class="full-price">ou <strong>R$ 4.497</strong> à vista</div>
 <div class="offer-points">
           <span><i></i> CAAR Incluso (Certificado de Aplicador Aeroagrícola Remoto)</span>
-          <span><i></i> Prática Real em Campo em Novo Progresso</span>
-          <span><i></i> Mentoria pós-curso para início de operação</span>
+          <span><i></i> Prática Real em Novo Progresso</span>
+          <span><i></i> Mentoria pós-curso inclusa</span>
         </div>
 
         <div class="matricula-highlight">
           <div class="matricula-top">
-            <span class="matricula-badge">Matrícula promocional</span>
+            <span class="matricula-badge">Matrícula Antecipada</span>
             <span class="matricula-price">Hoje por apenas <strong>R$ 197</strong></span>
           </div>
           <div class="matricula-copy">
-            Garanta sua vaga para a turma de 24/04 nas <strong>próximas <span id="matriculaHoras">18</span> horas</strong> e aproveite a matrícula no valor reduzido.
+            Garanta sua vaga para a turma de 24/04 nas <strong>próximas <span id="matriculaHoras">18</span> horas</strong> para travar o desconto do lote atual.
           </div>
         </div>
       </div>
@@ -527,22 +532,22 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 <div class="benefit-card">
 <div class="num">01</div>
 <h3>Foco 100% Prático</h3>
-<p>Nada de apenas teoria. Você assume o controle, planeja a missão e executa a aplicação em campo real na sua região.</p>
+<p>Nada de apenas teoria em tela. Você pega no controle e executa missões reais de pulverização em campo.</p>
 </div>
 <div class="benefit-card">
       <div class="num">02</div>
       <h3>Habilitação Legal</h3>
-      <p>O curso já contempla o CAAR, exigência obrigatória do MAPA para operar drones de pulverização profissionalmente.</p>
+      <p>O curso contempla o CAAR, exigência obrigatória do MAPA para operar drones de pulverização profissionalmente.</p>
     </div>
     <div class="benefit-card">
       <div class="num">03</div>
-      <h3>Networking Regional</h3>
-      <p>Conecte-se com proprietários rurais do Pará que buscam pilotos qualificados para frotas próprias.</p>
+      <h3>Networking Local</h3>
+      <p>Conecte-se com produtores e empresas da região de Novo Progresso que buscam operadores qualificados.</p>
     </div>
     <div class="benefit-card">
       <div class="num">04</div>
-      <h3>Suporte Pós-Curso</h3>
-      <p>Teve dúvidas no seu primeiro serviço sozinho? Nossa equipe técnica está a um clique para te ajudar.</p>
+      <h3>Suporte Vitalício</h3>
+      <p>Teve dúvida no primeiro serviço sozinho? Nossa equipe técnica fica disponível para te auxiliar no que precisar.</p>
     </div>
   </div>
 </div>
@@ -554,10 +559,10 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 <p class="subtitle">Uma jornada completa de 3 dias intensivos com 24h de carga horária total.</p>
 <div class="learn-grid">
     <div class="learn-item"><span>01</span><div><h4>Legislação e Segurança</h4><p>Regulamentações ANAC, DECEA e MAPA atualizadas.</p></div></div>
-    <div class="learn-item"><span>02</span><div><h4>Hardware e Manutenção</h4><p>Conheça componentes, baterias e cuidados técnicos.</p></div></div>
-    <div class="learn-item"><span>03</span><div><h4>Software de Planejamento</h4><p>Criação de missões automáticas e mapeamento de precisão.</p></div></div>
+    <div class="learn-item"><span>02</span><div><h4>Hardware e Manutenção</h4><p>Conheça componentes, baterias e como manter o equipamento em dia.</p></div></div>
+    <div class="learn-item"><span>03</span><div><h4>Software de Planejamento</h4><p>Criação de missões automáticas, mapeamento e perímetros.</p></div></div>
     <div class="learn-item"><span>04</span><div><h4>Tecnologia de Aplicação</h4><p>Pontas de pulverização, deriva, gotas e preparo de calda.</p></div></div>
-    <div class="learn-item"><span>05</span><div><h4>Pilotagem Modo Manual</h4><p>Segurança total para situações de emergência e obstáculos.</p></div></div>
+    <div class="learn-item"><span>05</span><div><h4>Pilotagem Modo Manual</h4><p>Segurança para situações de emergência e obstáculos.</p></div></div>
     <div class="learn-item"><span>06</span><div><h4>Calibragem e Sensores</h4><p>Radar de obstáculos, RTK e sensores de vazão.</p></div></div>
   </div>
 </div>
@@ -570,7 +575,7 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 <img src="../assets/washington-prado.jpg" class="instructor-img" alt="Washington Prado">
 <div class="tag">Engenheiro Agrônomo</div>
 <h3>Washington Prado</h3>
-<p>Um dos maiores especialistas em drones do Brasil. Engenheiro agrônomo com vasta experiência operacional, pronto para te entregar o caminho das pedras do mercado aeroagrícola.</p>
+<p>Um dos maiores especialistas em drones do Brasil. Engenheiro agrônomo com atuação direta no campo, pronto para entregar o caminho das pedras para você faturar no mercado aeroagrícola.</p>
 </div>
 </div>
 </section>
@@ -579,9 +584,9 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 <div class="container">
 <div class="market-box">
 <div class="market-text">
-<h2 style="font-size:32px;margin-bottom:20px;">A Oportunidade em <span class="g">Novo Progresso</span></h2>
-<p style="color:rgba(255,255,255,.8);margin-bottom:20px;">O Pará vive uma explosão na adoção de drones. A falta de pilotos qualificados é o único gargalo. Salários e faturamentos para prestadores de serviço estão entre os mais altos do setor.</p>
-<p style="font-weight:700;color:var(--yellow);">Não seja apenas um espectador, seja o profissional que a região precisa.</p>
+<h2 style="font-size:32px;margin-bottom:20px;">O Mercado do <span class="g">Futuro é Agora</span></h2>
+<p style="color:rgba(255,255,255,.8);margin-bottom:20px;">O Brasil tem um déficit de mais de 10 mil pilotos qualificados. O setor no Pará cresce exponencialmente e os salários estão entre os mais altos da operação agrícola.</p>
+<p style="font-weight:700;color:var(--yellow);">Domine a tecnologia antes da concorrência e seja o profissional disputado.</p>
 </div>
 <div class="market-stats">
       <div class="stat-card"><span class="val">R$ 5k - 15k</span><span class="lab">Renda Mensal Média</span></div>
@@ -597,38 +602,278 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 <div class="faq-container">
 <div class="faq-item">
     <div class="faq-question">Onde será realizada a turma em Novo Progresso?</div>
-    <div class="faq-answer">As aulas ocorrem em local estratégico de fácil acesso no município, com a parte prática realizada em fazenda parceira com estrutura completa para drones.</div>
+    <div class="faq-answer">As aulas ocorrem em local estratégico no município de Novo Progresso - PA, com a parte prática realizada em fazenda parceira com estrutura completa para operação.</div>
 </div>
 <div class="faq-item">
-    <div class="faq-question">Ainda há vagas para 24 de Abril?</div>
-    <div class="faq-answer">Sim, no momento restam apenas 5 vagas. O preenchimento é por ordem de inscrição/reserva de matrícula.</div>
+    <div class="faq-question">Ainda há vagas para a turma de 24 de Abril?</div>
+    <div class="faq-answer">No momento sim, mas restam apenas 5 vagas. O preenchimento é feito por ordem de reserva de matrícula via WhatsApp.</div>
 </div>
 <div class="faq-item">
-      <div class="faq-question">Preciso ter meu próprio drone para o curso?</div>
-      <div class="faq-answer">Não. Fornecemos drones DJI de última geração para que todos os alunos pratiquem exaustivamente durante o treinamento.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question">O CAAR é válido em todo o Brasil?</div>
-      <div class="faq-answer">Com certeza. O certificado é reconhecido pelo MAPA e tem validade nacional.</div>
-    </div>
-  </div>
+    <div class="faq-question">Preciso ter experiência anterior com drones?</div>
+    <div class="faq-answer">Não. Nosso curso leva você do zero absoluto até a operação profissional e segura de drones de pulverização.</div>
+</div>
+<div class="faq-item">
+    <div class="faq-question">O curso inclui o CAAR?</div>
+    <div class="faq-answer">Sim! Ao concluir o curso você recebe o certificado de Aplicador Aeroagrícola Remoto, exigido pelo MAPA.</div>
+</div>
+<div class="faq-item">
+    <div class="faq-question">Quais as formas de pagamento?</div>
+    <div class="faq-answer">Aceitamos parcelamento em até 12x no cartão de crédito ou pagamento à vista via PIX com desconto.</div>
+</div>
+</div>
 </div>
 </section>
 
-<!-- Seção de Outras Turmas -->
+<!-- Seção de Próximas Turmas -->
 <section id="proximas-turmas">
 <div class="container">
 <h2 class="section-title">Próximas <span class="g">Turmas</span></h2>
-<p class="subtitle">Confira outras datas e cidades disponíveis pelo Brasil.</p>
+<p class="subtitle">Veja a agenda completa e escolha a melhor data para você.</p>
 <div class="filter-area">
-    <input type="text" id="citySearch" placeholder="Digite sua cidade...">
+    <input type="text" id="citySearch" placeholder="Busque por cidade...">
     <select id="stateFilter">
       <option value="">Todos os Estados</option>
       <option value="PA">Pará</option>
       <option value="MT">Mato Grosso</option>
       <option value="RO">Rondônia</option>
+      <option value="AC">Acre</option>
       <option value="BA">Bahia</option>
+      <option value="MA">Maranhão</option>
+      <option value="PI">Piauí</option>
+      <option value="RR">Roraima</option>
+      <option value="TO">Tocantins</option>
     </select>
   </div>
 
-  <div class="classes-grid"
+  <div class="classes-grid" id="turmasGrid">
+    <article class="class-card" data-date="2026-04-10" data-state="MT" data-city="Brasnorte">
+        <div class="date">10/Abr</div><div class="location">Brasnorte - MT</div><div class="vagas">Restam 3 vagas</div><button class="btn-reserva">RESERVAR VAGA</button>
+    </article>
+    <article class="class-card" data-date="2026-04-17" data-state="TO" data-city="Palmas">
+        <div class="date">17/Abr</div><div class="location">Palmas - TO</div><div class="vagas">Restam 4 vagas</div><button class="btn-reserva">RESERVAR VAGA</button>
+    </article>
+    <article class="class-card" data-date="2026-04-24" data-state="PA" data-city="Novo Progresso">
+        <div class="date">24/Abr</div><div class="location">Novo Progresso - PA</div><div class="vagas">Restam 5 vagas</div><button class="btn-reserva">RESERVAR VAGA</button>
+    </article>
+    <article class="class-card" data-date="2026-05-01" data-state="RO" data-city="Rolim de Moura">
+        <div class="date">01/Mai</div><div class="location">Rolim de Moura - RO</div><div class="vagas">Restam 2 vagas</div><button class="btn-reserva">RESERVAR VAGA</button>
+    </article>
+    <article class="class-card" data-date="2026-05-01" data-state="AC" data-city="Sena Madureira">
+        <div class="date">01/Mai</div><div class="location">Sena Madureira - AC</div><div class="vagas">Restam 6 vagas</div><button class="btn-reserva">RESERVAR VAGA</button>
+    </article>
+    <article class="class-card" data-date="2026-05-15" data-state="PA" data-city="Santarém">
+        <div class="date">15/Mai</div><div class="location">Santarém - PA</div><div class="vagas">Restam 4 vagas</div><button class="btn-reserva">RESERVAR VAGA</button>
+    </article>
+    <article class="class-card" data-date="2026-05-22" data-state="BA" data-city="Eunápolis">
+        <div class="date">22/Mai</div><div class="location">Eunápolis - BA</div><div class="vagas">Restam 3 vagas</div><button class="btn-reserva">RESERVAR VAGA</button>
+    </article>
+    <article class="class-card" data-date="2026-06-05" data-state="MA" data-city="Balsas">
+        <div class="date">05/Jun</div><div class="location">Balsas - MA</div><div class="vagas">Restam 5 vagas</div><button class="btn-reserva">RESERVAR VAGA</button>
+    </article>
+    <article class="class-card" data-date="2026-06-05" data-state="PI" data-city="Uruçuí">
+        <div class="date">05/Jun</div><div class="location">Uruçuí - PI</div><div class="vagas">Restam 4 vagas</div><button class="btn-reserva">RESERVAR VAGA</button>
+    </article>
+    <article class="class-card" data-date="2026-06-12" data-state="RR" data-city="Rorainópolis">
+        <div class="date">12/Jun</div><div class="location">Rorainópolis - RR</div><div class="vagas">Restam 2 vagas</div><button class="btn-reserva">RESERVAR VAGA</button>
+    </article>
+    <article class="class-card" data-date="2026-06-12" data-state="PA" data-city="Paragominas">
+        <div class="date">12/Jun</div><div class="location">Paragominas - PA</div><div class="vagas">Restam 4 vagas</div><button class="btn-reserva">RESERVAR VAGA</button>
+    </article>
+    <article class="class-card" data-date="2026-06-19" data-state="MT" data-city="Colniza">
+        <div class="date">19/Jun</div><div class="location">Colniza - MT</div><div class="vagas">Restam 3 vagas</div><button class="btn-reserva">RESERVAR VAGA</button>
+    </article>
+    <article class="class-card" data-date="2026-07-03" data-state="MT" data-city="Confresa">
+        <div class="date">03/Jul</div><div class="location">Confresa - MT</div><div class="vagas">Restam 4 vagas</div><button class="btn-reserva">RESERVAR VAGA</button>
+    </article>
+    <article class="class-card" data-date="2026-07-03" data-state="PA" data-city="Açailândia">
+        <div class="date">03/Jul</div><div class="location">Açailândia - PA</div><div class="vagas">Restam 5 vagas</div><button class="btn-reserva">RESERVAR VAGA</button>
+    </article>
+    <article class="class-card" data-date="2026-07-17" data-state="PA" data-city="Altamira">
+        <div class="date">17/Jul</div><div class="location">Altamira - PA</div><div class="vagas">Restam 6 vagas</div><button class="btn-reserva">RESERVAR VAGA</button>
+    </article>
+    <article class="class-card" data-date="2026-07-17" data-state="PE" data-city="Garanhuns">
+        <div class="date">17/Jul</div><div class="location">Garanhuns - PE</div><div class="vagas">Restam 2 vagas</div><button class="btn-reserva">RESERVAR VAGA</button>
+    </article>
+    <article class="class-card" data-date="2026-07-31" data-state="PB" data-city="Campina Grande">
+        <div class="date">31/Jul</div><div class="location">Campina Grande - PB</div><div class="vagas">Restam 4 vagas</div><button class="btn-reserva">RESERVAR VAGA</button>
+    </article>
+  </div>
+
+  <div style="text-align:center;margin-top:30px;">
+    <button id="toggleTurmas" class="cta-secondary" style="color:#fff; display: inline-flex; align-items: center; gap: 8px;">
+      VER MAIS TURMAS
+    </button>
+  </div>
+</div>
+</section>
+
+<section style="background:linear-gradient(to bottom, #020805, #00b05020);">
+<div class="container" style="text-align:center;">
+<h2 class="section-title">O agro de elite <span class="g">não espera.</span></h2>
+<p class="subtitle">As vagas para Novo Progresso são limitadas e o mercado não para de crescer.</p>
+<a href="https://wa.me/5566999763455?text=Quero+falar+com+um+consultor+sobre+a+turma+de+Novo+Progresso" class="cta-primary" style="max-width:400px;margin:0 auto;">FALAR COM UM CONSULTOR</a>
+</div>
+</section>
+</main>
+
+<div class="countdown-bar" id="countdown">
+🔥 TURMA NOVO PROGRESSO EM <span id="timer">--D --H --M --S</span> - ÚLTIMAS VAGAS!
+</div>
+
+<a href="https://wa.me/5566999763455" class="wa-float" target="_blank" rel="noopener noreferrer">
+<svg viewBox="0 0 32 32"><path d="M19.11 17.2c-.28-.14-1.65-.81-1.9-.9-.26-.1-.45-.14-.63.14-.19.28-.73.9-.9 1.09-.17.19-.33.21-.62.07-.28-.14-1.2-.44-2.28-1.4-.84-.75-1.4-1.67-1.56-1.95-.16-.28-.02-.43.12-.57.12-.12.28-.33.42-.5.14-.17.19-.28.28-.47.09-.19.05-.35-.02-.5-.07-.14-.63-1.52-.87-2.08-.23-.55-.47-.47-.63-.48-.16-.01-.35-.01-.53-.01-.19 0-.5.07-.76.35-.26.28-1 1-1 2.43 0 1.43 1.03 2.8 1.17 2.99.14.19 2.03 3.1 4.93 4.34.69.3 1.23.48 1.65.62.69.22 1.32.19 1.82.12.55-.08 1.65-.67 1.88-1.32.23-.65.23-1.2.16-1.32-.07-.12-.26-.19-.54-.33zM16 3C9.37 3 4 8.1 4 14.4c0 2.39.8 4.62 2.16 6.45L5 29l8.4-1.97c1.22.35 2.52.54 3.6.54 6.63 0 12-5.1 12-11.4C29 8.1 23.63 3 16 3zm0 20.52c-1 0-2.04-.19-2.95-.54l-.7-.26-4.98 1.17 1.07-4.74-.45-.71A9.1 9.1 0 0 1 6.9 14.4c0-5.02 4.2-9.1 9.1-9.1 5.02 0 9.1 4.08 9.1 9.1 0 5.02-4.08 9.12-9.1 9.12z"/></svg>
+</a>
+
+<div class="modal-backdrop" id="modalReserva">
+<div class="modal-card">
+<span class="close-modal">&times;</span>
+<h3>Garantir minha vaga</h3>
+<p id="modalInfo" style="font-size:14px;color:var(--muted);margin-bottom:15px;"></p>
+<input type="text" id="userName" placeholder="Seu nome completo">
+<input type="text" id="userCity" placeholder="Sua cidade atual">
+<button class="btn-confirm" id="btnSendLead">CONTINUAR PARA WHATSAPP</button>
+</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Timer para Turma Principal (Novo Progresso - 24/04)
+    const nextTurmaDate = new Date('2026-04-24T23:59:59');
+    const timerEl = document.getElementById('timer');
+
+    function updateTimer() {
+        const now = new Date().getTime();
+        const distance = nextTurmaDate.getTime() - now;
+        if (distance <= 0) {
+            if(timerEl) timerEl.parentElement.innerText = "TURMA CONFIRMADA - ÚLTIMAS VAGAS!";
+            return;
+        }
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        if(timerEl) timerEl.innerText = `${days}D ${hours}H ${minutes}M ${seconds}S`;
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    // Controle de Vídeos (Fix: Thumbs e Play Unificado)
+    function toggleVideo(card) {
+        const video = card.querySelector('video');
+        if (!video) return;
+
+        if (video.paused) {
+            // Pausa outros vídeos tocando
+            document.querySelectorAll('.vcard.playing').forEach(activeCard => {
+                const activeVid = activeCard.querySelector('video');
+                if(activeVid) activeVid.pause();
+                activeCard.classList.remove('playing');
+            });
+
+            video.play();
+            card.classList.add('playing');
+        } else {
+            video.pause();
+            card.classList.remove('playing');
+        }
+    }
+
+    document.querySelectorAll('.vcard').forEach(card => {
+        card.addEventListener('click', () => toggleVideo(card));
+    });
+
+    // FAQ expansível
+    document.querySelectorAll('.faq-item').forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            const isOpen = item.classList.contains('open');
+            // Fecha outros
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            // Abre o atual
+            if (!isOpen) item.classList.add('open');
+        });
+    });
+
+    // Filtros e Agenda de Turmas
+    const citySearch = document.getElementById('citySearch');
+    const stateFilter = document.getElementById('stateFilter');
+    const toggleTurmasBtn = document.getElementById('toggleTurmas');
+    let showingAll = false;
+
+    function renderTurmas() {
+        const cityVal = (citySearch?.value || '').toLowerCase();
+        const stateVal = stateFilter?.value || '';
+        const cards = Array.from(document.querySelectorAll('.class-card'));
+        
+        let visibleCount = 0;
+        cards.forEach(card => {
+            const city = (card.getAttribute('data-city') || '').toLowerCase();
+            const state = card.getAttribute('data-state');
+            const match = city.includes(cityVal) && (!stateVal || state === stateVal);
+
+            if (match) {
+                visibleCount++;
+                if (!showingAll && visibleCount > 6) {
+                    card.classList.add('hidden');
+                } else {
+                    card.classList.remove('hidden');
+                }
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        if (toggleTurmasBtn) {
+            toggleTurmasBtn.style.display = (visibleCount > 6) ? 'inline-flex' : 'none';
+            toggleTurmasBtn.innerText = showingAll ? 'VER MENOS TURMAS' : 'VER MAIS TURMAS';
+        }
+    }
+
+    if(citySearch) citySearch.addEventListener('input', renderTurmas);
+    if(stateFilter) stateFilter.addEventListener('change', renderTurmas);
+    if(toggleTurmasBtn) toggleTurmasBtn.addEventListener('click', () => {
+        showingAll = !showingAll;
+        renderTurmas();
+    });
+    renderTurmas();
+
+    // Modal de Lead/Reserva
+    const modal = document.getElementById('modalReserva');
+    const modalInfo = document.getElementById('modalInfo');
+    const btnConfirm = document.getElementById('btnSendLead');
+    let selectedTurma = "Novo Progresso - PA (24/Abr)";
+
+    document.querySelectorAll('.btn-reserva, .btn-reserva-lead').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const card = btn.closest('.class-card');
+            if (card) {
+                const loc = card.querySelector('.location').innerText;
+                const dat = card.querySelector('.date').innerText;
+                selectedTurma = `${loc} (${dat})`;
+            }
+            if(modalInfo) modalInfo.innerText = "Você está reservando para a turma: " + selectedTurma;
+            if(modal) modal.classList.add('active');
+        });
+    });
+
+    document.querySelector('.close-modal')?.addEventListener('click', () => modal.classList.remove('active'));
+    window.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('active'); });
+
+    if(btnConfirm) {
+        btnConfirm.addEventListener('click', () => {
+            const name = document.getElementById('userName').value;
+            const city = document.getElementById('userCity').value;
+            const text = `Olá! Quero garantir minha vaga.\n\nNome: ${name}\nCidade: ${city}\nTurma: ${selectedTurma}`;
+            window.open(`https://wa.me/5566999763455?text=${encodeURIComponent(text)}`, '_blank');
+        });
+    }
+
+    // Gerador de horas aleatórias para escassez na matrícula
+    const matHours = document.getElementById('matriculaHoras');
+    if(matHours) matHours.innerText = Math.floor(Math.random() * (22 - 12 + 1)) + 12;
+});
+</script>
+
+</body>
+</html>
