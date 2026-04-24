@@ -383,8 +383,8 @@ background:rgba(11,36,22,.6);border:1px solid var(--border);padding:25px;border-
 .class-card:hover{border-color:var(--green);transform:translateY(-5px);}
 .class-card .date{font-size:28px;font-weight:900;color:var(--green);}
 .class-card .location{font-size:18px;font-weight:700;margin:10px 0 5px;}
-.class-card .vagas{color:var(--yellow);font-size:13px;font-weight:800;display:flex;align-items:center;gap:5px;}
-.class-card .vagas:before{content:"";width:8px;height:8px;background:var(--yellow);border-radius:50%;}
+.class-card .vagas{color:var(--danger);font-size:13px;font-weight:900;display:flex;align-items:center;gap:5px;}
+.class-card .vagas:before{content:"";width:8px;height:8px;background:var(--danger);border-radius:50%;box-shadow:0 0 10px rgba(217,74,74,.45);}
 .btn-reserva{
 margin-top:20px;width:100%;padding:14px;background:var(--yellow);border:none;border-radius:12px;font-weight:900;cursor:pointer;transition:all .2s;
 }
@@ -468,7 +468,7 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 
   <div class="hero-extra-cta">
     <a
-      href="https://wa.me/5566999763455?text=Quero+mais+informações+sobre+o+curso+de+Drone+Agrícola"
+      href="https://crm.targetagrotech.com.br/formulario"
       class="cta-primary pulse-whatsapp"
       style="max-width:360px;width:100%;"
     >
@@ -844,7 +844,7 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 <div class="container" style="text-align:center;">
 <h2 class="section-title">Seja você sua <span class="g">prioridade, sempre.</span></h2>
 <p class="subtitle">As vagas para as próximas turmas estão acabando. Garanta seu futuro profissional hoje mesmo.</p>
-<a href="https://wa.me/5566999763455?text=Quero+falar+com+um+consultor+sobre+o+curso+de+drone" class="cta-primary" style="max-width:400px;margin:0 auto;">FALAR COM UM CONSULTOR</a>
+<a href="https://crm.targetagrotech.com.br/formulario" class="cta-primary" style="max-width:400px;margin:0 auto;">FALAR COM UM CONSULTOR</a>
 </div>
 </section>
 </main>
@@ -853,22 +853,11 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 🔥 PRÓXIMA TURMA EM <span id="timer">--D --H --M --S</span> - ÚLTIMAS VAGAS!
 </div>
 
-<a href="https://wa.me/5566999763455" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+<a href="https://crm.targetagrotech.com.br/formulario" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
 <svg viewBox="0 0 32 32">
 <path d="M19.11 17.2c-.28-.14-1.65-.81-1.9-.9-.26-.1-.45-.14-.63.14-.19.28-.73.9-.9 1.09-.17.19-.33.21-.62.07-.28-.14-1.2-.44-2.28-1.4-.84-.75-1.4-1.67-1.56-1.95-.16-.28-.02-.43.12-.57.12-.12.28-.33.42-.5.14-.17.19-.28.28-.47.09-.19.05-.35-.02-.5-.07-.14-.63-1.52-.87-2.08-.23-.55-.47-.47-.63-.48-.16-.01-.35-.01-.53-.01-.19 0-.5.07-.76.35-.26.28-1 1-1 2.43 0 1.43 1.03 2.8 1.17 2.99.14.19 2.03 3.1 4.93 4.34.69.3 1.23.48 1.65.62.69.22 1.32.19 1.82.12.55-.08 1.65-.67 1.88-1.32.23-.65.23-1.2.16-1.32-.07-.12-.26-.19-.54-.33zM16 3C9.37 3 4 8.1 4 14.4c0 2.39.8 4.62 2.16 6.45L5 29l8.4-1.97c1.22.35 2.52.54 3.6.54 6.63 0 12-5.1 12-11.4C29 8.1 23.63 3 16 3zm0 20.52c-1 0-2.04-.19-2.95-.54l-.7-.26-4.98 1.17 1.07-4.74-.45-.71A9.1 9.1 0 0 1 6.9 14.4c0-5.02 4.2-9.1 9.1-9.1 5.02 0 9.1 4.08 9.1 9.1 0 5.02-4.08 9.12-9.1 9.12z"/>
 </svg>
 </a>
-
-<div class="modal-backdrop" id="modalReserva">
-<div class="modal-card">
-<span class="close-modal">&times;</span>
-<h3 id="modalTitleLabel" style="margin-bottom:10px;">Garantir minha vaga</h3>
-<p id="modalInfo" style="font-size:14px;color:var(--muted);margin-bottom:15px;"></p>
-<input type="text" id="userName" placeholder="Seu nome completo">
-<input type="text" id="userCity" placeholder="Sua cidade atual">
-<button class="btn-confirm" id="btnSendLead">CONTINUAR</button>
-</div>
-</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -1034,67 +1023,16 @@ item.classList.toggle('open');
 }
 });
 
-const modal = document.getElementById('modalReserva');
-const closeModal = document.querySelector('.close-modal');
-const modalInfo = document.getElementById('modalInfo');
-const btnSendLead = document.getElementById('btnSendLead');
-let selectedTurmaText = '';
 
-function openModal(infoText = 'Preencha seus dados para continuar.') {
-if (!modal) return;
-modal.classList.add('active');
-if (modalInfo) modalInfo.textContent = infoText;
-}
-
-function closeModalFn() {
-if (!modal) return;
-modal.classList.remove('active');
-}
+const FORM_LINK = 'https://crm.targetagrotech.com.br/formulario';
 
 document.querySelectorAll('.btn-reserva, .btn-reserva-lead').forEach(btn => {
 btn.addEventListener('click', (e) => {
 e.preventDefault();
 e.stopPropagation();
-
-const card = btn.closest('.class-card');
-if (card) {
-const location = card.querySelector('.location')?.textContent?.trim() || '';
-const date = card.querySelector('.date')?.textContent?.trim() || '';
-selectedTurmaText = `${location} - ${date}`;
-openModal(`Turma selecionada: ${selectedTurmaText}`);
-} else {
-selectedTurmaText = '';
-openModal('Preencha seus dados para continuar.');
-}
+window.open(FORM_LINK, '_blank', 'noopener');
 });
 });
-
-if (closeModal) {
-closeModal.addEventListener('click', closeModalFn);
-}
-
-if (modal) {
-modal.addEventListener('click', (e) => {
-if (e.target === modal) closeModalFn();
-});
-}
-
-if (btnSendLead) {
-btnSendLead.addEventListener('click', () => {
-const userName = document.getElementById('userName')?.value?.trim() || '';
-const userCity = document.getElementById('userCity')?.value?.trim() || '';
-
-const mensagem = [
-'Olá! Quero continuar meu atendimento.',
-userName ? `Nome: ${userName}` : '',
-userCity ? `Cidade: ${userCity}` : '',
-selectedTurmaText ? `Turma: ${selectedTurmaText}` : ''
-].filter(Boolean).join('\n');
-
-const url = `https://wa.me/5566999763455?text=${encodeURIComponent(mensagem)}`;
-window.open(url, '_blank');
-});
-}
 });
 </script>
 
