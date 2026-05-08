@@ -342,68 +342,27 @@
       margin-left:4px;
     }
 
-    /* Solicite atendimento */
+    /* Solicitar atendimento */
     .suggest-wrap{
-      max-width:980px;margin:56px auto 0;
+      max-width:860px;margin:56px auto 0;
       border-radius:34px;
       border:1px solid rgba(242,201,76,.22);
       background:rgba(0,0,0,.18);
       box-shadow:var(--shadow2);
       padding:34px 26px;
-    }
-    .suggest-wrap h3{
       text-align:center;
-      font-size:32px;
-      font-weight:900;
-      margin-bottom:10px;
     }
     .suggest-wrap p{
-      text-align:center;
-      color:rgba(255,255,255,.60);
-      max-width:680px;margin:0 auto 22px;
+      color:rgba(255,255,255,.68);
+      max-width:680px;margin:0 auto 24px;
       line-height:1.6;
-      font-size:13px;
-    }
-
-    .formcol{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      max-width:560px;
-      margin:0 auto;
-    }
-    .formcol label{
-      font-size:11px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color:rgba(255,255,255,.55);
-      margin-bottom:6px;
-      display:block;
-    }
-    .field{
-      width:100%;
-      padding:14px 16px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.35);
-      color:rgba(255,255,255,.88);
-      outline:none;
       font-size:14px;
     }
-    .field::placeholder{color:rgba(255,255,255,.45)}
-    .err{
-      color:#ff6b6b;
-      font-size:12px;
-      margin-top:6px;
-      display:none;
-    }
-    .err.show{display:block}
-
     .btn-suggest{
-      margin-top:14px;
-      width:100%;
-      padding:16px 16px;
-      border-radius:14px;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      min-width:360px;
+      padding:16px 22px;
+      border-radius:999px;
       border:1px solid rgba(0,0,0,.25);
       background:var(--yellow);
       color:#04110b;
@@ -420,6 +379,111 @@
       transform:translateY(-1px);
       box-shadow:0 22px 46px rgba(0,176,80,.18);
     }
+    @media (max-width:640px){ .btn-suggest{min-width:100%;} }
+
+    /* Atendimento em etapas */
+    .assist-modal{
+      position:fixed;
+      inset:0;
+      z-index:1200;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      background:rgba(0,0,0,.68);
+      backdrop-filter:blur(8px);
+    }
+    .assist-modal.show{display:flex}
+    .assist-box{
+      width:min(560px,100%);
+      border-radius:28px;
+      border:1px solid rgba(255,255,255,.14);
+      background:linear-gradient(180deg, rgba(11,36,22,.98), rgba(2,8,5,.98));
+      box-shadow:var(--shadow);
+      padding:26px;
+      position:relative;
+    }
+    .assist-close{
+      position:absolute;
+      top:14px;right:14px;
+      width:38px;height:38px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      color:rgba(255,255,255,.86);
+      cursor:pointer;
+      font-size:22px;
+      line-height:1;
+    }
+    .assist-kicker{
+      color:var(--yellow);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+    .assist-question{
+      font-size:clamp(24px,4vw,34px);
+      line-height:1.08;
+      font-weight:900;
+      letter-spacing:-.02em;
+      margin:0 40px 12px 0;
+    }
+    .assist-help{
+      color:rgba(255,255,255,.66);
+      line-height:1.55;
+      font-size:14px;
+      margin-bottom:18px;
+    }
+    .assist-input{
+      width:100%;
+      padding:16px 16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.35);
+      color:rgba(255,255,255,.92);
+      outline:none;
+      font-size:16px;
+    }
+    .assist-input::placeholder{color:rgba(255,255,255,.38)}
+    .assist-error{
+      color:#ff7b7b;
+      display:none;
+      font-size:13px;
+      margin-top:10px;
+    }
+    .assist-error.show{display:block}
+    .assist-actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      margin-top:18px;
+      flex-wrap:wrap;
+    }
+    .assist-btn{
+      border:0;
+      border-radius:999px;
+      padding:13px 18px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      cursor:pointer;
+    }
+    .assist-next{background:var(--green);color:#04110b}
+    .assist-back{background:rgba(255,255,255,.08);color:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.12)}
+    .assist-small{
+      color:rgba(255,255,255,.46);
+      font-size:12px;
+    }
+    .assist-progress{
+      display:flex;gap:6px;margin-bottom:18px;
+    }
+    .assist-progress span{
+      flex:1;height:5px;border-radius:99px;background:rgba(255,255,255,.12);
+    }
+    .assist-progress span.active{background:var(--green)}
 
     /* CTA final */
     .final{
@@ -590,38 +654,17 @@
       <div class="container">
         <h2 class="section-title" id="atendimento-title">Solicitar <span class="g">Atendimento</span></h2>
         <p class="subtitle">
-          Preencha seus dados e envie no WhatsApp. Nossa equipe avalia a disponibilidade e retorna com o melhor encaixe.
+          Clique no botão abaixo, informe seu nome e escolha sua cidade/estado. Depois disso, a solicitação já abre pronta no WhatsApp.
         </p>
 
-        <div class="suggest-wrap" aria-labelledby="sugira-title">
-          <h3 id="sugira-title">Solicitar Atendimento</h3>
+        <div class="suggest-wrap">
           <p>
-            Informe seu nome completo e sua cidade. Em seguida, você será direcionado ao WhatsApp para enviar a solicitação.
+            Atendimento rápido para avaliar disponibilidade de pulverização com drone na sua região.
           </p>
 
-          <form id="notify-form" novalidate>
-            <div class="formcol">
-              <div>
-                <label for="notify-name">Nome completo</label>
-                <input class="field" id="notify-name" type="text" placeholder="Seu nome completo" autocomplete="name" />
-                <div class="err" id="err-name">Informe seu nome completo.</div>
-              </div>
-
-              <div>
-                <label for="notify-city">Cidade</label>
-                <input class="field" id="notify-city" type="text" placeholder="Ex: Primavera do Leste" autocomplete="address-level2" />
-                <div class="err" id="err-city">Informe sua cidade.</div>
-              </div>
-
-              <div>
-                <label for="notify-state">Estado</label>
-                <input class="field" id="notify-state" type="text" placeholder="Ex: MT" autocomplete="address-level1" maxlength="2" />
-                <div class="err" id="err-state">Informe seu estado (UF).</div>
-              </div>
-
-              <button class="btn-suggest" type="submit">ENVIAR SOLICITAÇÃO NO WHATSAPP</button>
-            </div>
-          </form>
+          <button class="btn-suggest" id="open-assist" type="button">
+            💬 Solicitar atendimento
+          </button>
         </div>
       </div>
     </section>
@@ -644,6 +687,40 @@
       </div>
     </section>
   </main>
+
+
+  <!-- Modal de atendimento em etapas -->
+  <div class="assist-modal" id="assist-modal" aria-hidden="true">
+    <div class="assist-box" role="dialog" aria-modal="true" aria-labelledby="assist-question">
+      <button class="assist-close" id="assist-close" type="button" aria-label="Fechar atendimento">×</button>
+
+      <div class="assist-progress" aria-hidden="true">
+        <span id="progress-1" class="active"></span>
+        <span id="progress-2"></span>
+      </div>
+
+      <div class="assist-kicker" id="assist-kicker">Passo 1 de 2</div>
+      <h3 class="assist-question" id="assist-question">Digite seu nome</h3>
+      <p class="assist-help" id="assist-help">Use seu nome completo para nossa equipe identificar seu atendimento.</p>
+
+      <input
+        class="assist-input"
+        id="assist-input"
+        type="text"
+        placeholder="Seu nome completo"
+        autocomplete="name"
+      />
+      <datalist id="cities-list"></datalist>
+
+      <div class="assist-error" id="assist-error">Preencha esse campo para continuar.</div>
+
+      <div class="assist-actions">
+        <button class="assist-btn assist-back" id="assist-back" type="button" style="visibility:hidden">Voltar</button>
+        <span class="assist-small">Pressione Enter para avançar</span>
+        <button class="assist-btn assist-next" id="assist-next" type="button">Continuar</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Floating WhatsApp -->
   <a
@@ -720,38 +797,174 @@
       })();
 
       // =======================
-      // FORM “Solicitar Atendimento”
+      // ATENDIMENTO EM ETAPAS
       // =======================
-      const form = document.getElementById("notify-form");
-      const nName = document.getElementById("notify-name");
-      const nCity = document.getElementById("notify-city");
-      const nState = document.getElementById("notify-state");
-      const errName = document.getElementById("err-name");
-      const errCity = document.getElementById("err-city");
-      const errState = document.getElementById("err-state");
+      (function initAtendimentoSteps(){
+        const openBtn = document.getElementById("open-assist");
+        const modal = document.getElementById("assist-modal");
+        const closeBtn = document.getElementById("assist-close");
+        const backBtn = document.getElementById("assist-back");
+        const nextBtn = document.getElementById("assist-next");
+        const input = document.getElementById("assist-input");
+        const question = document.getElementById("assist-question");
+        const help = document.getElementById("assist-help");
+        const kicker = document.getElementById("assist-kicker");
+        const error = document.getElementById("assist-error");
+        const citiesList = document.getElementById("cities-list");
+        const progress1 = document.getElementById("progress-1");
+        const progress2 = document.getElementById("progress-2");
 
-      if(form){
-        form.addEventListener("submit", function(e){
-          e.preventDefault();
+        if(!openBtn || !modal || !input) return;
 
-          const name = clean(nName.value);
-          const city = clean(nCity.value);
-          const state = clean(nState.value).toUpperCase();
+        let step = 1;
+        let leadName = "";
+        let citiesLoaded = false;
+        let cityOptions = [];
 
-          let ok = true;
-          if(!name){ errName.classList.add("show"); ok=false; } else errName.classList.remove("show");
-          if(!city){ errCity.classList.add("show"); ok=false; } else errCity.classList.remove("show");
-          if(!state || state.length !== 2){ errState.classList.add("show"); ok=false; } else errState.classList.remove("show");
-          if(!ok) return;
+        const fallbackCities = [
+          "Belo Horizonte - MG", "Uberlândia - MG", "Goiânia - GO", "Rio Verde - GO",
+          "Cuiabá - MT", "Primavera do Leste - MT", "Sorriso - MT", "Sinop - MT",
+          "Campo Grande - MS", "Dourados - MS", "Rondonópolis - MT", "Barreiras - BA",
+          "Luís Eduardo Magalhães - BA", "Balsas - MA", "Uruçuí - PI", "Paragominas - PA",
+          "Santarém - PA", "Rorainópolis - RR", "Palmas - TO", "Araguaína - TO"
+        ];
 
-          const msg =
-            "Olá, meu nome é " + name +
-            ", sou de " + city + " - " + state +
-            " e quero solicitar atendimento/orçamento para pulverização com drone na minha região.";
+        function normalizeText(value){
+          return clean(value).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+        }
 
-          window.open(buildWaUrl(msg), "_blank");
+        function fillCitiesList(items){
+          if(!citiesList) return;
+          citiesList.innerHTML = "";
+          items.forEach(function(item){
+            const opt = document.createElement("option");
+            opt.value = item;
+            citiesList.appendChild(opt);
+          });
+        }
+
+        async function loadCities(){
+          if(citiesLoaded) return;
+          fillCitiesList(fallbackCities);
+          cityOptions = fallbackCities.slice();
+
+          try{
+            const res = await fetch("https://servicodados.ibge.gov.br/api/v1/localidades/municipios?orderBy=nome");
+            if(!res.ok) throw new Error("Falha ao carregar cidades");
+            const data = await res.json();
+            cityOptions = data.map(function(city){
+              const uf = city && city.microrregiao && city.microrregiao.mesorregiao && city.microrregiao.mesorregiao.UF
+                ? city.microrregiao.mesorregiao.UF.sigla
+                : "";
+              return city.nome + (uf ? " - " + uf : "");
+            }).filter(Boolean);
+            fillCitiesList(cityOptions);
+            citiesLoaded = true;
+          }catch(e){
+            citiesLoaded = true;
+          }
+        }
+
+        function setStep(nextStep){
+          step = nextStep;
+          error.classList.remove("show");
+          input.value = "";
+
+          if(step === 1){
+            kicker.textContent = "Passo 1 de 2";
+            question.textContent = "Digite seu nome";
+            help.textContent = "Use seu nome completo para nossa equipe identificar seu atendimento.";
+            input.setAttribute("placeholder", "Seu nome completo");
+            input.setAttribute("autocomplete", "name");
+            input.removeAttribute("list");
+            backBtn.style.visibility = "hidden";
+            nextBtn.textContent = "Continuar";
+            progress1.classList.add("active");
+            progress2.classList.remove("active");
+          }else{
+            kicker.textContent = "Passo 2 de 2";
+            question.textContent = "Agora escolha sua cidade e estado";
+            help.textContent = "Comece a digitar sua cidade e selecione uma opção da lista. Exemplo: Primavera do Leste - MT.";
+            input.setAttribute("placeholder", "Digite sua cidade");
+            input.setAttribute("autocomplete", "address-level2");
+            input.setAttribute("list", "cities-list");
+            backBtn.style.visibility = "visible";
+            nextBtn.textContent = "Abrir WhatsApp";
+            progress1.classList.add("active");
+            progress2.classList.add("active");
+            loadCities();
+          }
+
+          setTimeout(function(){ input.focus(); }, 60);
+        }
+
+        function openModal(){
+          modal.classList.add("show");
+          modal.setAttribute("aria-hidden", "false");
+          leadName = "";
+          setStep(1);
+        }
+
+        function closeModal(){
+          modal.classList.remove("show");
+          modal.setAttribute("aria-hidden", "true");
+        }
+
+        function continueFlow(){
+          const value = clean(input.value);
+
+          if(step === 1){
+            if(value.length < 3){
+              error.textContent = "Digite seu nome para continuar.";
+              error.classList.add("show");
+              return;
+            }
+            leadName = value;
+            setStep(2);
+            return;
+          }
+
+          if(step === 2){
+            const selected = value;
+            const selectedNorm = normalizeText(selected);
+            const valid = cityOptions.some(function(item){ return normalizeText(item) === selectedNorm; });
+
+            if(!selected || !selected.includes(" - ") || !valid){
+              error.textContent = "Escolha uma cidade da lista, com o estado ao lado.";
+              error.classList.add("show");
+              return;
+            }
+
+            const msg =
+              "Olá, meu nome é " + leadName +
+              ", sou de " + selected +
+              " e quero solicitar atendimento/orçamento para pulverização com drone na minha região.";
+
+            window.open(buildWaUrl(msg), "_blank");
+            closeModal();
+          }
+        }
+
+        openBtn.addEventListener("click", openModal);
+        closeBtn.addEventListener("click", closeModal);
+        backBtn.addEventListener("click", function(){ setStep(1); });
+        nextBtn.addEventListener("click", continueFlow);
+
+        input.addEventListener("keydown", function(e){
+          if(e.key === "Enter"){
+            e.preventDefault();
+            continueFlow();
+          }
         });
-      }
+
+        modal.addEventListener("click", function(e){
+          if(e.target === modal) closeModal();
+        });
+
+        document.addEventListener("keydown", function(e){
+          if(e.key === "Escape" && modal.classList.contains("show")) closeModal();
+        });
+      })();
     });
   </script>
 </body>
