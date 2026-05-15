@@ -1297,25 +1297,6 @@
             <article
               class="upcoming-card"
               data-course="Inseminação Artificial em Bovinos"
-              data-local="Ceres (GO)"
-              data-course-date="09/05/2026"
-              data-city="ceres"
-              data-state="go"
-            >
-              <div class="upcoming-top">
-                <div class="upcoming-date">09/05</div>
-                <div class="badge-open">INSCRIÇÕES ABERTAS</div>
-              </div>
-              <div class="upcoming-location">📍 Ceres (GO)</div>
-              <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
-              <a href="https://crm.targetagrotech.com.br/formulario" target="_blank" rel="noopener noreferrer" class="btn btn-yellow">
-                GARANTIR MINHA VAGA →
-              </a>
-            </article>
-
-            <article
-              class="upcoming-card"
-              data-course="Inseminação Artificial em Bovinos"
               data-local="Jataí (GO)"
               data-course-date="19/06/2026"
               data-city="jatai"
@@ -1374,32 +1355,18 @@
 
           <div class="city-suggestion" aria-labelledby="nao-encontrou-title">
             <h3 id="nao-encontrou-title">Não encontrou sua cidade?</h3>
-            <p>Diga-nos onde você mora e abriremos uma turma na sua região!</p>
+            <p>Avise a nossa equipe e receba atendimento pelo formulário oficial da Target.</p>
 
-            <form class="city-form-col" id="city-form-inseminacao" novalidate>
-              <div class="field">
-                <input type="text" id="nf-nome" placeholder="Seu nome" autocomplete="name" />
-                <div class="error" id="err-nome">Informe seu nome.</div>
-              </div>
-
-              <div class="field">
-                <input type="text" id="nf-cidade" placeholder="Cidade/Estado" autocomplete="address-level2" />
-                <div class="error" id="err-cidade">Informe sua cidade/estado.</div>
-              </div>
-
-              <div class="field">
-                <select id="nf-curso" aria-label="Selecione o curso">
-                  <option value="">Selecione o curso</option>
-                  <option value="Inseminação Artificial em Bovinos">Inseminação Artificial em Bovinos</option>
-                  <option value="Piloto de Drone Agrícola">Piloto de Drone Agrícola</option>
-                </select>
-                <div class="error" id="err-curso">Selecione um curso.</div>
-              </div>
-
-              <a href="https://crm.targetagrotech.com.br/formulario" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                Me avise quando chegar turmas!
+            <div class="city-form-col">
+              <a
+                href="https://crm.targetagrotech.com.br/formulario"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >
+                Me avise quando chegar a turma!
               </a>
-            </form>
+            </div>
 
             <div class="small-note">
               Ao clicar, você será direcionado para o formulário oficial de atendimento.
@@ -1754,23 +1721,6 @@
         });
       });
 
-      function isBlank(v) { return !v || !String(v).trim(); }
-
-      const nfForm = document.getElementById("city-form-inseminacao");
-      const nfNome = document.getElementById("nf-nome");
-      const nfCidade = document.getElementById("nf-cidade");
-      const nfCurso = document.getElementById("nf-curso");
-
-      const errNome = document.getElementById("err-nome");
-      const errCidade = document.getElementById("err-cidade");
-      const errCurso = document.getElementById("err-curso");
-
-      if (nfForm) {
-        nfForm.addEventListener("submit", function (e) {
-          e.preventDefault();
-          openCrmForm();
-        });
-      }
     });
   </script>
 </body>
