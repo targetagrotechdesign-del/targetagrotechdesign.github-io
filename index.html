@@ -223,6 +223,131 @@ fbq('track', 'PageView');
       background: #00b050;
       box-shadow: 0 0 14px rgba(0,176,80,.5);
     }
+
+    /* Premium conversion polish */
+    :root {
+      --premium-glow: 0 22px 70px rgba(0,176,80,.18);
+      --gold-glow: 0 18px 48px rgba(242,201,76,.20);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(circle at top, black, transparent 75%);
+    }
+
+    .glass-panel {
+      background: linear-gradient(145deg, rgba(16,37,26,.82), rgba(3,14,8,.72));
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 24px 80px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.04);
+      backdrop-filter: blur(16px);
+    }
+
+    .premium-button {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      box-shadow: 0 16px 42px rgba(0,176,80,.34), inset 0 1px 0 rgba(255,255,255,.26);
+    }
+
+    .premium-button::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.35) 45%, transparent 70%);
+      transform: translateX(-130%);
+      transition: transform .7s ease;
+      z-index: -1;
+    }
+
+    .premium-button:hover::before { transform: translateX(130%); }
+
+    .gold-button {
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 44px rgba(242,201,76,.24), inset 0 1px 0 rgba(255,255,255,.30);
+    }
+
+    .gold-button:hover {
+      box-shadow: 0 22px 54px rgba(0,176,80,.30), inset 0 1px 0 rgba(255,255,255,.30);
+    }
+
+    .premium-card {
+      background:
+        radial-gradient(circle at top left, rgba(0,176,80,.14), transparent 34%),
+        linear-gradient(145deg, rgba(16,37,26,.96), rgba(4,15,9,.96));
+      border: 1px solid rgba(255,255,255,.09);
+      box-shadow: 0 18px 60px rgba(0,0,0,.36);
+    }
+
+    .premium-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 80px rgba(0,0,0,.48), var(--premium-glow);
+    }
+
+    .hero-proof-chip {
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 10px 28px rgba(0,0,0,.22);
+    }
+
+    .agenda-cta {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 15%, rgba(242,201,76,.14), transparent 32%),
+        radial-gradient(circle at 85% 10%, rgba(0,176,80,.18), transparent 34%),
+        linear-gradient(145deg, rgba(15,36,27,.94), rgba(3,14,8,.96));
+      border: 1px solid rgba(242,201,76,.25);
+      box-shadow: 0 26px 90px rgba(0,0,0,.48), 0 0 0 1px rgba(255,255,255,.03) inset;
+    }
+
+    .agenda-cta::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(120deg, transparent, rgba(242,201,76,.16), transparent);
+      opacity: .85;
+      pointer-events: none;
+    }
+
+    .cta-icon-ring {
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 18px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(242,201,76,.12);
+      border: 1px solid rgba(242,201,76,.35);
+      box-shadow: var(--gold-glow);
+      font-size: 30px;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(242,201,76,.08);
+      border: 1px solid rgba(242,201,76,.18);
+    }
+
+    @media (max-width: 640px) {
+      header { min-height: auto; padding-bottom: 116px; }
+      .topline-pill { font-size: 9px; letter-spacing: .09em; padding: 8px 12px; }
+      .guarantee-block { padding: 28px 20px; border-radius: 24px; }
+      .agenda-cta { border-radius: 28px; }
+      .countdown-bar { font-size: 11px; padding: 10px 8px; }
+    }
+
   </style>
 </head>
 
@@ -269,7 +394,7 @@ fbq('track', 'PageView');
       </div>
 
       <a href="https://crm.targetagrotech.com.br/formulario" target="_blank"
-        class="px-5 py-2.5 bg-agro-primary text-black text-xs font-extrabold rounded-xl uppercase tracking-wider hover:bg-white transition-all shadow-lg shadow-agro-primary/20">
+        class="premium-button px-5 py-2.5 bg-agro-primary text-black text-xs font-extrabold rounded-xl uppercase tracking-wider hover:bg-white transition-all shadow-lg shadow-agro-primary/20">
         FALAR NO WHATSAPP
       </a>
     </div>
@@ -292,7 +417,7 @@ fbq('track', 'PageView');
       <a href="#faq" class="block text-agro-textMuted hover:text-white font-medium">Dúvidas Frequentes</a>
 
       <a href="https://crm.targetagrotech.com.br/formulario" target="_blank"
-        class="flex items-center justify-center w-full py-3 bg-agro-primary text-black font-extrabold rounded-xl uppercase tracking-widest mt-4">
+        class="premium-button flex items-center justify-center w-full py-3 bg-agro-primary text-black font-extrabold rounded-xl uppercase tracking-widest mt-4">
         FALAR COM CONSULTOR
       </a>
     </div>
@@ -339,7 +464,7 @@ fbq('track', 'PageView');
       </h1>
 
       <p class="text-lg md:text-xl text-agro-textMuted max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
-        Formação prática presencial reconhecida pelo mercado. Escolha entre Drone Agrícola e Inseminação em Bovinos.
+        Cursos presenciais, prática em campo real e certificação para quem quer entrar ou crescer no agro com segurança.
       </p>
 
       <div class="flex flex-col items-center gap-4">
@@ -349,8 +474,7 @@ fbq('track', 'PageView');
           </span>
           <a href="https://crm.targetagrotech.com.br/formulario"
             target="_blank"
-            class="relative inline-flex items-center justify-center px-10 py-5 md:px-14 md:py-6 bg-agro-primary text-black font-extrabold rounded-2xl shadow-2xl text-base md:text-lg uppercase tracking-wide transition-all hover:-translate-y-1 hover:scale-105 active:scale-95"
-            style="box-shadow: 0 15px 40px rgba(0,176,80,.35);">
+            class="premium-button relative inline-flex items-center justify-center px-10 py-5 md:px-14 md:py-6 bg-agro-primary text-black font-extrabold rounded-2xl shadow-2xl text-base md:text-lg uppercase tracking-wide transition-all hover:-translate-y-1 hover:scale-105 active:scale-95">
             <span class="flex items-center gap-3">💬 Falar com Consultor Agora</span>
           </a>
         </div>
@@ -358,9 +482,9 @@ fbq('track', 'PageView');
         <p class="text-agro-textMuted/60 text-xs mt-1">Junte-se a +2.000 profissionais já formados pela Target</p>
 
         <div class="flex flex-wrap items-center justify-center gap-4 mt-4 text-sm text-agro-textMuted">
-          <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">✅ Turmas presenciais</span>
-          <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">✅ Certificado reconhecido</span>
-          <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">✅ Suporte pós-curso</span>
+          <span class="hero-proof-chip px-4 py-2 rounded-full bg-white/5 border border-white/10">✅ Turmas presenciais</span>
+          <span class="hero-proof-chip px-4 py-2 rounded-full bg-white/5 border border-white/10">✅ Certificado reconhecido</span>
+          <span class="hero-proof-chip px-4 py-2 rounded-full bg-white/5 border border-white/10">✅ Suporte pós-curso</span>
         </div>
 
         <p class="mt-6 text-agro-textMuted/60 italic text-sm">
@@ -404,7 +528,7 @@ fbq('track', 'PageView');
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 -mt-10 md:-mt-16 relative z-10">
 
-      <div class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden shadow-2xl transform transition hover:-translate-y-2 hover:border-agro-primary/30 duration-300">
+      <div class="premium-card rounded-3xl overflow-hidden shadow-2xl transform transition hover:-translate-y-2 hover:border-agro-primary/30 duration-300">
         <img src="assets/hero-drone.jpg" alt="Piloto de Drone Agrícola" class="w-full h-52 object-cover" />
         <div class="p-5 text-center">
           <div class="text-[10px] font-extrabold text-agro-primary uppercase tracking-widest mb-2">🛩️ Mais Procurado</div>
@@ -414,7 +538,7 @@ fbq('track', 'PageView');
         </div>
       </div>
 
-      <div class="bg-agro-card border border-white/5 rounded-3xl overflow-hidden shadow-2xl transform transition hover:-translate-y-2 hover:border-agro-primary/30 duration-300">
+      <div class="premium-card rounded-3xl overflow-hidden shadow-2xl transform transition hover:-translate-y-2 hover:border-agro-primary/30 duration-300">
         <img src="assets/hero-inseminacao.jpg" alt="Inseminação Artificial em Bovinos" class="w-full h-52 object-cover" />
         <div class="p-5 text-center">
           <div class="text-[10px] font-extrabold text-agro-primary uppercase tracking-widest mb-2">🐄 Especialização</div>
@@ -445,7 +569,7 @@ fbq('track', 'PageView');
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
 
       <!-- Card Drone -->
-      <article class="course-card bg-agro-card border border-white/5 rounded-3xl overflow-hidden transition-all duration-300 relative" style="box-shadow: 0 4px 24px rgba(0,0,0,0.3);">
+      <article class="course-card premium-card rounded-3xl overflow-hidden transition-all duration-300 relative" style="box-shadow: 0 4px 24px rgba(0,0,0,0.3);">
         <div class="absolute top-6 right-6 z-10 px-3 py-1 bg-agro-secondary/20 rounded-full text-[10px] font-bold text-agro-secondary uppercase tracking-wider">
           Mais Procurado
         </div>
@@ -489,7 +613,7 @@ fbq('track', 'PageView');
           <div class="space-y-3">
             <a href="https://crm.targetagrotech.com.br/formulario"
               target="_blank"
-              class="block w-full py-4 bg-agro-primary text-black font-extrabold rounded-xl text-center uppercase tracking-wide transition-all hover:-translate-y-1 active:scale-95"
+              class="premium-button block w-full py-4 bg-agro-primary text-black font-extrabold rounded-xl text-center uppercase tracking-wide transition-all hover:-translate-y-1 active:scale-95"
               style="box-shadow: 0 8px 24px rgba(0,176,80,.3);">
               💬 Me Inscrever na Turma
             </a>
@@ -502,7 +626,7 @@ fbq('track', 'PageView');
       </article>
 
       <!-- Card Inseminação -->
-      <article class="course-card bg-agro-card border border-white/5 rounded-3xl overflow-hidden transition-all duration-300 relative" style="box-shadow: 0 4px 24px rgba(0,0,0,0.3);">
+      <article class="course-card premium-card rounded-3xl overflow-hidden transition-all duration-300 relative" style="box-shadow: 0 4px 24px rgba(0,0,0,0.3);">
         <div class="absolute top-6 right-6 z-10 px-3 py-1 bg-agro-secondary/20 rounded-full text-[10px] font-bold text-agro-secondary uppercase tracking-wider">
           Especialização
         </div>
@@ -545,7 +669,7 @@ fbq('track', 'PageView');
           <div class="space-y-3">
             <a href="https://crm.targetagrotech.com.br/formulario"
               target="_blank"
-              class="block w-full py-4 bg-agro-primary text-black font-extrabold rounded-xl text-center uppercase tracking-wide transition-all hover:-translate-y-1 active:scale-95"
+              class="premium-button block w-full py-4 bg-agro-primary text-black font-extrabold rounded-xl text-center uppercase tracking-wide transition-all hover:-translate-y-1 active:scale-95"
               style="box-shadow: 0 8px 24px rgba(0,176,80,.3);">
               💬 Me Inscrever na Turma
             </a>
@@ -691,7 +815,7 @@ fbq('track', 'PageView');
     <div class="text-center mb-12">
       <span class="inline-block text-agro-secondary font-bold tracking-[0.2em] mb-3 text-xs uppercase">Vagas limitadas</span>
       <h2 style="font-size:clamp(28px,3.8vw,48px);font-weight:900;letter-spacing:-.02em;" class="mb-4">Próximas <span class="text-agro-primary">Turmas</span></h2>
-      <p class="text-agro-textMuted max-w-2xl mx-auto">Turmas presenciais com vagas limitadas. Selecione sua cidade e garanta sua matrícula.</p>
+      <p class="text-agro-textMuted max-w-2xl mx-auto">Turmas presenciais, prática em campo real e vagas limitadas. Escolha o curso, filtre o estado e avance para garantir sua matrícula.</p>
     </div>
 
     <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
@@ -722,35 +846,31 @@ fbq('track', 'PageView');
     </div>
 
     <div class="mt-14 flex justify-center">
-      <div class="w-full max-w-2xl bg-agro-card/70 backdrop-blur border border-agro-primary/15 rounded-3xl p-8 md:p-10 shadow-2xl">
-        <h3 style="font-size:clamp(20px,2.5vw,28px);font-weight:900;" class="text-center mb-2">Não encontrou sua cidade?</h3>
-        <p class="text-center text-agro-textMuted mb-8">Nós avisamos você assim que abrirmos turma na sua região.</p>
+      <div class="agenda-cta w-full max-w-3xl rounded-[2rem] p-8 md:p-12 text-center">
+        <div class="relative z-10">
+          <div class="cta-icon-ring">📍</div>
 
-        <div class="space-y-5">
-          <div>
-            <label class="text-xs text-agro-textMuted uppercase tracking-widest">Seu nome completo</label>
-            <input id="notifyName" type="text" placeholder="Ex: João Silva" class="mt-2 w-full bg-black/40 border border-white/15 rounded-xl px-4 py-3 text-white/90 focus:outline-none focus:border-agro-primary/70 hover:border-white/25 transition" />
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[10px] font-extrabold uppercase tracking-[0.18em] text-agro-secondary mb-5">
+            <span class="w-2 h-2 rounded-full bg-agro-primary pulse-dot"></span>
+            Novas cidades em breve
           </div>
 
-          <div>
-            <label class="text-xs text-agro-textMuted uppercase tracking-widest">Sua cidade e estado</label>
-            <input id="notifyCity" type="text" placeholder="Ex: Sorriso - MT" class="mt-2 w-full bg-black/40 border border-white/15 rounded-xl px-4 py-3 text-white/90 focus:outline-none focus:border-agro-primary/70 hover:border-white/25 transition" />
-          </div>
+          <h3 style="font-size:clamp(24px,3vw,36px);font-weight:900;letter-spacing:-.02em;line-height:1.08;" class="mb-4">
+            Não encontrou uma turma perto de você?
+          </h3>
 
-          <div>
-            <label class="text-xs text-agro-textMuted uppercase tracking-widest">Qual curso você quer?</label>
-            <select id="notifyCourse" class="mt-2 w-full bg-black/40 border border-white/15 rounded-xl px-4 py-3 text-white/90 focus:outline-none focus:border-agro-primary/70 hover:border-white/25 transition">
-              <option value="drone">Piloto de Drone Agrícola</option>
-              <option value="inseminacao">Inseminação Artificial em Bovinos</option>
-            </select>
-          </div>
+          <p class="text-agro-textMuted max-w-xl mx-auto mb-8 leading-relaxed">
+            Entre na lista de interesse e seja avisado assim que abrirmos novas turmas na sua região.
+          </p>
 
-          <button id="notifyBtn" class="w-full mt-2 bg-[#F2C94C] text-black font-extrabold rounded-2xl py-5 px-6 tracking-wide hover:bg-agro-primary active:bg-agro-primary transition flex items-center justify-center gap-3">
+          <button id="notifyBtn" class="gold-button w-full sm:w-auto min-w-[280px] bg-[#F2C94C] text-black font-extrabold rounded-2xl py-5 px-8 tracking-wide hover:bg-agro-primary active:bg-agro-primary transition-all hover:-translate-y-1 active:scale-95 inline-flex items-center justify-center gap-3 uppercase">
             <span>📲</span>
             <span>Me avise quando chegar turmas!</span>
           </button>
 
-          <p id="notifyError" class="text-sm text-red-400 text-center hidden">Preencha seu nome e sua cidade para continuar.</p>
+          <p class="mt-5 text-xs text-agro-textMuted/70">
+            Atendimento direto pelo formulário oficial da Target AgroTech.
+          </p>
         </div>
       </div>
     </div>
@@ -816,7 +936,7 @@ fbq('track', 'PageView');
         <p class="text-sm text-agro-textMuted mb-4">Fale com um consultor e garanta sua vaga.</p>
         <a href="https://crm.targetagrotech.com.br/formulario"
           target="_blank"
-          class="inline-flex items-center justify-center px-6 py-4 bg-agro-primary text-black font-extrabold rounded-2xl shadow-lg hover:-translate-y-1 transition-all">
+          class="premium-button inline-flex items-center justify-center px-6 py-4 bg-agro-primary text-black font-extrabold rounded-2xl shadow-lg hover:-translate-y-1 transition-all">
           💬 WhatsApp
         </a>
       </div>
@@ -837,7 +957,7 @@ fbq('track', 'PageView');
 <!-- ========== MOBILE FLOATING CTA ========== -->
 <div class="md:hidden fixed bottom-[52px] left-4 right-4 z-30">
   <a href="https://crm.targetagrotech.com.br/formulario" target="_blank"
-    class="flex items-center justify-center w-full py-4 bg-agro-primary text-black font-extrabold rounded-full shadow-2xl border border-white/20 uppercase tracking-widest"
+    class="premium-button flex items-center justify-center w-full py-4 bg-agro-primary text-black font-extrabold rounded-full shadow-2xl border border-white/20 uppercase tracking-widest"
     style="box-shadow: 0 8px 30px rgba(0,176,80,.4);">
     💬 Falar com Consultor
   </a>
@@ -1060,7 +1180,7 @@ fbq('track', 'PageView');
       const vagas = fakeVagas(idx);
 
       const card = document.createElement("div");
-      card.className = "rounded-2xl bg-[#0F241B] border border-white/10 shadow-lg overflow-hidden relative transition-all hover:-translate-y-1 hover:border-agro-primary/40 duration-200";
+      card.className = "rounded-2xl bg-[#0F241B] border border-white/10 shadow-xl overflow-hidden relative transition-all hover:-translate-y-2 hover:border-agro-primary/50 duration-200";
 
       if (lastSpots) {
         const badge = document.createElement("div");
@@ -1097,7 +1217,7 @@ fbq('track', 'PageView');
 
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "mt-5 w-full rounded-xl bg-[#F2C94C] text-black font-extrabold py-3 tracking-wide transition-all hover:bg-agro-primary active:bg-agro-primary text-sm";
+      btn.className = "gold-button mt-5 w-full rounded-xl bg-[#F2C94C] text-black font-extrabold py-3.5 tracking-wide transition-all hover:bg-agro-primary active:bg-agro-primary text-sm";
       btn.textContent = "GARANTIR MINHA VAGA";
       btn.addEventListener("click", () => window.open(FORM_LINK, "_blank", "noopener"));
 
