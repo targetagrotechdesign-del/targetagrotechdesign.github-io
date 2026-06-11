@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Sextou do Brasil • Target AgroTech | Evento Interno</title>
+  <meta name="description" content="Evento interno Target AgroTech: vendedores que fecharem matrículas no dia 12 participam do Balão Premiado." />
+  <link rel="icon" type="image/png" sizes="32x32" href="#">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            agro: {
+              background: '#06160f',
+              card: '#10251a',
+              border: '#1f3b29',
+              primary: '#00b050',
+              primarySoft: '#0fd266',
+              secondary: '#f2c94c',
+              textMain: '#f5f5f5',
+              textMuted: '#c1c9c5',
+            }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background: radial-gradient(circle at top, #0e2a1d 0, #020a06 45%, #020805 100%); }
+    html { scroll-padding-top: 90px; }
+
+    @keyframes blob {
+      0% { transform: translate(0px, 0px) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+      100% { transform: translate(0px, 0px) scale(1); }
+    }
+    .animate-blob { animation: blob 7s infinite; }
+    .animation-delay-2000 { animation-delay: 2s; }
+    .animation-delay-4000 { animation-delay: 4s; }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animated-gradient-text { background-size: 200% 200%; animation: gradientMove 3s linear infinite; }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); opacity: .55; }
+      50% { transform: translateY(10px); opacity: .85; }
+    }
+    .scroll-indicator { animation: bob 1.5s infinite; }
+
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(0, 176, 80, 0.6); }
+      50% { box-shadow: 0 0 0 6px rgba(0, 176, 80, 0); }
+    }
+    .pulse-dot { animation: pulse-dot 2s infinite; }
+
+    @keyframes pulse-danger {
+      0% { box-shadow: 0 0 0 0 rgba(217,74,74,0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(217,74,74,0); }
+      100% { box-shadow: 0 0 0 0 rgba(217,74,74,0); }
+    }
+    .pulse-danger { animation: pulse-danger 2s infinite; }
+
+    .premium-button {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      box-shadow: 0 16px 42px rgba(0,176,80,.34), inset 0 1px 0 rgba(255,255,255,.26);
+    }
+    .premium-button::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.35) 45%, transparent 70%);
+      transform: translateX(-130%);
+      transition: transform .7s ease;
+      z-index: -1;
+    }
+    .premium-button:hover::before { transform: translateX(130%); }
+
+    .gold-button {
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 44px rgba(242,201,76,.24), inset 0 1px 0 rgba(255,255,255,.30);
+    }
+    .gold-button:hover {
+      box-shadow: 0 22px 54px rgba(0,176,80,.30), inset 0 1px 0 rgba(255,255,255,.30);
+    }
+
+    .premium-card {
+      background:
+        radial-gradient(circle at top left, rgba(0,176,80,.14), transparent 34%),
+        linear-gradient(145deg, rgba(16,37,26,.96), rgba(4,15,9,.96));
+      border: 1px solid rgba(255,255,255,.09);
+      box-shadow: 0 18px 60px rgba(0,0,0,.36);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .premium-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 80px rgba(0,0,0,.48), 0 0 0 1px rgba(0,176,80,.2);
+      border-color: rgba(0,176,80,.3);
+    }
+
+    .balloon-card {
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .balloon-card:active { transform: scale(0.97); }
+
+    .countdown-bar {
+      background: linear-gradient(90deg, #b91c1c, #dc2626, #b91c1c);
+      background-size: 200% 100%;
+      animation: shimmer-danger 3s linear infinite;
+      color: #fff;
+      padding: 12px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 13px;
+      position: sticky;
+      bottom: 0;
+      z-index: 40;
+      letter-spacing: .04em;
+    }
+    @keyframes shimmer-danger {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 9999px;
+      filter: blur(2px);
+      background: radial-gradient(circle, rgba(0, 176, 80, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #020805; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #1f3b29; border-radius: 10px; }
+
+    .topline-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.78);
+    }
+    .topline-pill .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #00b050;
+      box-shadow: 0 0 14px rgba(0,176,80,.5);
+    }
+  </style>
+</head>
+<body class="text-agro-textMain custom-scrollbar overflow-x-hidden">
+
+<!-- NAVBAR (simplificada, estilo Target) -->
+<nav id="siteNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-agro-background/90 backdrop-blur-md border-b border-agro-border py-3 shadow-lg">
+  <div class="container mx-auto px-4 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3 group">
+      <div class="h-11 w-11 rounded-2xl overflow-hidden bg-black/30 border border-white/10 shadow-lg shadow-agro-primary/10">
+        <img src="https://targetagrotech.com.br/assets/logo-target.png" alt="Target AgroTech" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/44x44?text=T';" />
+      </div>
+      <div class="leading-none">
+        <div class="text-base font-black tracking-tight">TARGET</div>
+        <div class="text-[10px] font-extrabold tracking-[0.25em] text-agro-primary">AGROTECH</div>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+      <a href="#evento" class="hover:text-agro-primary transition">Evento</a>
+      <a href="#premios" class="hover:text-agro-primary transition">Prêmios</a>
+      <a href="#regras" class="hover:text-agro-primary transition">Regras</a>
+      <a href="#regras" class="premium-button px-5 py-2.5 bg-agro-primary text-black text-xs font-extrabold rounded-xl uppercase tracking-wider hover:bg-white transition-all shadow-lg shadow-agro-primary/20 ml-2">VER REGRAS</a>
+    </div>
+    <button id="navToggle" class="md:hidden text-white text-2xl leading-none">☰</button>
+  </div>
+  <div id="mobileMenu" class="md:hidden hidden bg-agro-background/95 backdrop-blur border-b border-agro-border">
+    <div class="px-4 py-6 space-y-4">
+      <a href="#evento" class="block text-agro-textMuted hover:text-white font-medium">Evento</a>
+      <a href="#premios" class="block text-agro-textMuted hover:text-white font-medium">Prêmios</a>
+      <a href="#regras" class="block text-agro-textMuted hover:text-white font-medium">Regras</a>
+      <a href="#regras" class="premium-button block w-full py-3 bg-agro-primary text-black font-extrabold rounded-xl text-center uppercase tracking-widest mt-4">VER REGRAS</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO principal -->
+<header class="relative min-h-[85vh] flex flex-col items-center justify-center pt-28 pb-20 overflow-hidden">
+  <div class="hero-glow top-10 -right-20"></div>
+  <div class="hero-glow bottom-0 -left-20" style="background: radial-gradient(circle, rgba(242, 201, 76, 0.08) 0%, transparent 70%);"></div>
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+    <div class="absolute -top-40 -right-40 w-96 h-96 bg-agro-primary/20 rounded-full blur-[100px] animate-blob"></div>
+    <div class="absolute top-40 -left-20 w-96 h-96 bg-agro-secondary/10 rounded-full blur-[100px] animate-blob animation-delay-2000"></div>
+  </div>
+  <div class="container mx-auto px-4 relative z-10 text-center">
+    <div class="flex justify-center mb-6">
+      <div class="topline-pill">
+        <span class="dot pulse-dot"></span>
+        EVENTO INTERNO PARA VENDEDORES • AMANHÃ, DIA 12
+      </div>
+    </div>
+    <h1 style="font-size:clamp(44px,8vw,88px); font-weight:900; letter-spacing:-.02em;" class="mb-4 leading-[1.05]">
+      💥 BALÃO <span class="text-agro-primary">PREMIADO</span>
+    </h1>
+    <div class="inline-block bg-agro-secondary/20 backdrop-blur-sm px-6 py-2 rounded-full text-agro-secondary text-sm font-extrabold uppercase tracking-wider mb-5">
+      🔋 Sextou do Brasil – Campanha interna do Comercial
+    </div>
+    <p class="text-xl text-agro-textMuted max-w-2xl mx-auto mb-8 leading-relaxed">
+      Evento interno para o time comercial: somente hoje, a matrícula dos alunos está por R$97, e cada matrícula fechada pelo vendedor libera 1 balão premiado para estourar no dia 12.
+    </p>
+    <div class="flex flex-wrap justify-center gap-5 items-center">
+      <div class="bg-black/30 border border-white/10 rounded-2xl px-8 py-4 text-center backdrop-blur-sm">
+        <div class="text-sm uppercase tracking-wider text-agro-textMuted">Condição só de hoje</div>
+        <div class="text-4xl font-black text-agro-primary">R$ 97<span class="text-base">,00</span></div>
+        <div class="text-xs">matrícula dos alunos hoje</div>
+      </div>
+      <div class="bg-black/30 border border-white/10 rounded-2xl px-8 py-4 text-center backdrop-blur-sm">
+        <div class="text-sm uppercase tracking-wider text-agro-textMuted">Dress code</div>
+        <div class="text-2xl font-black text-agro-secondary">🇧🇷 Cores do Brasil</div>
+        <div class="text-xs">verde, amarelo, azul ou branco</div>
+      </div>
+    </div>
+    <div class="mt-12">
+      <a href="#regras"
+         class="premium-button inline-flex items-center gap-3 px-10 py-5 bg-agro-primary text-black font-extrabold rounded-2xl text-lg uppercase tracking-wide transition-all hover:-translate-y-1 active:scale-95">
+        🎈 VER REGRAS DO BALÃO
+      </a>
+      <p class="text-agro-textMuted/60 text-xs mt-4">* Cada matrícula fechada pelo vendedor = 1 balão premiado, limitado ao estoque do dia.</p>
+    </div>
+  </div>
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-agro-textMuted/40 scroll-indicator text-2xl">↓</div>
+</header>
+
+<!-- SEÇÃO COMO FUNCIONA + MECÂNICA -->
+<section id="evento" class="py-16">
+  <div class="container mx-auto px-4">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="text-agro-secondary text-xs font-bold uppercase tracking-[0.2em]">Mecânica para o time de vendas</span>
+      <h2 class="text-3xl md:text-5xl font-black mt-2 mb-4">Vendeu → Matriculou → <span class="text-agro-primary">Estourou o balão</span></h2>
+      <div class="w-20 h-1 bg-agro-secondary mx-auto rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div class="premium-card rounded-2xl p-8 text-center">
+        <div class="text-5xl mb-3">1️⃣</div>
+        <div class="text-2xl font-black mb-2">Feche a matrícula</div>
+        <p class="text-agro-textMuted">Hoje, a matrícula dos alunos está por apenas <strong class="text-agro-primary">R$97,00</strong>. Cada matrícula fechada pelo vendedor libera 1 balão.</p>
+      </div>
+      <div class="premium-card rounded-2xl p-8 text-center">
+        <div class="text-5xl mb-3">2️⃣</div>
+        <div class="text-2xl font-black mb-2">Estoure o balão</div>
+        <p class="text-agro-textMuted">Cada matrícula feita pelo vendedor libera um balão surpresa para estourar no evento interno.</p>
+      </div>
+      <div class="premium-card rounded-2xl p-8 text-center">
+        <div class="text-5xl mb-3">3️⃣</div>
+        <div class="text-2xl font-black mb-2">Resgate o prêmio</div>
+        <p class="text-agro-textMuted">Chocolate, PIX na hora ou “tente outra vez”. O prêmio é do vendedor que fechou a matrícula.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRÊMIOS (cards estilo os cursos) -->
+<section id="premios" class="py-16 bg-black/30">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <span class="text-agro-secondary text-xs font-bold uppercase tracking-[0.2em]">Prêmios para quem fechar matrícula</span>
+      <h2 class="text-3xl md:text-5xl font-black mt-2">🎁 Prêmios <span class="text-agro-primary">disponíveis</span></h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 max-w-6xl mx-auto">
+      <div class="bg-agro-card border border-white/10 rounded-2xl p-6 text-center hover:border-agro-primary/40 transition-all">
+        <div class="text-5xl mb-2">🍫</div>
+        <div class="font-black text-lg">Caixa de Bombom</div>
+      </div>
+      <div class="bg-agro-card border border-white/10 rounded-2xl p-6 text-center hover:border-agro-primary/40 transition-all">
+        <div class="text-5xl mb-2">🍫</div>
+        <div class="font-black text-lg">Barra de Chocolate</div>
+      </div>
+      <div class="bg-agro-card border border-white/10 rounded-2xl p-6 text-center hover:border-agro-primary/40 transition-all">
+        <div class="text-5xl mb-2">💵</div>
+        <div class="font-black text-lg">PIX R$ 10,00</div>
+      </div>
+      <div class="bg-agro-card border border-white/10 rounded-2xl p-6 text-center hover:border-agro-primary/40 transition-all">
+        <div class="text-5xl mb-2">💵</div>
+        <div class="font-black text-lg">PIX R$ 50,00</div>
+      </div>
+      <div class="bg-agro-card border border-white/10 rounded-2xl p-6 text-center hover:border-agro-primary/40 transition-all">
+        <div class="text-5xl mb-2">🔄</div>
+        <div class="font-black text-lg">Tente outra vez</div>
+        <div class="text-xs text-agro-textMuted">(a sorte continua depois)</div>
+      </div>
+    </div>
+    <p class="text-center text-agro-textMuted text-sm mt-6">⚠️ Prêmios por ordem de sorteio. Balões são limitados ao estoque do dia.</p>
+  </div>
+</section>
+
+<!-- REGRAS, DRESS CODE E DECORAÇÃO -->
+<section id="regras" class="py-20">
+  <div class="container mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div class="premium-card rounded-3xl p-8">
+        <div class="text-agro-secondary text-3xl mb-4">👕</div>
+        <h3 class="text-2xl font-black mb-3">Dress code: Cores do Brasil</h3>
+        <p class="text-agro-textMuted leading-relaxed">Vista verde, amarelo, azul ou branco. Vamos transformar o escritório num verdadeiro clima de Copa.</p>
+        <div class="flex gap-3 mt-5">
+          <span class="px-3 py-1 rounded-full bg-green-600/40 text-white text-xs font-bold">Verde</span>
+          <span class="px-3 py-1 rounded-full bg-yellow-500/40 text-black text-xs font-bold">Amarelo</span>
+          <span class="px-3 py-1 rounded-full bg-blue-700/40 text-white text-xs font-bold">Azul</span>
+          <span class="px-3 py-1 rounded-full bg-gray-200/40 text-black text-xs font-bold">Branco</span>
+        </div>
+      </div>
+      <div class="premium-card rounded-3xl p-8">
+        <div class="text-agro-secondary text-3xl mb-4">🎈</div>
+        <h3 class="text-2xl font-black mb-3">Decoração temática</h3>
+        <p class="text-agro-textMuted leading-relaxed">Balões, bandeirinhas e clima de jogo em todos os escritórios Target. Venha fazer parte dessa energia!</p>
+        <div class="mt-4 text-sm bg-white/5 inline-block px-4 py-2 rounded-full">📅 12/06 – Sexta-feira</div>
+      </div>
+    </div>
+
+    <!-- Slogan marcante -->
+    <div class="text-center mt-16 max-w-3xl mx-auto border-t border-white/10 pt-12">
+      <p class="text-2xl md:text-3xl font-bold italic text-agro-secondary">“Vestimos as cores do Brasil e comemoramos cada conquista!”</p>
+      <p class="text-agro-textMuted mt-3">#SextouDoBrasil #TargetNaCopa</p>
+    </div>
+  </div>
+</section>
+
+<!-- FECHAMENTO INTERNO -->
+<section id="fechamento" class="py-20 bg-black/40 border-y border-white/5">
+  <div class="container mx-auto px-4 text-center">
+    <div class="inline-block px-6 py-2 rounded-full bg-agro-secondary/10 border border-agro-secondary/30 text-agro-secondary text-sm font-black uppercase tracking-wider mb-6">Comunicado interno</div>
+    <h2 class="text-3xl md:text-5xl font-black mb-4">🔔 Amanhã é dia de vender e estourar balão</h2>
+    <p class="text-agro-textMuted text-lg max-w-2xl mx-auto mb-8">Amanhã, dia 12, cada matrícula fechada pelo time comercial vale 1 balão premiado. A condição de R$97 é apenas para a matrícula dos alunos hoje. Registre suas vendas normalmente no CRM.</p>
+    <div class="inline-flex flex-col sm:flex-row items-center justify-center gap-3 text-sm">
+      <a href="#regras"
+         class="gold-button inline-flex items-center gap-3 px-8 py-4 bg-agro-secondary text-black font-extrabold rounded-2xl uppercase tracking-wider hover:bg-agro-primary transition-all hover:-translate-y-1 shadow-2xl">
+        📌 Ver regras do balão
+      </a>
+      <a href="https://crm.targetagrotech.com.br/" target="_blank"
+         class="inline-flex items-center gap-2 px-6 py-4 rounded-2xl border border-white/10 text-agro-textMuted hover:text-white hover:border-agro-primary/40 transition">
+        Abrir CRM oficial
+      </a>
+    </div>
+    <p class="text-agro-textMuted/50 text-xs mt-6">*Página de comunicação interna para funcionários Target AgroTech. Participação vinculada às matrículas confirmadas no dia.</p>
+  </div>
+</section>
+
+<!-- FOOTER estilo Target -->
+<footer class="bg-black pt-16 pb-10 border-t border-white/5">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+      <div class="flex items-center gap-4">
+        <img src="https://targetagrotech.com.br/assets/logo-target.png" alt="Target" class="h-12 w-12 rounded-xl bg-white/5 p-1" onerror="this.src='https://placehold.co/48x48?text=T';" />
+        <div>
+          <div class="font-black text-lg">Target AgroTech</div>
+          <div class="text-[10px] text-agro-textMuted">Formação profissional para o agro</div>
+        </div>
+      </div>
+      <div class="text-xs text-agro-textMuted/70">
+        © 2026 Target AgroTech – Evento interno para o time comercial “Sextou do Brasil” • 12 de junho
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Barra de contagem regressiva (igual ao site original) -->
+<div class="countdown-bar" id="countdownBar">
+  🔥 EVENTO INTERNO AMANHÃ: <span id="countdownTimer">--D --H --M --S</span> — VISTA AS CORES DO BRASIL E VENHA ESTOURAR SEU BALÃO, TIME COMERCIAL!
+</div>
+
+<script>
+  // NAVBAR MOBILE & SCROLL
+  (function(){
+    const nav = document.getElementById("siteNav");
+    const toggle = document.getElementById("navToggle");
+    const menu = document.getElementById("mobileMenu");
+
+    function setScrolled(){
+      if(!nav) return;
+      const scrolled = window.scrollY > 20;
+      nav.classList.toggle("bg-agro-background/90", scrolled);
+      nav.classList.toggle("backdrop-blur-md", scrolled);
+      nav.classList.toggle("border-agro-border", scrolled);
+      nav.classList.toggle("py-3", scrolled);
+      nav.classList.toggle("shadow-lg", scrolled);
+    }
+    window.addEventListener("scroll", setScrolled);
+    setScrolled();
+
+    toggle?.addEventListener("click", () => menu?.classList.toggle("hidden"));
+    menu?.querySelectorAll("a").forEach(a => a.addEventListener("click", () => menu.classList.add("hidden")));
+    document.addEventListener("click", (e) => { if(menu && !nav?.contains(e.target)) menu.classList.add("hidden"); });
+  })();
+
+  // COUNTDOWN para 12 de junho do ano atual (se já passou, usa próximo ano)
+  (function(){
+    const timerEl = document.getElementById("countdownTimer");
+    if(!timerEl) return;
+    function getNextEventDate(){
+      const now = new Date();
+      let year = now.getFullYear();
+      let target = new Date(year, 5, 12, 8, 0, 0); // 12 de junho, 8h
+      if(target < now) target = new Date(year+1, 5, 12, 8, 0, 0);
+      return target;
+    }
+    function tick(){
+      const diff = getNextEventDate().getTime() - new Date().getTime();
+      if(diff <= 0){
+        timerEl.textContent = "HOJE É O DIA! 🔥";
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      timerEl.textContent = `${d}D ${h}H ${m}M ${s}S`;
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
+
+<!-- BOTÃO DE SIMULAÇÃO DE BALÃO? (opcional, mas não polui) Não é necessário, mas mantém a proposta clean -->
+</body>
+</html>
