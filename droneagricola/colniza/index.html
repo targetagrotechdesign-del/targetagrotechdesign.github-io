@@ -551,6 +551,54 @@ header { padding: 20px 0 0; position: relative; }
   }
 }
 
+
+
+/* CORREÇÃO FINAL - THUMB DO VÍDEO NO MOBILE
+   Mantém a primeira dobra compacta e evita o vídeo vertical gigante. */
+@media (max-width: 600px) {
+  .training-box {
+    display: block !important;
+    width: 100% !important;
+    max-width: 220px !important;
+    aspect-ratio: 9 / 12 !important;
+    margin: 18px auto 0 !important;
+    padding: 6px !important;
+    border-radius: 22px !important;
+    overflow: hidden !important;
+  }
+
+  .training-box::before {
+    border-radius: 24px !important;
+    filter: blur(6px) !important;
+  }
+
+  .training-box .vcard {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    border-radius: 18px !important;
+  }
+
+  .training-box video,
+  .training-box .overlay,
+  .training-box .overlay img.video-thumb {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .training-box .playbtn {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  .training-box .playbtn:after {
+    border-left-width: 14px !important;
+    border-top-width: 9px !important;
+    border-bottom-width: 9px !important;
+  }
+}
+
 </style>
 </head>
 
