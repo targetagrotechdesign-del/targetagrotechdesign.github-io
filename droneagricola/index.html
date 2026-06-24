@@ -164,6 +164,98 @@ box-shadow:var(--shadow2);overflow:hidden;position:relative;
   .hero-extra-cta .cta-primary{padding:16px 18px;}
 }
 
+
+/* HERO RESPONSIVO: desktop em duas colunas; mobile preservado */
+.hero-layout{display:block;}
+.hero-copy{min-width:0;}
+.desktop-sound-toggle{display:none;}
+
+@media (min-width: 901px){
+  header{min-height:calc(100vh - 42px);}
+  .hero{
+    padding:34px 0 26px;
+    text-align:left;
+  }
+  .hero-layout{
+    display:grid;
+    grid-template-columns:minmax(0,1.08fr) minmax(350px,.72fr);
+    align-items:center;
+    gap:64px;
+    min-height:calc(100vh - 150px);
+  }
+  .hero-copy{padding:18px 0 30px;}
+  .hero-topline{margin-bottom:22px;}
+  .hero h1{
+    font-size:clamp(46px,4.25vw,68px);
+    max-width:760px;
+    margin-top:0;
+  }
+  .hero p{
+    max-width:690px;
+    margin:22px 0 0;
+    font-size:18px;
+  }
+  .hero-extra-cta{
+    justify-content:flex-start;
+    margin-top:30px;
+  }
+  .training-box{
+    width:min(100%,430px);
+    max-width:430px;
+    margin:0 auto;
+    aspect-ratio:9/16;
+    border-radius:34px;
+    background:#000;
+  }
+  .hero-video-card{
+    width:100%;
+    height:100%;
+    min-height:0 !important;
+  }
+  .hero-video-card video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .hero-video-card .overlay{display:none !important;}
+  .desktop-sound-toggle{
+    display:inline-flex;
+    position:absolute;
+    top:18px;
+    right:18px;
+    z-index:6;
+    align-items:center;
+    gap:8px;
+    padding:11px 15px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:999px;
+    background:rgba(0,0,0,.72);
+    color:#fff;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    cursor:pointer;
+    backdrop-filter:blur(8px);
+    box-shadow:0 10px 25px rgba(0,0,0,.35);
+  }
+  .desktop-sound-toggle::before{
+    content:"";
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--green2);
+    box-shadow:0 0 12px rgba(15,210,102,.75);
+  }
+  .desktop-sound-toggle.sound-on::before{background:var(--yellow);}
+}
+
+@media (max-width:900px){
+  .hero-layout{display:block;}
+  .hero-copy{text-align:center;}
+  .desktop-sound-toggle{display:none !important;}
+}
+
 .hero-extra-cta{
 margin-top:20px;
 display:flex;
@@ -491,30 +583,35 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 <div class="topbar-right">A MAIOR ESCOLA DE DRONES DO BRASIL</div>
 </div>
 <section class="hero">
-  <div class="hero-topline">CURSO PRESENCIAL COM PRÁTICA EM CAMPO REAL</div>
-  <h1>Domine a tecnologia que está revolucionando o campo e ganhe de <span class="g">R$ 5 a R$ 10 mil</span> como piloto de drone agrícola.</h1>
-  <p>Formação prática e completa com suporte exclusivo para você entrar no mercado e faturar os seus primeiros milhares de reais já nos próximos meses.</p>
+  <div class="hero-layout">
+    <div class="hero-copy">
+      <div class="hero-topline">CURSO PRESENCIAL COM PRÁTICA EM CAMPO REAL</div>
+      <h1>Domine a tecnologia que está revolucionando o campo e ganhe de <span class="g">R$ 5 a R$ 10 mil</span> como piloto de drone agrícola.</h1>
+      <p>Formação prática e completa com suporte exclusivo para você entrar no mercado e faturar os seus primeiros milhares de reais já nos próximos meses.</p>
 
-  <div class="training-box">
-    <article class="vcard hero-video-card" style="border:none;box-shadow:none;">
-      <video preload="none" playsinline poster="assets/drone-hero-novo.jpg">
-        <source src="assets/video-hero-landing.mp4" type="video/mp4" />
-      </video>
-      <div class="overlay">
-        <img class="video-thumb" src="assets/drone-hero-novo.jpg" alt="Capa do Treinamento Target" />
-        <button class="playbtn" type="button" aria-label="Reproduzir vídeo do curso"></button>
+      <div class="hero-extra-cta">
+        <a
+          href="https://crm.targetagrotech.com.br/formulario"
+          class="cta-primary pulse-whatsapp"
+          style="max-width:360px;width:100%;"
+        >
+          FALAR NO WHATSAPP
+        </a>
       </div>
-    </article>
-  </div>
+    </div>
 
-  <div class="hero-extra-cta">
-    <a
-      href="https://crm.targetagrotech.com.br/formulario"
-      class="cta-primary pulse-whatsapp"
-      style="max-width:360px;width:100%;"
-    >
-      FALAR NO WHATSAPP
-    </a>
+    <div class="training-box">
+      <article class="vcard hero-video-card" style="border:none;box-shadow:none;">
+        <video id="heroVideo" preload="auto" playsinline muted autoplay loop poster="assets/drone-hero-novo.jpg">
+          <source src="assets/video-hero-landing.mp4" type="video/mp4" />
+        </video>
+        <div class="overlay">
+          <img class="video-thumb" src="assets/drone-hero-novo.jpg" alt="Capa do Treinamento Target" />
+          <button class="playbtn" type="button" aria-label="Reproduzir vídeo do curso"></button>
+        </div>
+        <button id="heroSoundToggle" class="desktop-sound-toggle" type="button" aria-label="Ativar som do vídeo">ATIVAR SOM</button>
+      </article>
+    </div>
   </div>
 </section>
 </div>
@@ -728,82 +825,25 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
     <input type="text" id="citySearch" placeholder="Digite sua cidade...">
     <select id="stateFilter">
       <option value="">Todos os Estados</option>
-      <option value="AC">Acre</option>
-      <option value="AP">Amapá</option>
-      <option value="BA">Bahia</option>
-      <option value="GO">Goiás</option>
       <option value="MA">Maranhão</option>
-      <option value="MS">Mato Grosso do Sul</option>
       <option value="MT">Mato Grosso</option>
       <option value="PA">Pará</option>
       <option value="PB">Paraíba</option>
-      <option value="PE">Pernambuco</option>
-      <option value="PI">Piauí</option>
-      <option value="RO">Rondônia</option>
-      <option value="RR">Roraima</option>
-      <option value="TO">Tocantins</option>    </select>
+      <option value="TO">Tocantins</option>
+    </select>
   </div>
 
   <div class="classes-grid" id="turmasGrid">
-    <article class="class-card" data-date="2026-06-05" data-state="MA" data-city="Balsas">
-      <div class="date">05/Jun</div>
+    <article class="class-card" data-date="2026-06-19" data-state="MA" data-city="Balsas">
+      <div class="date">19/Jun</div>
       <div class="location">Balsas - MA</div>
       <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
       <button class="btn-reserva">RESERVAR VAGA</button>
     </article>
 
-    <article class="class-card" data-date="2026-06-05" data-state="PI" data-city="Uruçuí">
-      <div class="date">05/Jun</div>
-      <div class="location">Uruçuí - PI</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
-    <article class="class-card" data-date="2026-06-12" data-state="RR" data-city="Rorainópolis">
-      <div class="date">12/Jun</div>
-      <div class="location">Rorainópolis - RR</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
-    <article class="class-card" data-date="2026-06-12" data-state="PA" data-city="Paragominas">
-      <div class="date">12/Jun</div>
-      <div class="location">Paragominas - PA</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
-    <article class="class-card" data-date="2026-06-19" data-state="MT" data-city="Colniza">
-      <div class="date">19/Jun</div>
-      <div class="location">Colniza - MT</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
-    <article class="class-card" data-date="2026-06-19" data-state="BA" data-city="Eunápolis">
-      <div class="date">19/Jun</div>
-      <div class="location">Eunápolis - BA</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
-    <article class="class-card" data-date="2026-07-03" data-state="MT" data-city="Confresa">
+    <article class="class-card" data-date="2026-07-03" data-state="MA" data-city="Açailândia">
       <div class="date">03/Jul</div>
-      <div class="location">Confresa - MT</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
-    <article class="class-card" data-date="2026-07-03" data-state="PA" data-city="Açailândia">
-      <div class="date">03/Jul</div>
-      <div class="location">Açailândia - PA</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
-    <article class="class-card" data-date="2026-07-10" data-state="RO" data-city="Cerejeiras">
-      <div class="date">10/Jul</div>
-      <div class="location">Cerejeiras - RO</div>
+      <div class="location">Açailândia - MA</div>
       <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
       <button class="btn-reserva">RESERVAR VAGA</button>
     </article>
@@ -815,23 +855,9 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
       <button class="btn-reserva">RESERVAR VAGA</button>
     </article>
 
-    <article class="class-card" data-date="2026-07-17" data-state="PE" data-city="Garanhuns">
-      <div class="date">17/Jul</div>
-      <div class="location">Garanhuns - PE</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
     <article class="class-card" data-date="2026-07-31" data-state="PB" data-city="Campina Grande">
       <div class="date">31/Jul</div>
       <div class="location">Campina Grande - PB</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
-    <article class="class-card" data-date="2026-08-07" data-state="MT" data-city="Brasnorte">
-      <div class="date">07/Ago</div>
-      <div class="location">Brasnorte - MT</div>
       <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
       <button class="btn-reserva">RESERVAR VAGA</button>
     </article>
@@ -843,16 +869,9 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
       <button class="btn-reserva">RESERVAR VAGA</button>
     </article>
 
-    <article class="class-card" data-date="2026-08-21" data-state="AC" data-city="Sena Madureira">
-      <div class="date">21/Ago</div>
-      <div class="location">Sena Madureira - AC</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
-    <article class="class-card" data-date="2026-08-21" data-state="MS" data-city="Chapadão do Sul">
-      <div class="date">21/Ago</div>
-      <div class="location">Chapadão do Sul - MS</div>
+    <article class="class-card" data-date="2026-08-28" data-state="MT" data-city="Brasnorte">
+      <div class="date">28/Ago</div>
+      <div class="location">Brasnorte - MT</div>
       <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
       <button class="btn-reserva">RESERVAR VAGA</button>
     </article>
@@ -860,34 +879,6 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
     <article class="class-card" data-date="2026-08-28" data-state="PA" data-city="Castelo dos Sonhos">
       <div class="date">28/Ago</div>
       <div class="location">Castelo dos Sonhos - PA</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
-    <article class="class-card" data-date="2026-09-04" data-state="AP" data-city="Macapá">
-      <div class="date">04/Set</div>
-      <div class="location">Macapá - AP</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
-    <article class="class-card" data-date="2026-09-04" data-state="GO" data-city="Anápolis">
-      <div class="date">04/Set</div>
-      <div class="location">Anápolis - GO</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
-    <article class="class-card" data-date="2026-09-11" data-state="MT" data-city="Alta Floresta">
-      <div class="date">11/Set</div>
-      <div class="location">Alta Floresta - MT</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
-    <article class="class-card" data-date="2026-09-18" data-state="PA" data-city="Santarém">
-      <div class="date">18/Set</div>
-      <div class="location">Santarém - PA</div>
       <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
       <button class="btn-reserva">RESERVAR VAGA</button>
     </article>
@@ -978,6 +969,46 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+const heroVideo = document.getElementById('heroVideo');
+const heroSoundToggle = document.getElementById('heroSoundToggle');
+const desktopMedia = window.matchMedia('(min-width: 901px)');
+
+function configureHeroVideo() {
+  if (!heroVideo) return;
+
+  if (desktopMedia.matches) {
+    heroVideo.muted = true;
+    heroVideo.loop = true;
+    heroVideo.setAttribute('autoplay', '');
+    heroVideo.play().catch(() => {});
+    heroVideo.closest('.vcard')?.classList.add('playing');
+    if (heroSoundToggle) {
+      heroSoundToggle.textContent = 'ATIVAR SOM';
+      heroSoundToggle.classList.remove('sound-on');
+    }
+  } else {
+    heroVideo.pause();
+    heroVideo.currentTime = 0;
+    heroVideo.muted = false;
+    heroVideo.removeAttribute('autoplay');
+    heroVideo.closest('.vcard')?.classList.remove('playing');
+  }
+}
+
+if (heroSoundToggle && heroVideo) {
+  heroSoundToggle.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    heroVideo.muted = !heroVideo.muted;
+    heroSoundToggle.textContent = heroVideo.muted ? 'ATIVAR SOM' : 'DESATIVAR SOM';
+    heroSoundToggle.classList.toggle('sound-on', !heroVideo.muted);
+    if (heroVideo.paused) heroVideo.play().catch(() => {});
+  });
+}
+
+configureHeroVideo();
+if (desktopMedia.addEventListener) desktopMedia.addEventListener('change', configureHeroVideo);
+else desktopMedia.addListener(configureHeroVideo);
 const today = new Date();
 const grid = document.getElementById('turmasGrid');
 let nextTurmaDate = null;
@@ -1121,6 +1152,7 @@ const overlay = card.querySelector('.overlay');
 
 if (video && overlay) {
 card.addEventListener('click', (e) => {
+if (card.classList.contains('hero-video-card') && window.matchMedia('(min-width: 901px)').matches) return;
 toggleVideoPlay(card, video);
 });
 
