@@ -124,6 +124,52 @@ box-shadow:var(--shadow2);overflow:hidden;position:relative;
 }
 @media (max-width:768px){ .training-box{max-width:320px} }
 
+.hero-video-card{
+min-height:600px;
+border:none;
+box-shadow:none;
+background:#000;
+}
+.hero-video-card .overlay{background:#000;}
+.hero-video-card .overlay::after{display:none;}
+.hero-video-card video{background:#000;}
+
+.hero-video-card .overlay{
+  display:grid;
+  place-items:center;
+}
+.hero-video-card .playbtn{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  margin:0;
+}
+
+@media (max-width:768px){
+  .hero{padding-top:34px;}
+  .hero p{font-size:16px;line-height:1.5;}
+  .training-box{
+    width:min(72vw,260px);
+    aspect-ratio:1/1;
+    margin-top:24px;
+    border-radius:24px;
+  }
+  .hero-video-card{
+    min-height:0;
+    width:100%;
+    height:100%;
+    aspect-ratio:1/1;
+  }
+  .hero-video-card video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .hero-extra-cta{margin-top:16px;}
+  .hero-extra-cta .cta-primary{padding:16px 18px;}
+}
+
 .hero-extra-cta{
 margin-top:20px;
 display:flex;
@@ -156,8 +202,8 @@ cursor: pointer;
 .vcard video{width:100%;height:100%;object-fit:cover;display:block;}
 .vcard .overlay{
 position:absolute;inset:0;z-index:2;
-background:radial-gradient(circle at center, rgba(0,0,0,.18), rgba(0,0,0,.48));
-display:flex;align-items:center;justify-content:center;transition:opacity .3s;
+background:#000;
+display:grid;place-items:center;transition:opacity .3s;
 overflow:hidden;
 }
 .vcard .overlay img.video-thumb{
@@ -167,8 +213,9 @@ z-index:0;display:block;
 .vcard .overlay::after{
 content:"";
 position:absolute;inset:0;
-background:radial-gradient(circle at center, rgba(0,0,0,.18), rgba(0,0,0,.48));
+background:#000;
 z-index:1;pointer-events:none;
+display:none;
 }
 .vcard.playing .overlay{opacity:0;pointer-events:none}
 .playbtn{
@@ -176,6 +223,7 @@ width:70px;height:70px;border-radius:50%;background:var(--green);
 display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;
 box-shadow:0 0 20px rgba(0,176,80,.4);
 position:relative;z-index:2;
+margin:0; padding:0; flex:0 0 auto;
 }
 .playbtn:after{
 content:"";
@@ -452,16 +500,15 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 </div>
 <section class="hero">
   <div class="hero-topline">CURSO PRESENCIAL COM PRÁTICA EM CAMPO REAL</div>
-  <h1>Torne-se um <span class="g">Piloto de Drone Agrícola</span> de Elite</h1>
-  <p>Domine a tecnologia que está revolucionando o campo. Formação completa com drones profissionais e suporte para faturamento imediato.</p>
+  <h1>Domine a tecnologia que está revolucionando o campo e ganhe de <span class="g">R$ 5 a R$ 10 mil</span> como piloto de drone agrícola.</h1>
+  <p>Formação prática e completa com suporte exclusivo para você entrar no mercado e faturar os seus primeiros milhares de reais já nos próximos meses.</p>
 
   <div class="training-box">
-    <article class="vcard" style="min-height: 600px; border: none; box-shadow: none;">
-      <video preload="none" playsinline poster="assets/drone-hero-novo.jpg">
+    <article class="vcard hero-video-card">
+      <video preload="none" playsinline>
         <source src="assets/video-hero-landing.mp4" type="video/mp4" />
       </video>
       <div class="overlay">
-        <img class="video-thumb" src="assets/drone-hero-novo.jpg" alt="Capa do Treinamento Target" />
         <button class="playbtn" type="button" aria-label="Reproduzir vídeo do curso"></button>
       </div>
     </article>
@@ -487,31 +534,28 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 <p class="subtitle">Resultados reais de quem decidiu profissionalizar sua operação no agro.</p>
 <div class="video-grid">
     <article class="vcard">
-      <video preload="none" playsinline poster="assets/depo-drone-1-thumb.jpg">
+      <video preload="none" playsinline>
         <source src="assets/depo-drone-1.mp4" type="video/mp4" />
       </video>
       <div class="overlay">
-        <img class="video-thumb" src="assets/depo-drone-1-thumb.jpg" alt="Capa do depoimento 1" />
         <button class="playbtn" type="button" aria-label="Reproduzir vídeo 1"></button>
       </div>
     </article>
 
     <article class="vcard">
-      <video preload="none" playsinline poster="assets/depo-drone-2-thumb.jpg">
+      <video preload="none" playsinline>
         <source src="assets/depo-drone-2.mp4" type="video/mp4" />
       </video>
       <div class="overlay">
-        <img class="video-thumb" src="assets/depo-drone-2-thumb.jpg" alt="Capa do depoimento 2" />
         <button class="playbtn" type="button" aria-label="Reproduzir vídeo 2"></button>
       </div>
     </article>
 
     <article class="vcard">
-      <video preload="none" playsinline poster="assets/depo-drone-3-thumb.jpg">
+      <video preload="none" playsinline>
         <source src="assets/depo-drone-3.mp4" type="video/mp4" />
       </video>
       <div class="overlay">
-        <img class="video-thumb" src="assets/depo-drone-3-thumb.jpg" alt="Capa do depoimento 3" />
         <button class="playbtn" type="button" aria-label="Reproduzir vídeo 3"></button>
       </div>
     </article>
