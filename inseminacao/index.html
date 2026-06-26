@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
   <title>Inseminação Artificial em Bovinos - Target Agrotech</title>
 
@@ -1439,6 +1439,376 @@
     .modal-desc { color: rgba(255,255,255,0.72); font-size: 0.92rem; margin-bottom: 0.9rem; }
     .modal-actions { display: flex; gap: 0.7rem; margin-top: 0.9rem; }
     .modal-actions .btn { flex: 1; padding: 0.85rem 1rem; font-size: 0.95rem; }
+  
+    /* ── Hero autoplay sound control ── */
+    .hero-sound-toggle {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 4;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.55rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.72);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.38);
+    }
+    .hero-sound-toggle.sound-on {
+      background: rgba(242,201,76,0.92);
+      color: #101400;
+      border-color: rgba(242,201,76,0.75);
+    }
+    .hero-sound-toggle:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    /* ── New pricing details ── */
+    .course-total {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.9rem;
+      padding: 0.75rem 0.9rem;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .course-total-label {
+      color: rgba(255,255,255,0.65);
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .course-total strong {
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .enrollment-note {
+      margin-top: 1rem;
+      padding: 0.9rem 1rem;
+      border-radius: 16px;
+      background: rgba(242,201,76,0.08);
+      border: 1px solid rgba(242,201,76,0.24);
+    }
+    .enrollment-note-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.8rem;
+      font-family: var(--font-display);
+      text-transform: uppercase;
+    }
+    .enrollment-note-top span {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+    .enrollment-note-top strong {
+      color: var(--gold);
+      font-size: 1.3rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .enrollment-note p {
+      margin-top: 0.45rem;
+      color: rgba(255,255,255,0.68);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    /* ── Robust responsive layout ── */
+    @media (max-width: 980px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-grid > div,
+      .hero-media,
+      .price-area,
+      .cta-side,
+      .offer-content {
+        min-width: 0;
+      }
+      .hero-media {
+        width: 100%;
+        max-width: 620px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      html {
+        scroll-padding-bottom: calc(82px + env(safe-area-inset-bottom));
+      }
+      body,
+      .page {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+      .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+      section {
+        padding: 3.5rem 0;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        margin-bottom: 1rem;
+      }
+      .topbar-left {
+        min-width: 0;
+        flex-wrap: wrap;
+      }
+      .topbar-right {
+        font-size: 0.68rem;
+        letter-spacing: 0.16em;
+        text-align: right;
+      }
+
+      .hero {
+        padding-top: 0.5rem;
+        padding-bottom: 2.2rem;
+      }
+      .hero-grid {
+        gap: 1.8rem;
+      }
+      .hero-title {
+        max-width: 100%;
+        font-size: clamp(2.75rem, 13vw, 4rem);
+        line-height: 0.95;
+        text-wrap: balance;
+        overflow-wrap: normal;
+        word-break: normal;
+      }
+      .hero-title .word-normal,
+      .hero-title .word-g {
+        width: 100%;
+        text-wrap: balance;
+      }
+      .hero-title br {
+        display: none;
+      }
+      .hero-subtitle {
+        max-width: 100%;
+        font-size: 1rem;
+        line-height: 1.55;
+        text-wrap: balance;
+      }
+      .hero-cta,
+      .hero-cta-wrap {
+        width: 100%;
+        min-width: 0;
+      }
+      .btn {
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+      }
+
+      .hero-media-inner {
+        min-height: 0;
+        aspect-ratio: 16 / 10;
+      }
+      .hero-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .hero-play-overlay {
+        display: none !important;
+      }
+      .hero-video-badge {
+        top: 12px;
+        left: 12px;
+      }
+      .hero-sound-toggle {
+        top: 12px;
+        right: 12px;
+        max-width: calc(100% - 130px);
+        padding: 0.48rem 0.68rem;
+        font-size: 0.64rem;
+      }
+
+      .feature-item {
+        min-width: 0;
+        padding: 1rem 0.65rem;
+        text-align: center;
+        flex-direction: column;
+      }
+      .feature-item span {
+        overflow-wrap: anywhere;
+      }
+
+      .section-title {
+        max-width: 100%;
+        font-size: clamp(2.2rem, 11vw, 3rem);
+        line-height: 1;
+        text-wrap: balance;
+      }
+      .section-subtitle {
+        max-width: 100%;
+        margin-bottom: 2rem;
+        font-size: 0.98rem;
+        text-wrap: balance;
+      }
+
+      .offer-box {
+        width: 100%;
+        max-width: 100%;
+        padding: 1.5rem 1rem;
+        border-radius: 24px;
+        overflow: hidden;
+      }
+      .offer-content {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+      }
+      .offer-badge {
+        max-width: 100%;
+        white-space: normal;
+        line-height: 1.3;
+      }
+      .parcel-price {
+        width: 100%;
+        max-width: 100%;
+        gap: 0.45rem;
+        flex-wrap: nowrap;
+      }
+      .parcel-price .small {
+        flex: 0 0 auto;
+        font-size: clamp(1.05rem, 5vw, 1.3rem);
+        margin-bottom: 0.4rem;
+      }
+      .parcel-price .big {
+        flex: 0 1 auto;
+        min-width: 0;
+        font-size: clamp(2.75rem, 13.2vw, 4.3rem);
+        line-height: 0.95;
+        white-space: nowrap;
+      }
+      .full-price {
+        display: block;
+        line-height: 1.4;
+      }
+      .full-price strong {
+        display: inline-block;
+        font-size: clamp(1.5rem, 7.5vw, 2rem);
+        white-space: nowrap;
+      }
+      .course-total,
+      .enrollment-note-top {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+      .course-total strong,
+      .enrollment-note-top strong {
+        white-space: normal;
+      }
+      .offer-points span {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .video-grid,
+      .why-grid,
+      .upcoming-grid {
+        width: 100%;
+        min-width: 0;
+      }
+      .video-card,
+      .why-card,
+      .upcoming-card {
+        min-width: 0;
+      }
+
+      .drone-gallery-slider {
+        width: 100%;
+        min-height: clamp(400px, 118vw, 540px);
+      }
+
+      .wa-float {
+        right: 14px;
+        bottom: calc(14px + env(safe-area-inset-bottom));
+        width: 58px;
+        height: 58px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .container {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+      .course-pill {
+        font-size: 0.64rem;
+        letter-spacing: 0.1em;
+      }
+      .back-pill {
+        padding: 0.5rem 0.8rem;
+      }
+      .hero-title {
+        font-size: clamp(2.45rem, 12.5vw, 3.2rem);
+      }
+      .hero-sound-toggle {
+        max-width: calc(100% - 115px);
+        font-size: 0.59rem;
+      }
+      .parcel-price .big {
+        font-size: clamp(2.45rem, 12.5vw, 3.2rem);
+      }
+      .offer-box {
+        padding-left: 0.85rem;
+        padding-right: 0.85rem;
+      }
+    }
+
+    @media (max-width: 340px) {
+      .feature-row {
+        grid-template-columns: 1fr;
+      }
+      .parcel-price {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+      }
+      .parcel-price .small {
+        margin-bottom: 0;
+      }
+      .hero-sound-toggle {
+        position: absolute;
+        top: auto;
+        right: 10px;
+        bottom: 10px;
+        max-width: calc(100% - 20px);
+      }
+    }
+
   </style>
 </head>
 
@@ -1508,7 +1878,7 @@
             <aside class="hero-media" aria-label="Vídeo demonstrativo do curso de inseminação artificial em bovinos">
               <div class="hero-media-frame">
                 <div class="hero-media-inner">
-                  <video preload="metadata" class="hero-video" id="heroVideo" playsinline>
+                  <video preload="auto" class="hero-video" id="heroVideo" playsinline muted autoplay loop>
                     <source src="assets/inseminacao-hero-video.mp4" type="video/mp4" />
                     Seu navegador não suporta vídeo.
                   </video>
@@ -1517,9 +1887,12 @@
                     <div class="hero-play"></div>
                   </div>
 
-                  <button type="button" class="hero-media-click" id="heroPlayBtn" aria-label="Reproduzir vídeo"></button>
+                  <button type="button" class="hero-media-click" id="heroPlayBtn" aria-label="Reproduzir ou pausar vídeo"></button>
 
                   <div class="hero-video-badge">Vídeo do curso</div>
+                  <button type="button" class="hero-sound-toggle" id="heroSoundToggle" aria-label="Ativar áudio do vídeo">
+                    🔊 Ativar áudio
+                  </button>
                 </div>
               </div>
             </aside>
@@ -1610,17 +1983,43 @@
             <div class="offer-content">
               <div class="price-area">
                 <div class="price-kicker">Investimento para sua carreira no agro</div>
+
+                <div class="course-total">
+                  <span class="course-total-label">Valor total do curso</span>
+                  <strong>R$ 2.198,00</strong>
+                </div>
+
                 <div class="parcel-price">
                   <span class="small">12x de</span>
-                  <span class="big">R$ 197</span>
+                  <span class="big">R$ 184,99</span>
                 </div>
                 <div class="parcel-note">no cartão de crédito</div>
-                <div class="full-price">ou <strong>R$ 1.997</strong> à vista</div>
+
+                <div class="full-price">
+                  ou <strong>R$ 1.849,99</strong> à vista
+                </div>
+
+                <div class="enrollment-note">
+                  <div class="enrollment-note-top">
+                    <span>Matrícula / entrada</span>
+                    <strong>R$ 349,99</strong>
+                  </div>
+                  <p>
+                    A matrícula funciona como entrada e será abatida do valor total do curso
+                    no primeiro dia de aula.
+                  </p>
+                </div>
+
                 <div class="offer-divider"></div>
+
                 <div class="offer-points">
-                  <span><i aria-hidden="true"></i> Curso presencial com prática intensa em curral</span>
-                  <span><i aria-hidden="true"></i> Certificado e carta de estágio para fortalecer seu currículo</span>
-                  <span><i aria-hidden="true"></i> Formação focada em manejo reprodutivo e resultado no rebanho</span>
+                  <span><i aria-hidden="true"></i> Certificado de conclusão</span>
+                  <span><i aria-hidden="true"></i> Carta de estágio</span>
+                  <span><i aria-hidden="true"></i> Aulas práticas com animais vivos</span>
+                  <span><i aria-hidden="true"></i> Técnicas de Inseminação Artificial e IATF</span>
+                  <span><i aria-hidden="true"></i> Aulas teóricas e práticas com peças anatômicas</span>
+                  <span><i aria-hidden="true"></i> Almoço incluso no domingo</span>
+                  <span><i aria-hidden="true"></i> Curso completo com padrão profissional</span>
                 </div>
               </div>
 
@@ -1972,35 +2371,55 @@
         a.setAttribute("rel", "noopener noreferrer");
       });
 
-      // Hero video
+      // Hero video: autoplay silencioso + botão para ativar/desativar áudio
       const heroVideo = document.getElementById("heroVideo");
       const heroOverlay = document.getElementById("heroPlayOverlay");
       const heroPlayBtn = document.getElementById("heroPlayBtn");
+      const heroSoundToggle = document.getElementById("heroSoundToggle");
 
-      function hideHeroClickLayer() {
-        if (!heroPlayBtn) return;
-        heroPlayBtn.style.display = "none";
-        heroPlayBtn.setAttribute("aria-hidden", "true");
+      function updateHeroSoundButton() {
+        if (!heroSoundToggle || !heroVideo) return;
+        const soundOn = !heroVideo.muted;
+        heroSoundToggle.textContent = soundOn ? "🔇 Desativar áudio" : "🔊 Ativar áudio";
+        heroSoundToggle.classList.toggle("sound-on", soundOn);
+        heroSoundToggle.setAttribute(
+          "aria-label",
+          soundOn ? "Desativar áudio do vídeo" : "Ativar áudio do vídeo"
+        );
       }
-      function showHeroClickLayer() {
-        if (!heroPlayBtn) return;
-        heroPlayBtn.style.display = "block";
-        heroPlayBtn.setAttribute("aria-hidden", "false");
-      }
-      function startHeroVideo() {
+
+      function startHeroAutoplay() {
         if (!heroVideo) return;
-        heroVideo.controls = true;
-        heroVideo.play().catch(() => {});
+        heroVideo.muted = true;
+        heroVideo.loop = true;
+        heroVideo.playsInline = true;
+        heroVideo.controls = false;
+        heroVideo.setAttribute("autoplay", "");
+        heroVideo.play().catch(() => {
+          // Em navegadores muito restritivos, o primeiro toque no vídeo inicia a reprodução.
+        });
         if (heroOverlay) heroOverlay.style.display = "none";
-        hideHeroClickLayer();
+        updateHeroSoundButton();
       }
-      if (heroPlayBtn) heroPlayBtn.addEventListener("click", startHeroVideo);
-      if (heroVideo) {
-        heroVideo.addEventListener("ended", function () {
-          if (heroOverlay) heroOverlay.style.display = "flex";
-          showHeroClickLayer();
+
+      if (heroSoundToggle && heroVideo) {
+        heroSoundToggle.addEventListener("click", function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+          heroVideo.muted = !heroVideo.muted;
+          if (heroVideo.paused) heroVideo.play().catch(() => {});
+          updateHeroSoundButton();
         });
       }
+
+      if (heroPlayBtn && heroVideo) {
+        heroPlayBtn.addEventListener("click", function () {
+          if (heroVideo.paused) heroVideo.play().catch(() => {});
+          else heroVideo.pause();
+        });
+      }
+
+      startHeroAutoplay();
 
       // WhatsApp float
       const waFloat = document.getElementById("waFloat");
