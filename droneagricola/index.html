@@ -886,6 +886,61 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
   }
 }
 
+@media (max-width: 768px){
+  .topbar{gap:12px;}
+  .brand-logo{width:34px;height:34px;flex:0 0 34px;}
+  .topbar-right{font-size:10px;letter-spacing:.14em;text-align:right;line-height:1.35;}
+
+  .hero-topline{
+    max-width:100%;
+    padding:9px 12px;
+    font-size:10px;
+    line-height:1.35;
+    letter-spacing:.09em;
+    text-align:left;
+  }
+
+  .video-grid{gap:16px;}
+  .vcard{
+    min-height:0;
+    aspect-ratio:9/16;
+    border-radius:22px;
+  }
+
+  .offer-content{gap:24px;}
+  .cta-side{display:grid;gap:0;}
+  .cta-side .cta-primary{width:100%;padding:18px 16px;}
+
+  .benefits-grid,
+  .learn-grid,
+  .classes-grid{grid-template-columns:1fr;}
+
+  .benefit-card{padding:24px 20px;}
+  .learn-section{border-radius:28px;padding:44px 0;}
+  .learn-grid{gap:14px;margin-top:28px;}
+  .learn-item{padding:18px 16px;}
+
+  .instructor-card.solo{padding:30px 20px;border-radius:24px;}
+  .instructor-card.solo .instructor-img{width:150px;height:150px;}
+  .instructor-card.solo h3{font-size:26px;}
+
+  .filter-area{display:grid;grid-template-columns:1fr;gap:12px;}
+  .filter-area input,
+  .filter-area select{width:100%;min-width:0;}
+
+  .class-card{padding:22px 18px;border-radius:22px;}
+  .guarantee-block{padding:28px 20px;border-radius:24px;}
+  .faq-question{padding:18px 16px;gap:14px;}
+  .faq-answer{padding:0 16px 18px;}
+
+  .company-section{padding:48px 0;}
+  .company-content{gap:28px;}
+  .company-img{max-width:100%;}
+
+  .modal-backdrop{padding:14px;}
+  .modal-card{padding:26px 18px;border-radius:20px;}
+}
+
 @media (max-width: 340px){
 
   .parcel-price{
@@ -1032,8 +1087,7 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
       </div>
 
       <div class="cta-side">
-        <a href="https://crm.targetagrotech.com.br/formulario" class="cta-primary">QUERO MINHA VAGA AGORA</a>
-        <a href="https://crm.targetagrotech.com.br/formulario" target="_blank" rel="noopener noreferrer" class="cta-secondary">BAIXAR CONTEÚDO PROGRAMÁTICO</a>
+        <a href="https://crm.targetagrotech.com.br/formulario" class="cta-primary">FALAR COM UM CONSULTOR</a>
       </div>
     </div>
   </div>
