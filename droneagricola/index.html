@@ -962,6 +962,381 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
   }
 }
 
+
+/* =========================================================
+   AJUSTE FINAL DO HERO
+   Desktop preservado; mobile com vídeo acima do texto e CTA visível.
+   ========================================================= */
+
+@media (min-width: 901px){
+  .hero-layout{
+    grid-template-areas:
+      "topline video"
+      "copy video";
+    grid-template-rows:auto 1fr;
+  }
+
+  .hero-topline{
+    grid-area:topline;
+    justify-self:start;
+    align-self:end;
+    margin:0 0 22px;
+  }
+
+  .hero-copy{
+    grid-area:copy;
+  }
+
+  .training-box{
+    grid-area:video;
+  }
+}
+
+@media (max-width: 900px){
+  header{
+    min-height:0;
+  }
+
+  .hero{
+    padding:18px 0 34px;
+  }
+
+  .hero-layout{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:100%;
+  }
+
+  .hero-topline{
+    order:1;
+    width:min(100%, 356px);
+    margin:0 auto 14px;
+    padding:9px 13px;
+    justify-content:center;
+    text-align:center;
+    line-height:1.3;
+  }
+
+  .training-box{
+    order:2;
+    width:min(72vw, 292px);
+    max-width:292px;
+    height:auto;
+    aspect-ratio:9 / 16;
+    margin:0 auto;
+    border-radius:28px;
+    overflow:hidden;
+    background:#000;
+  }
+
+  .hero-video-card{
+    width:100%;
+    height:100%;
+    min-height:0 !important;
+    aspect-ratio:9 / 16 !important;
+    cursor:default;
+  }
+
+  .hero-video-card video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .hero-video-card .overlay{
+    display:none !important;
+  }
+
+  .desktop-sound-toggle{
+    display:inline-flex !important;
+    position:absolute;
+    top:12px;
+    right:12px;
+    z-index:6;
+    align-items:center;
+    gap:7px;
+    padding:9px 12px;
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:999px;
+    background:rgba(0,0,0,.72);
+    color:#fff;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    cursor:pointer;
+    backdrop-filter:blur(8px);
+  }
+
+  .desktop-sound-toggle::before{
+    content:"";
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--green2);
+    box-shadow:0 0 10px rgba(15,210,102,.7);
+  }
+
+  .desktop-sound-toggle.sound-on::before{
+    background:var(--yellow);
+  }
+
+  .hero-copy{
+    order:3;
+    width:100%;
+    min-width:0;
+    text-align:center;
+  }
+
+  .hero h1{
+    width:100%;
+    max-width:390px;
+    margin:18px auto 0;
+    font-size:clamp(27px, 7.3vw, 34px);
+    line-height:1.02;
+    letter-spacing:-.038em;
+    text-wrap:balance;
+  }
+
+  .hero h1 .headline-line{
+    display:inline;
+    width:auto;
+    white-space:normal;
+  }
+
+  .hero p{
+    max-width:370px;
+    margin:12px auto 0;
+    font-size:14px;
+    line-height:1.45;
+  }
+
+  .hero-extra-cta{
+    width:100%;
+    max-width:390px;
+    margin:16px auto 0;
+    padding:0;
+  }
+
+  .hero-extra-cta .cta-primary{
+    width:100% !important;
+    max-width:none !important;
+    min-height:54px;
+    padding:15px 18px;
+    border-radius:17px;
+    font-size:13px;
+    line-height:1.2;
+  }
+}
+
+@media (max-width: 390px){
+  .hero{
+    padding-top:14px;
+  }
+
+  .hero-topline{
+    max-width:330px;
+    font-size:9px;
+  }
+
+  .training-box{
+    width:min(70vw, 272px);
+    max-width:272px;
+  }
+
+  .hero h1{
+    max-width:350px;
+    margin-top:15px;
+    font-size:clamp(25px, 7.2vw, 30px);
+  }
+
+  .hero p{
+    max-width:345px;
+    margin-top:10px;
+    font-size:13px;
+    line-height:1.4;
+  }
+
+  .hero-extra-cta{
+    max-width:350px;
+    margin-top:14px;
+  }
+}
+
+@media (max-width: 360px), (max-height: 740px){
+  .hero-topline{
+    margin-bottom:10px;
+    padding-top:8px;
+    padding-bottom:8px;
+  }
+
+  .training-box{
+    width:min(64vw, 242px);
+    max-width:242px;
+  }
+
+  .hero h1{
+    margin-top:12px;
+    font-size:clamp(23px, 6.8vw, 28px);
+  }
+
+  .hero p{
+    margin-top:8px;
+    font-size:12.5px;
+    line-height:1.35;
+  }
+
+  .hero-extra-cta{
+    margin-top:12px;
+  }
+
+  .hero-extra-cta .cta-primary{
+    min-height:50px;
+    padding:13px 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cta-primary,
+  .offer-badge{
+    animation:none !important;
+    transition:none !important;
+  }
+}
+
+
+/* =========================================================
+   AJUSTE MOBILE V2
+   Move a chamada superior para depois do CTA e libera espaço
+   para o botão aparecer na primeira tela.
+   ========================================================= */
+@media (max-width: 900px){
+  .hero-topline{
+    order:4;
+    margin:14px auto 0;
+  }
+
+  .training-box{
+    order:1;
+  }
+
+  .hero-copy{
+    order:2;
+  }
+
+  .hero{
+    padding-top:12px;
+  }
+
+  .training-box{
+    width:min(68vw, 272px);
+    max-width:272px;
+  }
+
+  .hero h1{
+    margin-top:14px;
+    font-size:clamp(25px, 6.9vw, 31px);
+    line-height:1.01;
+  }
+
+  .hero p{
+    margin-top:9px;
+    font-size:13px;
+    line-height:1.38;
+    max-width:350px;
+  }
+
+  .hero-extra-cta{
+    margin-top:12px;
+  }
+
+  .hero-extra-cta .cta-primary{
+    min-height:50px;
+    padding:13px 16px;
+  }
+}
+
+@media (max-width: 390px){
+  .training-box{
+    width:min(66vw, 254px);
+    max-width:254px;
+  }
+
+  .hero h1{
+    font-size:clamp(23px, 6.7vw, 28px);
+  }
+
+  .hero p{
+    font-size:12.5px;
+    line-height:1.34;
+  }
+
+  .hero-topline{
+    font-size:8.5px;
+    padding:8px 11px;
+  }
+}
+
+@media (max-height: 700px) and (max-width: 900px){
+  .training-box{
+    width:min(61vw, 230px);
+    max-width:230px;
+  }
+
+  .hero h1{
+    margin-top:10px;
+    font-size:clamp(22px, 6.3vw, 26px);
+  }
+
+  .hero p{
+    margin-top:7px;
+    font-size:12px;
+    line-height:1.3;
+  }
+
+  .hero-extra-cta{
+    margin-top:10px;
+  }
+
+  .hero-topline{
+    margin-top:10px;
+  }
+}
+
+
+
+/* WhatsApp flutuante inteligente no mobile:
+   oculto enquanto o CTA principal do hero estiver visível;
+   aparece quando o CTA sair da área visível. */
+@media (max-width: 900px){
+  .wa-float{
+    display:flex !important;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transform:translateY(14px) scale(.92);
+    transition:
+      opacity .25s ease,
+      transform .25s ease,
+      visibility .25s ease;
+  }
+
+  .wa-float.wa-visible{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .wa-float{
+    transition:none !important;
+  }
+}
+
 </style>
 
 </head>
@@ -980,14 +1355,34 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 </div>
 <section class="hero">
   <div class="hero-layout">
+
+    <div class="hero-topline">CURSO PRESENCIAL COM PRÁTICA EM CAMPO REAL</div>
+
+    <div class="training-box">
+      <article class="vcard hero-video-card" style="border:none;box-shadow:none;">
+        <video id="heroVideo" preload="metadata" playsinline muted autoplay loop poster="assets/drone-hero-novo.jpg">
+          <source src="assets/video-hero-landing.mp4" type="video/mp4" />
+        </video>
+
+        <button
+          id="heroSoundToggle"
+          class="desktop-sound-toggle"
+          type="button"
+          aria-label="Ativar som do vídeo"
+        >
+          ATIVAR SOM
+        </button>
+      </article>
+    </div>
+
     <div class="hero-copy">
-      <div class="hero-topline">CURSO PRESENCIAL COM PRÁTICA EM CAMPO REAL</div>
       <h1 class="hero-headline">
         <span class="headline-line">Domine a tecnologia</span>
         <span class="headline-line">que está revolucionando o campo</span>
         <span class="headline-line">e ganhe de <span class="g">R$ 5 a R$ 10 mil</span></span>
         <span class="headline-line">como piloto de drone agrícola.</span>
       </h1>
+
       <p>Formação prática e completa com suporte exclusivo para você entrar no mercado e faturar os seus primeiros milhares de reais já nos próximos meses.</p>
 
       <div class="hero-extra-cta">
@@ -996,23 +1391,11 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
           class="cta-primary pulse-whatsapp"
           style="max-width:360px;width:100%;"
         >
-          FALAR NO WHATSAPP
+          FALAR COM UM CONSULTOR
         </a>
       </div>
     </div>
 
-    <div class="training-box">
-      <article class="vcard hero-video-card" style="border:none;box-shadow:none;">
-        <video id="heroVideo" preload="auto" playsinline muted autoplay loop poster="assets/drone-hero-novo.jpg">
-          <source src="assets/video-hero-landing.mp4" type="video/mp4" />
-        </video>
-        <div class="overlay">
-          <img class="video-thumb" src="assets/drone-hero-novo.jpg" alt="Capa do Treinamento Target" />
-          <button class="playbtn" type="button" aria-label="Reproduzir vídeo do curso"></button>
-        </div>
-        <button id="heroSoundToggle" class="desktop-sound-toggle" type="button" aria-label="Ativar som do vídeo">ATIVAR SOM</button>
-      </article>
-    </div>
   </div>
 </section>
 </div>
@@ -1376,22 +1759,17 @@ const desktopMedia = window.matchMedia('(min-width: 901px)');
 function configureHeroVideo() {
   if (!heroVideo) return;
 
-  if (desktopMedia.matches) {
-    heroVideo.muted = true;
-    heroVideo.loop = true;
-    heroVideo.setAttribute('autoplay', '');
-    heroVideo.play().catch(() => {});
-    heroVideo.closest('.vcard')?.classList.add('playing');
-    if (heroSoundToggle) {
-      heroSoundToggle.textContent = 'ATIVAR SOM';
-      heroSoundToggle.classList.remove('sound-on');
-    }
-  } else {
-    heroVideo.pause();
-    heroVideo.currentTime = 0;
-    heroVideo.muted = false;
-    heroVideo.removeAttribute('autoplay');
-    heroVideo.closest('.vcard')?.classList.remove('playing');
+  heroVideo.muted = true;
+  heroVideo.loop = true;
+  heroVideo.setAttribute('autoplay', '');
+  heroVideo.setAttribute('playsinline', '');
+  heroVideo.play().catch(() => {});
+
+  heroVideo.closest('.vcard')?.classList.add('playing');
+
+  if (heroSoundToggle) {
+    heroSoundToggle.textContent = heroVideo.muted ? 'ATIVAR SOM' : 'DESATIVAR SOM';
+    heroSoundToggle.classList.toggle('sound-on', !heroVideo.muted);
   }
 }
 
@@ -1552,7 +1930,7 @@ const overlay = card.querySelector('.overlay');
 
 if (video && overlay) {
 card.addEventListener('click', (e) => {
-if (card.classList.contains('hero-video-card') && window.matchMedia('(min-width: 901px)').matches) return;
+if (card.classList.contains('hero-video-card')) return;
 toggleVideoPlay(card, video);
 });
 
@@ -1639,6 +2017,74 @@ vagasEl.innerText = vagas === 1 ? 'Apenas 1 Vaga' : `Apenas ${vagas} Vagas`;
 atualizarVagasDinamicasTurmas();
 
 const FORMULARIO_CRM_LINK = 'https://crm.targetagrotech.com.br/formulario';
+
+
+const heroConsultorCta = document.querySelector('.hero-extra-cta .cta-primary');
+const whatsappFloat = document.querySelector('.wa-float');
+const mobileWhatsAppMedia = window.matchMedia('(max-width: 900px)');
+
+let whatsappObserver = null;
+
+function updateWhatsappFloatState() {
+  if (!whatsappFloat) return;
+
+  if (!mobileWhatsAppMedia.matches) {
+    whatsappFloat.classList.remove('wa-visible');
+    return;
+  }
+
+  if (!heroConsultorCta) {
+    whatsappFloat.classList.add('wa-visible');
+    return;
+  }
+
+  const rect = heroConsultorCta.getBoundingClientRect();
+  const isCtaVisible = rect.bottom > 0 && rect.top < window.innerHeight;
+
+  whatsappFloat.classList.toggle('wa-visible', !isCtaVisible);
+}
+
+function configureWhatsappObserver() {
+  if (whatsappObserver) {
+    whatsappObserver.disconnect();
+    whatsappObserver = null;
+  }
+
+  if (!whatsappFloat) return;
+
+  if (!mobileWhatsAppMedia.matches) {
+    whatsappFloat.classList.remove('wa-visible');
+    return;
+  }
+
+  if (!heroConsultorCta || !('IntersectionObserver' in window)) {
+    updateWhatsappFloatState();
+    window.addEventListener('scroll', updateWhatsappFloatState, { passive: true });
+    window.addEventListener('resize', updateWhatsappFloatState);
+    return;
+  }
+
+  whatsappObserver = new IntersectionObserver(
+    ([entry]) => {
+      whatsappFloat.classList.toggle('wa-visible', !entry.isIntersecting);
+    },
+    {
+      root: null,
+      threshold: 0.08
+    }
+  );
+
+  whatsappObserver.observe(heroConsultorCta);
+}
+
+configureWhatsappObserver();
+
+if (mobileWhatsAppMedia.addEventListener) {
+  mobileWhatsAppMedia.addEventListener('change', configureWhatsappObserver);
+} else {
+  mobileWhatsAppMedia.addListener(configureWhatsappObserver);
+}
+
 
 document.querySelectorAll('.btn-reserva, .btn-reserva-lead').forEach(btn => {
 btn.addEventListener('click', (e) => {
