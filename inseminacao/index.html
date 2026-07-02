@@ -1810,6 +1810,20 @@
     }
 
   
+
+    .saldo-card {
+      margin-top: 1rem;
+      background: linear-gradient(145deg, rgba(0,176,80,0.10), rgba(255,255,255,0.035));
+      border-color: rgba(0,176,80,0.22);
+    }
+    .price-area .price-kicker {
+      color: var(--gold);
+      font-size: 0.86rem;
+      letter-spacing: 0.10em;
+    }
+    .enrollment-note p {
+      font-weight: 600;
+    }
     .balance-label {
       margin-top: 1.15rem;
       margin-bottom: 0.5rem;
@@ -1819,6 +1833,263 @@
       font-weight: 800;
       letter-spacing: 0.10em;
       text-transform: uppercase;
+    }
+
+
+    /* ── Investment block redesign ── */
+    .investment-section { padding-top: 2rem; padding-bottom: 1.2rem; }
+    .investment-box {
+      max-width: 1040px;
+      padding: 0;
+      border-radius: 34px;
+      border: 1px solid rgba(0, 212, 96, 0.34);
+      background:
+        radial-gradient(760px 360px at 12% 0%, rgba(0, 176, 80, 0.20), transparent 58%),
+        radial-gradient(620px 360px at 100% 100%, rgba(242, 201, 76, 0.14), transparent 62%),
+        linear-gradient(145deg, rgba(8, 28, 17, 0.98), rgba(3, 12, 7, 0.98));
+      box-shadow: 0 34px 90px rgba(0,0,0,0.68), 0 0 70px rgba(0,176,80,0.10);
+    }
+    .investment-box::before,
+    .investment-box::after { display: none; }
+    .investment-header {
+      position: relative;
+      z-index: 1;
+      padding: 34px 38px 26px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+    }
+    .investment-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 15px;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(242,201,76,0.35);
+      background: rgba(242,201,76,0.08);
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .investment-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.15rem, 4.5vw, 3.35rem);
+      font-weight: 900;
+      line-height: 0.98;
+      text-transform: uppercase;
+      letter-spacing: -0.015em;
+      margin-bottom: 10px;
+    }
+    .investment-header p {
+      max-width: 650px;
+      margin: 0 auto;
+      color: rgba(255,255,255,0.68);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .investment-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+      gap: 28px;
+      padding: 30px;
+      align-items: stretch;
+    }
+    .investment-main,
+    .investment-side {
+      min-width: 0;
+    }
+    .investment-total-card,
+    .investment-mini-card,
+    .investment-installment,
+    .investment-includes {
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.20);
+      box-shadow: 0 16px 38px rgba(0,0,0,0.24);
+    }
+    .investment-total-card {
+      padding: 24px;
+      border-radius: 26px;
+      background:
+        linear-gradient(145deg, rgba(242,201,76,0.14), rgba(255,255,255,0.04)),
+        rgba(0,0,0,0.20);
+      border-color: rgba(242,201,76,0.30);
+    }
+    .investment-label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.70);
+      margin-bottom: 8px;
+    }
+    .investment-total-card strong {
+      display: block;
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6.8vw, 4.75rem);
+      line-height: 0.90;
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      white-space: nowrap;
+    }
+    .investment-total-card small,
+    .investment-mini-card small,
+    .investment-installment small {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255,255,255,0.62);
+      font-weight: 700;
+    }
+    .investment-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .investment-mini-card {
+      padding: 18px;
+      border-radius: 22px;
+    }
+    .investment-mini-card strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.55rem);
+      line-height: 1;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.035em;
+      white-space: nowrap;
+    }
+    .investment-balance-card {
+      background: linear-gradient(145deg, rgba(0,176,80,0.16), rgba(255,255,255,0.04));
+      border-color: rgba(0,176,80,0.24);
+    }
+    .investment-warning {
+      display: flex;
+      gap: 12px;
+      margin-top: 14px;
+      padding: 16px 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(242,201,76,0.26);
+      background: rgba(242,201,76,0.08);
+      color: rgba(255,255,255,0.76);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+    .investment-warning span { flex: 0 0 auto; }
+    .investment-warning strong { color: #fff; }
+    .investment-installment {
+      margin-top: 14px;
+      padding: 22px;
+      border-radius: 24px;
+      border-color: rgba(0,176,80,0.28);
+      background: linear-gradient(145deg, rgba(0,176,80,0.15), rgba(0,0,0,0.20));
+    }
+    .investment-installment-price {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      line-height: 1;
+    }
+    .investment-installment-price span {
+      margin-bottom: 9px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: rgba(255,255,255,0.78);
+    }
+    .investment-installment-price strong {
+      font-family: var(--font-display);
+      font-size: clamp(2.85rem, 6.2vw, 4.35rem);
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .investment-side {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .investment-includes {
+      flex: 1;
+      padding: 24px;
+      border-radius: 26px;
+      background: rgba(255,255,255,0.045);
+    }
+    .investment-includes h3 {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      color: var(--gold);
+    }
+    .investment-includes ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+    .investment-includes li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.84);
+      font-weight: 600;
+      line-height: 1.35;
+    }
+    .investment-includes li:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+    .investment-includes li span {
+      flex: 0 0 24px;
+      width: 24px;
+      text-align: center;
+    }
+    .investment-cta {
+      border-radius: 20px;
+      padding: 21px 18px;
+      box-shadow: 0 18px 46px rgba(0,176,80,0.34);
+    }
+    @media (max-width: 900px) {
+      .investment-header { padding: 28px 20px 22px; }
+      .investment-grid {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+      .investment-total-card strong,
+      .investment-mini-card strong,
+      .investment-installment-price strong { white-space: normal; }
+    }
+    @media (max-width: 560px) {
+      .investment-box { border-radius: 26px; }
+      .investment-grid { padding: 14px; gap: 18px; }
+      .investment-row { grid-template-columns: 1fr; }
+      .investment-total-card,
+      .investment-mini-card,
+      .investment-installment,
+      .investment-includes { border-radius: 20px; }
+      .investment-total-card { padding: 20px; }
+      .investment-total-card strong { font-size: clamp(2.45rem, 12vw, 3.25rem); }
+      .investment-installment-price {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .investment-installment-price span { margin-bottom: 0; }
+      .investment-installment-price strong { font-size: clamp(2.5rem, 12vw, 3.35rem); }
+      .investment-includes { padding: 20px; }
     }
 
   </style>
@@ -1988,57 +2259,65 @@
       </section>
 
       <!-- OFFER -->
-      <section class="offer-section" aria-labelledby="investimento-title">
+      <section class="offer-section investment-section" aria-labelledby="investimento-title">
         <div class="container">
-          <div class="offer-box reveal">
-            <div class="offer-badge" aria-live="polite">LOTE PROMOCIONAL POR TEMPO LIMITADO</div>
-            <div class="offer-content">
-              <div class="price-area">
-                <div class="price-kicker">Investimento para sua carreira no agro</div>
+          <div class="offer-box investment-box reveal">
+            <div class="investment-header">
+              <span class="investment-eyebrow">🐄 INVESTIMENTO</span>
+              <h2 id="investimento-title">Curso de Inseminação Artificial em Bovinos</h2>
+              <p>Formação presencial completa, com prática, certificado e suporte para você atuar com mais segurança no campo.</p>
+            </div>
 
-                <div class="course-total">
-                  <span class="course-total-label">Valor total do curso</span>
+            <div class="investment-grid">
+              <div class="investment-main">
+                <div class="investment-total-card">
+                  <span class="investment-label">💰 Valor do curso</span>
                   <strong>R$ 2.198,00</strong>
+                  <small>à vista</small>
                 </div>
 
-                <div class="enrollment-note">
-                  <div class="enrollment-note-top">
-                    <span>Matrícula / entrada</span>
+                <div class="investment-row">
+                  <div class="investment-mini-card">
+                    <span class="investment-label">📝 Matrícula / entrada</span>
                     <strong>R$ 349,99</strong>
                   </div>
-                  <p>
-                    A matrícula funciona como entrada e será abatida do valor total do curso
-                    no primeiro dia de aula.
-                  </p>
+                  <div class="investment-mini-card investment-balance-card">
+                    <span class="investment-label">💰 Saldo</span>
+                    <strong>R$ 1.849,99</strong>
+                    <small>à vista</small>
+                  </div>
                 </div>
 
-                <div class="balance-label">Saldo após a matrícula</div>
-
-                <div class="parcel-price">
-                  <span class="small">12x de</span>
-                  <span class="big">R$ 184,99</span>
-                </div>
-                <div class="parcel-note">no cartão de crédito</div>
-
-                <div class="full-price">
-                  ou <strong>R$ 1.849,99</strong> à vista
+                <div class="investment-warning">
+                  <span>⚠️</span>
+                  <p>A matrícula de <strong>R$ 349,99</strong> funciona como entrada e será abatida do valor total do curso no primeiro dia de aula.</p>
                 </div>
 
-                <div class="offer-divider"></div>
-
-                <div class="offer-points">
-                  <span><i aria-hidden="true"></i> Certificado de conclusão</span>
-                  <span><i aria-hidden="true"></i> Carta de estágio</span>
-                  <span><i aria-hidden="true"></i> Aulas práticas com animais vivos</span>
-                  <span><i aria-hidden="true"></i> Técnicas de Inseminação Artificial e IATF</span>
-                  <span><i aria-hidden="true"></i> Aulas teóricas e práticas com peças anatômicas</span>
-                  <span><i aria-hidden="true"></i> Almoço incluso no domingo</span>
-                  <span><i aria-hidden="true"></i> Curso completo com padrão profissional</span>
+                <div class="investment-installment">
+                  <span class="investment-label">💳 Ou em até</span>
+                  <div class="investment-installment-price">
+                    <span>12x de</span>
+                    <strong>R$ 184,99</strong>
+                  </div>
+                  <small>no cartão de crédito</small>
                 </div>
               </div>
 
-              <div class="cta-side">
-                <a href="https://crm.targetagrotech.com.br/formulario-ia" class="cta-primary" target="_blank" rel="noopener noreferrer">QUERO MINHA VAGA AGORA</a>
+              <div class="investment-side">
+                <div class="investment-includes">
+                  <h3>Incluso no curso</h3>
+                  <ul>
+                    <li><span>🎓</span>Certificado de conclusão</li>
+                    <li><span>📄</span>Carta de estágio</li>
+                    <li><span>🐄</span>Aulas práticas com animais vivos</li>
+                    <li><span>🧬</span>Técnicas de Inseminação Artificial e IATF</li>
+                    <li><span>🔬</span>Aulas teóricas e práticas com peças anatômicas</li>
+                    <li><span>🍽️</span>Almoço incluso no domingo</li>
+                    <li><span>📚</span>Curso completo com padrão profissional</li>
+                  </ul>
+                </div>
+
+                <a href="https://crm.targetagrotech.com.br/formulario-ia" class="cta-primary investment-cta" target="_blank" rel="noopener noreferrer">QUERO MINHA VAGA AGORA</a>
                 <div class="offer-guarantee">🔒 Atendimento seguro via formulário oficial</div>
               </div>
             </div>
@@ -2191,44 +2470,14 @@
                 aria-label="Buscar turmas por cidade ou estado"
               />
             </div>
-            <button type="button" class="btn-gold-outline" id="toggle-more-inseminacao" aria-expanded="false">
+            <button type="button" class="btn-gold-outline hidden" id="toggle-more-inseminacao" aria-expanded="false">
               Ver todas as turmas
             </button>
           </div>
 
           <div class="upcoming-grid" id="upcoming-grid-inseminacao">
 
-            <article class="upcoming-card reveal reveal-delay-1" data-course="Inseminação Artificial em Bovinos" data-local="Cerejeiras (RO)" data-course-date="10/07/2026" data-city="cerejeiras" data-state="ro">
-              <div class="upcoming-top">
-                <div class="upcoming-date">10/07</div>
-                <div class="badge-open">INSCRIÇÕES ABERTAS</div>
-              </div>
-              <div class="upcoming-location">📍 Cerejeiras (RO)</div>
-              <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
-              <a href="https://crm.targetagrotech.com.br/formulario-ia" target="_blank" rel="noopener noreferrer" class="btn btn-yellow">GARANTIR MINHA VAGA →</a>
-            </article>
-
-            <article class="upcoming-card reveal reveal-delay-2" data-course="Inseminação Artificial em Bovinos" data-local="Goianésia (GO)" data-course-date="31/07/2026" data-city="goianesia" data-state="go">
-              <div class="upcoming-top">
-                <div class="upcoming-date">31/07</div>
-                <div class="badge-open">INSCRIÇÕES ABERTAS</div>
-              </div>
-              <div class="upcoming-location">📍 Goianésia (GO)</div>
-              <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
-              <a href="https://crm.targetagrotech.com.br/formulario-ia" target="_blank" rel="noopener noreferrer" class="btn btn-yellow">GARANTIR MINHA VAGA →</a>
-            </article>
-
-            <article class="upcoming-card reveal reveal-delay-3" data-course="Inseminação Artificial em Bovinos" data-local="Palmas (TO)" data-course-date="07/08/2026" data-city="palmas" data-state="to">
-              <div class="upcoming-top">
-                <div class="upcoming-date">07/08</div>
-                <div class="badge-open">INSCRIÇÕES ABERTAS</div>
-              </div>
-              <div class="upcoming-location">📍 Palmas (TO)</div>
-              <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
-              <a href="https://crm.targetagrotech.com.br/formulario-ia" target="_blank" rel="noopener noreferrer" class="btn btn-yellow">GARANTIR MINHA VAGA →</a>
-            </article>
-
-            <article class="upcoming-card reveal" data-course="Inseminação Artificial em Bovinos" data-local="Belo Horizonte (MG)" data-course-date="14/08/2026" data-city="belo horizonte bh" data-state="mg">
+            <article class="upcoming-card reveal reveal-delay-1" data-course="Inseminação Artificial em Bovinos" data-local="Belo Horizonte (MG)" data-course-date="14/08/2026" data-city="belo horizonte bh" data-state="mg">
               <div class="upcoming-top">
                 <div class="upcoming-date">14/08</div>
                 <div class="badge-open">INSCRIÇÕES ABERTAS</div>
@@ -2238,32 +2487,12 @@
               <a href="https://crm.targetagrotech.com.br/formulario-ia" target="_blank" rel="noopener noreferrer" class="btn btn-yellow">GARANTIR MINHA VAGA →</a>
             </article>
 
-            <article class="upcoming-card reveal reveal-delay-1" data-course="Inseminação Artificial em Bovinos" data-local="Sena Madureira (AC)" data-course-date="21/08/2026" data-city="sena madureira" data-state="ac">
+            <article class="upcoming-card reveal reveal-delay-2" data-course="Inseminação Artificial em Bovinos" data-local="Goianésia (GO)" data-course-date="21/08/2026" data-city="goianesia goianésia" data-state="go">
               <div class="upcoming-top">
                 <div class="upcoming-date">21/08</div>
                 <div class="badge-open">INSCRIÇÕES ABERTAS</div>
               </div>
-              <div class="upcoming-location">📍 Sena Madureira (AC)</div>
-              <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
-              <a href="https://crm.targetagrotech.com.br/formulario-ia" target="_blank" rel="noopener noreferrer" class="btn btn-yellow">GARANTIR MINHA VAGA →</a>
-            </article>
-
-            <article class="upcoming-card reveal reveal-delay-2" data-course="Inseminação Artificial em Bovinos" data-local="Castelo dos Sonhos (PA)" data-course-date="28/08/2026" data-city="castelo dos sonhos castelos dos sonhos" data-state="pa">
-              <div class="upcoming-top">
-                <div class="upcoming-date">28/08</div>
-                <div class="badge-open">INSCRIÇÕES ABERTAS</div>
-              </div>
-              <div class="upcoming-location">📍 Castelo dos Sonhos (PA)</div>
-              <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
-              <a href="https://crm.targetagrotech.com.br/formulario-ia" target="_blank" rel="noopener noreferrer" class="btn btn-yellow">GARANTIR MINHA VAGA →</a>
-            </article>
-
-            <article class="upcoming-card reveal reveal-delay-3" data-course="Inseminação Artificial em Bovinos" data-local="Jataí (GO)" data-course-date="04/09/2026" data-city="jatai" data-state="go">
-              <div class="upcoming-top">
-                <div class="upcoming-date">04/09</div>
-                <div class="badge-open">INSCRIÇÕES ABERTAS</div>
-              </div>
-              <div class="upcoming-location">📍 Jataí (GO)</div>
+              <div class="upcoming-location">📍 Goianésia (GO)</div>
               <div class="upcoming-course-name">Inseminação Artificial em Bovinos</div>
               <a href="https://crm.targetagrotech.com.br/formulario-ia" target="_blank" rel="noopener noreferrer" class="btn btn-yellow">GARANTIR MINHA VAGA →</a>
             </article>
@@ -2502,7 +2731,7 @@
       const grid = document.getElementById("upcoming-grid-inseminacao");
       const searchInput = document.getElementById("search-city-inseminacao");
       const toggleBtn = document.getElementById("toggle-more-inseminacao");
-      const INITIAL_VISIBLE = 3;
+      const INITIAL_VISIBLE = 2;
       let showAll = false;
       let term = "";
 
