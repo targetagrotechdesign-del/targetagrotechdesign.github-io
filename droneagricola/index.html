@@ -1337,6 +1337,191 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
   }
 }
 
+
+
+/* =========================================================
+   BLOCO DE INVESTIMENTO PROFISSIONAL
+   ========================================================= */
+.investment-offer{
+  max-width:980px;
+  padding:38px;
+  border:1px solid rgba(0,176,80,.45);
+  background:
+    radial-gradient(520px 260px at 20% 0%, rgba(0,176,80,.20), transparent 62%),
+    linear-gradient(145deg, rgba(11,36,22,.96), rgba(3,14,8,.96));
+}
+.investment-header{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-bottom:26px;
+  padding-right:160px;
+}
+.investment-icon{
+  width:62px;
+  height:62px;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,176,80,.13);
+  border:1px solid rgba(0,176,80,.25);
+  font-size:30px;
+  box-shadow:0 14px 32px rgba(0,0,0,.25);
+  flex:0 0 62px;
+}
+.investment-header h2{
+  font-size:clamp(30px,3.6vw,46px);
+  line-height:1;
+  letter-spacing:-.03em;
+  margin:3px 0 8px;
+  color:#fff;
+}
+.investment-header p{
+  color:rgba(255,255,255,.70);
+  font-size:15px;
+}
+.investment-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+.investment-card,
+.investment-note,
+.included-box{
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.045);
+  box-shadow:0 16px 32px rgba(0,0,0,.20);
+}
+.investment-card{
+  padding:22px;
+}
+.investment-label{
+  display:block;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.68);
+  margin-bottom:10px;
+}
+.investment-card strong{
+  display:block;
+  font-size:clamp(27px,3.2vw,40px);
+  line-height:1.05;
+  letter-spacing:-.035em;
+  color:#fff;
+}
+.investment-card small{
+  display:block;
+  margin-top:7px;
+  color:rgba(255,255,255,.70);
+  font-weight:800;
+  font-size:15px;
+}
+.total-card{
+  grid-column:1 / -1;
+  background:linear-gradient(135deg, rgba(242,201,76,.18), rgba(255,255,255,.04));
+  border-color:rgba(242,201,76,.34);
+}
+.total-card strong{
+  color:var(--yellow);
+  font-size:clamp(38px,5vw,62px);
+}
+.entry-card strong,
+.balance-card strong,
+.installment-card strong{
+  color:#fff;
+}
+.investment-note{
+  grid-column:1 / -1;
+  display:flex;
+  gap:14px;
+  padding:18px 20px;
+  background:rgba(242,201,76,.10);
+  border-color:rgba(242,201,76,.25);
+}
+.investment-note span{
+  font-size:24px;
+  line-height:1;
+  flex:0 0 auto;
+}
+.investment-note p{
+  color:rgba(255,255,255,.82);
+  font-size:15px;
+  line-height:1.6;
+}
+.investment-note strong{
+  color:#fff;
+}
+.installment-card{
+  background:linear-gradient(135deg, rgba(0,176,80,.16), rgba(255,255,255,.04));
+  border-color:rgba(0,176,80,.28);
+}
+.included-box{
+  margin-top:18px;
+  padding:24px;
+}
+.included-box h3{
+  font-size:18px;
+  margin-bottom:14px;
+  color:var(--yellow);
+}
+.included-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+.included-grid span{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  padding:13px 14px;
+  border-radius:15px;
+  background:rgba(0,0,0,.22);
+  border:1px solid rgba(255,255,255,.06);
+  color:rgba(255,255,255,.84);
+  font-size:14px;
+  line-height:1.45;
+}
+.investment-cta{
+  margin-top:22px;
+}
+.investment-cta .cta-primary{
+  max-width:420px;
+  margin:0 auto;
+}
+@media (max-width:768px){
+  .investment-offer{
+    padding:24px 18px 22px;
+  }
+  .investment-header{
+    display:block;
+    padding-right:0;
+    text-align:center;
+  }
+  .investment-icon{
+    margin:0 auto 14px;
+  }
+  .investment-grid,
+  .included-grid{
+    grid-template-columns:1fr;
+  }
+  .investment-card{
+    padding:19px 17px;
+  }
+  .total-card strong{
+    font-size:clamp(35px,10vw,45px);
+  }
+  .investment-card strong{
+    font-size:clamp(25px,7.5vw,34px);
+  }
+  .investment-note{
+    padding:16px;
+  }
+}
+
 </style>
 
 </head>
@@ -1442,38 +1627,62 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 
 <section>
 <div class="container">
-<div class="offer-box">
-<div class="offer-badge">LOTE PROMOCIONAL POR TEMPO LIMITADO</div>
-<div class="offer-content">
-<div class="price-area">
-<div class="price-kicker">Investimento para sua Carreira</div>
-<div class="parcel-price">
-<span class="small">12x de</span>
-<span class="big">R$ 344,97</span>
-</div>
-<div class="parcel-note">no cartão de crédito</div>
-<div class="full-price">ou <strong>R$ 3.344,97</strong> à vista</div>
-<div class="offer-points">
-          <span><i></i> Prática Real com Drones de Pulverização</span>
-          <span><i></i> Mentoria pós-curso para início de operação</span>
-        </div>
-
-        <div class="matricula-highlight" aria-label="Condição promocional da matrícula">
-          <div class="matricula-top">
-            <span class="matricula-badge">Matrícula promocional</span>
-            <span class="matricula-price">Hoje por apenas <strong>R$ 349,99</strong></span>
-          </div>
-          <div class="matricula-copy">
-            Garanta sua vaga nas <strong>próximas <span id="matriculaHoras">18</span> horas</strong> e aproveite a matrícula no valor promocional antes da virada do lote.
-          </div>
-        </div>
-      </div>
-
-      <div class="cta-side">
-        <a href="https://crm.targetagrotech.com.br/formulario" class="cta-primary">FALAR COM UM CONSULTOR</a>
-      </div>
-    </div>
+<div class="offer-box investment-offer">
+<div class="offer-badge">CONDIÇÃO ESPECIAL</div>
+<div class="investment-header">
+  <div class="investment-icon">🚁</div>
+  <div>
+    <div class="price-kicker">Investimento</div>
+    <h2>INVESTIMENTO</h2>
+    <p>Formação completa para operação profissional de drones agrícolas.</p>
   </div>
+</div>
+
+<div class="investment-grid">
+  <div class="investment-card total-card">
+    <span class="investment-label">💰 VALOR TOTAL DO CURSO</span>
+    <strong>R$ 4.497,00</strong>
+  </div>
+
+  <div class="investment-card entry-card">
+    <span class="investment-label">📝 MATRÍCULA / ENTRADA</span>
+    <strong>R$ 349,99</strong>
+  </div>
+
+  <div class="investment-note">
+    <span>⚠️</span>
+    <p>A matrícula de <strong>R$ 349,99</strong> funciona como entrada e será abatida do valor total do curso no primeiro dia de aula.</p>
+  </div>
+
+  <div class="investment-card balance-card">
+    <span class="investment-label">✅ SALDO DO CURSO</span>
+    <strong>R$ 4.147,00</strong>
+    <small>à vista</small>
+  </div>
+
+  <div class="investment-card installment-card">
+    <span class="investment-label">💳 OU EM ATÉ</span>
+    <strong>12x de R$ 345,00</strong>
+    <small>no cartão de crédito</small>
+  </div>
+</div>
+
+<div class="included-box">
+  <h3>Incluso no curso</h3>
+  <div class="included-grid">
+    <span>🎓 Certificado de conclusão + CAAR</span>
+    <span>📄 Carta de estágio</span>
+    <span>🌱 Aulas teóricas e práticas em campo</span>
+    <span>🚁 Operação, pulverização e manutenção de drones agrícolas</span>
+    <span>🍽️ Almoço incluso no sábado e domingo</span>
+    <span>📚 Curso completo com padrão profissional</span>
+  </div>
+</div>
+
+<div class="cta-side investment-cta">
+  <a href="https://crm.targetagrotech.com.br/formulario" class="cta-primary">FALAR COM UM CONSULTOR</a>
+</div>
+</div>
 </div>
 </section>
 
