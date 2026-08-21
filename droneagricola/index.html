@@ -346,70 +346,6 @@ border-bottom:10px solid transparent;
 margin-left:5px;
 }
 
-.offer-box{
-margin:40px auto;max-width:920px;padding:35px;border-radius:30px;
-background:linear-gradient(145deg, rgba(11,36,22,.9), rgba(4,17,11,.9));
-border:1px solid var(--green);box-shadow:var(--shadow);position:relative;overflow:hidden;
-}
-.offer-badge{
-position:absolute;top:20px;right:20px;background:var(--danger);color:#fff;
-padding:6px 14px;border-radius:999px;font-size:12px;font-weight:900;
-animation:pulse-danger 2s infinite;z-index:2;
-}
-@keyframes pulse-danger{
-0%{box-shadow:0 0 0 0 rgba(217,74,74,0.7)}
-70%{box-shadow:0 0 0 10px rgba(217,74,74,0)}
-100%{box-shadow:0 0 0 0 rgba(217,74,74,0)}
-}
-.offer-content{display:grid;grid-template-columns:1.2fr 0.8fr;gap:30px;align-items:center;}
-@media (max-width:850px){ .offer-content{grid-template-columns:1fr} }
-
-.price-area .price-kicker{font-size:12px;text-transform:uppercase;color:var(--muted);letter-spacing:1px;margin-bottom:10px;}
-.parcel-price{display:flex;align-items:flex-end;gap:8px;line-height:1;}
-.parcel-price .small{font-size:24px;font-weight:700;margin-bottom:8px;}
-.parcel-price .big{font-size:72px;font-weight:900;color:#fff;}
-.parcel-note{margin-top:10px;font-size:15px;font-weight:700;color:#fff;}
-.full-price{margin-top:15px;font-size:18px;color:rgba(255,255,255,.8)}
-.full-price strong{color:var(--yellow);font-size:28px;}
-
-.matricula-highlight{
-margin-top:18px;
-padding:18px 18px 16px;
-border-radius:22px;
-background:linear-gradient(180deg, rgba(242,201,76,.12), rgba(242,201,76,.05));
-border:1px solid rgba(242,201,76,.25);
-box-shadow:0 12px 28px rgba(0,0,0,.18);
-}
-.matricula-highlight .matricula-top{
-display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
-margin-bottom:8px;
-}
-.matricula-highlight .matricula-badge{
-display:inline-flex;align-items:center;gap:8px;
-padding:7px 12px;border-radius:999px;
-background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.08);
-font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#fff;
-}
-.matricula-highlight .matricula-badge:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yellow);}
-.matricula-highlight .matricula-price{font-size:15px;color:rgba(255,255,255,.92);}
-.matricula-highlight .matricula-price strong{font-size:30px;color:var(--yellow);letter-spacing:-.03em;}
-.matricula-highlight .matricula-copy{font-size:14px;line-height:1.6;color:rgba(255,255,255,.76);}
-.matricula-highlight .matricula-copy strong{color:#fff;font-size:inherit;}
-
-.offer-points{margin-top:20px;display:grid;gap:12px;}
-.offer-points span{display:flex;align-items:center;gap:10px;font-size:15px;}
-.offer-points i{
-width:18px;height:18px;background:var(--green);border-radius:50%;
-display:flex;align-items:center;justify-content:center;font-size:10px;color:#000;
-font-style:normal;font-weight:bold;
-}
-.offer-points i:before{content:"✓";}
-
-.cta-primary{
-background:var(--green);color:#04110b;padding:20px;border-radius:18px;
-font-weight:900;text-transform:uppercase;display:block;text-align:center;
-transition:all .3s ease;box-shadow:0 15px 30px rgba(0,176,80,.25);
-}
 .cta-primary:hover{transform:translateY(-3px);background:var(--green2);}
 
 .cta-primary.pulse-whatsapp{
@@ -689,106 +625,6 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
     text-wrap:balance;
   }
 
-  /* Oferta: impede preço e textos de ultrapassarem a tela */
-  .offer-box{
-    width:100%;
-    max-width:100%;
-    margin:26px auto;
-    padding:24px 18px 22px;
-    border-radius:24px;
-    overflow:hidden;
-  }
-
-  .offer-badge{
-    position:static;
-    display:inline-flex;
-    max-width:100%;
-    margin:0 0 24px;
-    padding:7px 12px;
-    line-height:1.35;
-    white-space:normal;
-    text-align:left;
-  }
-
-  .offer-content,
-  .price-area,
-  .cta-side{
-    width:100%;
-    min-width:0;
-  }
-
-  .parcel-price{
-    width:100%;
-    min-width:0;
-    display:flex;
-    align-items:flex-end;
-    gap:8px;
-    flex-wrap:nowrap;
-  }
-
-  .parcel-price .small{
-    flex:0 0 auto;
-    font-size:clamp(20px, 6vw, 25px);
-    line-height:1.05;
-    margin-bottom:6px;
-  }
-
-  .parcel-price .big{
-    flex:0 1 auto;
-    min-width:0;
-    font-size:clamp(46px, 13.2vw, 58px);
-    line-height:.95;
-    letter-spacing:-.045em;
-    white-space:nowrap;
-  }
-
-  .full-price{
-    font-size:17px;
-    line-height:1.45;
-  }
-
-  .full-price strong{
-    display:inline;
-    font-size:clamp(25px, 7.5vw, 31px);
-    white-space:nowrap;
-  }
-
-  .offer-points span{
-    align-items:flex-start;
-    line-height:1.45;
-  }
-
-  .offer-points i{
-    flex:0 0 18px;
-    margin-top:2px;
-  }
-
-  .matricula-highlight{
-    width:100%;
-    max-width:100%;
-    padding:16px;
-    overflow:hidden;
-  }
-
-  .matricula-highlight .matricula-top{
-    display:block;
-  }
-
-  .matricula-highlight .matricula-price{
-    display:block;
-    margin-top:12px;
-    line-height:1.35;
-  }
-
-  .matricula-highlight .matricula-price strong{
-    display:inline-block;
-    font-size:clamp(28px, 8.5vw, 34px);
-    white-space:nowrap;
-  }
-
-  .matricula-highlight .matricula-copy{
-    overflow-wrap:anywhere;
-  }
 
   /* Mercado: os cards deixam de ficar espremidos em duas colunas */
   .market-box{
@@ -859,27 +695,6 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
     width:min(80vw, 280px);
   }
 
-  .offer-box{
-    padding-left:15px;
-    padding-right:15px;
-  }
-
-  .parcel-price{
-    gap:6px;
-  }
-
-  .parcel-price .small{
-    font-size:20px;
-  }
-
-  .parcel-price .big{
-    font-size:clamp(42px, 12.5vw, 49px);
-  }
-
-  .full-price{
-    font-size:16px;
-  }
-
   .market-box{
     padding-left:15px;
     padding-right:15px;
@@ -942,20 +757,6 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 }
 
 @media (max-width: 340px){
-
-  .parcel-price{
-    align-items:flex-start;
-    flex-direction:column;
-    gap:4px;
-  }
-
-  .parcel-price .small{
-    margin-bottom:0;
-  }
-
-  .parcel-price .big{
-    font-size:44px;
-  }
 
   .stat-card .val{
     white-space:normal;
@@ -1200,10 +1001,6 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 
 @media (prefers-reduced-motion: reduce){
   .cta-primary,
-  .offer-badge{
-    animation:none !important;
-    transition:none !important;
-  }
 }
 
 
@@ -1306,7 +1103,6 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 }
 
 
-
 /* WhatsApp flutuante inteligente no mobile:
    oculto enquanto o CTA principal do hero estiver visível;
    aparece quando o CTA sair da área visível. */
@@ -1337,190 +1133,6 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
   }
 }
 
-
-
-/* =========================================================
-   BLOCO DE INVESTIMENTO PROFISSIONAL
-   ========================================================= */
-.investment-offer{
-  max-width:980px;
-  padding:38px;
-  border:1px solid rgba(0,176,80,.45);
-  background:
-    radial-gradient(520px 260px at 20% 0%, rgba(0,176,80,.20), transparent 62%),
-    linear-gradient(145deg, rgba(11,36,22,.96), rgba(3,14,8,.96));
-}
-.investment-header{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  margin-bottom:26px;
-  padding-right:160px;
-}
-.investment-icon{
-  width:62px;
-  height:62px;
-  border-radius:20px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(0,176,80,.13);
-  border:1px solid rgba(0,176,80,.25);
-  font-size:30px;
-  box-shadow:0 14px 32px rgba(0,0,0,.25);
-  flex:0 0 62px;
-}
-.investment-header h2{
-  font-size:clamp(30px,3.6vw,46px);
-  line-height:1;
-  letter-spacing:-.03em;
-  margin:3px 0 8px;
-  color:#fff;
-}
-.investment-header p{
-  color:rgba(255,255,255,.70);
-  font-size:15px;
-}
-.investment-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:16px;
-}
-.investment-card,
-.investment-note,
-.included-box{
-  border-radius:22px;
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(255,255,255,.045);
-  box-shadow:0 16px 32px rgba(0,0,0,.20);
-}
-.investment-card{
-  padding:22px;
-}
-.investment-label{
-  display:block;
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.68);
-  margin-bottom:10px;
-}
-.investment-card strong{
-  display:block;
-  font-size:clamp(27px,3.2vw,40px);
-  line-height:1.05;
-  letter-spacing:-.035em;
-  color:#fff;
-}
-.investment-card small{
-  display:block;
-  margin-top:7px;
-  color:rgba(255,255,255,.70);
-  font-weight:800;
-  font-size:15px;
-}
-.total-card{
-  grid-column:1 / -1;
-  background:linear-gradient(135deg, rgba(242,201,76,.18), rgba(255,255,255,.04));
-  border-color:rgba(242,201,76,.34);
-}
-.total-card strong{
-  color:var(--yellow);
-  font-size:clamp(38px,5vw,62px);
-}
-.entry-card strong,
-.balance-card strong,
-.installment-card strong{
-  color:#fff;
-}
-.investment-note{
-  grid-column:1 / -1;
-  display:flex;
-  gap:14px;
-  padding:18px 20px;
-  background:rgba(242,201,76,.10);
-  border-color:rgba(242,201,76,.25);
-}
-.investment-note span{
-  font-size:24px;
-  line-height:1;
-  flex:0 0 auto;
-}
-.investment-note p{
-  color:rgba(255,255,255,.82);
-  font-size:15px;
-  line-height:1.6;
-}
-.investment-note strong{
-  color:#fff;
-}
-.installment-card{
-  background:linear-gradient(135deg, rgba(0,176,80,.16), rgba(255,255,255,.04));
-  border-color:rgba(0,176,80,.28);
-}
-.included-box{
-  margin-top:18px;
-  padding:24px;
-}
-.included-box h3{
-  font-size:18px;
-  margin-bottom:14px;
-  color:var(--yellow);
-}
-.included-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;
-}
-.included-grid span{
-  display:flex;
-  align-items:flex-start;
-  gap:8px;
-  padding:13px 14px;
-  border-radius:15px;
-  background:rgba(0,0,0,.22);
-  border:1px solid rgba(255,255,255,.06);
-  color:rgba(255,255,255,.84);
-  font-size:14px;
-  line-height:1.45;
-}
-.investment-cta{
-  margin-top:22px;
-}
-.investment-cta .cta-primary{
-  max-width:420px;
-  margin:0 auto;
-}
-@media (max-width:768px){
-  .investment-offer{
-    padding:24px 18px 22px;
-  }
-  .investment-header{
-    display:block;
-    padding-right:0;
-    text-align:center;
-  }
-  .investment-icon{
-    margin:0 auto 14px;
-  }
-  .investment-grid,
-  .included-grid{
-    grid-template-columns:1fr;
-  }
-  .investment-card{
-    padding:19px 17px;
-  }
-  .total-card strong{
-    font-size:clamp(35px,10vw,45px);
-  }
-  .investment-card strong{
-    font-size:clamp(25px,7.5vw,34px);
-  }
-  .investment-note{
-    padding:16px;
-  }
-}
 
 </style>
 
@@ -1622,67 +1234,6 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
       </div>
     </article>
   </div>
-</div>
-</section>
-
-<section>
-<div class="container">
-<div class="offer-box investment-offer">
-<div class="offer-badge">CONDIÇÃO ESPECIAL</div>
-<div class="investment-header">
-  <div class="investment-icon">🚁</div>
-  <div>
-    <div class="price-kicker">Investimento</div>
-    <h2>INVESTIMENTO</h2>
-    <p>Formação completa para operação profissional de drones agrícolas.</p>
-  </div>
-</div>
-
-<div class="investment-grid">
-  <div class="investment-card total-card">
-    <span class="investment-label">💰 VALOR TOTAL DO CURSO</span>
-    <strong>R$ 3.694,96</strong>
-  </div>
-
-  <div class="investment-card entry-card">
-    <span class="investment-label">📝 MATRÍCULA / ENTRADA</span>
-    <strong>R$ 349,99</strong>
-  </div>
-
-  <div class="investment-note">
-    <span>⚠️</span>
-    <p>A matrícula de <strong>R$ 349,99</strong> funciona como entrada e será abatida do valor total do curso no primeiro dia de aula.</p>
-  </div>
-
-  <div class="investment-card balance-card">
-    <span class="investment-label">✅ SALDO DO CURSO</span>
-    <strong>R$ 3.344,97</strong>
-    <small>à vista</small>
-  </div>
-
-  <div class="investment-card installment-card">
-    <span class="investment-label">💳 OU EM ATÉ</span>
-    <strong>12x de R$ 344,97</strong>
-    <small>no cartão de crédito</small>
-  </div>
-</div>
-
-<div class="included-box">
-  <h3>Incluso no curso</h3>
-  <div class="included-grid">
-    <span>🎓 Certificado de conclusão</span>
-    <span>📄 Carta de estágio</span>
-    <span>🌱 Aulas teóricas e práticas em campo</span>
-    <span>🚁 Operação, pulverização e manutenção de drones agrícolas</span>
-    <span>🍽️ Almoço incluso no sábado e domingo</span>
-    <span>📚 Curso completo com padrão profissional</span>
-  </div>
-</div>
-
-<div class="cta-side investment-cta">
-  <a href="https://crm.targetagrotech.com.br/formulario" class="cta-primary">FALAR COM UM CONSULTOR</a>
-</div>
-</div>
 </div>
 </section>
 
@@ -2013,11 +1564,6 @@ nextTurmaDate = turmaDate;
 
 const citySearch = document.getElementById('citySearch');
 const stateFilter = document.getElementById('stateFilter');
-const matriculaHoras = document.getElementById('matriculaHoras');
-
-if (matriculaHoras) {
-matriculaHoras.textContent = String(Math.floor(Math.random() * 13) + 12);
-}
 
 function filterClasses() {
 const cityVal = (citySearch?.value || '').toLowerCase();
