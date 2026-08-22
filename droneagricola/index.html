@@ -346,7 +346,29 @@ border-bottom:10px solid transparent;
 margin-left:5px;
 }
 
-.cta-primary:hover{transform:translateY(-3px);background:var(--green2);}
+.cta-primary{
+display:flex;
+align-items:center;
+justify-content:center;
+width:100%;
+min-height:56px;
+padding:17px 24px;
+border:0;
+border-radius:18px;
+background:var(--green);
+color:#03150b;
+font-size:14px;
+font-weight:900;
+line-height:1.2;
+letter-spacing:.02em;
+text-align:center;
+cursor:pointer;
+box-shadow:0 15px 30px rgba(0,176,80,.22);
+transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+-webkit-tap-highlight-color:transparent;
+}
+.cta-primary:hover{transform:translateY(-3px);background:var(--green2);box-shadow:0 18px 34px rgba(0,176,80,.28);}
+.cta-primary:focus-visible{outline:3px solid rgba(242,201,76,.9);outline-offset:3px;}
 
 .cta-primary.pulse-whatsapp{
 background:var(--wa);
@@ -1000,7 +1022,9 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 }
 
 @media (prefers-reduced-motion: reduce){
-  .cta-primary,
+  .cta-primary.pulse-whatsapp{
+    animation:none !important;
+  }
 }
 
 
@@ -1157,7 +1181,7 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 
     <div class="training-box">
       <article class="vcard hero-video-card" style="border:none;box-shadow:none;">
-        <video id="heroVideo" preload="metadata" playsinline muted autoplay loop poster="assets/drone-hero-novo.jpg">
+        <video id="heroVideo" preload="auto" playsinline muted autoplay loop poster="assets/drone-hero-novo.jpg">
           <source src="assets/video-hero-landing.mp4" type="video/mp4" />
         </video>
 
@@ -1363,72 +1387,92 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 <section id="proximas-turmas">
 <div class="container">
 <h2 class="section-title">Próximas <span class="g">Turmas</span></h2>
-<p class="subtitle">Veja as próximas turmas disponíveis e escolha a mais próxima de você.</p>
+<p class="subtitle">Agenda atualizada do curso de Piloto de Drone Agrícola para o 2º semestre de 2026.</p>
 <div class="filter-area">
-    <input type="text" id="citySearch" placeholder="Digite sua cidade...">
+    <input type="text" id="citySearch" placeholder="Digite sua cidade..." autocomplete="off">
     <select id="stateFilter">
       <option value="">Todos os Estados</option>
       <option value="MA">Maranhão</option>
       <option value="MT">Mato Grosso</option>
       <option value="PA">Pará</option>
-      <option value="PB">Paraíba</option>
       <option value="TO">Tocantins</option>
     </select>
   </div>
 
   <div class="classes-grid" id="turmasGrid">
-    <article class="class-card" data-date="2026-06-19" data-state="MA" data-city="Balsas">
-      <div class="date">19/Jun</div>
-      <div class="location">Balsas - MA</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
-    <article class="class-card" data-date="2026-07-03" data-state="MA" data-city="Açailândia">
-      <div class="date">03/Jul</div>
-      <div class="location">Açailândia - MA</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
-    <article class="class-card" data-date="2026-07-17" data-state="PA" data-city="Altamira">
-      <div class="date">17/Jul</div>
-      <div class="location">Altamira - PA</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
-    <article class="class-card" data-date="2026-07-31" data-state="PB" data-city="Campina Grande">
-      <div class="date">31/Jul</div>
-      <div class="location">Campina Grande - PB</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
-    <article class="class-card" data-date="2026-08-07" data-state="TO" data-city="Palmas">
-      <div class="date">07/Ago</div>
-      <div class="location">Palmas - TO</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
-    <article class="class-card" data-date="2026-08-28" data-state="MT" data-city="Brasnorte">
-      <div class="date">28/Ago</div>
-      <div class="location">Brasnorte - MT</div>
-      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
-    </article>
-
     <article class="class-card" data-date="2026-08-28" data-state="PA" data-city="Castelo dos Sonhos">
       <div class="date">28/Ago</div>
       <div class="location">Castelo dos Sonhos - PA</div>
       <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
-      <button class="btn-reserva">RESERVAR VAGA</button>
+      <button class="btn-reserva" type="button">RESERVAR VAGA</button>
+    </article>
+
+    <article class="class-card" data-date="2026-09-04" data-state="TO" data-city="Natividade">
+      <div class="date">04/Set</div>
+      <div class="location">Natividade - TO</div>
+      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
+      <button class="btn-reserva" type="button">RESERVAR VAGA</button>
+    </article>
+
+    <article class="class-card" data-date="2026-09-11" data-state="MT" data-city="Querência">
+      <div class="date">11/Set</div>
+      <div class="location">Querência - MT</div>
+      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
+      <button class="btn-reserva" type="button">RESERVAR VAGA</button>
+    </article>
+
+    <article class="class-card" data-date="2026-09-25" data-state="PA" data-city="Santarém">
+      <div class="date">25/Set</div>
+      <div class="location">Santarém - PA</div>
+      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
+      <button class="btn-reserva" type="button">RESERVAR VAGA</button>
+    </article>
+
+    <article class="class-card" data-date="2026-10-02" data-state="PA" data-city="Paragominas">
+      <div class="date">02/Out</div>
+      <div class="location">Paragominas - PA</div>
+      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
+      <button class="btn-reserva" type="button">RESERVAR VAGA</button>
+    </article>
+
+    <article class="class-card" data-date="2026-10-16" data-state="MT" data-city="Primavera do Leste">
+      <div class="date">16/Out</div>
+      <div class="location">Primavera do Leste - MT</div>
+      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
+      <button class="btn-reserva" type="button">RESERVAR VAGA</button>
+    </article>
+
+    <article class="class-card" data-date="2026-10-23" data-state="MT" data-city="Dourados">
+      <div class="date">23/Out</div>
+      <div class="location">Dourados - MT</div>
+      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
+      <button class="btn-reserva" type="button">RESERVAR VAGA</button>
+    </article>
+
+    <article class="class-card" data-date="2026-11-06" data-state="MA" data-city="Imperatriz">
+      <div class="date">06/Nov</div>
+      <div class="location">Imperatriz - MA</div>
+      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
+      <button class="btn-reserva" type="button">RESERVAR VAGA</button>
+    </article>
+
+    <article class="class-card" data-date="2026-11-13" data-state="PA" data-city="Altamira">
+      <div class="date">13/Nov</div>
+      <div class="location">Altamira - PA</div>
+      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
+      <button class="btn-reserva" type="button">RESERVAR VAGA</button>
+    </article>
+
+    <article class="class-card" data-date="2026-11-20" data-state="PA" data-city="Tailândia">
+      <div class="date">20/Nov</div>
+      <div class="location">Tailândia - PA</div>
+      <div class="vagas"><span class="vagas-dinamicas">Apenas 15 Vagas</span></div>
+      <button class="btn-reserva" type="button">RESERVAR VAGA</button>
     </article>
   </div>
 
   <div class="turmas-toggle-wrap" style="text-align:center;margin-top:30px;">
-    <button id="toggleTurmas" class="cta-secondary" style="color:#fff;">
+    <button id="toggleTurmas" class="cta-secondary" type="button" style="color:#fff;">
       VER MAIS TURMAS
     </button>
   </div>
@@ -1514,23 +1558,62 @@ display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rg
 document.addEventListener('DOMContentLoaded', () => {
 const heroVideo = document.getElementById('heroVideo');
 const heroSoundToggle = document.getElementById('heroSoundToggle');
-const desktopMedia = window.matchMedia('(min-width: 901px)');
 
-function configureHeroVideo() {
+function updateHeroSoundButton() {
+  if (!heroSoundToggle || !heroVideo) return;
+  heroSoundToggle.textContent = heroVideo.muted ? 'ATIVAR SOM' : 'DESATIVAR SOM';
+  heroSoundToggle.classList.toggle('sound-on', !heroVideo.muted);
+  heroSoundToggle.setAttribute('aria-label', heroVideo.muted ? 'Ativar som do vídeo' : 'Desativar som do vídeo');
+}
+
+async function startHeroVideo(forceMuted = false) {
   if (!heroVideo) return;
 
-  heroVideo.muted = true;
+  heroVideo.autoplay = true;
   heroVideo.loop = true;
+  heroVideo.playsInline = true;
   heroVideo.setAttribute('autoplay', '');
   heroVideo.setAttribute('playsinline', '');
-  heroVideo.play().catch(() => {});
 
-  heroVideo.closest('.vcard')?.classList.add('playing');
-
-  if (heroSoundToggle) {
-    heroSoundToggle.textContent = heroVideo.muted ? 'ATIVAR SOM' : 'DESATIVAR SOM';
-    heroSoundToggle.classList.toggle('sound-on', !heroVideo.muted);
+  if (forceMuted) {
+    heroVideo.defaultMuted = true;
+    heroVideo.muted = true;
   }
+
+  try {
+    await heroVideo.play();
+    heroVideo.closest('.vcard')?.classList.add('playing');
+  } catch (error) {
+    // Navegadores permitem autoplay com muito mais consistência quando o vídeo está mudo.
+    if (!heroVideo.muted) {
+      heroVideo.muted = true;
+      updateHeroSoundButton();
+      try {
+        await heroVideo.play();
+        heroVideo.closest('.vcard')?.classList.add('playing');
+      } catch (_) {}
+    }
+  }
+}
+
+if (heroVideo) {
+  // Estado inicial compatível com as políticas de autoplay de Chrome, Safari e navegadores mobile.
+  heroVideo.defaultMuted = true;
+  heroVideo.muted = true;
+  updateHeroSoundButton();
+  startHeroVideo(true);
+
+  heroVideo.addEventListener('canplay', () => {
+    if (heroVideo.paused) startHeroVideo(false);
+  });
+
+  window.addEventListener('pageshow', () => {
+    if (heroVideo.paused) startHeroVideo(false);
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && heroVideo.paused) startHeroVideo(false);
+  });
 }
 
 if (heroSoundToggle && heroVideo) {
@@ -1538,15 +1621,11 @@ if (heroSoundToggle && heroVideo) {
     event.preventDefault();
     event.stopPropagation();
     heroVideo.muted = !heroVideo.muted;
-    heroSoundToggle.textContent = heroVideo.muted ? 'ATIVAR SOM' : 'DESATIVAR SOM';
-    heroSoundToggle.classList.toggle('sound-on', !heroVideo.muted);
-    if (heroVideo.paused) heroVideo.play().catch(() => {});
+    updateHeroSoundButton();
+    if (heroVideo.paused) startHeroVideo(false);
   });
 }
 
-configureHeroVideo();
-if (desktopMedia.addEventListener) desktopMedia.addEventListener('change', configureHeroVideo);
-else desktopMedia.addListener(configureHeroVideo);
 const today = new Date();
 const grid = document.getElementById('turmasGrid');
 let nextTurmaDate = null;
